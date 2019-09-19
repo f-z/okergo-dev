@@ -59,7 +59,7 @@ As of now Misago implements all features considered "must have" on live internet
 * Ban system allows you to ban existing users as well as forbid certain user names, e-mails or IP addresses from registering accounts.
 * Permission system allowing you to control which features are available to users based on their rank, roles or category they are in.
 * Post accurate read tracker that lets your users spot threads with new posts as well as let moderators spot unapproved replies and non-moderators spot approved posts.
-* Private threads feature allowing users to create threads visible only to them and those they've invited. 
+* Private threads feature allowing users to create threads visible only to them and those they've invited.
 * Python-based profile fields framework letting site owners to define custom fields for users to fill in complete with powerful customization options for custom requirements, display or validation logic.
 * Rich polls  system, allowing polls with public and private voters, single and multiple choices as well as ones that allow vote change or limit voting tp limited period of time.
 * Post attachments complete thumbnailing and gif's animation removal.
@@ -150,11 +150,8 @@ Authors
 English sentences used within ``misago.faker.phrases`` were extracted from `National Aeronautics and Space Administration Solar System Exploration Portal <http://solarsystem.nasa.gov/planets/>`_ and are not copyrighted as per `Media and content usage guidelines <https://www.nasa.gov/multimedia/guidelines/index.html>`_.
 
 
-Copyright and license
+Build instructions
 =====================
+Run ``python setup.py bdist_wheel`` in okergo-dev folder.
 
-**Misago** - Copyright © 2018 `Rafał Pitoń <http://github.com/rafalp>`_
-This program comes with ABSOLUTELY NO WARRANTY.
-
-This is free software and you are welcome to modify and redistribute it under the conditions described in the license.
-For the complete license, refer to LICENSE.rst
+Get the wheel file from the dist folder that is created.

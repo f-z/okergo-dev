@@ -7,7 +7,7 @@ export default function(props) {
         <li className="list-group-item empty-message">
           <p className="lead">
             {gettext(
-              "No categories exist or you don't have permission to see them."
+              "Δεν υπάρχουν διαθέσιμες κατηγορίες εργασιών."
             )}
           </p>
         </li>

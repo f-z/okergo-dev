@@ -19,7 +19,7 @@ with open(os.path.join(SETUP_DIR, "requirements.txt"), "r") as f:
 os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 
 setup(
-    name="Misago",
+    name="Okergo",
     version=version,
     license="GPLv2",
     description=(

@@ -119,13 +119,13 @@ export class ReCaptcha extends BaseCaptcha {
   component(kwargs) {
     return (
       <FormGroup
-        label={gettext("Please solve the quick test")}
+        label={gettext("Λύσε το απλό τεστ!")}
         for="id_captcha"
         labelClass={kwargs.labelClass || ""}
         controlClass={kwargs.controlClass || ""}
         validation={kwargs.form.state.errors.captcha}
         helpText={gettext(
-          "This test helps us prevent automated spam registrations on our site."
+          "Αυτό το τεστ μας βοηθάει να αποτρέπουμε τη δημιουργία ψεύτικων λογαριασμών."
         )}
       >
         <ReCaptchaComponent

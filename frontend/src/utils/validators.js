@@ -4,25 +4,25 @@ const USERNAME = new RegExp("^[0-9a-z]+$", "i")
 export function required(message) {
   return function(value) {
     if (value === false || value === null || $.trim(value).length === 0) {
-      return message || gettext("This field is required.")
+      return message || gettext("Αυτό το πεδίο είναι απαραίτητο!")
     }
   }
 }
 
 export function requiredTermsOfService(message) {
-  const error = gettext("You have to accept the terms of service.")
+  const error = gettext("Πρέπει να αποδεχτείς τους όρους χρήσης!")
   return required(message || error)
 }
 
 export function requiredPrivacyPolicy(message) {
-  const error = gettext("You have to accept the privacy policy.")
+  const error = gettext("Πρέπει να αποδεχτείς την πολιτική προστασίας δεδομένων!")
   return required(message || error)
 }
 
 export function email(message) {
   return function(value) {
     if (!EMAIL.test(value)) {
-      return message || gettext("Enter a valid email address.")
+      return message || gettext("Βάλε μια σωστή διεύθυνη email!")
     }
   }
 }
@@ -37,8 +37,8 @@ export function minLength(limitValue, message) {
         returnMessage = message(limitValue, length)
       } else {
         returnMessage = ngettext(
-          "Ensure this value has at least %(limit_value)s character (it has %(show_value)s).",
-          "Ensure this value has at least %(limit_value)s characters (it has %(show_value)s).",
+          "Σιγουρέψου ότι έχει τουλάχιστον %(limit_value) χαρακτήρες (έχει %(show_value))!",
+          "Σιγουρέψου ότι έχει τουλάχιστον %(limit_value) χαρακτήρες (έχει %(show_value))!",
           limitValue
         )
       }
@@ -64,8 +64,8 @@ export function maxLength(limitValue, message) {
         returnMessage = message(limitValue, length)
       } else {
         returnMessage = ngettext(
-          "Ensure this value has at most %(limit_value)s character (it has %(show_value)s).",
-          "Ensure this value has at most %(limit_value)s characters (it has %(show_value)s).",
+          "Σιγουρέψου ότι έχει το πολύ %(limit_value) χαρακτήρες (έχει %(show_value))!",
+          "Σιγουρέψου ότι έχει το πολύ %(limit_value) χαρακτήρες (έχει %(show_value))!",
           limitValue
         )
       }
@@ -84,8 +84,8 @@ export function maxLength(limitValue, message) {
 export function usernameMinLength(lengthMin) {
   var message = function(lengthMin) {
     return ngettext(
-      "Username must be at least %(limit_value)s character long.",
-      "Username must be at least %(limit_value)s characters long.",
+        "Το όνομα χρήστη πρέπει να έχει τουλάχιστον %(limit_value) χαρακτήρες!",
+        "Το όνομα χρήστη πρέπει να έχει τουλάχιστον %(limit_value) χαρακτήρες!",
       lengthMin
     )
   }
@@ -95,8 +95,8 @@ export function usernameMinLength(lengthMin) {
 export function usernameMaxLength(lengthMax) {
   var message = function(lengthMax) {
     return ngettext(
-      "Username cannot be longer than %(limit_value)s character.",
-      "Username cannot be longer than %(limit_value)s characters.",
+      "Το όνομα χρήστη δεν μπορεί να είναι μεγαλύτερο από %(limit_value) χαρακτήρες.",
+      "Το όνομα χρήστη δεν μπορεί να είναι μεγαλύτερο από %(limit_value) χαρακτήρες.",
       lengthMax
     )
   }
@@ -107,7 +107,7 @@ export function usernameContent() {
   return function(value) {
     if (!USERNAME.test($.trim(value))) {
       return gettext(
-        "Username can only contain latin alphabet letters and digits."
+        "Το όνομα χρήστη πρέπει να περιέχει μόνο λατινικούς χαρακτήρες και νούμερα!"
       )
     }
   }
@@ -119,8 +119,8 @@ export function passwordMinLength(limitValue) {
 
     if (length < limitValue) {
       const returnMessage = ngettext(
-        "Valid password must be at least %(limit_value)s character long.",
-        "Valid password must be at least %(limit_value)s characters long.",
+        "Ο κωδικός πρόσβασης πρέπει να έχει τουλάχιστον %(limit_value) χαρακτήρες!",
+        "Ο κωδικός πρόσβασης πρέπει να έχει τουλάχιστον %(limit_value) χαρακτήρες!",
         limitValue
       )
 

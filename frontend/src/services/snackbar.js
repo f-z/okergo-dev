@@ -52,14 +52,14 @@ export class Snackbar {
 
     if (!message) {
       if (rejection.status === 404) {
-        message = gettext("Action link is invalid.")
+        message = gettext("Ο σύνδεσμος δεν είναι έγκυρος!")
       } else {
-        message = gettext("Unknown error has occured.")
+        message = gettext("Άγνωστο λάθος!")
       }
     }
 
     if (rejection.status === 403 && message === "Permission denied") {
-      message = gettext("You don't have permission to perform this action.")
+      message = gettext("Δέν έχεις άδεια για να το κάνεις αυτό!")
     }
 
     this.error(message)

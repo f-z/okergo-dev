@@ -23,11 +23,11 @@ export class Posting {
       this._realOpen(props)
     } else if (this._isOpen !== props.submit) {
       let message = gettext(
-        "You are already working on other message. Do you want to discard it?"
+          "Δουλεύεις ήδη πάνω σε ένα μήνυμα! Θες να το ακυρώσεις?"
       )
       if (this._mode == "POLL") {
         message = gettext(
-          "You are already working on a poll. Do you want to discard it?"
+          "Δουλεύεις ήδη πάνω σε ένα poll! Θες να το ακυρώσεις?"
         )
       }
 

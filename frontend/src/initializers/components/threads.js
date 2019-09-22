@@ -23,11 +23,9 @@ export function getListOptions(context) {
         mode: "START_PRIVATE",
         submit: misago.get("PRIVATE_THREADS_API")
       },
-      title: gettext("Private threads"),
-      pageLead: gettext(
-        "Private threads are threads which only those that started them and those they have invited may see and participate in."
-      ),
-      emptyMessage: gettext("You aren't participating in any private threads.")
+      title: "Συνομιλίες για ανάθεση εργασίας",
+      pageLead: "Οι συνομιλίες μεταξύ πελατών και μηχανικών είναι ιδιωτικές.",
+      emptyMessage: "Δεν έχεις ανοικτές συνομιλίες αυτή τη στιγμή..."
     }
   }
 

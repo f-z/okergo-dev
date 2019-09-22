@@ -27,7 +27,7 @@ export default class extends React.Component {
             onClick={this.selectAll}
           >
             <span className="material-icon">check_box</span>
-            {gettext("Select all")}
+            {"Επιλογή όλων"}
           </button>
         </li>
         <li>
@@ -37,7 +37,7 @@ export default class extends React.Component {
             onClick={this.selectNone}
           >
             <span className="material-icon">check_box_outline_blank</span>
-            {gettext("Select none")}
+            {"Αποεπιλογή όλων"}
           </button>
         </li>
       </ul>

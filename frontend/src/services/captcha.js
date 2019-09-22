@@ -39,7 +39,7 @@ export class QACaptcha extends BaseCaptcha {
           resolve()
         },
         function() {
-          self._snackbar.error(gettext("Failed to load CAPTCHA."))
+          self._snackbar.error("Δεν μπόρεσε η σελίδα να φορτώσει το CAPTCHA!")
           reject()
         }
       )
@@ -119,14 +119,12 @@ export class ReCaptcha extends BaseCaptcha {
   component(kwargs) {
     return (
       <FormGroup
-        label={gettext("Λύσε το απλό τεστ!")}
+        label={"Λύσε το απλό τεστ!"}
         for="id_captcha"
         labelClass={kwargs.labelClass || ""}
         controlClass={kwargs.controlClass || ""}
         validation={kwargs.form.state.errors.captcha}
-        helpText={gettext(
-          "Αυτό το τεστ μας βοηθάει να αποτρέπουμε τη δημιουργία ψεύτικων λογαριασμών."
-        )}
+        helpText={"Αυτό το τεστ μας βοηθάει να αποτρέπουμε τη δημιουργία ψεύτικων λογαριασμών."}
       >
         <ReCaptchaComponent
           binding={kwargs.form.bindInput("captcha")}

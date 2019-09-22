@@ -26,7 +26,7 @@ export class RequestLinkForm extends Form {
     if (this.isValid()) {
       return true
     } else {
-      snackbar.error(gettext("Enter a valid email address."))
+      snackbar.error("Βάλε έγκυρη διεύθυνση email!")
       return false
     }
   }
@@ -60,7 +60,7 @@ export class RequestLinkForm extends Form {
               <input
                 type="text"
                 className="form-control"
-                placeholder={gettext("Your e-mail address")}
+                placeholder={"Η διεύθυνση email σου"}
                 disabled={this.state.isLoading}
                 onChange={this.bindInput("email")}
                 value={this.state.email}
@@ -72,7 +72,7 @@ export class RequestLinkForm extends Form {
             className="btn-primary btn-block"
             loading={this.state.isLoading}
           >
-            {gettext("Send link")}
+            {"Αποστολή συνδέσμου"}
           </Button>
         </form>
       </div>
@@ -83,7 +83,7 @@ export class RequestLinkForm extends Form {
 export class LinkSent extends React.Component {
   getMessage() {
     return interpolate(
-      gettext("Activation link was sent to %(email)s"),
+      "Ο σύνδεσμος ενεργοποίησης εστάλει στο %(email)s",
       {
         email: this.props.user.email
       },
@@ -106,7 +106,7 @@ export class LinkSent extends React.Component {
             type="button"
             onClick={this.props.callback}
           >
-            {gettext("Request another link")}
+            {"Αποστολή καινούριου συνδέσμου"}
           </button>
         </div>
       </div>

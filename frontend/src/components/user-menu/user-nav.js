@@ -9,7 +9,7 @@ import modal from "misago/services/modal"
 
 export class UserMenu extends React.Component {
   logout() {
-    let decision = confirm(gettext("Are you sure you want to sign out?"))
+    let decision = confirm("Θέλεις σίγουρα να αποσυνδεθείς;")
     if (decision) {
       $("#hidden-logout-form").submit()
     }
@@ -52,13 +52,13 @@ export class UserMenu extends React.Component {
         <li>
           <a href={user.url}>
             <span className="material-icon">account_circle</span>
-            {gettext("See your profile")}
+            {"Δες το προφίλ σου"}
           </a>
         </li>
         <li>
           <a href={misago.get("USERCP_URL")}>
             <span className="material-icon">done_all</span>
-            {gettext("Change options")}
+            {"Άλλαξε τις επιλογές σου"}
           </a>
         </li>
         <li>
@@ -68,14 +68,14 @@ export class UserMenu extends React.Component {
             type="button"
           >
             <span className="material-icon">portrait</span>
-            {gettext("Change avatar")}
+            {"Άλλαξε την εικόνα σου"}
           </button>
         </li>
         {!!user.acl.can_use_private_threads && (
           <li>
             <a href={misago.get("PRIVATE_THREADS_URL")}>
               <span className="material-icon">message</span>
-              {gettext("Private threads")}
+              {"Συνομιλίες για εργασίες"}
               <PrivateThreadsBadge user={user} />
             </a>
           </li>
@@ -87,7 +87,7 @@ export class UserMenu extends React.Component {
             onClick={this.logout}
             type="button"
           >
-            {gettext("Log out")}
+            {"Αποσύνδεση"}
           </button>
         </li>
       </ul>
@@ -130,9 +130,9 @@ export function UserPrivateThreadsLink({ user }) {
 
   let title = null
   if (user.unread_private_threads) {
-    title = gettext("You have unread private threads!")
+    title = "Έχεις αδιάβαστα μηνύματα!"
   } else {
-    title = gettext("Private threads")
+    title = "Συνομιλίες για εργασίες"
   }
 
   return (

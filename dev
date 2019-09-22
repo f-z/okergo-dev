@@ -92,6 +92,7 @@ intro() {
     echo "    ${BOLD}pyfmt${NORMAL}             runs isort + black on python code."
     echo "    ${BOLD}fakedata${NORMAL}          populates database with testing data."
     echo "    ${BOLD}fakebigdata${NORMAL}       populates database with LARGE amount of testing data."
+    echo "    ${BOLD}pushprod${NORMAL}          builds Python wheel for production and places it into prod project folder."
     echo
 }
 
@@ -279,6 +280,15 @@ create_fake_bigdata() {
     docker-compose run --rm misago python manage.py createfakehistory 2190 120
 }
 
+# Build wheel for production
+push_production() {
+    # Removing previous build files
+    rm -rf dist
+    rm -f *.whl
+    # Rebuilding Python wheel
+    python3 setup.py bdist_wheel --dist-dir=../okergo_prod/misago
+}
+
 # Command dispatcher
 if [[ $1 ]]; then
     if [[ $1 = "init" ]]; then
@@ -329,6 +339,8 @@ if [[ $1 ]]; then
         create_fake_data
     elif [[ $1 = "fakebigdata" ]]; then
         create_fake_bigdata
+    elif [[ $1 = "pushprod" ]]; then
+        push_production
     else
         invalid_argument $1
     fi

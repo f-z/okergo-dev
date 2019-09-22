@@ -62,7 +62,7 @@ export default class extends React.Component {
         disabled={this.props.disabled}
       >
         <span className="material-icon">chat</span>
-        {gettext("Start thread")}
+        {"Δημοσίευσε αγγελία"}
       </Button>
     )
   }
@@ -121,7 +121,7 @@ export function ParentCategory({ categories, category }) {
   return (
     <Link className="go-back-sm visible-xs-block" to={parent.url.index}>
       <span className="material-icon">chevron_left</span>
-      {parent.parent ? parent.name : gettext("Threads")}
+      {parent.parent ? parent.name : "Αγγελίες"}
     </Link>
   )
 }

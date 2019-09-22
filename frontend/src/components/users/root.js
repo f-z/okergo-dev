@@ -14,7 +14,7 @@ export default class extends WithDropdown {
         <div className="page-header-bg">
           <div className="page-header">
             <div className="container">
-              <h1>{gettext("Users")}</h1>
+              <h1>{"Χρήστες"}</h1>
             </div>
             <div className="page-tabs">
               <div className="container">

@@ -20,7 +20,7 @@ export default class extends React.Component {
 
   showRegisterForm = () => {
     if (misago.get("SETTINGS").account_activation === "closed") {
-      snackbar.info(gettext("New registrations are currently disabled."))
+      snackbar.info("Οι νέες εγγραφές είναι προσωρινά κλεισμένες")
     } else if (this.state.isLoaded) {
       modal.show(<RegisterForm criteria={this.state.criteria} />)
     } else {
@@ -43,7 +43,7 @@ export default class extends React.Component {
           this.setState({ isLoading: false })
 
           snackbar.error(
-            gettext("Registration is currently unavailable due to an error.")
+            "Η εγγραφή είναι προσωρινά μη διαθέσιμη! Προσπάθησε αργότερα"
           )
         }
       )
@@ -62,7 +62,7 @@ export default class extends React.Component {
         onClick={this.showRegisterForm}
         type="button"
       >
-        {gettext("Register")}
+        {"Εγγραφή"}
         {this.state.isLoading ? <Loader /> : null}
       </button>
     )

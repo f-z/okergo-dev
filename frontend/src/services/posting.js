@@ -22,13 +22,9 @@ export class Posting {
       this._isOpen = props.submit
       this._realOpen(props)
     } else if (this._isOpen !== props.submit) {
-      let message = gettext(
-          "Δουλεύεις ήδη πάνω σε ένα μήνυμα! Θες να το ακυρώσεις?"
-      )
+      let message = "Δουλεύεις ήδη πάνω σε ένα μήνυμα! Θες να το ακυρώσεις;"
       if (this._mode == "POLL") {
-        message = gettext(
-          "Δουλεύεις ήδη πάνω σε ένα poll! Θες να το ακυρώσεις?"
-        )
+        message = "Δουλεύεις ήδη πάνω σε ένα poll! Θες να το ακυρώσεις;"
       }
 
       const changeForm = confirm(message)

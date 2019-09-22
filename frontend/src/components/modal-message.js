@@ -26,7 +26,7 @@ export default class extends PanelMessage {
             data-dismiss="modal"
             type="button"
           >
-            {gettext("Ok")}
+            {"ΟΚ"}
           </button>
         </div>
       </div>

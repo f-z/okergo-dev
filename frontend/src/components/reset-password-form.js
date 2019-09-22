@@ -25,7 +25,7 @@ export class ResetPasswordForm extends Form {
     if (this.state.password.trim().length) {
       return true
     } else {
-      snackbar.error(gettext("Enter new password."))
+      snackbar.error("Βάλε καινούριο κωδικό πρόσβασης!")
       return false
     }
   }
@@ -57,7 +57,7 @@ export class ResetPasswordForm extends Form {
               <input
                 type="password"
                 className="form-control"
-                placeholder={gettext("Enter new password")}
+                placeholder={"Βάλε καινούριο κωδικό πρόσβασης"}
                 disabled={this.state.isLoading}
                 onChange={this.bindInput("password")}
                 value={this.state.password}
@@ -69,7 +69,7 @@ export class ResetPasswordForm extends Form {
             className="btn-primary btn-block"
             loading={this.state.isLoading}
           >
-            {gettext("Change password")}
+            {"Άλλαξε τον κωδικό σου"}
           </Button>
         </form>
       </div>
@@ -80,7 +80,7 @@ export class ResetPasswordForm extends Form {
 export class PasswordChangedPage extends React.Component {
   getMessage() {
     return interpolate(
-      gettext("%(username)s, your password has been changed successfully."),
+      "%(username)s, ο κωδικός πρόσβασής σου έχει αλλάξει επιτυχώς!",
       {
         username: this.props.user.username
       },
@@ -104,9 +104,9 @@ export class PasswordChangedPage extends React.Component {
             <div className="message-body">
               <p className="lead">{this.getMessage()}</p>
               <p>
-                {gettext(
-                  "You will have to sign in using new password before continuing."
-                )}
+                {
+                  "Θα πρέπει να συνδεθείς με τον καινούριο σου κωδικό πριν συνεχίσεις!"
+                }
               </p>
               <p>
                 <button
@@ -114,7 +114,7 @@ export class PasswordChangedPage extends React.Component {
                   className="btn btn-primary"
                   onClick={this.showSignIn}
                 >
-                  {gettext("Sign in")}
+                  {"Σύνδεση"}
                 </button>
               </p>
             </div>

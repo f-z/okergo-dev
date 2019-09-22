@@ -28,7 +28,7 @@ export default class extends Form {
 
   clean() {
     if (!this.isValid()) {
-      snackbar.error(gettext("Fill out both fields."))
+      snackbar.error("Συμπλήρωσε και τα δύο!")
       return false
     } else {
       return true
@@ -94,7 +94,7 @@ export default class extends Form {
         className="btn btn-success btn-block"
         href={misago.get("REQUEST_ACTIVATION_URL")}
       >
-        {gettext("Activate account")}
+        {"Ενεργοποίηση λογαριασμού"}
       </a>
     )
   }
@@ -105,20 +105,20 @@ export default class extends Form {
         <div className="modal-content">
           <div className="modal-header">
             <button
-              aria-label={gettext("Close")}
+              aria-label={"Κλείσιμο"}
               className="close"
               data-dismiss="modal"
               type="button"
             >
               <span aria-hidden="true">&times;</span>
             </button>
-            <h4 className="modal-title">{gettext("Sign in")}</h4>
+            <h4 className="modal-title">{"Σύνδεση"}</h4>
           </div>
           <form onSubmit={this.handleSubmit}>
             <div className="modal-body">
               <StartSocialAuth
-                buttonLabel={gettext("Sign in with %(site)s")}
-                formLabel={gettext("Or use your forum account:")}
+                buttonLabel={"Σύνδεση στο %(site)s"}
+                formLabel={"Ή χρησιμοποίησε το λογαριασμό σου:"}
                 labelClassName="text-center"
               />
 
@@ -129,7 +129,7 @@ export default class extends Form {
                     disabled={this.state.isLoading}
                     id="id_username"
                     onChange={this.bindInput("username")}
-                    placeholder={gettext("Username or e-mail")}
+                    placeholder={"Όνομα χρήστη ή email"}
                     type="text"
                     value={this.state.username}
                   />
@@ -143,7 +143,7 @@ export default class extends Form {
                     disabled={this.state.isLoading}
                     id="id_password"
                     onChange={this.bindInput("password")}
-                    placeholder={gettext("Password")}
+                    placeholder={"Κωδικός πρόσβασης"}
                     type="password"
                     value={this.state.password}
                   />
@@ -156,13 +156,13 @@ export default class extends Form {
                 className="btn-primary btn-block"
                 loading={this.state.isLoading}
               >
-                {gettext("Sign in")}
+                {"Σύνδεση"}
               </Button>
               <a
                 className="btn btn-default btn-block"
                 href={misago.get("FORGOTTEN_PASSWORD_URL")}
               >
-                {gettext("Forgot password?")}
+                {"Ξέχασες τον κωδικό πρόσβασής σου;"}
               </a>
             </div>
           </form>

@@ -26,7 +26,7 @@ export default function(ban, changeState) {
 
   if (typeof changeState === "undefined" || changeState) {
     let forumName = misago.get("SETTINGS").forum_name
-    document.title = gettext("Ο λογαριασμός σου έχει αποκλειστεί!") + " | " + forumName
+    document.title = "Ο λογαριασμός σου έχει αποκλειστεί!" + " | " + forumName
     window.history.pushState({}, "", misago.get("BANNED_URL"))
   }
 }

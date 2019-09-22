@@ -7,18 +7,12 @@ export default class extends React.Component {
 
   getMessage() {
     if (this.props.signedIn) {
-      return interpolate(
-        gettext(
-          "You have signed in as %(username)s. Please refresh the page before continuing."
-        ),
+      return interpolate("Έχεις συνδεθεί ως %(username)s. Ξαναφόρτωσε τη σελίδα πριν συνεχίσεις.",
         { username: this.props.signedIn.username },
         true
       )
     } else if (this.props.signedOut) {
-      return interpolate(
-        gettext(
-          "%(username)s, you have been signed out. Please refresh the page before continuing."
-        ),
+      return interpolate("%(username)s, έχεις αποσυνδεθεί. Ξαναφόρτωσε τη σελίδα πριν συνεχίσεις.",
         { username: this.props.user.username },
         true
       )
@@ -41,10 +35,10 @@ export default class extends React.Component {
               type="button"
               onClick={this.refresh}
             >
-              {gettext("Reload page")}
+              {"Ξαναφόρτωσε τη σελίδα"}
             </button>
             <span className="hidden-xs hidden-sm">
-              {" " + gettext("or press F5 key.")}
+              {" " + "ή πάτησε το F5."}
             </span>
           </p>
         </div>

@@ -43,17 +43,17 @@ export class Ajax {
           rejection.status = jqXHR.status
 
           if (rejection.status === 0) {
-            rejection.detail = gettext("Χάθηκε η σύνδεση με την εφαρμογή!")
+            rejection.detail = "Χάθηκε η σύνδεση με την εφαρμογή!"
           }
 
           if (rejection.status === 404) {
             if (!rejection.detail || rejection.detail === "NOT FOUND") {
-              rejection.detail = gettext("Ο σύνδεσμος δεν είναι έγκυρος!")
+              rejection.detail = "Ο σύνδεσμος δεν είναι έγκυρος!"
             }
           }
 
           if (rejection.status === 500 && !rejection.detail) {
-            rejection.detail = gettext("Άγνωστο λάθος!")
+            rejection.detail = "Άγνωστο λάθος!"
           }
 
           rejection.statusText = jqXHR.statusText
@@ -217,23 +217,21 @@ export class Ajax {
           rejection.status = jqXHR.status
 
           if (rejection.status === 0) {
-            rejection.detail = gettext("Χάθηκε η σύνδεση με την εφαρμογή!")
+            rejection.detail = "Χάθηκε η σύνδεση με την εφαρμογή!"
           }
 
           if (rejection.status === 413 && !rejection.detail) {
-            rejection.detail = gettext(
-              "Το ανέβασμα του αρχείου απορρίφθηκε λόγω μεγέθους!"
-            )
+            rejection.detail = "Το ανέβασμα του αρχείου απορρίφθηκε λόγω μεγέθους!"
           }
 
           if (rejection.status === 404) {
             if (!rejection.detail || rejection.detail === "NOT FOUND") {
-              rejection.detail = gettext("Ο σύνδεσμος δεν είναι έγκυρος!")
+              rejection.detail = "Ο σύνδεσμος δεν είναι έγκυρος!"
             }
           }
 
           if (rejection.status === 500 && !rejection.detail) {
-            rejection.detail = gettext("Άγνωστο λάθος!")
+            rejection.detail = "Άγνωστο λάθος!"
           }
 
           rejection.statusText = jqXHR.statusText

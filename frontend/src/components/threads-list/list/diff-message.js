@@ -19,11 +19,7 @@ export default function(props) {
 }
 
 export function getMessage(diffSize) {
-  const message = ngettext(
-    "There is %(threads)s new or updated thread. Click this message to show it.",
-    "There are %(threads)s new or updated threads. Click this message to show them.",
-    diffSize
-  )
+  const message = "Υπάρχουν %(threads)s καινούριες αγγελίες. Κάνε κλικ σε αυτό το μήνυμα για να τις δεις."
 
   return interpolate(
     message,

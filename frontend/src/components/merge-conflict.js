@@ -20,7 +20,7 @@ export default class extends Form {
   clean() {
     if (this.props.polls && this.state.poll === "0") {
       const confirmation = confirm(
-        gettext("Are you sure you want to delete all polls?")
+        "Είσαι σίγουρος ότι θες να διαγράψεις όλες τις προσφορές;"
       )
       return confirmation
     }
@@ -60,14 +60,14 @@ export default class extends Form {
         <div className="modal-content">
           <div className="modal-header">
             <button
-              aria-label={gettext("Close")}
+              aria-label={"Κλείσιμο"}
               className="close"
               data-dismiss="modal"
               type="button"
             >
               <span aria-hidden="true">&times;</span>
             </button>
-            <h4 className="modal-title">{gettext("Merge threads")}</h4>
+            <h4 className="modal-title">{"Συγχώνευση εργασιών"}</h4>
           </div>
           <form onSubmit={this.handleSubmit}>
             <div className="modal-body">
@@ -89,10 +89,10 @@ export default class extends Form {
                 disabled={this.state.isLoading}
                 type="button"
               >
-                {gettext("Cancel")}
+                {"Ακύρωση"}
               </button>
               <Button className="btn-primary" loading={this.state.isLoading}>
-                {gettext("Merge threads")}
+                {"Συγχώνευση εργασιών"}
               </Button>
             </div>
           </form>
@@ -107,10 +107,8 @@ export function BestAnswerSelect({ choices, onChange, value }) {
 
   return (
     <FormGroup
-      label={gettext("Best answer")}
-      helpText={gettext(
-        "Please select the best answer for your newly merged thread. No posts will be deleted during the merge."
-      )}
+      label={"Καλύτερη προσφορά"}
+      helpText={"Επέλεξε την καλύτερη προσφορά για την καινούρια συγχωνευμένη εργασία. Δε θα χάσεις καμία προσφορά."}
       for="id_best_answer"
     >
       <select
@@ -136,10 +134,8 @@ export function PollSelect({ choices, onChange, value }) {
 
   return (
     <FormGroup
-      label={gettext("Poll")}
-      helpText={gettext(
-        "Please select the poll for your newly merged thread. Rejected polls will be permanently deleted and cannot be recovered."
-      )}
+      label={"Προσφορά"}
+      helpText = {"Επέλεξε την καλύτερη προσφορά για την καινούρια συγχωνευμένη εργασία. Οι υπόλοιπες προσφορές θα διαγραφούν."}
       for="id_poll"
     >
       <select

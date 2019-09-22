@@ -70,12 +70,12 @@ export default class extends Form {
       {
         value: 0,
         icon: "visibility",
-        label: gettext("No")
+        label: "Όχι"
       },
       {
         value: 1,
         icon: "visibility_off",
-        label: gettext("Yes")
+        label: "Ναι"
       }
     ]
 
@@ -83,12 +83,12 @@ export default class extends Form {
       {
         value: false,
         icon: "lock_outline",
-        label: gettext("No")
+        label: "Όχι"
       },
       {
         value: true,
         icon: "lock",
-        label: gettext("Yes")
+        label: "Ναι"
       }
     ]
   }
@@ -97,7 +97,7 @@ export default class extends Form {
     if (this.isValid()) {
       return true
     } else {
-      snackbar.error(gettext("Form contains errors."))
+      snackbar.error("Η φόρμα περιέχει λάθη!")
       this.setState({
         errors: this.validate()
       })
@@ -157,7 +157,7 @@ export default class extends Form {
         this.setState({
           errors: Object.assign({}, this.state.errors, rejection)
         })
-        snackbar.error(gettext("Form contains errors."))
+        snackbar.error("Η φόρμα περιέχει λάθη!")
       }
     } else if (rejection.status === 403 && Array.isArray(rejection)) {
       modal.show(<ErrorsModal errors={rejection} />)
@@ -196,12 +196,12 @@ export default class extends Form {
       {
         value: 0,
         icon: "remove",
-        label: gettext("Not pinned")
+        label: "Μη προωθημένο"
       },
       {
         value: 1,
         icon: "bookmark_border",
-        label: gettext("Pinned locally")
+        label: "Προωθημένο σε αυτή την κατηγορία"
       }
     ]
 
@@ -209,7 +209,7 @@ export default class extends Form {
       choices.push({
         value: 2,
         icon: "bookmark",
-        label: gettext("Pinned globally")
+        label: "Προωθημένο σε όλη τη σελίδα"
       })
     }
 
@@ -219,7 +219,7 @@ export default class extends Form {
   renderWeightField() {
     if (this.acl[this.state.category].can_pin_threads) {
       return (
-        <FormGroup label={gettext("Thread weight")} for="id_weight">
+        <FormGroup label={"Προώθηση αγγελίας"} for="id_weight">
           <Select
             id="id_weight"
             onChange={this.bindInput("weight")}
@@ -236,7 +236,7 @@ export default class extends Form {
   renderHiddenField() {
     if (this.acl[this.state.category].can_hide_threads) {
       return (
-        <FormGroup label={gettext("Hide thread")} for="id_is_hidden">
+        <FormGroup label={"Απόκρυψη αγγελίας"} for="id_is_hidden">
           <Select
             id="id_is_closed"
             onChange={this.bindInput("is_hidden")}
@@ -253,7 +253,7 @@ export default class extends Form {
   renderClosedField() {
     if (this.acl[this.state.category].can_close_threads) {
       return (
-        <FormGroup label={gettext("Close thread")} for="id_is_closed">
+        <FormGroup label={"Κλείσιμο αγγελίας"} for="id_is_closed">
           <Select
             id="id_is_closed"
             onChange={this.bindInput("is_closed")}
@@ -272,7 +272,7 @@ export default class extends Form {
       <form onSubmit={this.handleSubmit}>
         <div className="modal-body">
           <FormGroup
-            label={gettext("Thread title")}
+            label={"Τίτλος Αγγελίας"}
             for="id_title"
             validation={this.state.errors.title}
           >
@@ -287,7 +287,7 @@ export default class extends Form {
           <div className="clearfix" />
 
           <FormGroup
-            label={gettext("Category")}
+            label={"Κατηγορία"}
             for="id_category"
             validation={this.state.errors.category}
           >
@@ -311,10 +311,10 @@ export default class extends Form {
             disabled={this.state.isLoading}
             type="button"
           >
-            {gettext("Cancel")}
+            {"Ακύρωση"}
           </button>
           <Button className="btn-primary" loading={this.state.isLoading}>
-            {gettext("Merge threads")}
+            {"Συγχώνευση αγγελιών"}
           </Button>
         </div>
       </form>
@@ -329,21 +329,17 @@ export default class extends Form {
         </div>
         <div className="message-body">
           <p className="lead">
-            {gettext(
-              "You can't move threads because there are no categories you are allowed to move them to."
-            )}
+            {"Δεν μπορείς να μετακινήσεις τις αγγελίες, γιατί δεν υπάρχουν διαθέσιμες κατηγορίες."}
           </p>
           <p>
-            {gettext(
-              "You need permission to start threads in category to be able to merge threads to it."
-            )}
+            {"Πρέπει να έχεις άδεια να δημιουργήσεις καινούριες αγγελίες σε μια κατηγορία για να μπορείς να συγχωνεύσεις αγγελίες εκεί."}
           </p>
           <button
             className="btn btn-default"
             data-dismiss="modal"
             type="button"
           >
-            {gettext("Ok")}
+            {"ΟΚ"}
           </button>
         </div>
       </div>
@@ -367,11 +363,11 @@ export default class extends Form {
               type="button"
               className="close"
               data-dismiss="modal"
-              aria-label={gettext("Close")}
+              aria-label={"Κλείσιμο"}
             >
               <span aria-hidden="true">&times;</span>
             </button>
-            <h4 className="modal-title">{gettext("Merge threads")}</h4>
+            <h4 className="modal-title">{"Συγχώνευση αγγελιών"}</h4>
           </div>
           {this.state.category
             ? this.renderForm()

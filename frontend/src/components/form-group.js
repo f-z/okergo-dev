@@ -36,7 +36,7 @@ export default class extends React.Component {
     if (this.isValidated()) {
       return (
         <span id={this.props.for + "_status"} className="sr-only">
-          {this.props.validation ? gettext("(error)") : gettext("(success)")}
+          {this.props.validation ? "(λάθος)" : "(επιτυχία)"}
         </span>
       )
     } else {

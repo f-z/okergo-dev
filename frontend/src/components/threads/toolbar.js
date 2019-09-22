@@ -42,7 +42,7 @@ export default class extends React.Component {
               disabled={this.props.disabled || !this.props.selection.length}
             >
               <span className="material-icon">settings</span>
-              {gettext("Options")}
+              {"Επιλογές"}
             </button>
 
             <ModerationControls

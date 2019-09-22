@@ -52,7 +52,7 @@ export default class extends React.Component {
 
       return (
         <ModalDialog className="modal-message">
-          <Message message={gettext("No users have liked this post.")} />
+          <Message message={"Κανένα like"} />
         </ModalDialog>
       )
     }
@@ -72,10 +72,10 @@ export function hydrateLike(data) {
 }
 
 export function ModalDialog({ className, children, likes }) {
-  let title = gettext("Post Likes")
+  let title = "Likes Προσφοράς"
   if (likes) {
     const likesCount = likes.length
-    const message = ngettext("%(likes)s like", "%(likes)s likes", likesCount)
+    const message = "%(likes)s like"
 
     title = interpolate(message, { likes: likesCount }, true)
   }
@@ -85,7 +85,7 @@ export function ModalDialog({ className, children, likes }) {
       <div className="modal-content">
         <div className="modal-header">
           <button
-            aria-label={gettext("Close")}
+            aria-label={"Κλείσιμο"}
             className="close"
             data-dismiss="modal"
             type="button"

@@ -11,11 +11,11 @@ export default class extends React.Component {
               type="button"
               className="close"
               data-dismiss="modal"
-              aria-label={gettext("Close")}
+              aria-label={"Κλείσιμο"}
             >
               <span aria-hidden="true">&times;</span>
             </button>
-            <h4 className="modal-title">{gettext("Change subscription")}</h4>
+            <h4 className="modal-title">{"Αλλαγή ειδοποιήσεων"}</h4>
           </div>
 
           <Options className="modal-menu" thread={this.props.thread} />

@@ -64,7 +64,7 @@ export function HiddenLabel({ display, textClassName }) {
   return (
     <span className="thread-detail-hidden">
       <span className="material-icon">visibility_off</span>
-      <span className={textClassName}>{gettext("Hidden")}</span>
+      <span className={textClassName}>{"Κρυμμένη"}</span>
     </span>
   )
 }
@@ -75,7 +75,7 @@ export function ClosedLabel({ display, textClassName }) {
   return (
     <span className="thread-detail-closed">
       <span className="material-icon">lock_outline</span>
-      <span className={textClassName}>{gettext("Closed")}</span>
+      <span className={textClassName}>{"Κλεισμένη"}</span>
     </span>
   )
 }
@@ -86,7 +86,7 @@ export function PollLabel({ display, textClassName }) {
   return (
     <span className="thread-detail-poll">
       <span className="material-icon">assessment</span>
-      <span className={textClassName}>{gettext("Poll")}</span>
+      <span className={textClassName}>{"Poll"}</span>
     </span>
   )
 }
@@ -105,7 +105,7 @@ export function BestAnswerLabel({ thread }) {
 }
 
 export function RepliesLabel({ replies, forceFullText }) {
-  const text = ngettext("%(replies)s reply", "%(replies)s replies", replies)
+  const text = "%(replies)s προσφορές"
 
   let compactClassName = ""
   let fullClassName = ""

@@ -78,19 +78,19 @@ export default class extends React.Component {
         <li>
           <button className="btn-link" onClick={this.unsubscribe}>
             <span className="material-icon">star_border</span>
-            {gettext("Unsubscribe")}
+            {"Απεγγραφή από ειδοποιήσεις"}
           </button>
         </li>
         <li>
           <button className="btn-link" onClick={this.notify}>
             <span className="material-icon">star_half</span>
-            {gettext("Subscribe")}
+            {"Ειδοποιήσεις"}
           </button>
         </li>
         <li>
           <button className="btn-link" onClick={this.email}>
             <span className="material-icon">star</span>
-            {gettext("Subscribe with e-mail")}
+            {"Ειδοποιήσεις μέσω email"}
           </button>
         </li>
       </ul>

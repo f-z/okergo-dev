@@ -19,9 +19,9 @@ export default class extends React.Component {
 
   getLabel() {
     if (!!this.props.value) {
-      return this.props.labelOn || gettext("yes")
+      return this.props.labelOn || "Ναι"
     } else {
-      return this.props.labelOff || gettext("no")
+      return this.props.labelOff || "Όχι"
     }
   }
 

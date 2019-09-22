@@ -3,11 +3,7 @@ import ListItem from "misago/components/users/active-posters/list-item"
 
 export default class extends React.Component {
   getLeadMessage() {
-    let message = ngettext(
-      "%(posters)s top poster from last %(days)s days.",
-      "%(posters)s top posters from last %(days)s days.",
-      this.props.count
-    )
+    let message = "%(posters)s τοπ χρήστες τις τελευταίες %(days)s μέρες."
 
     return interpolate(
       message,

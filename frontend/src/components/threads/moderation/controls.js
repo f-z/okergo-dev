@@ -292,7 +292,7 @@ export default class extends React.Component {
           type="button"
         >
           <span className="material-icon">bookmark_border</span>
-          {gettext("Pin threads locally")}
+          {"Προώθησε αγγελίες στην κατηγορία τους"}
         </button>
       </li>
     )
@@ -305,7 +305,7 @@ export default class extends React.Component {
       <li>
         <button className="btn btn-link" onClick={this.unpin} type="button">
           <span className="material-icon">panorama_fish_eye</span>
-          {gettext("Unpin threads")}
+          {"Σταμάτησε την προώθηση αγγελιών"}
         </button>
       </li>
     )
@@ -318,7 +318,7 @@ export default class extends React.Component {
       <li>
         <button className="btn btn-link" onClick={this.move} type="button">
           <span className="material-icon">arrow_forward</span>
-          {gettext("Move threads")}
+          {"Μετακίνησε αγγελίες"}
         </button>
       </li>
     )
@@ -331,7 +331,7 @@ export default class extends React.Component {
       <li>
         <button className="btn btn-link" onClick={this.merge} type="button">
           <span className="material-icon">call_merge</span>
-          {gettext("Merge threads")}
+          {"Συγχώνευσε αγγελίες"}
         </button>
       </li>
     )
@@ -344,7 +344,7 @@ export default class extends React.Component {
       <li>
         <button className="btn btn-link" onClick={this.approve} type="button">
           <span className="material-icon">done</span>
-          {gettext("Approve threads")}
+          {"Ενέκρινε αγγελίες"}
         </button>
       </li>
     )
@@ -357,7 +357,7 @@ export default class extends React.Component {
       <li>
         <button className="btn btn-link" onClick={this.open} type="button">
           <span className="material-icon">lock_open</span>
-          {gettext("Open threads")}
+          {"Ανοιξε αγγελίες"}
         </button>
       </li>
     )
@@ -370,7 +370,7 @@ export default class extends React.Component {
       <li>
         <button className="btn btn-link" onClick={this.close} type="button">
           <span className="material-icon">lock_outline</span>
-          {gettext("Close threads")}
+          {"Κλείσε αγγελίες"}
         </button>
       </li>
     )
@@ -383,7 +383,7 @@ export default class extends React.Component {
       <li>
         <button className="btn btn-link" onClick={this.unhide} type="button">
           <span className="material-icon">visibility</span>
-          {gettext("Unhide threads")}
+          {"Εμφάνισε αγγελίες"}
         </button>
       </li>
     )
@@ -396,7 +396,7 @@ export default class extends React.Component {
       <li>
         <button onClick={this.hide} type="button" className="btn btn-link">
           <span className="material-icon">visibility_off</span>
-          {gettext("Hide threads")}
+          {"Κρύψε αγγελίες"}
         </button>
       </li>
     )
@@ -409,7 +409,7 @@ export default class extends React.Component {
       <li>
         <button className="btn btn-link" onClick={this.delete} type="button">
           <span className="material-icon">clear</span>
-          {gettext("Delete threads")}
+          {"Διέγραψε αγγελίες"}
         </button>
       </li>
     )

@@ -19,8 +19,8 @@ export function getLists(user) {
     {
       type: "all",
       path: "",
-      name: gettext("All"),
-      longName: gettext("All threads")
+      name: "Όλες",
+      longName: "Όλες οι αγγελίες"
     }
   ]
 
@@ -28,34 +28,34 @@ export function getLists(user) {
     lists.push({
       type: "my",
       path: "my/",
-      name: gettext("My"),
-      longName: gettext("My threads")
+      name: "Δικές μου",
+      longName: "Οι αγγελίες μου"
     })
     lists.push({
       type: "new",
       path: "new/",
-      name: gettext("New"),
-      longName: gettext("New threads")
+      name: "Νέες",
+      longName: "Νέες αγγελίες"
     })
     lists.push({
       type: "unread",
       path: "unread/",
-      name: gettext("Unread"),
-      longName: gettext("Unread threads")
+      name: "Αδιάβαστες",
+      longName: "Αδιάβαστες αγγελίες"
     })
     lists.push({
       type: "subscribed",
       path: "subscribed/",
-      name: gettext("Subscribed"),
-      longName: gettext("Subscribed threads")
+      name: "Ακολουθώ",
+      longName: "Αγγελίες που ακολουθώ"
     })
 
     if (user.acl.can_see_unapproved_content_lists) {
       lists.push({
         type: "unapproved",
         path: "unapproved/",
-        name: gettext("Unapproved"),
-        longName: gettext("Unapproved content")
+        name: "Μη εγκεκριμένες",
+        longName: "Μη εγκεκριμένες αγγελίες"
       })
     }
   }

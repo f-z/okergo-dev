@@ -33,7 +33,7 @@ export function NewLabel({ isRead, url }) {
   return (
     <a className="thread-detail-new" href={url}>
       <span className="material-icon">comment</span>
-      <span className="detail-text">{gettext("New posts")}</span>
+      <span className="detail-text">{"Νέες προσφορές"}</span>
     </a>
   )
 }
@@ -43,12 +43,12 @@ export function PinnedLabel({ weight }) {
 
   let className = "thread-detail-pinned-globally"
   let icon = "bookmark"
-  let text = gettext("Pinned globally")
+  let text = "Προωθημένη παντού"
 
   if (weight === 1) {
     className = "thread-detail-pinned-locally"
     icon = "bookmark_border"
-    text = gettext("Pinned locally")
+    text = "Προωθημένη σε αυτή την κατηγορία"
   }
 
   return (
@@ -64,12 +64,12 @@ export function UnapprovedLabel({ posts, thread }) {
 
   let className = "thread-detail-unapproved-posts"
   let icon = "remove_circle_outline"
-  let text = gettext("Unapproved posts")
+  let text = "Προσφορές που δεν έχουν εγκριθεί"
 
   if (thread) {
     className = "thread-detail-unapproved"
     icon = "remove_circle"
-    text = gettext("Unapproved")
+    text = "Μη εγκεκριμένες"
   }
 
   return (
@@ -89,7 +89,7 @@ export function BestAnswerLabel({ thread }) {
       href={thread.url.best_answer}
     >
       <span className="material-icon">check_box</span>
-      <span className="detail-text">{gettext("Answered")}</span>
+      <span className="detail-text">{"Έχει ανατεθεί"}</span>
     </a>
   )
 }

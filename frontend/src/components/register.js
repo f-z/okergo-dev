@@ -66,7 +66,7 @@ export class RegisterForm extends Form {
     if (this.isValid()) {
       return true
     } else {
-      snackbar.error(gettext("Form contains errors."))
+      snackbar.error("Η φόρμα περιέχει λάθη!")
       this.setState({
         errors: this.validate()
       })
@@ -98,7 +98,7 @@ export class RegisterForm extends Form {
       if (rejection.__all__ && rejection.__all__.length > 0) {
         snackbar.error(rejection.__all__[0])
       } else {
-        snackbar.error(gettext("Form contains errors."))
+        snackbar.error("Η φόρμα περιέχει λάθη!")
       }
     } else if (rejection.status === 403 && rejection.ban) {
       showBannedPage(rejection.ban)
@@ -140,11 +140,11 @@ export class RegisterForm extends Form {
               type="button"
               className="close"
               data-dismiss="modal"
-              aria-label={gettext("Close")}
+              aria-label={"Κλείσιμο"}
             >
               <span aria-hidden="true">&times;</span>
             </button>
-            <h4 className="modal-title">{gettext("Register")}</h4>
+            <h4 className="modal-title">{"Εγγραφή"}</h4>
           </div>
           <form onSubmit={this.handleSubmit}>
             <input type="type" style={{ display: "none" }} />
@@ -152,12 +152,12 @@ export class RegisterForm extends Form {
             <div className="modal-body">
               <StartSocialAuth
                 buttonClassName="col-xs-12 col-sm-6"
-                buttonLabel={gettext("Join with %(site)s")}
-                formLabel={gettext("Or create forum account:")}
+                buttonLabel={"Σύνδεση μέσω %(site)s"}
+                formLabel={"Η δημιουργία λογαριασμού:"}
               />
 
               <FormGroup
-                label={gettext("Username")}
+                label={"Όνομα χρήστη"}
                 for="id_username"
                 validation={this.state.errors.username}
               >
@@ -173,7 +173,7 @@ export class RegisterForm extends Form {
               </FormGroup>
 
               <FormGroup
-                label={gettext("E-mail")}
+                label={"Email"}
                 for="id_email"
                 validation={this.state.errors.email}
               >
@@ -189,7 +189,7 @@ export class RegisterForm extends Form {
               </FormGroup>
 
               <FormGroup
-                label={gettext("Password")}
+                label={"Κωδικός πρόσβασης"}
                 for="id_password"
                 validation={this.state.errors.password}
                 extra={
@@ -229,10 +229,10 @@ export class RegisterForm extends Form {
                 disabled={this.state.isLoading}
                 type="button"
               >
-                {gettext("Cancel")}
+                {"Ακύρωση"}
               </button>
               <Button className="btn-primary" loading={this.state.isLoading}>
-                {gettext("Register account")}
+                {"Εγγραφή λογαριασμού"}
               </Button>
             </div>
           </form>
@@ -245,25 +245,17 @@ export class RegisterForm extends Form {
 export class RegisterComplete extends React.Component {
   getLead() {
     if (this.props.activation === "user") {
-      return gettext(
-        "%(username)s, your account has been created but you need to activate it before you will be able to sign in."
-      )
+      return "%(username)s, ο λογαριασμός σου έχει δημιουργηθεί, αλλά πρέπει να τον ενεργοποιήσεις πριν συνδεθείς!"
     } else if (this.props.activation === "admin") {
-      return gettext(
-        "%(username)s, your account has been created but board administrator will have to activate it before you will be able to sign in."
-      )
+      return "%(username)s, ο λογαριασμός σου έχει δημιουργηθεί, αλλά πρέπει να γίνει επαλήθευση των στοιχείων πριν συνδεθείς!"
     }
   }
 
   getSubscript() {
     if (this.props.activation === "user") {
-      return gettext(
-        "We have sent an e-mail to %(email)s with link that you have to click to activate your account."
-      )
+      return "Έχουμε στείλει ένα email στο %(email)s που πρέπει να κάνεις κλικ για να ενεργοποιήσεις το λογαριασμό σου."
     } else if (this.props.activation === "admin") {
-      return gettext(
-        "We will send an e-mail to %(email)s when this takes place."
-      )
+      return "Θα στείλουμε ένα email στο %(email)s, όταν ολοκληρωθεί η διαδικασία."
     }
   }
 
@@ -279,11 +271,11 @@ export class RegisterComplete extends React.Component {
               type="button"
               className="close"
               data-dismiss="modal"
-              aria-label={gettext("Close")}
+              aria-label={"Κλείσιμο"}
             >
               <span aria-hidden="true">&times;</span>
             </button>
-            <h4 className="modal-title">{gettext("Registration complete")}</h4>
+            <h4 className="modal-title">{"Ολοκλήρωση εγγραφής"}</h4>
           </div>
           <div className="modal-body">
             <div className="message-icon">
@@ -309,7 +301,7 @@ export class RegisterComplete extends React.Component {
                 data-dismiss="modal"
                 type="button"
               >
-                {gettext("Ok")}
+                {"ΟΚ"}
               </button>
             </div>
           </div>

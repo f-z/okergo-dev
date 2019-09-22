@@ -25,7 +25,7 @@ export default class extends Form {
 
   clean() {
     if (!this.state.username.trim().length) {
-      snackbar.error(gettext("You have to enter user name."))
+      snackbar.error("Πρέπει να βάλεις το όνομα χρήστη του μηχανικού!")
       return false
     }
 
@@ -43,7 +43,7 @@ export default class extends Form {
     store.dispatch(updateAcl(data))
     store.dispatch(participants.replace(data.participants))
 
-    snackbar.success(gettext("New participant has been added to thread."))
+    snackbar.success("Η εργασία έχει ανατεθεί στο μηχανικό")
 
     modal.hide()
   }
@@ -55,7 +55,7 @@ export default class extends Form {
           <div className="modal-content">
             <ModalHeader />
             <div className="modal-body">
-              <FormGroup for="id_username" label={gettext("User to add")}>
+              <FormGroup for="id_username" label={"Μηχανικός να ανατεθεί"}>
                 <input
                   id="id_username"
                   className="form-control"
@@ -71,7 +71,7 @@ export default class extends Form {
                 className="btn btn-block btn-primary"
                 disabled={this.state.isLoading}
               >
-                {gettext("Add participant")}
+                {"Ανάθεση εργασίας"}
               </button>
               <button
                 className="btn btn-block btn-default"
@@ -79,7 +79,7 @@ export default class extends Form {
                 disabled={this.state.isLoading}
                 type="button"
               >
-                {gettext("Cancel")}
+                {"Ακύρωση"}
               </button>
             </div>
           </div>
@@ -93,14 +93,14 @@ export function ModalHeader(props) {
   return (
     <div className="modal-header">
       <button
-        aria-label={gettext("Close")}
+        aria-label={"Κλείσιμο"}
         className="close"
         data-dismiss="modal"
         type="button"
       >
         <span aria-hidden="true">&times;</span>
       </button>
-      <h4 className="modal-title">{gettext("Add participant")}</h4>
+      <h4 className="modal-title">{"Ανάθεση εργασίας"}</h4>
     </div>
   )
 }

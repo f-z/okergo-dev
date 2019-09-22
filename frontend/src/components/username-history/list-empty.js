@@ -5,7 +5,7 @@ export default class extends React.Component {
     if (this.props.emptyMessage) {
       return this.props.emptyMessage
     } else {
-      return gettext("No name changes have been recorded for your account.")
+      return "Δεν έχεις αλλάξει το όνομα χρήστη σου"
     }
   }
 

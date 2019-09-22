@@ -250,7 +250,7 @@ export default class extends WithDropdown {
           loading={this.state.isBusy || this.state.busyThreads.length}
           onClick={this.loadMore}
         >
-          {gettext("Show more")}
+          {"Προβολή περισσότερων"}
         </Button>
       </div>
     )

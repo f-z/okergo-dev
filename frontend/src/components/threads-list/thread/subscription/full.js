@@ -59,11 +59,11 @@ export default class extends React.Component {
 export function Label({ moderation, subscription }) {
   if (moderation.length) return null
 
-  let text = gettext("Disabled")
+  let text = "Καμία ειδοποίηση"
   if (subscription === true) {
-    text = gettext("E-mail")
+    text = "Μέσω εmail"
   } else if (subscription === false) {
-    text = gettext("Enabled")
+    text = "Eνεργοποιημένες ειδοποιήσεις"
   }
 
   return <span className="btn-text">{text}</span>

@@ -51,7 +51,7 @@ export function FirstPage(props) {
         className="btn btn-default btn-block btn-icon btn-outline"
         onClick={resetScroll}
         to={props.baseUrl}
-        title={gettext("Go to first page")}
+        title={"Πρώτη σελίδα"}
       >
         <span className="material-icon">first_page</span>
       </Link>
@@ -60,7 +60,7 @@ export function FirstPage(props) {
     return (
       <span
         className="btn btn-default btn-block btn-icon btn-outline disabled"
-        title={gettext("Go to first page")}
+        title={"Πρώτη σελίδα"}
       >
         <span className="material-icon">first_page</span>
       </span>
@@ -80,7 +80,7 @@ export function PreviousPage(props) {
         className="btn btn-default btn-block btn-icon btn-outline"
         onClick={resetScroll}
         to={props.baseUrl + previousUrl}
-        title={gettext("Go to previous page")}
+        title={"Προηγούμενη σελίδα"}
       >
         <span className="material-icon">chevron_left</span>
       </Link>
@@ -89,7 +89,7 @@ export function PreviousPage(props) {
     return (
       <span
         className="btn btn-default btn-block btn-icon btn-outline disabled"
-        title={gettext("Go to previous page")}
+        title={"Προηγούμενη σελίδα"}
       >
         <span className="material-icon">chevron_left</span>
       </span>
@@ -109,7 +109,7 @@ export function NextPage(props) {
         className="btn btn-default btn-block btn-icon btn-outline"
         onClick={resetScroll}
         to={props.baseUrl + nextUrl}
-        title={gettext("Go to next page")}
+        title={"Επόμενη σελίδα"}
       >
         <span className="material-icon">chevron_right</span>
       </Link>
@@ -118,7 +118,7 @@ export function NextPage(props) {
     return (
       <span
         className="btn btn-default btn-block btn-icon btn-outline disabled"
-        title={gettext("Go to next page")}
+        title={"Επόμενη σελίδα"}
       >
         <span className="material-icon">chevron_right</span>
       </span>
@@ -133,7 +133,7 @@ export function LastPage(props) {
         className="btn btn-default btn-block btn-icon btn-outline"
         onClick={resetScroll}
         to={props.baseUrl + props.last + "/"}
-        title={gettext("Go to last page")}
+        title={"Τελευταία σελίδα"}
       >
         <span className="material-icon">last_page</span>
       </Link>
@@ -142,7 +142,7 @@ export function LastPage(props) {
     return (
       <span
         className="btn btn-default btn-block btn-icon btn-outline disabled"
-        title={gettext("Go to last page")}
+        title={"Τελευταία σελίδα"}
       >
         <span className="material-icon">last_page</span>
       </span>
@@ -153,14 +153,10 @@ export function LastPage(props) {
 export function More(props) {
   let message = null
   if (props.more) {
-    message = ngettext(
-      "There is %(more)s more member with this role.",
-      "There are %(more)s more members with this role.",
-      props.more
-    )
+    message = "Υπάρχουν %(more)s χρήστες σε αυτή την κατηγορία.",
     message = interpolate(message, { more: props.more }, true)
   } else {
-    message = gettext("There are no more members with this role.")
+    message = "Δεν υπάρχουν άλλοι χρήστες σε αυτή την κατηγορία."
   }
 
   return <p>{message}</p>

@@ -73,7 +73,7 @@ export default class extends React.Component {
                   &nbsp;
                 </span>
               </strong>
-              <small>{gettext("Rank")}</small>
+              <small>{"Κατάταξη"}</small>
             </span>
             <span className="rank-posts-counted">
               <strong>
@@ -84,7 +84,7 @@ export default class extends React.Component {
                   &nbsp;
                 </span>
               </strong>
-              <small>{gettext("Ranked posts")}</small>
+              <small>{"Αγγελίες στην κατάταξη"}</small>
             </span>
           </div>
         </div>
@@ -98,7 +98,7 @@ export default class extends React.Component {
               &nbsp;
             </span>
           </strong>
-          <small>{gettext("Rank")}</small>
+          <small>{"Κατάταξη"}</small>
         </div>
 
         <div className="rank-posts-counted hidden-xs">
@@ -110,7 +110,7 @@ export default class extends React.Component {
               &nbsp;
             </span>
           </strong>
-          <small>{gettext("Ranked posts")}</small>
+          <small>{"Αγγελίες στην κατάταξη"}</small>
         </div>
 
         <div className="rank-posts-total hidden-xs">
@@ -122,7 +122,7 @@ export default class extends React.Component {
               &nbsp;
             </span>
           </strong>
-          <small>{gettext("Total posts")}</small>
+          <small>{"Συνολικός αριθμός αγγελιών"}</small>
         </div>
       </li>
     )

@@ -7,7 +7,7 @@ export default class extends React.Component {
         return (
           <li className="list-group-item empty-message">
             <p className="lead">{this.props.emptyMessage}</p>
-            <p>{gettext("Why not start one yourself?")}</p>
+            <p>{"Πόσταρε μια αγγελία ή κάνε προσφορά!"}</p>
           </li>
         )
       } else {
@@ -15,17 +15,17 @@ export default class extends React.Component {
           <li className="list-group-item empty-message">
             <p className="lead">
               {this.props.category.special_role
-                ? gettext("There are no threads on this forum... yet!")
-                : gettext("There are no threads in this category.")}
+                ? "Δεν υπάρχουν αγγελίες σε αυτό το φόρουμ ακόμα!"
+                : "Δεν υπάρχουν αγγελίες υπό αυτή την κατηγορία."}
             </p>
-            <p>{gettext("Why not start one yourself?")}</p>
+            <p>{"Μπορείς να δημοσιεύσεις μία εύκολα και γρήγορα!"}</p>
           </li>
         )
       }
     } else {
       return (
         <li className="list-group-item empty-message">
-          {gettext("No threads matching specified criteria were found.")}
+          {"Δεν υπάρχουν αγγελίες για τις συγκεκριμένες επιλογές."}
         </li>
       )
     }

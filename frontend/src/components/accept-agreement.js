@@ -12,9 +12,7 @@ export default class AcceptAgreement extends React.Component {
     if (this.state.submiting) return
 
     const confirmation = confirm(
-      gettext(
-        "Declining will result in immediate deactivation and deletion of your account. This action is not reversible."
-      )
+        "Αν αρνηθείς θα διαγραφεί για πάντα ο λογαριασμός σου!"
     )
     if (!confirmation) return
 
@@ -44,7 +42,7 @@ export default class AcceptAgreement extends React.Component {
           type="buton"
           onClick={this.handleDecline}
         >
-          {gettext("Decline")}
+          {"Αρνούμαι"}
         </button>
         <button
           className="btn btn-primary"
@@ -52,7 +50,7 @@ export default class AcceptAgreement extends React.Component {
           type="buton"
           onClick={this.handleAccept}
         >
-          {gettext("Accept and continue")}
+          {"Δέχομαι"}
         </button>
       </div>
     )

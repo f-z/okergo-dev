@@ -24,7 +24,7 @@ const RegisterLegalFootnote = props => {
   return (
     <div>
       <LegalAgreement
-        agreement={gettext("the terms of service")}
+        agreement={"Οι όροι χρήσης"}
         checked={termsOfService !== null}
         errors={errors.termsOfService}
         url={termsOfServiceUrl}
@@ -32,7 +32,7 @@ const RegisterLegalFootnote = props => {
         onChange={onTermsOfServiceChange}
       />
       <LegalAgreement
-        agreement={gettext("the privacy policy")}
+        agreement={"Η πολιτική προστασίας δεδομένων"}
         checked={privacyPolicy !== null}
         errors={errors.privacyPolicy}
         url={privacyPolicyUrl}
@@ -54,7 +54,7 @@ const LegalAgreement = props => {
     true
   )
   const label = interpolate(
-    gettext("I have read and accept %(agreement)s."),
+    "Έχω διαβάσει και αποδέχομαι τη %(agreement)s.",
     { agreement: agreementHtml },
     true
   )

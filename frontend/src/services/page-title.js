@@ -18,7 +18,7 @@ export class PageTitle {
 
     if (title.page > 1) {
       const pageLabel = interpolate(
-        gettext("σελίδα: %(page)s"),
+        "σελίδα: %(page)s",
         {
           page: title.page
         },

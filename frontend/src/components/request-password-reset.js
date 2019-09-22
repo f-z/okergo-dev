@@ -27,7 +27,7 @@ export class RequestResetForm extends Form {
     if (this.isValid()) {
       return true
     } else {
-      snackbar.error(gettext("Enter a valid email address."))
+      snackbar.error("Βάλε έγκυρη διεύθυνση email!")
       return false
     }
   }
@@ -61,7 +61,7 @@ export class RequestResetForm extends Form {
               <input
                 type="text"
                 className="form-control"
-                placeholder={gettext("Your e-mail address")}
+                placeholder={"Η διεύθυνση email σου"}
                 disabled={this.state.isLoading}
                 onChange={this.bindInput("email")}
                 value={this.state.email}
@@ -73,7 +73,7 @@ export class RequestResetForm extends Form {
             className="btn-primary btn-block"
             loading={this.state.isLoading}
           >
-            {gettext("Send link")}
+            {"Αποστολή συνδέσμου"}
           </Button>
         </form>
       </div>
@@ -84,7 +84,7 @@ export class RequestResetForm extends Form {
 export class LinkSent extends React.Component {
   getMessage() {
     return interpolate(
-      gettext("Reset password link was sent to %(email)s"),
+      "Ο σύνδεσμος για ανάκτηση κωδικού πρόσβασης εστάλει στο %(email)s",
       {
         email: this.props.user.email
       },
@@ -107,7 +107,7 @@ export class LinkSent extends React.Component {
             className="btn btn-primary btn-block"
             onClick={this.props.callback}
           >
-            {gettext("Request another link")}
+            {"Request another link"}
           </button>
         </div>
       </div>
@@ -121,7 +121,7 @@ export class AccountInactivePage extends React.Component {
       return (
         <p>
           <a href={misago.get("REQUEST_ACTIVATION_URL")}>
-            {gettext("Activate your account.")}
+            {"Ενεργοποίηση λογαριασμού"}
           </a>
         </p>
       )
@@ -140,7 +140,7 @@ export class AccountInactivePage extends React.Component {
             </div>
 
             <div className="message-body">
-              <p className="lead">{gettext("Your account is inactive.")}</p>
+              <p className="lead">{"Ο λογαριασμός σου είναι απενεργοποιημένος!"}</p>
               <p>{this.props.message}</p>
               {this.getActivateButton()}
             </div>

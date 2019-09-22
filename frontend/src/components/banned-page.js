@@ -20,8 +20,7 @@ export default class extends React.Component {
   getExpirationMessage() {
     if (this.props.expires) {
       if (this.props.expires.isAfter(moment())) {
-        let title = interpolate(
-          gettext("This ban expires on %(expires_on)s."),
+        let title = interpolate("Ο αποκλεισμός λήγει στις %(expires_on)s.",
           {
             expires_on: this.props.expires.format("LL, LT")
           },
@@ -29,7 +28,7 @@ export default class extends React.Component {
         )
 
         let message = interpolate(
-          gettext("This ban expires %(expires_on)s."),
+          "Ο αποκλεισμός λήγει στις %(expires_on)s.",
           {
             expires_on: this.props.expires.fromNow()
           },
@@ -38,10 +37,10 @@ export default class extends React.Component {
 
         return <abbr title={title}>{message}</abbr>
       } else {
-        return gettext("This ban has expired.")
+        return "Ο αποκλεισμός έχει λήξει."
       }
     } else {
-      return gettext("This ban is permanent.")
+      return "Ο αποκλεισμός είναι μόνιμος."
     }
   }
 

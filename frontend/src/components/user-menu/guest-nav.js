@@ -19,11 +19,9 @@ export class GuestMenu extends React.Component {
         role="menu"
       >
         <li className="guest-preview">
-          <h4>{gettext("You are browsing as guest.")}</h4>
+          <h4>{"Βλέπεις τη σελίδα ως επισκέπτης"}</h4>
           <p>
-            {gettext(
-              "Sign in or register to start and participate in discussions."
-            )}
+            {"Συνδέσου ή κάνε εγγραφή για να δημοσιέυσεις ή να αναλάβεις έργα!"}
           </p>
           <div className="row">
             {misago.get("SETTINGS").enable_sso ? (
@@ -32,7 +30,7 @@ export class GuestMenu extends React.Component {
                   className="btn btn-primary btn-register btn-block"
                   href={misago.get("SETTINGS").SSO_LOGIN_URL}
                 >
-                  {gettext("Sign in")}
+                  {"Σύνδεση"}
                 </a>
               </div>
             ) : (
@@ -42,14 +40,14 @@ export class GuestMenu extends React.Component {
                   onClick={this.showSignInModal}
                   type="button"
                 >
-                  {gettext("Sign in")}
+                  {"Σύνδεση"}
                 </button>
               </div>
             )}
             {!misago.get("SETTINGS").enable_sso && (
               <div className="col-xs-6">
                 <RegisterButton className="btn-primary btn-register btn-block">
-                  {gettext("Register")}
+                  {"Εγγραφή"}
                 </RegisterButton>
               </div>
             )}
@@ -69,7 +67,7 @@ export class GuestNav extends GuestMenu {
             className="btn navbar-btn btn-primary btn-register"
             href={misago.get("SETTINGS").SSO_LOGIN_URL}
           >
-            {gettext("Sign in")}
+            {"Σύνδεση"}
           </a>
         ) : (
           <button
@@ -77,12 +75,12 @@ export class GuestNav extends GuestMenu {
             onClick={this.showSignInModal}
             type="button"
           >
-            {gettext("Sign in")}
+            {"Σύνδεση"}
           </button>
         )}
         {!misago.get("SETTINGS").enable_sso && (
           <RegisterButton className="navbar-btn btn-primary btn-register">
-            {gettext("Register")}
+            {"Εγγραφή"}
           </RegisterButton>
         )}
         <div className="navbar-left">

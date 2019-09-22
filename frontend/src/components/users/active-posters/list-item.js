@@ -89,29 +89,29 @@ export default class extends React.Component {
           <div className="user-compact-stats visible-xs-block">
             <span className="rank-position">
               <strong>#{this.props.counter}</strong>
-              <small>{gettext("Rank")}</small>
+              <small>{"Κατάταξη"}</small>
             </span>
 
             <span className="rank-posts-counted">
               <strong>{this.props.user.meta.score}</strong>
-              <small>{gettext("Ranked posts")}</small>
+              <small>{"Αγγελίες στην κατάταξη"}</small>
             </span>
           </div>
         </div>
 
         <div className="rank-position hidden-xs">
           <strong>#{this.props.counter}</strong>
-          <small>{gettext("Rank")}</small>
+          <small>{"Κατάταξη"}</small>
         </div>
 
         <div className="rank-posts-counted hidden-xs">
           <strong>{this.props.user.meta.score}</strong>
-          <small>{gettext("Ranked posts")}</small>
+          <small>{"Αγγελίες στην κατάταξη"}</small>
         </div>
 
         <div className="rank-posts-total hidden-xs">
           <strong>{this.props.user.posts}</strong>
-          <small>{gettext("Total posts")}</small>
+          <small>{"Συνολικός αριθμός αγγελιών"}</small>
         </div>
       </li>
     )

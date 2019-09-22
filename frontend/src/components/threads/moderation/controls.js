@@ -84,7 +84,7 @@ export default class extends React.Component {
           value: 2
         }
       ],
-      gettext("Selected threads were pinned globally.")
+      "Οι επιλεγμένες αγγελίες προωθούνται σε όλη τη σελίδα."
     )
   }
 
@@ -97,7 +97,7 @@ export default class extends React.Component {
           value: 1
         }
       ],
-      gettext("Selected threads were pinned locally.")
+      "Οι επιλεγμένες αγγελίες προωθούνται σε αυτή τη συγκεκριμένη κατηγορία."
     )
   }
 
@@ -110,7 +110,7 @@ export default class extends React.Component {
           value: 0
         }
       ],
-      gettext("Selected threads were unpinned.")
+      "Οι επιλεγμένες αγγελίες δεν προωθούνται πλέον."
     )
   }
 
@@ -123,7 +123,7 @@ export default class extends React.Component {
           value: false
         }
       ],
-      gettext("Selected threads were approved.")
+      "Οι επιλεγμένες αγγελίες εγκρίθηκαν."
     )
   }
 
@@ -136,7 +136,7 @@ export default class extends React.Component {
           value: false
         }
       ],
-      gettext("Selected threads were opened.")
+      "Οι επιλεγμένες αγγελίες άνοιξαν για προσφορές."
     )
   }
 
@@ -149,7 +149,7 @@ export default class extends React.Component {
           value: true
         }
       ],
-      gettext("Selected threads were closed.")
+      "Οι επιλεγμένες αγγελίες έκλεισαν για προσφορές."
     )
   }
 
@@ -162,7 +162,7 @@ export default class extends React.Component {
           value: false
         }
       ],
-      gettext("Selected threads were unhidden.")
+      "Οι επιλεγμένες αγγελίες θα εμφανίζονται τώρα."
     )
   }
 
@@ -175,7 +175,7 @@ export default class extends React.Component {
           value: true
         }
       ],
-      gettext("Selected threads were hidden.")
+      "Οι επιλεγμένες αγγελίες θα είναι κρυμμένες τώρα."
     )
   }
 
@@ -199,18 +199,14 @@ export default class extends React.Component {
           id: thread.id,
           title: thread.title,
           errors: [
-            gettext(
-              "You don't have permission to merge this thread with others."
-            )
+              "Δεν έχεις άδεια να συγχωνεύσεις αυτή την αγγελία με άλλες!"
           ]
         })
       }
     })
 
     if (this.props.threads.length < 2) {
-      snackbar.info(
-        gettext("You have to select at least two threads to merge.")
-      )
+      snackbar.info("Πρέπει να επιλέξεις τουλάχιστον δύο αγγελίες για να τις συγχωνεύσεις.")
     } else if (errors.length) {
       modal.show(<ErrorsModal errors={errors} />)
       return
@@ -221,7 +217,7 @@ export default class extends React.Component {
 
   delete = () => {
     if (
-      !confirm(gettext("Are you sure you want to delete selected threads?"))
+      !confirm("Είσαι σίγουρος ότι θέλεις να διαγράψεις τις επιλεγμένες αγγελίες;")
     ) {
       return
     }
@@ -241,7 +237,7 @@ export default class extends React.Component {
           this.props.deleteThread(thread)
         })
 
-        snackbar.success(gettext("Selected threads were deleted."))
+        snackbar.success("Οι επιλεγμένες αγγελίες διαγράφηκαν.")
       },
       rejection => {
         if (rejection.status === 400) {
@@ -275,7 +271,7 @@ export default class extends React.Component {
           type="button"
         >
           <span className="material-icon">bookmark</span>
-          {gettext("Pin threads globally")}
+          {"Προώθησε αγγελίες σε όλη τη σελίδα"}
         </button>
       </li>
     )

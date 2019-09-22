@@ -8,7 +8,7 @@ export default function(props) {
       type="button"
     >
       <span className="material-icon">chat</span>
-      {gettext("Reply")}
+      {"Προσφορά"}
     </button>
   )
 }

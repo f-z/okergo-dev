@@ -30,7 +30,7 @@ export function JoinDate({ user }) {
   const { joined_on } = user
 
   let title = interpolate(
-    "Έκανε εγγραφή στις %(joined_on)s",
+    "Έκανε εγγραφή %(joined_on)s",
     {
       joined_on: joined_on.format("LL, LT")
     },
@@ -38,7 +38,7 @@ export function JoinDate({ user }) {
   )
 
   let message = interpolate(
-    "Έκανε εγγραφή στις %(joined_on)s",
+    "Έκανε εγγραφή %(joined_on)s",
     {
       joined_on: joined_on.fromNow()
     },

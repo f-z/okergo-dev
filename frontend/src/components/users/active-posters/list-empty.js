@@ -3,7 +3,7 @@ import React from "react"
 export default class extends React.Component {
   getEmptyMessage() {
     return interpolate(
-        "Κανένας χρήστης δεν έχει δημοσιποιήσει καινούρια αγγελία τις τελευταίες %(days)s μέρες.",
+        "Κανένας χρήστης δεν έχει δημοσιεύσει καινούρια αγγελία τις τελευταίες %(days)s μέρες.",
       { days: this.props.trackedPeriod },
       true
     )

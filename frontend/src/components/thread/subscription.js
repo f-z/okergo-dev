@@ -38,11 +38,11 @@ export function getIcon(subscription) {
 
 export function getLabel(subscription) {
   if (subscription === true) {
-    return gettext("E-mail")
+    return "Ειδοποιήσεις μέσω email"
   } else if (subscription === false) {
-    return gettext("Enabled")
+    return "Ενεργές ειδοποιήσεις"
   } else {
-    return gettext("Disabled")
+    return "Απενεργοποιημένες ειδοποιήσεις"
   }
 }
 
@@ -70,7 +70,7 @@ export class Disable extends React.Component {
       <li>
         <button className="btn btn-link" onClick={this.onClick}>
           <span className="material-icon">star_border</span>
-          {gettext("Unsubscribe")}
+          {"Απεγγραφή από ειδοποιήσεις"}
         </button>
       </li>
     )
@@ -91,7 +91,7 @@ export class Enable extends React.Component {
       <li>
         <button className="btn btn-link" onClick={this.onClick}>
           <span className="material-icon">star_half</span>
-          {gettext("Subscribe")}
+          {"Εγγραφή σε ειδοποιήσεις"}
         </button>
       </li>
     )
@@ -112,7 +112,7 @@ export class Email extends React.Component {
       <li>
         <button className="btn btn-link" onClick={this.onClick}>
           <span className="material-icon">star</span>
-          {gettext("Subscribe with e-mail")}
+          {"Εγγραφή σε ειδοποιήσεις μέσω email"}
         </button>
       </li>
     )

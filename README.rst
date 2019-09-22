@@ -155,3 +155,5 @@ Build instructions
 Run ``python setup.py bdist_wheel`` in okergo-dev folder.
 
 Get the wheel file from the dist folder that is created.
+
+To clean up previous builds, create the new one and automatically push the output to the production repo run ``./dev pushprod``

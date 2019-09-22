@@ -35,7 +35,7 @@ export function FirstPage(props) {
       <Link
         className="btn btn-default btn-block btn-outline btn-icon"
         to={props.thread.url.index}
-        title={gettext("Go to first page")}
+        title={"Πρώτη σελίδα"}
       >
         <span className="material-icon">first_page</span>
       </Link>
@@ -44,7 +44,7 @@ export function FirstPage(props) {
     return (
       <span
         className="btn btn-default btn-block btn-outline btn-icon disabled"
-        title={gettext("Go to first page")}
+        title={"Πρώτη σελίδα"}
       >
         <span className="material-icon">first_page</span>
       </span>
@@ -63,7 +63,7 @@ export function PreviousPage(props) {
       <Link
         className="btn btn-default btn-block btn-outline btn-icon"
         to={props.thread.url.index + previousUrl}
-        title={gettext("Go to previous page")}
+        title={"Προηγούμενη σελίδα"}
       >
         <span className="material-icon">chevron_left</span>
       </Link>
@@ -72,7 +72,7 @@ export function PreviousPage(props) {
     return (
       <span
         className="btn btn-default btn-block btn-outline btn-icon disabled"
-        title={gettext("Go to previous page")}
+        title={"Προηγούμενη σελίδα"}
       >
         <span className="material-icon">chevron_left</span>
       </span>
@@ -91,7 +91,7 @@ export function NextPage(props) {
       <Link
         className="btn btn-default btn-block btn-outline btn-icon"
         to={props.thread.url.index + nextUrl}
-        title={gettext("Go to next page")}
+        title={"Επόμενη σελίδα"}
       >
         <span className="material-icon">chevron_right</span>
       </Link>
@@ -100,7 +100,7 @@ export function NextPage(props) {
     return (
       <span
         className="btn btn-default btn-block btn-outline btn-icon disabled"
-        title={gettext("Go to next page")}
+        title={"Επόμενη σελίδα"}
       >
         <span className="material-icon">chevron_right</span>
       </span>
@@ -114,7 +114,7 @@ export function LastPage(props) {
       <Link
         className="btn btn-default btn-block btn-outline btn-icon"
         to={props.thread.url.index + props.posts.last + "/"}
-        title={gettext("Go to last page")}
+        title={"Τελευταία σελίδα"}
       >
         <span className="material-icon">last_page</span>
       </Link>
@@ -123,7 +123,7 @@ export function LastPage(props) {
     return (
       <span
         className="btn btn-default btn-block btn-outline btn-icon disabled"
-        title={gettext("Go to last page")}
+        title={"Τελευταία σελίδα"}
       >
         <span className="material-icon">last_page</span>
       </span>
@@ -134,14 +134,10 @@ export function LastPage(props) {
 export function More(props) {
   let message = null
   if (props.more) {
-    message = ngettext(
-      "There is %(more)s more post in this thread.",
-      "There are %(more)s more posts in this thread.",
-      props.more
-    )
+    message = "Υπάρχουν άλλες %(more)s προσφορές για αυτή την αγγελία."
     message = interpolate(message, { more: props.more }, true)
   } else {
-    message = gettext("There are no more posts in this thread.")
+    message = "Δεν υπάρχουν άλλες προσφορές για αυτή την αγγελία."
   }
 
   return <p>{message}</p>

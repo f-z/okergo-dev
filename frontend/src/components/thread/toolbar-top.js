@@ -52,9 +52,9 @@ export function GotoNew(props) {
       <a
         href={props.thread.url.new_post}
         className="btn btn-default btn-block btn-outline"
-        title={gettext("Go to first new post")}
+        title={"Πρώτη νέα προσφορά"}
       >
-        {gettext("New")}
+        {"Νέα"}
       </a>
     </div>
   )
@@ -70,9 +70,9 @@ export function GotoBestAnswer(props) {
       <a
         href={props.thread.url.best_answer}
         className="btn btn-default btn-block btn-outline"
-        title={gettext("Go to best answer")}
+        title={"Επιλεγμένη προσφορά"}
       >
-        {gettext("Best answer")}
+        {"Επιτυχής προσφορά"}
       </a>
     </div>
   )
@@ -88,9 +88,9 @@ export function GotoUnapproved(props) {
       <a
         href={props.thread.url.unapproved_post}
         className="btn btn-default btn-block btn-outline"
-        title={gettext("Go to first unapproved post")}
+        title={"Πρώτη μη εγκεκριμένη προσφορά"}
       >
-        {gettext("Unapproved")}
+        {"Μη εγκεκριμένη"}
       </a>
     </div>
   )
@@ -102,9 +102,9 @@ export function GotoLast(props) {
       <a
         href={props.thread.url.last_post}
         className="btn btn-default btn-block btn-outline"
-        title={gettext("Go to last post")}
+        title={"Τελευταία προσφορά"}
       >
-        {gettext("Last")}
+        {"Τελευταία"}
       </a>
     </div>
   )
@@ -119,7 +119,7 @@ export function CompactOptions(props) {
           href={props.thread.url.last_post}
           className="btn btn-default btn-block btn-outline"
         >
-          {gettext("Last post")}
+          {"Τελευταία προσφορά"}
         </a>
       </div>
     )
@@ -135,7 +135,7 @@ export function CompactOptions(props) {
         type="button"
       >
         <span className="material-icon">expand_more</span>
-        <span className="btn-text hidden-xs">{gettext("Options")}</span>
+        <span className="btn-text hidden-xs">{"Επιλογές"}</span>
       </button>
       <ul className="dropdown-menu">
         <StartPollCompact {...props} />
@@ -153,7 +153,7 @@ export function GotoNewCompact(props) {
   return (
     <li>
       <a href={props.thread.url.new_post} className="btn btn-link">
-        {gettext("Go to first new post")}
+        {"Πρώτη νέα προσφορά"}
       </a>
     </li>
   )
@@ -167,7 +167,7 @@ export function GotoUnapprovedCompact(props) {
   return (
     <li>
       <a href={props.thread.url.unapproved_post} className="btn btn-link">
-        {gettext("Go to first unapproved post")}
+        {"Πρώτη μη εγκεκριμένη προσφορά"}
       </a>
     </li>
   )
@@ -177,7 +177,7 @@ export function GotoLastCompact(props) {
   return (
     <li>
       <a href={props.thread.url.last_post} className="btn btn-link">
-        {gettext("Go to last post")}
+        {"Τελευταία προσφορά"}
       </a>
     </li>
   )
@@ -234,7 +234,7 @@ export class StartPoll extends React.Component {
           type="button"
         >
           <span className="material-icon">poll</span>
-          {gettext("Add poll")}
+          {"Προσθήκη poll"}
         </button>
       </div>
     )
@@ -250,7 +250,7 @@ export class StartPollCompact extends StartPoll {
     return (
       <li>
         <button className="btn btn-link" onClick={this.onClick} type="button">
-          {gettext("Add poll")}
+          {"Προσθήκη poll"}
         </button>
       </li>
     )

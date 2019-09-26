@@ -24,7 +24,7 @@ export default class extends React.Component {
 
   setSpecialProps() {
     this.PRELOADED_DATA_KEY = "PROFILE_FOLLOWERS"
-    this.TITLE = gettext("Followers")
+    this.TITLE = "Ακολουθούν"
     this.API_FILTER = "followers"
   }
 
@@ -133,13 +133,12 @@ export default class extends React.Component {
 
   getLabel() {
     if (!this.state.isLoaded) {
-      return gettext("Loading...")
+      return "Φορτώνει..."
     } else if (this.state.search) {
-      let message = ngettext(
-        "Found %(users)s user.",
-        "Found %(users)s users.",
-        this.state.count
-      )
+      let message = "Βρέθηκαν %(users)s χρήστες"
+      if (this.state.count === 1) {
+        message = "Βρέθηκε %(users)s χρήστης"
+      }
 
       return interpolate(
         message,
@@ -149,11 +148,10 @@ export default class extends React.Component {
         true
       )
     } else if (this.props.profile.id === this.props.user.id) {
-      let message = ngettext(
-        "You have %(users)s follower.",
-        "You have %(users)s followers.",
-        this.state.count
-      )
+      let message = "Σε ακολουθούν %(users)s χρήστες"
+      if (this.state.count === 1) {
+        message = "Σε ακολουθεί %(users)s χρήστης"
+      }
 
       return interpolate(
         message,
@@ -163,11 +161,10 @@ export default class extends React.Component {
         true
       )
     } else {
-      let message = ngettext(
-        "%(username)s has %(users)s follower.",
-        "%(username)s has %(users)s followers.",
-        this.state.count
-      )
+      let message = "Το χρήστη %(username)s τον ακολουθούν %(users)s χρήστες"
+      if (this.state.count === 1) {
+        message = "Το χρήστη %(username)s τον ακολουθεί %(users)s χρήστης"
+      }
 
       return interpolate(
         message,
@@ -182,12 +179,12 @@ export default class extends React.Component {
 
   getEmptyMessage() {
     if (this.state.search) {
-      return gettext("Search returned no users matching specified criteria.")
+      return "Η αναζήτηση δεν επέστρεψε κανένα χρήστη..."
     } else if (this.props.user.id === this.props.profile.id) {
-      return gettext("You have no followers.")
+      return "Δε σε ακολουθεί κανένας χρήστης"
     } else {
       return interpolate(
-        gettext("%(username)s has no followers."),
+        "Το χρήστη %(username)s δεν τον ακολουθεί κανένας άλλος χρήστης",
         {
           username: this.props.profile.username
         },
@@ -206,8 +203,7 @@ export default class extends React.Component {
           loading={this.state.isBusy}
           onClick={this.loadMore}
         >
-          {interpolate(
-            gettext("Show more (%(more)s)"),
+          {interpolate("(%(more)s) περισσότεροι",
             {
               more: this.state.more
             },
@@ -250,7 +246,7 @@ export default class extends React.Component {
             className="toolbar-right"
             value={this.state.search}
             onChange={this.search}
-            placeholder={gettext("Search users...")}
+            placeholder={"Αναζήτηση χρηστών..."}
           />
         </nav>
 

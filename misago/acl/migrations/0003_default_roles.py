@@ -176,7 +176,7 @@ def create_default_roles(apps, schema_editor):
             # private threads
             "misago.threads.permissions.privatethreads": {
                 "can_use_private_threads": 1,
-                "can_start_private_threads": 1,
+                "can_start_private_threads": 0,
                 "max_private_thread_participants": 3,
                 "can_add_everyone_to_private_threads": 0,
                 "can_report_private_threads": 1,

@@ -199,9 +199,7 @@ export function patch(props, ops, newState, previousState) {
 
 export function merge(props) {
   let confirmed = confirm(
-    gettext(
-      "Are you sure you want to merge selected posts? This action is not reversible!"
-    )
+      "Είσαι σίγουρος ότι θέλεις να συγχωνεύσεις τις συγκεκριμένες προσφορές; Αυτή η ενέργεια δεν είναι αναστρέψιμη!"
   )
   if (!confirmed) {
     return
@@ -245,9 +243,7 @@ export function merge(props) {
 
 export function remove(props) {
   let confirmed = confirm(
-    gettext(
-      "Are you sure you want to delete selected posts? This action is not reversible!"
-    )
+      "Είσαι σίγουρος ότι θέλεις να διαγράψεις τις επιλεγμένες προσφορές; Αυτή η ενέργεια δεν είναι αναστρέψιμη!"
   )
   if (!confirmed) {
     return

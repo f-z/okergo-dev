@@ -1,7 +1,7 @@
 import React from "react"
 
 const Header = ({ backendName }) => {
-  const pageTitleTpl = gettext("Sign in with %(backend)s")
+  const pageTitleTpl = "Συνδέσου μέσω %(backend)s"
   const pageTitle = interpolate(pageTitleTpl, { backend: backendName }, true)
 
   return (

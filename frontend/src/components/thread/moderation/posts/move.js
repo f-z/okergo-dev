@@ -26,7 +26,7 @@ export default class extends Form {
 
   clean() {
     if (!this.state.url.trim().length) {
-      snackbar.error(gettext("You have to enter link to the other thread."))
+      snackbar.error("Πρέπει να βάλεις το σύνδεσμο για την άλλη αγγελία!")
       return false
     }
 
@@ -51,7 +51,7 @@ export default class extends Form {
 
     modal.hide()
 
-    snackbar.success(gettext("Selected posts were moved to the other thread."))
+    snackbar.success("Οι επιλεγμένες προσφορές μετακινήθηκαν στην άλλη αγγελία")
   }
 
   handleError(rejection) {
@@ -75,7 +75,7 @@ export default class extends Form {
             <div className="modal-body">
               <FormGroup
                 for="id_url"
-                label={gettext("Link to thread you want to move posts to")}
+                label={"Σύνδεσμος της αγγελίας που θες να μετακινήσεις τις προσφορές"}
               >
                 <input
                   className="form-control"
@@ -93,13 +93,13 @@ export default class extends Form {
                 disabled={this.state.isLoading}
                 type="button"
               >
-                {gettext("Cancel")}
+                {"Ακύρωση"}
               </button>
               <button
                 className="btn btn-primary"
                 loading={this.state.isLoading}
               >
-                {gettext("Move posts")}
+                {"Μετακίνηση προσφορών"}
               </button>
             </div>
           </div>
@@ -113,14 +113,14 @@ export function ModalHeader(props) {
   return (
     <div className="modal-header">
       <button
-        aria-label={gettext("Close")}
+        aria-label={"Κλείσιμο"}
         className="close"
         data-dismiss="modal"
         type="button"
       >
         <span aria-hidden="true">&times;</span>
       </button>
-      <h4 className="modal-title">{gettext("Move posts")}</h4>
+      <h4 className="modal-title">{"Μετακίνηση προσφορών"}</h4>
     </div>
   )
 }

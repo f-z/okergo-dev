@@ -31,7 +31,7 @@ export function SearchTime(props) {
 
   if (time === null) return null
 
-  const copy = gettext("Search took %(time)s s to complete")
+  const copy = "Η αναζήτηση διήρκεσε %(time)s δευτερόλεπτα"
 
   return (
     <footer className="search-footer">

@@ -78,7 +78,7 @@ export default class extends Form {
           store.dispatch(posts.load(data.post_set))
           store.dispatch(thread.release())
 
-          snackbar.success(gettext("Thread has been moved."))
+          snackbar.success("Η αγγελία μετακινήθηκε")
           modal.hide()
         },
         rejection => {
@@ -108,7 +108,7 @@ export default class extends Form {
             <div className="modal-content">
               <ModalHeader />
               <div className="modal-body">
-                <FormGroup for="id_category" label={gettext("New category")}>
+                <FormGroup for="id_category" label={"Νέα κατηγορία"}>
                   <CategorySelect
                     choices={this.state.categories}
                     disabled={this.state.isLoading || this.props.thread.isBusy}
@@ -125,13 +125,13 @@ export default class extends Form {
                   disabled={this.state.isLoading}
                   type="button"
                 >
-                  {gettext("Cancel")}
+                  {"Ακύρωση"}
                 </button>
                 <button
                   className="btn btn-primary"
                   loading={this.state.isLoading || this.props.thread.isBusy}
                 >
-                  {gettext("Move thread")}
+                  {"Μετακίνηση αγγελίας"}
                 </button>
               </div>
             </div>
@@ -150,14 +150,14 @@ export function ModalHeader(props) {
   return (
     <div className="modal-header">
       <button
-        aria-label={gettext("Close")}
+        aria-label={"Κλείσιμο"}
         className="close"
         data-dismiss="modal"
         type="button"
       >
         <span aria-hidden="true">&times;</span>
       </button>
-      <h4 className="modal-title">{gettext("Move thread")}</h4>
+      <h4 className="modal-title">{"Μετακίνηση αγγελίας"}</h4>
     </div>
   )
 }
@@ -183,7 +183,7 @@ export function ModalMessage(props) {
         </div>
         <div className="message-body">
           <p className="lead">
-            {gettext("You can't move this thread at the moment.")}
+            {"Δεν μπορείς να μετακινήσεις την αγγελία αυτή τη στιγμή"}
           </p>
           <p>{props.message}</p>
           <button
@@ -191,7 +191,7 @@ export function ModalMessage(props) {
             data-dismiss="modal"
             type="button"
           >
-            {gettext("Ok")}
+            {"ΟΚ"}
           </button>
         </div>
       </div>

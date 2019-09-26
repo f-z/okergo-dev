@@ -42,14 +42,14 @@ export default class Register extends Form {
   }
 
   clean() {
-    let errors = this.validate()
+    this.validate()
     let lengths = [
       this.state.email.trim().length,
       this.state.username.trim().length
     ]
 
     if (lengths.indexOf(0) !== -1) {
-      snackbar.error(gettext("Fill out all fields."))
+      snackbar.error("Συμπλήρωσε όλα τα πεδία!")
       return false
     }
 
@@ -64,7 +64,7 @@ export default class Register extends Form {
     const checkPrivacyPolicy = !!misago.get("PRIVACY_POLICY_ID")
     if (checkPrivacyPolicy && this.state.privacyPolicy === null) {
       snackbar.error(validators.privacyPolicy[0](null))
-      snackbar.error(gettext("You need to accept the privacy policy."))
+      snackbar.error("Πρέπει να αποδεχτείς την πολιτική προστασίας δεδομένων!")
       return false
     }
 
@@ -131,9 +131,7 @@ export default class Register extends Form {
 
     let emailHelpText = null
     if (emailProtected) {
-      const emailHelpTextTpl = gettext(
-        "Your e-mail address has been verified by %(backend)s."
-      )
+      const emailHelpTextTpl = "Το email σου έχει επιβεβαιωθεί από %(backend)s."
       emailHelpText = interpolate(
         emailHelpTextTpl,
         { backend: backend_name },
@@ -151,13 +149,13 @@ export default class Register extends Form {
                 <div className="panel panel-default panel-form">
                   <div className="panel-heading">
                     <h3 className="panel-title">
-                      {gettext("Complete your details")}
+                      {"Συμπλήρωσε τα στοιχεία σου"}
                     </h3>
                   </div>
                   <div className="panel-body">
                     <FormGroup
                       for="id_username"
-                      label={gettext("Username")}
+                      label={"Όνομα χρήστη"}
                       validation={this.state.errors.username}
                     >
                       <input
@@ -171,7 +169,7 @@ export default class Register extends Form {
                     </FormGroup>
                     <FormGroup
                       for="id_email"
-                      label={gettext("E-mail address")}
+                      label={"Email"}
                       helpText={emailHelpText}
                       validation={
                         emailProtected ? null : this.state.errors.email
@@ -199,7 +197,7 @@ export default class Register extends Form {
                       className="btn-primary"
                       loading={this.state.isLoading}
                     >
-                      {gettext("Sign in")}
+                      {"Σύνδεση"}
                     </Button>
                   </div>
                 </div>

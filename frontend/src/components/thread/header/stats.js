@@ -11,14 +11,14 @@ export function Weight(props) {
     return (
       <li className="thread-pinned-globally">
         <span className="material-icon">bookmark</span>
-        <span className="icon-legend">{gettext("Pinned globally")}</span>
+        <span className="icon-legend">{"Προωθημένη σε όλη τη σελίδα"}</span>
       </li>
     )
   } else if (props.thread.weight == 1) {
     return (
       <li className="thread-pinned-locally">
         <span className="material-icon">bookmark_border</span>
-        <span className="icon-legend">{gettext("Pinned locally")}</span>
+        <span className="icon-legend">{"Προωθημένη σε αυτή την κατηγορία"}</span>
       </li>
     )
   } else {
@@ -31,14 +31,14 @@ export function Unapproved(props) {
     return (
       <li className="thread-unapproved">
         <span className="material-icon">remove_circle</span>
-        <span className="icon-legend">{gettext("Unapproved")}</span>
+        <span className="icon-legend">{"Μη εγκεκριμένη"}</span>
       </li>
     )
   } else if (props.thread.has_unapproved_posts) {
     return (
       <li className="thread-unapproved-posts">
         <span className="material-icon">remove_circle_outline</span>
-        <span className="icon-legend">{gettext("Unapproved posts")}</span>
+        <span className="icon-legend">{"Μη εγκεκριμένες προσφορές"}</span>
       </li>
     )
   } else {
@@ -51,7 +51,7 @@ export function IsHidden(props) {
     return (
       <li className="thread-hidden">
         <span className="material-icon">visibility_off</span>
-        <span className="icon-legend">{gettext("Hidden")}</span>
+        <span className="icon-legend">{"Κρυμμένη"}</span>
       </li>
     )
   } else {
@@ -64,7 +64,7 @@ export function IsClosed(props) {
     return (
       <li className="thread-closed">
         <span className="material-icon">lock_outline</span>
-        <span className="icon-legend">{gettext("Closed")}</span>
+        <span className="icon-legend">{"Κλειστή για καινούριες προσφορές"}</span>
       </li>
     )
   } else {
@@ -73,11 +73,11 @@ export function IsClosed(props) {
 }
 
 export function Replies(props) {
-  const message = ngettext(
-    "%(replies)s reply",
-    "%(replies)s replies",
-    props.thread.replies
-  )
+    let message = "%(replies)s προσφορές"
+  if (props.thread.replies === 1) {
+    message = "%(replies)s προσφορά"
+  }
+
   const legend = interpolate(message, { replies: props.thread.replies }, true)
 
   return (
@@ -119,7 +119,7 @@ export function LastReply(props) {
   )
 
   const message = interpolate(
-    escapeHtml(gettext("last reply by %(user)s %(date)s")),
+    escapeHtml("τελευταία προσφορά από %(user)s %(date)s"),
     {
       date,
       user

@@ -4,19 +4,22 @@ import Followers from "misago/components/profile/followers"
 export default class extends Followers {
   setSpecialProps() {
     this.PRELOADED_DATA_KEY = "PROFILE_FOLLOWS"
-    this.TITLE = gettext("Follows")
+    if (this.props.profile.id === this.props.user.id) {
+      this.TITLE = "Ακολουθείς"
+    } else {
+      this.TITLE = "Ακολουθεί"
+    }
     this.API_FILTER = "follows"
   }
 
   getLabel() {
     if (!this.state.isLoaded) {
-      return gettext("Loading...")
+      return "Φορτώνει..."
     } else if (this.state.search) {
-      let message = ngettext(
-        "Found %(users)s user.",
-        "Found %(users)s users.",
-        this.state.count
-      )
+      let message = "Βρέθηκαν %(users)s χρήστες"
+      if (this.state.count === 1) {
+        message = "Βρέθηκε %(users)s χρήστης"
+      }
 
       return interpolate(
         message,
@@ -26,11 +29,10 @@ export default class extends Followers {
         true
       )
     } else if (this.props.profile.id === this.props.user.id) {
-      let message = ngettext(
-        "You are following %(users)s user.",
-        "You are following %(users)s users.",
-        this.state.count
-      )
+      let message = "Ακολουθείς %(users)s χρήστες"
+      if (this.state.count === 1) {
+        message = "Ακολουθείς %(users)s χρήστη"
+      }
 
       return interpolate(
         message,
@@ -40,11 +42,10 @@ export default class extends Followers {
         true
       )
     } else {
-      let message = ngettext(
-        "%(username)s is following %(users)s user.",
-        "%(username)s is following %(users)s users.",
-        this.state.count
-      )
+      let message = "Ο χρήστης %(username)s ακολουθεί %(users)s χρήστες"
+      if (this.state.count === 1) {
+        message = "Ο χρήστης %(username)s ακολουθεί %(users)s χρήστη"
+      }
 
       return interpolate(
         message,
@@ -59,12 +60,11 @@ export default class extends Followers {
 
   getEmptyMessage() {
     if (this.state.search) {
-      return gettext("Search returned no users matching specified criteria.")
+      return "Η αναζήτηση δεν επέστρεψε κανένα χρήστη..."
     } else if (this.props.user.id === this.props.profile.id) {
-      return gettext("You are not following any users.")
+      return "Δεν ακολουθείς κανένα χρήστη"
     } else {
-      return interpolate(
-        gettext("%(username)s is not following any users."),
+      return interpolate("Ο χρήστης %(username)s δεν ακολουθεί κανένα χρήστη",
         {
           username: this.props.profile.username
         },

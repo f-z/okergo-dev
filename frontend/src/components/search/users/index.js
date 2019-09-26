@@ -18,14 +18,14 @@ export function Blankslate(props) {
   if (props.query.length) {
     return (
       <p className="lead">
-        {gettext("No users matching search query have been found.")}
+        {"Κανένας χρήστης δε βρέθηκε..."}
       </p>
     )
   }
 
   return (
     <p className="lead">
-      {gettext("Enter at least two characters to search users.")}
+      {"Βάλε τουλάχιστον δύο χαρακτήρες..."}
     </p>
   )
 }

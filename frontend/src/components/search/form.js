@@ -31,7 +31,7 @@ export default class extends Form {
 
   clean() {
     if (!this.state.query.trim().length) {
-      snackbar.error(gettext("You have to enter search query."))
+      snackbar.error("Πρέπει να βάλεις όρους αναζήτησης!")
       return false
     }
 
@@ -86,7 +86,7 @@ export default class extends Form {
             <div className="container">
               <div className="row">
                 <div className="col-xs-12 col-md-3">
-                  <h1>{gettext("Search")}</h1>
+                  <h1>{"Αναζήτηση"}</h1>
                 </div>
                 <div className="col-xs-12 col-md-9">
                   <div className="row xs-margin-top sm-margin-top">
@@ -110,7 +110,7 @@ export default class extends Form {
                           this.props.search.isLoading || this.state.isLoading
                         }
                       >
-                        {gettext("Search")}
+                        {"Αναζήτηση"}
                       </button>
                     </div>
                   </div>

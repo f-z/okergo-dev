@@ -92,7 +92,7 @@ export default class extends React.Component {
 
   componentDidMount() {
     title.set({
-      title: gettext("Username history"),
+      title: "Ιστορικό ονόματος χρήστη",
       parent: this.props.profile.username
     })
   }
@@ -124,13 +124,13 @@ export default class extends React.Component {
 
   getLabel() {
     if (!this.state.isLoaded) {
-      return gettext("Loading...")
+      return "Φορτώνει..."
     } else if (this.state.search) {
-      let message = ngettext(
-        "Found %(changes)s username change.",
-        "Found %(changes)s username changes.",
-        this.state.count
-      )
+      let message = "Βρέθηκαν %(changes)s αλλαγές ονόματος χρήστη"
+      if (this.state.count === 1) {
+        message = "Βρέθηκε %(changes)s αλλαγή ονόματος χρήστη"
+      }
+      
 
       return interpolate(
         message,
@@ -140,11 +140,10 @@ export default class extends React.Component {
         true
       )
     } else if (this.props.profile.id === this.props.user.id) {
-      let message = ngettext(
-        "Your username was changed %(changes)s time.",
-        "Your username was changed %(changes)s times.",
-        this.state.count
-      )
+      let message = "Το όνομα χρήστη σου έχει αλλάξει %(changes)s φορές"
+      if (this.state.count === 1) {
+        message = "Το όνομα χρήστη σου έχει αλλάξει %(changes)s φορά"
+      }
 
       return interpolate(
         message,
@@ -154,11 +153,10 @@ export default class extends React.Component {
         true
       )
     } else {
-      let message = ngettext(
-        "%(username)s's username was changed %(changes)s time.",
-        "%(username)s's username was changed %(changes)s times.",
-        this.state.count
-      )
+      let message = "Το όνομα χρήστη του %(username)s έχει αλλάξει %(changes)s φορές"
+      if (this.state.count === 1) {
+        message = "Το όνομα χρήστη του %(username)s έχει αλλάξει %(changes)s φορά"
+      }
 
       return interpolate(
         message,
@@ -173,14 +171,11 @@ export default class extends React.Component {
 
   getEmptyMessage() {
     if (this.state.search) {
-      return gettext(
-        "Search returned no username changes matching specified criteria."
-      )
+      return "Η αναζήτηση δεν επέστρεψε καμία αλλαγή ονόματος χρήστη"
     } else if (this.props.user.id === this.props.profile.id) {
-      return gettext("No name changes have been recorded for your account.")
+      return "Δεν έχεις αλλάξει ποτέ το όνομα χρήστη σου"
     } else {
-      return interpolate(
-        gettext("%(username)s's username was never changed."),
+      return interpolate("Το όνομα χρήστη του %(username)s δεν έχει αλλάξει ποτέ",
         {
           username: this.props.profile.username
         },
@@ -200,7 +195,7 @@ export default class extends React.Component {
           onClick={this.loadMore}
         >
           {interpolate(
-            gettext("Show older (%(more)s)"),
+            "Παλαιότερα (%(more)s)",
             {
               more: this.state.more
             },
@@ -221,7 +216,7 @@ export default class extends React.Component {
             className="toolbar-right"
             value={this.state.search}
             onChange={this.search}
-            placeholder={gettext("Search history...")}
+            placeholder={"Αναζήτηση ιστορικού..."}
           />
         </nav>
 

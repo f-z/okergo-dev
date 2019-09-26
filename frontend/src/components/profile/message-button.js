@@ -25,7 +25,7 @@ export default class extends React.Component {
         type="button"
       >
         <span className="material-icon">comment</span>
-        {gettext("Message")}
+        {"Μήνυμα"}
       </button>
     )
   }

@@ -22,14 +22,14 @@ export function Blankslate(props) {
   if (props.query.length) {
     return (
       <p className="lead">
-        {gettext("No threads matching search query have been found.")}
+        {"Καμία αγγελία δε βρέθηκε..."}
       </p>
     )
   }
 
   return (
     <p className="lead">
-      {gettext("Enter at least two characters to search threads.")}
+      {"Βάλε τουλάχιστον δύο χαρακτήρες..."}
     </p>
   )
 }

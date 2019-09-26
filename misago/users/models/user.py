@@ -196,16 +196,16 @@ class User(AbstractBaseUser, PermissionsMixin):
     )
 
     limits_private_thread_invites_to = models.PositiveIntegerField(
-        default=LIMIT_INVITES_TO_NONE, choices=LIMIT_INVITES_TO_CHOICES
+        default=LIMIT_INVITES_TO_NOBODY, choices=LIMIT_INVITES_TO_CHOICES
     )
     unread_private_threads = models.PositiveIntegerField(default=0)
     sync_unread_private_threads = models.BooleanField(default=False)
 
     subscribe_to_started_threads = models.PositiveIntegerField(
-        default=SUBSCRIPTION_NONE, choices=SUBSCRIPTION_CHOICES
+        default=SUBSCRIPTION_ALL, choices=SUBSCRIPTION_CHOICES
     )
     subscribe_to_replied_threads = models.PositiveIntegerField(
-        default=SUBSCRIPTION_NONE, choices=SUBSCRIPTION_CHOICES
+        default=SUBSCRIPTION_ALL, choices=SUBSCRIPTION_CHOICES
     )
 
     threads = models.PositiveIntegerField(default=0)

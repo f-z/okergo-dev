@@ -6,18 +6,18 @@ export default function({ errors, posts }) {
       <div className="modal-content">
         <div className="modal-header">
           <button
-            aria-label={gettext("Close")}
+            aria-label={"Κλείσιμο"}
             className="close"
             data-dismiss="modal"
             type="button"
           >
             <span aria-hidden="true">&times;</span>
           </button>
-          <h4 className="modal-title">{gettext("Moderation")}</h4>
+          <h4 className="modal-title">{"Διαχείριση"}</h4>
         </div>
         <div className="modal-body">
           <p className="lead">
-            {gettext("One or more posts could not be changed:")}
+            {"Μία ή περισσότερες αγγελίες δεν ήταν δυνατόν να αλλαχθούν:"}
           </p>
 
           <ul className="list-unstyled list-errored-items">
@@ -39,7 +39,7 @@ export default function({ errors, posts }) {
 
 export function PostErrors({ errors, post }) {
   const heading = interpolate(
-    gettext("%(username)s on %(posted_on)s"),
+    "%(username)s στις %(posted_on)s",
     {
       posted_on: post.posted_on.format("LL, LT"),
       username: post.poster_name

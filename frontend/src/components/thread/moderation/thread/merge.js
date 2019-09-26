@@ -26,7 +26,7 @@ export default class extends Form {
 
   clean() {
     if (!this.state.url.trim().length) {
-      snackbar.error(gettext("You have to enter link to the other thread."))
+      snackbar.error("Πρέπει να βάλεις το σύνδεσμο για την άλλη αγγελία!")
       return false
     }
 
@@ -52,7 +52,7 @@ export default class extends Form {
   }
 
   handleSuccessUnmounted = success => {
-    snackbar.success(gettext("Thread has been merged with other one."))
+    snackbar.success("Η αγγελίες έχουν συγχωνευθεί")
     window.location = success.url
   }
 
@@ -96,10 +96,8 @@ export default class extends Form {
             <div className="modal-body">
               <FormGroup
                 for="id_url"
-                label={gettext("Link to thread you want to merge with")}
-                help_text={gettext(
-                  "Merge will delete current thread and move its contents to the thread specified here."
-                )}
+                label={"Σύνδεσμος για την αγγελία που θες να συγχωνεύσεις"}
+                help_text={"Θα διαγραφεί η τωρινή αγγελία και θα μεταφερθούν τα περιεχόμενά της σε αυτή στο σύνδεσμο"}
               >
                 <input
                   className="form-control"
@@ -117,13 +115,13 @@ export default class extends Form {
                 disabled={this.state.isLoading}
                 type="button"
               >
-                {gettext("Cancel")}
+                {"Ακύρωση"}
               </button>
               <button
                 className="btn btn-primary"
                 loading={this.state.isLoading || this.props.thread.isBusy}
               >
-                {gettext("Merge thread")}
+                {"Συγχώνευση αγγελίας"}
               </button>
             </div>
           </div>
@@ -137,14 +135,14 @@ export function ModalHeader(props) {
   return (
     <div className="modal-header">
       <button
-        aria-label={gettext("Close")}
+        aria-label={"Κλείσιμο"}
         className="close"
         data-dismiss="modal"
         type="button"
       >
         <span aria-hidden="true">&times;</span>
       </button>
-      <h4 className="modal-title">{gettext("Merge thread")}</h4>
+      <h4 className="modal-title">}{"Συγχώνευση αγγελίας"}</h4>
     </div>
   )
 }

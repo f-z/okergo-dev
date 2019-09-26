@@ -1,8 +1,6 @@
 import React from "react"
 import { Link } from "react-router"
 import Li from "misago/components/li"
-import FollowButton from "misago/components/profile/follow-button"
-import misago from "misago/index"
 
 export class SideNav extends React.Component {
   render() {

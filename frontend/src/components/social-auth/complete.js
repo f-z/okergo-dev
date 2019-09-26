@@ -6,17 +6,11 @@ const Complete = ({ activation, backend_name, username }) => {
   let icon = ""
   let message = ""
   if (activation === "user") {
-    message = gettext(
-      "%(username)s, your account has been created but you need to activate it before you will be able to sign in."
-    )
+    message = "%(username)s, ο λογαριασμός σου έχει δημιουργηθεί, αλλά πρέπει να τον ενεργοποιήσεις"
   } else if (activation === "admin") {
-    message = gettext(
-      "%(username)s, your account has been created but board administrator will have to activate it before you will be able to sign in."
-    )
+    message = "%(username)s, ο λογαριασμός σου έχει δημιουργηθεί, αλλά ο διαχειριστής πρέπει να κάνει επιβεβαίωση των στοιχείων και να τον ενεργοποιήσει"
   } else {
-    message = gettext(
-      "%(username)s, your account has been created and you have been signed in to it."
-    )
+    message = "%(username)s, ο λογαριασμός σου έχει ενεργοποιηθεί και έχεις συνδεθεί"
   }
 
   if (activation === "active") {
@@ -34,7 +28,7 @@ const Complete = ({ activation, backend_name, username }) => {
             <div className="panel panel-default panel-form">
               <div className="panel-heading">
                 <h3 className="panel-title">
-                  {gettext("Registration completed!")}
+                  {"Επιτυχής εγγραφή!"}
                 </h3>
               </div>
               <div className="panel-body panel-message-body">
@@ -50,7 +44,7 @@ const Complete = ({ activation, backend_name, username }) => {
                       className="btn btn-default"
                       href={misago.get("MISAGO_PATH")}
                     >
-                      {gettext("Return to forum index")}
+                      {"Επιστροφή στην αρχική σελίδα"}
                     </a>
                   </p>
                 </div>

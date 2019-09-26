@@ -20,7 +20,7 @@ export default function(props) {
         disabled={!selection.length}
         type="button"
       >
-        {gettext("Posts options")}
+        {"Επιλογές αγγελιών"}
       </button>
       <Dropdown selection={selection} {...props} />
     </div>

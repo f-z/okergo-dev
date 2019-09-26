@@ -1,6 +1,5 @@
 import React from "react"
 import Avatar from "misago/components/avatar"
-import DropdownToggle from "misago/components/dropdown-toggle"
 import FollowButton from "./follow-button"
 import MessageButton from "./message-button"
 import ModerationNav from "./moderation/nav"
@@ -56,7 +55,7 @@ export default class extends React.Component {
 
   getJoinedOn() {
     let title = interpolate(
-      gettext("Joined on %(joined_on)s"),
+      "Έγινε μέλος %(joined_on)s",
       {
         joined_on: this.props.profile.joined_on.format("LL, LT")
       },
@@ -64,7 +63,7 @@ export default class extends React.Component {
     )
 
     let age = interpolate(
-      gettext("Joined %(joined_on)s"),
+      "Έγινε μέλος %(joined_on)s",
       {
         joined_on: this.props.profile.joined_on.fromNow()
       },
@@ -118,7 +117,7 @@ export default class extends React.Component {
               aria-expanded="false"
             >
               <span className="material-icon">tonality</span>
-              {gettext("Moderation")}
+              {"Διαχείριση"}
             </button>
             <ModerationNav profile={this.props.profile} />
           </div>
@@ -232,9 +231,9 @@ export function IsDisabledMessage({ isActive, isDeletingAccount }) {
 
   let message = null
   if (isDeletingAccount) {
-    message = gettext("This user is deleting their account.")
+    message = "Αυτός ο χρήστης έχει διαγράψει το λογαριασμό του"
   } else {
-    message = gettext("This user's account has been disabled by administrator.")
+    message = "Ο λογαριασμός αυτού του χρήστη έχει απενεργοποιηθεί από το διαχειριστή της σελίδας"
   }
 
   return (
@@ -247,16 +246,16 @@ export function IsDisabledMessage({ isActive, isDeletingAccount }) {
 export function getColStyle(cols, col) {
   let colStyle = ""
 
-  if (cols == 1) {
+  if (cols === 1) {
     colStyle = "col-xs-12"
   }
 
-  if (cols == 2) {
+  if (cols === 2) {
     colStyle = "col-xs-6 col-sm-6"
   }
 
-  if (cols == 3) {
-    if (col == 2) {
+  if (cols === 3) {
+    if (col === 2) {
       colStyle = "col-xs-12 col-sm-4 xs-margin-top"
     } else {
       colStyle += "col-xs-6 col-sm-4"

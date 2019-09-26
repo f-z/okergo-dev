@@ -40,7 +40,7 @@ export default class extends React.Component {
           value: 2
         }
       ],
-      gettext("Thread has been pinned globally.")
+      "Η αγγελία προωθείται σε όλη τη σελίδα"
     )
   }
 
@@ -53,7 +53,7 @@ export default class extends React.Component {
           value: 1
         }
       ],
-      gettext("Thread has been pinned locally.")
+      "Η αγγελία προωθείται σε αυτή την κατηγορία"
     )
   }
 
@@ -66,7 +66,7 @@ export default class extends React.Component {
           value: 0
         }
       ],
-      gettext("Thread has been unpinned.")
+      "Η αγγελία δεν προωθείται πλέον"
     )
   }
 
@@ -79,7 +79,7 @@ export default class extends React.Component {
           value: false
         }
       ],
-      gettext("Thread has been approved.")
+      "Η αγγελία εγκρίθηκε για δημοσίευση"
     )
   }
 
@@ -92,7 +92,7 @@ export default class extends React.Component {
           value: false
         }
       ],
-      gettext("Thread has been opened.")
+      "Η αγγελία άνοιξε για καινούριες προσφορές"
     )
   }
 
@@ -105,7 +105,7 @@ export default class extends React.Component {
           value: true
         }
       ],
-      gettext("Thread has been closed.")
+      "Η αγγελία έκλεισε για καινούριες προσφορές"
     )
   }
 
@@ -118,7 +118,7 @@ export default class extends React.Component {
           value: false
         }
       ],
-      gettext("Thread has been made visible.")
+      "Η αγγελία θα εμφανίζεται τώρα"
     )
   }
 
@@ -131,7 +131,7 @@ export default class extends React.Component {
           value: true
         }
       ],
-      gettext("Thread has been made hidden.")
+      "Η αγγελία θα είναι κρυμμένη από εδώ και πέρα"
     )
   }
 
@@ -146,7 +146,7 @@ export default class extends React.Component {
   }
 
   delete = () => {
-    if (!confirm(gettext("Are you sure you want to delete this thread?"))) {
+    if (!confirm("Είσαι σίγουρος ότι θέλεις να διαγράψεις αυτή την αγγελία;")) {
       return
     }
 
@@ -154,7 +154,7 @@ export default class extends React.Component {
 
     ajax.delete(this.props.thread.api.index).then(
       data => {
-        snackbar.success(gettext("Thread has been deleted."))
+        snackbar.success("Η αγγελία διαγράφηκε επιτυχώς")
         window.location = this.props.thread.category.url.index
       },
       rejection => {
@@ -176,7 +176,7 @@ export default class extends React.Component {
           type="button"
         >
           <span className="material-icon">bookmark</span>
-          {gettext("Pin globally")}
+          {"Προώθηση σε όλη τη σελίδα"}
         </button>
       </li>
     )
@@ -194,7 +194,7 @@ export default class extends React.Component {
           type="button"
         >
           <span className="material-icon">bookmark_border</span>
-          {gettext("Pin locally")}
+          {"Προώθηση σε αυτή την κατηγορία"}
         </button>
       </li>
     )
@@ -208,7 +208,7 @@ export default class extends React.Component {
       <li>
         <button className="btn btn-link" onClick={this.unpin} type="button">
           <span className="material-icon">panorama_fish_eye</span>
-          {gettext("Unpin")}
+          {"Τέλος προώθησης"}
         </button>
       </li>
     )
@@ -221,7 +221,7 @@ export default class extends React.Component {
       <li>
         <button className="btn btn-link" onClick={this.move} type="button">
           <span className="material-icon">arrow_forward</span>
-          {gettext("Move")}
+          {"Μετακίνηση"}
         </button>
       </li>
     )
@@ -234,7 +234,7 @@ export default class extends React.Component {
       <li>
         <button className="btn btn-link" onClick={this.merge} type="button">
           <span className="material-icon">call_merge</span>
-          {gettext("Merge")}
+          {"Συγχώνευση"}
         </button>
       </li>
     )
@@ -248,7 +248,7 @@ export default class extends React.Component {
       <li>
         <button className="btn btn-link" onClick={this.approve} type="button">
           <span className="material-icon">done</span>
-          {gettext("Approve")}
+          {"Έγκριση"}
         </button>
       </li>
     )
@@ -262,7 +262,7 @@ export default class extends React.Component {
       <li>
         <button className="btn btn-link" onClick={this.open} type="button">
           <span className="material-icon">lock_open</span>
-          {gettext("Open")}
+          {"Άνοιγμα για προσφορές"}
         </button>
       </li>
     )
@@ -276,7 +276,7 @@ export default class extends React.Component {
       <li>
         <button className="btn btn-link" onClick={this.close} type="button">
           <span className="material-icon">lock_outline</span>
-          {gettext("Close")}
+          {"Κλείσιμο για προσφορές"}
         </button>
       </li>
     )
@@ -290,7 +290,7 @@ export default class extends React.Component {
       <li>
         <button className="btn btn-link" onClick={this.unhide} type="button">
           <span className="material-icon">visibility</span>
-          {gettext("Unhide")}
+          {"Εμφάνιση"}
         </button>
       </li>
     )
@@ -304,7 +304,7 @@ export default class extends React.Component {
       <li>
         <button className="btn btn-link" onClick={this.hide} type="button">
           <span className="material-icon">visibility_off</span>
-          {gettext("Hide")}
+          {"Κρύψιμο"}
         </button>
       </li>
     )
@@ -317,7 +317,7 @@ export default class extends React.Component {
       <li>
         <button className="btn btn-link" onClick={this.delete} type="button">
           <span className="material-icon">clear</span>
-          {gettext("Delete")}
+          {"Διαγραφή"}
         </button>
       </li>
     )

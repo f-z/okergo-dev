@@ -33,10 +33,10 @@ export function PostBody(props) {
   return (
     <div className="panel-body panel-body-invalid">
       <p className="lead">
-        {gettext("This post's contents cannot be displayed.")}
+        {"Το περιεχόμενο αυτής της προσφοράς δεν μπορεί να εμφανιστεί"}
       </p>
       <p className="text-muted">
-        {gettext("This error is caused by invalid post content manipulation.")}
+        {"Αυτό το λάθος προκαλέστηκε από μη έγκυρη τροποποίηση της αγγελίας"}
       </p>
     </div>
   )

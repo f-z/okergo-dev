@@ -137,18 +137,25 @@ If you have corrected spelling, wrote new tests or fixed a bug, feel free to ope
 Many issues are open for takers. If you've found one you feel you could take care of, please announce your intent in issue discussion before you start working. That way situations when more than one person works on solving same issue can be avoided.
 
 
-Authors
+Author
 =======
 
-**Rafał Pitoń**
+**Filippos A. Zofakis**
 
-* http://rpiton.com
-* http://github.com/rafalp
-* https://twitter.com/RafalPiton
-
+* https://www.linkedin.com/in/filipzof/
+* http://github.com/f-z
 
 English sentences used within ``misago.faker.phrases`` were extracted from `National Aeronautics and Space Administration Solar System Exploration Portal <http://solarsystem.nasa.gov/planets/>`_ and are not copyrighted as per `Media and content usage guidelines <https://www.nasa.gov/multimedia/guidelines/index.html>`_.
 
+To stop postgresql:
+=====================
+Run ``./dev rebuild`` in okergo-dev folder.
+Then run:
+``pg_ctl stop -D /usr/local/var/postgresql@9.6/ -s -m fast``
+or
+``pg_ctl stop -D /usr/local/var/postgresql@9.6/ -mi``
+Finally:
+``rm -rf /usr/local/var/postgresql@9.6``
 
 Build instructions
 =====================

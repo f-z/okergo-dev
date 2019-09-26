@@ -46,7 +46,7 @@ export default class extends Form {
 
   clean() {
     if (!this.state.title.trim().length) {
-      snackbar.error(gettext("You have to enter thread title."))
+      snackbar.error("Πρέπει να βάλεις τίτλο αγγελίας!")
       return false
     }
 
@@ -107,9 +107,9 @@ export default class extends Form {
                       <button
                         className="btn btn-primary btn-block btn-outline"
                         disabled={this.state.isLoading}
-                        title={gettext("Change title")}
+                        title={"Αλλαγή τίτλου"}
                       >
-                        {gettext("Save changes")}
+                        {"Αποθήκευση"}
                       </button>
                     </div>
                     <div className="col-xs-6">
@@ -117,10 +117,10 @@ export default class extends Form {
                         className="btn btn-default btn-block btn-outline"
                         disabled={this.state.isLoading}
                         onClick={this.onCancel}
-                        title={gettext("Cancel")}
+                        title={"Ακύρωση"}
                         type="button"
                       >
-                        {gettext("Cancel")}
+                        {"Ακύρωση"}
                       </button>
                     </div>
                   </div>
@@ -154,11 +154,11 @@ export default class extends Form {
                     <button
                       className="btn btn-default btn-block btn-outline"
                       onClick={this.onEdit}
-                      title={gettext("Edit title")}
+                      title={"Αλλαγή τίτλου"}
                       type="button"
                     >
                       <span className="material-icon">edit</span>
-                      <span className="hidden-sm">{gettext("Edit")}</span>
+                      <span className="hidden-sm">{"Αλλαγή"}</span>
                     </button>
                   </div>
                   {showModeration && <Moderation {...this.props} />}
@@ -217,7 +217,7 @@ export function Moderation(props) {
           >
             <span className="material-icon">settings</span>
             <span className={props.isSingle ? "" : "hidden-sm"}>
-              {gettext("Moderation")}
+              {"Διαχείριση"}
             </span>
           </button>
           <ModerationControls

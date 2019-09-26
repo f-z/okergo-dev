@@ -69,7 +69,7 @@ def change_permissions_form(role):
 
 def build_acl(acl, roles, key_name):
     new_acl = {
-        "can_use_private_threads": 0,
+        "can_use_private_threads": 1,
         "can_start_private_threads": 0,
         "max_private_thread_participants": 3,
         "can_add_everyone_to_private_threads": 0,

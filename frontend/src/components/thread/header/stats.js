@@ -119,7 +119,7 @@ export function LastReply(props) {
   )
 
   const message = interpolate(
-    escapeHtml("τελευταία προσφορά από %(user)s %(date)s"),
+    escapeHtml("τελευταία δημοσίευση από %(user)s %(date)s"),
     {
       date,
       user

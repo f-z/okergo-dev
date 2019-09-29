@@ -91,7 +91,7 @@ export class Enable extends React.Component {
       <li>
         <button className="btn btn-link" onClick={this.onClick}>
           <span className="material-icon">star_half</span>
-          {"Εγγραφή σε ειδοποιήσεις"}
+          {"Εγγραφή σε ειδοποιήσεις στη σελίδα"}
         </button>
       </li>
     )

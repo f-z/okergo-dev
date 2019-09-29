@@ -234,7 +234,7 @@ export class StartPoll extends React.Component {
           type="button"
         >
           <span className="material-icon">poll</span>
-          {"Προσθήκη poll"}
+          {"Προσθήκη ψηφοφορίας"}
         </button>
       </div>
     )
@@ -250,7 +250,7 @@ export class StartPollCompact extends StartPoll {
     return (
       <li>
         <button className="btn btn-link" onClick={this.onClick} type="button">
-          {"Προσθήκη poll"}
+          {"Προσθήκη ψηφοφορίας"}
         </button>
       </li>
     )

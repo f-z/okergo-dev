@@ -53,7 +53,7 @@ export default class extends Form {
       {
         value: 1,
         icon: "star_half",
-        label: "Ειδοποιήσεις εδώ"
+        label: "Ειδοποιήσεις στη σελίδα"
       },
       {
         value: 2,

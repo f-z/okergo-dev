@@ -91,9 +91,7 @@ export function Empty({ category }) {
 
   return (
     <Message
-      message={gettext(
-        "This category is empty. No threads were posted within it so far."
-      )}
+      message={"Αυτή η κατηγορία είναι άδεια. Καμία αγγελία δεν έχει δημοσιευθεί εδώ μέχρι τώρα..."}
     />
   )
 }

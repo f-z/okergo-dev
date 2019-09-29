@@ -215,7 +215,7 @@ export class ModerationForm extends Form {
       }
     ]
 
-    if (this.acl[this.state.category].can_pin_threads == 2) {
+    if (this.acl[this.state.category].can_pin_threads === 2) {
       choices.push({
         value: 2,
         icon: "bookmark",

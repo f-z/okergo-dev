@@ -4,7 +4,7 @@ import Action from "./action"
 export default function(props) {
   return (
     <Action
-      execAction={makeStriketrough}
+      execAction={makeStrikethrough}
       title={"Τράβηγμα γραμμής"}
       {...props}
     >
@@ -13,7 +13,7 @@ export default function(props) {
   )
 }
 
-export function makeStriketrough(selection, replace) {
+export function makeStrikethrough(selection, replace) {
   if (selection.length) {
     replace("~~" + selection + "~~")
   }

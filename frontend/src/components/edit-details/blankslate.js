@@ -6,8 +6,8 @@ export default function({ display }) {
 
   return (
     <PanelMessage
-      helpText={gettext("No profile details are editable at this time.")}
-      message={gettext("This option is currently unavailable.")}
+      helpText={"Δεν μπορείς να αλλάξεις τα στοιχεία του προφίλ σου αυτή τη στιγμή"}
+      message={"Αυτή η επιλογή δεν είναι τωρινά διαθέσιμη"}
     />
   )
 }

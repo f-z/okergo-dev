@@ -31,7 +31,7 @@ export class ChangeAvatarError extends React.Component {
             data-dismiss="modal"
             type="button"
           >
-            {gettext("Ok")}
+            {"ΟΚ"}
           </button>
         </div>
       </div>
@@ -139,11 +139,11 @@ export default class extends React.Component {
               type="button"
               className="close"
               data-dismiss="modal"
-              aria-label={gettext("Close")}
+              aria-label={"Κλείσιμο"}
             >
               <span aria-hidden="true">&times;</span>
             </button>
-            <h4 className="modal-title">{gettext("Change your avatar")}</h4>
+            <h4 className="modal-title">{"Αλλαγή εικόνας χρήστη"}</h4>
           </div>
 
           {this.getBody()}

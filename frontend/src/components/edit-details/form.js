@@ -42,7 +42,7 @@ export default class extends Form {
 
   handleError(rejection) {
     if (rejection.status === 400) {
-      snackbar.error(gettext("Form contains errors."))
+      snackbar.error("Η φόρμα περιέχει λάθη!")
       this.setState({ errors: rejection })
     } else {
       snackbar.apiError(rejection)
@@ -79,7 +79,7 @@ export default class extends Form {
             onCancel={this.props.onCancel}
           />{" "}
           <Button className="btn-primary" loading={this.state.isLoading}>
-            {gettext("Save changes")}
+            {"Αποθήκευση αλλαγών"}
           </Button>
         </div>
       </form>
@@ -97,7 +97,7 @@ export function CancelButton({ onCancel, disabled }) {
       onClick={onCancel}
       type="button"
     >
-      {gettext("Cancel")}
+      {"Ακύρωση"}
     </button>
   )
 }

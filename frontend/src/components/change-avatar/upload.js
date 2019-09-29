@@ -21,7 +21,7 @@ export default class extends React.Component {
   validateFile(image) {
     if (image.size > this.props.options.upload.limit) {
       return interpolate(
-        gettext("Selected file is too big. (%(filesize)s)"),
+        "Το επιλεγμένο αρχείο έχει πολύ μεγάλο μέγεθος: (%(filesize)s)",
         {
           filesize: fileSize(image.size)
         },
@@ -29,7 +29,7 @@ export default class extends React.Component {
       )
     }
 
-    let invalidTypeMsg = gettext("Selected file type is not supported.")
+    let invalidTypeMsg = "Ο επιλεγμένος τύπος αρχείου δεν υποστηρίζεται"
     if (
       this.props.options.upload.allowed_mime_types.indexOf(image.type) === -1
     ) {
@@ -88,9 +88,7 @@ export default class extends React.Component {
             uploaded: data.detail
           })
 
-          snackbar.info(
-            gettext("Your image has been uploaded and you may now crop it.")
-          )
+          snackbar.info("Η εικόνα σου ανεβάστηκε επιτυχώς και μπορείς τώρα να την επεξεργαστείς!")
         },
         rejection => {
           if (rejection.status === 400 || rejection.status === 413) {
@@ -113,7 +111,7 @@ export default class extends React.Component {
     })
 
     return interpolate(
-      gettext("%(files)s files smaller than %(limit)s"),
+      "%(files)s αρχεία μικρότερα από %(limit)s",
       {
         files: extensions.join(", "),
         limit: fileSize(options.limit)
@@ -127,7 +125,7 @@ export default class extends React.Component {
       <div className="modal-body modal-avatar-upload">
         <Button className="btn-pick-file" onClick={this.pickFile}>
           <div className="material-icon">input</div>
-          {gettext("Select file")}
+          {"Επιλογή αρχείου"}
         </Button>
         <p className="text-muted">
           {this.getUploadRequirements(this.props.options.upload)}
@@ -138,7 +136,7 @@ export default class extends React.Component {
 
   getUploadProgressLabel() {
     return interpolate(
-      gettext("%(progress)s % complete"),
+      "%(progress)s % ολοκληρωμένο",
       {
         progress: this.state.progress
       },
@@ -186,7 +184,7 @@ export default class extends React.Component {
               disabled={!!this.state.image}
               className="btn-default btn-block"
             >
-              {gettext("Cancel")}
+              {"Ακύρωση"}
             </Button>
           </div>
         </div>

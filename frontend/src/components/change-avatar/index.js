@@ -65,7 +65,7 @@ export default class extends React.Component {
           disabled={this.state.isLoading}
           className="btn-default btn-block btn-avatar-gravatar"
         >
-          {gettext("Download my Gravatar")}
+          {"Κατέβασμα της εικόνας μου"}
         </Button>
       )
     } else {
@@ -82,7 +82,7 @@ export default class extends React.Component {
         disabled={this.state.isLoading}
         onClick={this.props.showCrop}
       >
-        {gettext("Re-crop uploaded image")}
+        {"Κόψε ξανά την ανεβασμένη εικόνα"}
       </Button>
     )
   }
@@ -96,7 +96,7 @@ export default class extends React.Component {
         disabled={this.state.isLoading}
         onClick={this.props.showUpload}
       >
-        {gettext("Upload new image")}
+        {"Ανέβασμα νέας εικόνας"}
       </Button>
     )
   }
@@ -110,7 +110,7 @@ export default class extends React.Component {
         disabled={this.state.isLoading}
         onClick={this.props.showGallery}
       >
-        {gettext("Pick avatar from gallery")}
+        {"Επιλογή εικόνας"}
       </Button>
     )
   }
@@ -150,7 +150,7 @@ export default class extends React.Component {
               disabled={this.state.isLoading}
               className="btn-default btn-block btn-avatar-generate"
             >
-              {gettext("Generate my individual avatar")}
+              {"Δημιουργία της προσωπικής μου εικόνας"}
             </Button>
 
             {this.getCropButton()}

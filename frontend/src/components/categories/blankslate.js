@@ -6,9 +6,7 @@ export default function(props) {
       <ul className="list-group">
         <li className="list-group-item empty-message">
           <p className="lead">
-            {gettext(
-              "Δεν υπάρχουν διαθέσιμες κατηγορίες εργασιών."
-            )}
+            {"Δεν υπάρχουν διαθέσιμες κατηγορίες εργασιών..."}
           </p>
         </li>
       </ul>

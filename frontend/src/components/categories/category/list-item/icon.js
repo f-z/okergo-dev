@@ -19,17 +19,17 @@ export function getClassName(category) {
 export function getTitle(category) {
   if (category.is_closed) {
     if (category.is_read) {
-      return gettext("This category has no new posts. (closed)")
+      return "Αυτή η κατηγορία είναι κλειστή τώρα και δεν έχει καινούριες προσφορές"
     }
 
-    return gettext("This category has new posts. (closed)")
+    return "Αυτή η κατηγορία είναι κλειστή τώρα, αλλά έχει καινούριες προσφορές"
   }
 
   if (category.is_read) {
-    return gettext("This category has no new posts.")
+    return "Αυτή η κατηγορία δεν έχει καινούριες προσφορές"
   }
 
-  return gettext("This category has new posts.")
+  return "Υπάρχουν καινούριες προσφορές σε αυτή την κατηγορία"
 }
 
 export function getIcon(category) {

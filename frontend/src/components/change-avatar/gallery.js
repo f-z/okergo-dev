@@ -1,7 +1,5 @@
 import React from "react"
-import Avatar from "misago/components/avatar"
 import Button from "misago/components/button"
-import misago from "misago/index"
 import ajax from "misago/services/ajax"
 import snackbar from "misago/services/snackbar"
 import batch from "misago/utils/batch"
@@ -154,8 +152,8 @@ export default class extends React.Component {
                 className="btn-primary btn-block"
               >
                 {this.state.selection
-                  ? gettext("Save choice")
-                  : gettext("Select avatar")}
+                  ? "Αποθήκευση επιλογής"
+                  : "Επιλογή εικόνας"}
               </Button>
 
               <Button
@@ -163,7 +161,7 @@ export default class extends React.Component {
                 disabled={this.state.isLoading}
                 className="btn-default btn-block"
               >
-                {gettext("Cancel")}
+                {"Ακύρωση"}
               </Button>
             </div>
           </div>

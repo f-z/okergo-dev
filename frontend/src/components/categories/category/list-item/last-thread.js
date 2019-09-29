@@ -102,9 +102,7 @@ export function Private({ category }) {
 
   return (
     <Message
-      message={gettext(
-        "This category is private. You can see only your own threads within it."
-      )}
+      message={"Αυτή η κατηγορία είναι πριβέ. Μπορείς να δεις μόνο τις δικές σου αγγελίες."}
     />
   )
 }
@@ -114,9 +112,7 @@ export function Protected({ category }) {
 
   return (
     <Message
-      message={gettext(
-        "This category is protected. You can't browse it's contents."
-      )}
+      message={"Αυτή η κατηγορία είναι κλειδωμένη. Δεν μπορείς να δεις τα περιεχόμενά της."}
     />
   )
 }

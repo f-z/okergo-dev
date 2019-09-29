@@ -5,7 +5,7 @@ export default function(props) {
   return (
     <Action
       execAction={makeEmphasis}
-      title={gettext("Emphase selection")}
+      title={"Προσθήκη έμφασης"}
       {...props}
     >
       <span className="material-icon">format_italic</span>

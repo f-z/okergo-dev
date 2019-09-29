@@ -55,7 +55,7 @@ export default class extends Form {
   }
 
   onCancel = () => {
-    const cancel = confirm(gettext("Are you sure you want to discard changes?"))
+    const cancel = confirm("Είσαι σίγουρος ότι δε θέλεις να κάνεις καμία αλλαγή;")
     if (cancel) {
       posting.close()
     }
@@ -85,7 +85,7 @@ export default class extends Form {
 
   clean() {
     if (!this.state.post.trim().length) {
-      snackbar.error(gettext("You have to enter a message."))
+      snackbar.error("Πρέπει να βάλεις τις λεπτομέρεις της προσφοράς!")
       return false
     }
 
@@ -108,7 +108,7 @@ export default class extends Form {
   }
 
   handleSuccess(success) {
-    snackbar.success(gettext("Reply has been edited."))
+    snackbar.success("Η προσφορά τροποποιήθηκε επιτυχώς!")
     window.location = success.url.index
 
     // keep form loading
@@ -150,7 +150,7 @@ export default class extends Form {
                   onProtect={this.onProtect}
                   onUnprotect={this.onUnprotect}
                   protect={this.state.protect}
-                  submitLabel={gettext("Edit reply")}
+                  submitLabel={"Τροποποίηση προσφοράς"}
                   value={this.state.post}
                 />
               </div>

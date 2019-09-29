@@ -2,12 +2,6 @@ import React from "react"
 import Avatar from "misago/components/avatar"
 import Controls from "misago/components/posts-list/post/controls"
 import Select from "misago/components/posts-list/post/select"
-import UserStatus, {
-  StatusIcon,
-  StatusLabel
-} from "misago/components/user-status"
-import UserPostcount from "./user-postcount"
-import UserTitle from "./user-title"
 
 export default function({ post, thread }) {
   return (
@@ -24,7 +18,7 @@ export default function({ post, thread }) {
           <span className="media-heading item-title">{post.poster_name}</span>
 
           <span className="user-title user-title-anonymous">
-            {gettext("Removed user")}
+            {"Διεγραμμένος χρήστης"}
           </span>
         </div>
       </div>

@@ -82,7 +82,7 @@ export default class extends Form {
 
   onCancel = () => {
     const cancel = confirm(
-      gettext("Are you sure you want to discard your reply?")
+      "Είσαι σίγουρος ότι δε θέλεις να στείλεις την προσφορά σου;"
     )
     if (cancel) {
       posting.close()
@@ -101,7 +101,7 @@ export default class extends Form {
 
   clean() {
     if (!this.state.post.trim().length) {
-      snackbar.error(gettext("You have to enter a message."))
+      snackbar.error("Πρέπει να βάλεις τις λεπτομέρειες της προσφοράς!")
       return false
     }
 
@@ -123,7 +123,7 @@ export default class extends Form {
   }
 
   handleSuccess(success) {
-    snackbar.success(gettext("Your reply has been posted."))
+    snackbar.success("Η προσφορά σου εστάλη επιτυχώς!")
     window.location = success.url.index
 
     // keep form loading
@@ -159,7 +159,7 @@ export default class extends Form {
                   onAttachmentsChange={this.onAttachmentsChange}
                   onCancel={this.onCancel}
                   onChange={this.onPostChange}
-                  submitLabel={gettext("Post reply")}
+                  submitLabel={"Αποστολή προσφοράς"}
                   value={this.state.post}
                 />
               </div>

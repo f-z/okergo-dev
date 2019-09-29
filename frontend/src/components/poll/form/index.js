@@ -64,7 +64,7 @@ export default class extends Form {
   }
 
   onCancel = () => {
-    const cancel = confirm(gettext("Are you sure you want to discard poll?"))
+    const cancel = confirm("Είσαι σίγουρος ότι δε θες να δημοσιεύσεις αυτή την ψηφοφορία;")
     if (cancel) {
       posting.close()
     }
@@ -91,9 +91,9 @@ export default class extends Form {
     store.dispatch(poll.replace(data))
 
     if (this.state.isEdit) {
-      snackbar.success(gettext("Poll has been edited."))
+      snackbar.success("Η ψηφοφορία τροποποιήθηκε επιτυχώς!")
     } else {
-      snackbar.success(gettext("Poll has been posted."))
+      snackbar.success("Η ψηφοφορία δημοσιεύθηκε επιτυχώς!")
     }
 
     posting.close()
@@ -109,7 +109,7 @@ export default class extends Form {
         errors: Object.assign({}, rejection)
       })
 
-      snackbar.error(gettext("Form contains errors."))
+      snackbar.error("Η φόρμα περιέχει λάθη!")
     } else {
       snackbar.apiError(rejection)
     }
@@ -123,10 +123,10 @@ export default class extends Form {
             <div className="panel panel-default panel-form">
               <div className="panel-body">
                 <fieldset>
-                  <legend>{gettext("Question and choices")}</legend>
+                  <legend>{"Ερώτηση και επιλογές"}</legend>
 
                   <FormGroup
-                    label={gettext("Poll question")}
+                    label={"Ερώτηση ψηφοφορίας"}
                     for="id_questions"
                     validation={this.state.errors.question}
                   >
@@ -142,7 +142,7 @@ export default class extends Form {
                   </FormGroup>
 
                   <FormGroup
-                    label={gettext("Available choices")}
+                    label={"Διαθέσιμες επιλογές"}
                     validation={this.state.errors.choices}
                   >
                     <ChoicesControl
@@ -154,15 +154,15 @@ export default class extends Form {
                 </fieldset>
 
                 <fieldset>
-                  <legend>{gettext("Voting")}</legend>
+                  <legend>{"Διαδικασία"}</legend>
 
                   <div className="row">
                     <div className="col-xs-12 col-sm-6">
                       <FormGroup
-                        label={gettext("Poll length")}
-                        helpText={gettext(
-                          "Enter number of days for which voting in this poll should be possible or zero to run this poll indefinitely."
-                        )}
+                        label={"Διάρκεια"}
+                        helpText={
+                          "Βάλε τον αριθμό των ημερών που θες να τρέξει η ψηφοφορία. Αν βάλεις μηδέν, θα είναι ανοιχτή επ' αόριστον."
+                        }
                         for="id_length"
                         validation={this.state.errors.length}
                       >
@@ -178,7 +178,7 @@ export default class extends Form {
                     </div>
                     <div className="col-xs-12 col-sm-6">
                       <FormGroup
-                        label={gettext("Allowed choices")}
+                        label={"Διαθέσιμες επιλογές"}
                         for="id_allowed_choices"
                         validation={this.state.errors.allowed_choices}
                       >
@@ -204,7 +204,7 @@ export default class extends Form {
                     />
                     <div className="col-xs-12 col-sm-6">
                       <FormGroup
-                        label={gettext("Allow vote changes")}
+                        label={"Να επιτρέπονται αλλαγές"}
                         for="id_allow_revotes"
                       >
                         <YesNoSwitch
@@ -212,12 +212,12 @@ export default class extends Form {
                           disabled={this.state.isLoading}
                           iconOn="check"
                           iconOff="close"
-                          labelOn={gettext(
-                            "Allow participants to change their vote"
-                          )}
-                          labelOff={gettext(
-                            "Don't allow participants to change their vote"
-                          )}
+                          labelOn={
+                            "Οι χρήστες να μπορούν να αλλάξουν την ψήφο τους"
+                          }
+                          labelOff={
+                            "Οι χρήστες να μην μπορούν να αλλάξουν την ψήφο τους"
+                          }
                           onChange={this.bindInput("allow_revotes")}
                           value={this.state.allow_revotes}
                         />
@@ -233,12 +233,12 @@ export default class extends Form {
                   onClick={this.onCancel}
                   type="button"
                 >
-                  {gettext("Cancel")}
+                  {"Ακύρωση"}
                 </button>{" "}
                 <Button className="btn-primary" loading={this.state.isLoading}>
                   {this.state.isEdit
-                    ? gettext("Save changes")
-                    : gettext("Post poll")}
+                    ? "Αποθήκευση αλλαγών"
+                    : "Δημοσίευση ψηφοφορίας"}
                 </Button>
               </div>
             </div>
@@ -255,10 +255,10 @@ export function PollPublicSwitch(props) {
   return (
     <div className="col-xs-12 col-sm-6">
       <FormGroup
-        label={gettext("Make voting public")}
-        helpText={gettext(
-          "Making voting public will allow everyone to access detailed list of votes, showing which users voted for which choices and at which times. This option can't be changed after poll's creation. Moderators may see voting details for all polls."
-        )}
+        label={"Ανοιχτή ψηφοφορία"}
+        helpText={
+          "Όλοι οι χρήστες θα μπορούν να δουν τις ψήφους αναλυτικά, για παράδειγμα ποιοι ψήφισαν για ποιες επιλογές και πότε ακριβώς. Αυτή η επιλογή δεν μπορεί να αλλάξει εκ των υστέρων. Οι διαχειριστές της σελίδας έχουν πρόσβαση σε όλες τις ψηφοφορίες."
+        }
         for="id_is_public"
       >
         <YesNoSwitch
@@ -266,8 +266,8 @@ export function PollPublicSwitch(props) {
           disabled={props.disabled}
           iconOn="visibility"
           iconOff="visibility_off"
-          labelOn={gettext("Votes are public")}
-          labelOff={gettext("Votes are hidden")}
+          labelOn={"Η ψηφοφορία είναι ανοιχτή"}
+          labelOff={"Η ψηφοφορία είναι κλειστή"}
           onChange={props.bindInput("is_public")}
           value={props.value}
         />

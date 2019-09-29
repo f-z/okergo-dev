@@ -8,7 +8,7 @@ export function FlagBestAnswer({ post, thread, user }) {
   let message = null
   if (user.id && thread.best_answer_marked_by === user.id) {
     message = interpolate(
-      gettext("Marked as best answer by you %(marked_on)s."),
+      "Επέλεξες ως καλύτερη προσφορά %(marked_on)s",
       {
         marked_on: thread.best_answer_marked_on.fromNow()
       },
@@ -16,7 +16,7 @@ export function FlagBestAnswer({ post, thread, user }) {
     )
   } else {
     message = interpolate(
-      gettext("Marked as best answer by %(marked_by)s %(marked_on)s."),
+      "Επιλέχθηκε ως καλύτερη προσφορά από %(marked_by)s %(marked_on)s",
       {
         marked_by: thread.best_answer_marked_by_name,
         marked_on: thread.best_answer_marked_on.fromNow()
@@ -42,9 +42,9 @@ export function FlagHidden(props) {
     <div className="post-status-message post-status-hidden">
       <span className="material-icon">visibility_off</span>
       <p>
-        {gettext(
-          "This post is hidden. Only users with permission may see its contents."
-        )}
+        {
+          "Αυτή η προσφορά είναι κρυμμένη. Μόνο εξουσιοδοτημένοι χρήστες μπορούν να δουν τις λεπτομέρειές της."
+        }
       </p>
     </div>
   )
@@ -59,9 +59,9 @@ export function FlagUnapproved(props) {
     <div className="post-status-message post-status-unapproved">
       <span className="material-icon">remove_circle_outline</span>
       <p>
-        {gettext(
-          "This post is unapproved. Only users with permission to approve posts and its author may see its contents."
-        )}
+        {
+          "Αυτή η προσφορά δεν έχει εγκριθεί. Μόνο ο χρήστης που την έκανε και χρήστες με εξουσιοδότηση να εγκρίνουν προσφορές μπορούν να δουν τις λεπτομέρειές της."
+        }
       </p>
     </div>
   )
@@ -75,7 +75,7 @@ export function FlagProtected(props) {
   return (
     <div className="post-status-message post-status-protected visible-xs-block">
       <span className="material-icon">lock_outline</span>
-      <p>{gettext("This post is protected. Only moderators may change it.")}</p>
+      <p>{"Αυτή η προσφορά είναι κλειδωμένη. Μόνο διαχειριστές μπορούν να την τροποποιήσουν."}</p>
     </div>
   )
 }

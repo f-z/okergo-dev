@@ -18,7 +18,7 @@ export default class extends React.Component {
 
   componentDidMount() {
     title.set({
-      title: gettext("Details"),
+      title: "Στοιχεία",
       parent: this.props.profile.username
     })
   }
@@ -36,10 +36,10 @@ export default class extends React.Component {
 
     let message = null
     if (isAuthenticated) {
-      message = gettext("Your details have been updated.")
+      message = "Τα στοιχεία σου ανανεώθηκαν επιτυχώς!"
     } else {
       message = interpolate(
-        gettext("%(username)s's details have been updated."),
+        "Τα στοιχεία του χρήστη %(username)s ανανεώθηκαν επιτυχώς!",
         {
           username: profile.username
         },

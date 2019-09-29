@@ -1,6 +1,5 @@
 import React from "react"
 import { connect } from "react-redux"
-import DropdownToggle from "misago/components/dropdown-toggle"
 import { SideNav, CompactNav } from "misago/components/options/navs"
 import DeleteAccount from "misago/components/options/delete-account"
 import EditDetails from "misago/components/options/edit-details"
@@ -18,7 +17,7 @@ export default class extends WithDropdown {
         <div className="page-header-bg">
           <div className="page-header">
             <div className="container">
-              <h1>{gettext("Change your options")}</h1>
+              <h1>{"Αλλαγή ρυθμίσεων"}</h1>
             </div>
             <div className="page-tabs visible-xs-block visible-sm-block">
               <div className="container">

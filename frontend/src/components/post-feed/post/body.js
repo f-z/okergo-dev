@@ -1,6 +1,5 @@
 import React from "react"
 import MisagoMarkup from "misago/components/misago-markup"
-import escapeHtml from "misago/utils/escape-html"
 
 export default function(props) {
   if (props.post.content) {
@@ -22,10 +21,10 @@ export function Invalid(props) {
   return (
     <div className="post-body post-body-invalid">
       <p className="lead">
-        {gettext("This post's contents cannot be displayed.")}
+        {"Οι λεπτομέρεις αυτής της προσφοράς δεν μπορούν να εμφανιστούν"}
       </p>
       <p className="text-muted">
-        {gettext("This error is caused by invalid post content manipulation.")}
+        {"Αυτό το λάθος προκαλέστηκε από μη έγκυρη τροποποίηση της προσφοράς"}
       </p>
     </div>
   )

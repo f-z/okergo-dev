@@ -1,10 +1,9 @@
 import React from "react"
 import Action from "./action"
-import isUrl from "misago/utils/is-url"
 
 export default function(props) {
   return (
-    <Action execAction={insertCode} title={gettext("Insert code")} {...props}>
+    <Action execAction={insertCode} title={"Εισαγωγή κώδικα"} {...props}>
       <span className="material-icon">functions</span>
     </Action>
   )
@@ -12,7 +11,7 @@ export default function(props) {
 
 export function insertCode(selection, replace) {
   const syntax = $.trim(
-    prompt(gettext("Enter name of syntax of your code (optional)") + ":")
+    prompt("Εισαγωγή ονόματος συντακτικής του κώδικα (προαιρετικά):")
   )
   replace("\n\n```" + syntax + "\n" + selection + "\n```\n\n")
 }

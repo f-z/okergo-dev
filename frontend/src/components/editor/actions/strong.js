@@ -5,7 +5,7 @@ export default function(props) {
   return (
     <Action
       execAction={makeStrong}
-      title={gettext("Bolder selection")}
+      title={"Έντονη γραμματοσειρά"}
       {...props}
     >
       <span className="material-icon">format_bold</span>

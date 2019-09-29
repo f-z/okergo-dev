@@ -55,7 +55,7 @@ export default class extends Form {
       // pick first category that allows posting and if it may, override it with initial one
       if (
         item.post !== false &&
-        (!category || item.id == this.state.category)
+        (!category || item.id === this.state.category)
       ) {
         category = item.id
         categoryOptions = item.post
@@ -89,7 +89,7 @@ export default class extends Form {
   }
 
   onCancel = () => {
-    const cancel = confirm(gettext("Are you sure you want to discard thread?"))
+    const cancel = confirm("Είσαι σίγουρος ότι δε θέλεις να δημοσιεύσεις αυτή την αγγελία;")
     if (cancel) {
       posting.close()
     }
@@ -158,12 +158,12 @@ export default class extends Form {
 
   clean() {
     if (!this.state.title.trim().length) {
-      snackbar.error(gettext("You have to enter thread title."))
+      snackbar.error("Πρέπει να βάλεις τίτλο στην αγγελία!")
       return false
     }
 
     if (!this.state.post.trim().length) {
-      snackbar.error(gettext("You have to enter a message."))
+      snackbar.error("Πρέπει να βάλεις μήνυμα στην αγγελία!")
       return false
     }
 
@@ -195,7 +195,7 @@ export default class extends Form {
   }
 
   handleSuccess(success) {
-    snackbar.success(gettext("Your thread has been posted."))
+    snackbar.success("Η αγγελία σου δημοσιεύθηκε επιτυχώς!")
     window.location = success.url
 
     // keep form loading
@@ -259,7 +259,7 @@ export default class extends Form {
                 className="form-control"
                 disabled={this.state.isLoading}
                 onChange={this.onTitleChange}
-                placeholder={gettext("Thread title")}
+                placeholder={"Τίτλος αγγελίας"}
                 type="text"
                 value={this.state.title}
               />
@@ -297,7 +297,7 @@ export default class extends Form {
                 onAttachmentsChange={this.onAttachmentsChange}
                 onCancel={this.onCancel}
                 onChange={this.onPostChange}
-                submitLabel={gettext("Post thread")}
+                submitLabel={"Δημοσίευση αγγελίας"}
                 value={this.state.post}
               />
             </div>

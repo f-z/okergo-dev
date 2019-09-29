@@ -79,7 +79,7 @@ export function ChangeVote(props) {
         onClick={props.showVoting}
         type="button"
       >
-        {gettext("Vote")}
+        {"Αλλαγή ψήφου"}
       </button>
     </div>
   )
@@ -103,7 +103,7 @@ export class SeeVotes extends React.Component {
           onClick={this.onClick}
           type="button"
         >
-          {gettext("See votes")}
+          {"Προβολή ψήφων"}
         </button>
       </div>
     )
@@ -133,7 +133,7 @@ export class Edit extends React.Component {
           onClick={this.onClick}
           type="button"
         >
-          {gettext("Edit")}
+          {"Επεξεργασία"}
         </button>
       </div>
     )
@@ -143,9 +143,7 @@ export class Edit extends React.Component {
 export class Delete extends React.Component {
   onClick = () => {
     const deletePoll = confirm(
-      gettext(
-        "Are you sure you want to delete this poll? This action is not reversible."
-      )
+        "Είσαι σίγουρος ότι θέλεις να διαγράψεις αυτή την ψηφοφορία;"
     )
     if (!deletePoll) return false
 
@@ -157,7 +155,7 @@ export class Delete extends React.Component {
   }
 
   handleSuccess = newThreadAcl => {
-    snackbar.success("Poll has been deleted")
+    snackbar.success("Η ψηφοφορία διαγράφηκε επιτυχώς!")
     store.dispatch(poll.remove())
     store.dispatch(thread.updateAcl(newThreadAcl))
   }
@@ -178,7 +176,7 @@ export class Delete extends React.Component {
           onClick={this.onClick}
           type="button"
         >
-          {gettext("Delete")}
+          {"Διαγραφή"}
         </button>
       </div>
     )

@@ -107,7 +107,7 @@ export function LoadMoreButton(props) {
         loading={props.isLoading}
         onClick={props.loadMore}
       >
-        {gettext("Show older activity")}
+        {"Προβολή παλαιότερης δραστηριότητας"}
       </Button>
     </div>
   )

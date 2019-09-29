@@ -8,8 +8,8 @@ import UnusablePasswordMessage from "./UnusablePasswordMessage"
 export default class extends React.Component {
   componentDidMount() {
     title.set({
-      title: gettext("Change email or password"),
-      parent: gettext("Change your options")
+      title: "Αλλαγή email ή κωδικού πρόσβασης",
+      parent: "Αλλαγή ρυθμίσεων"
     })
   }
 
@@ -26,7 +26,7 @@ export default class extends React.Component {
         <p className="message-line">
           <span className="material-icon">warning</span>
           <a href={misago.get("FORGOTTEN_PASSWORD_URL")}>
-            {gettext("Change forgotten password")}
+            {"Ξέχασα των κωδικό πρόσβασής μου"}
           </a>
         </p>
       </div>

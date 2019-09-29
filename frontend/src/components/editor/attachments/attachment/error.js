@@ -21,7 +21,7 @@ export default class extends React.Component {
     )
 
     const title = interpolate(
-      gettext("Error uploading %(filename)s"),
+      "Λάθος στο ανέβασμα %(filename)s",
       {
         filename,
         progress: this.props.item.progress + "%"
@@ -42,7 +42,7 @@ export default class extends React.Component {
             onClick={this.onClick}
             type="button"
           >
-            {gettext("Dismiss")}
+            {"ΟΚ"}
           </button>
         </div>
       </li>

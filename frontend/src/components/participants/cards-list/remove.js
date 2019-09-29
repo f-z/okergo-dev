@@ -12,12 +12,11 @@ export default class extends React.Component {
     let confirmed = false
     if (this.isUser) {
       confirmed = confirm(
-        gettext("Are you sure you want to leave this thread?")
+        "Είσαι σίγουρος ότι θέλεις να εγκαταλείψεις αυτή τη συνομιλία;"
       )
     } else {
-      const message = gettext(
-        "Are you sure you want to remove %(user)s from this thread?"
-      )
+      const message = "Είσαι σίγουρος ότι θέλεις να αφαιρέσεις το χρήστη %(user)s από αυτή τη συνομιλία;"
+
       confirmed = confirm(
         interpolate(
           message,
@@ -46,7 +45,7 @@ export default class extends React.Component {
     return (
       <li>
         <button className="btn btn-link" onClick={this.onClick} type="button">
-          {this.isUser ? gettext("Leave thread") : gettext("Remove")}
+          {this.isUser ? "Εγκατάλειψη συνομιλίας" : "Αφαίρεση χρήστη"}
         </button>
       </li>
     )

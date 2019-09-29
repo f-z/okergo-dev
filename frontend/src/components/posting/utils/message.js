@@ -15,7 +15,7 @@ export default function(props) {
           className="btn btn-default"
           onClick={posting.close}
         >
-          {gettext("Dismiss")}
+          {"ΟΚ"}
         </button>
       </div>
     </Container>

@@ -1,9 +1,4 @@
 import React from "react"
-import escapeHtml from "misago/utils/escape-html"
-
-const DATE_ABBR = '<abbr title="%(absolute)s">%(relative)s</abbr>'
-const USER_SPAN = '<span class="item-title">%(user)s</span>'
-const USER_URL = '<a href="%(url)s" class="item-title">%(user)s</a>'
 
 export default function(props) {
   return (
@@ -18,16 +13,15 @@ export function PollChoicesLeft({ choicesLeft }) {
   if (choicesLeft === 0) {
     return (
       <li className="poll-help-choices-left">
-        {gettext("You can't select any more choices.")}
+        {"Δεν μπορείς να διαλέξεις παραπάνω επιλογές"}
       </li>
     )
   }
 
-  const message = ngettext(
-    "You can select %(choices)s more choice.",
-    "You can select %(choices)s more choices.",
-    choicesLeft
-  )
+  let message = "Μπορείς να διαλέξεις %(choices)s ακόμα επιλογές"
+  if (choicesLeft === 1) {
+    message = "Μπορείς να διαλέξεις %(choices)s ακόμα επιλογή"
+  }
 
   const label = interpolate(
     message,
@@ -44,10 +38,10 @@ export function PollAllowRevote(props) {
   if (props.poll.allow_revotes) {
     return (
       <li className="poll-help-allow-revotes">
-        {gettext("You can change your vote later.")}
+        {"Μπορείς να αλλάξεις την ψήφο σου αργότερα"}
       </li>
     )
   }
 
-  return <li className="poll-help-no-revotes">{gettext("Votes are final.")}</li>
+  return <li className="poll-help-no-revotes">{"Οι ψήφοι είναι τελικές"}</li>
 }

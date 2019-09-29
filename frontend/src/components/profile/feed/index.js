@@ -4,10 +4,10 @@ import Route from "./route"
 export function Threads(props) {
   let emptyMessage = null
   if (props.user.id === props.profile.id) {
-    emptyMessage = gettext("You have no started threads.")
+    emptyMessage = "Δεν έχεις δημοσιεύσει καμία αγγελία"
   } else {
     emptyMessage = interpolate(
-      gettext("%(username)s started no threads."),
+      "Ο χρήστης %(username)s δεν έχει δημοσιεύσει καμία αγγελία",
       {
         username: props.profile.username
       },
@@ -17,13 +17,12 @@ export function Threads(props) {
 
   let header = null
   if (!props.posts.isLoaded) {
-    header = gettext("Loading...")
+    header = "Φορτώνει..."
   } else if (props.profile.id === props.user.id) {
-    const message = ngettext(
-      "You have started %(threads)s thread.",
-      "You have started %(threads)s threads.",
-      props.profile.threads
-    )
+    let message = "Έχεις δημοσιεύσει %(threads)s αγγελίες"
+    if (props.profile.threads === 1) {
+      message = "Έχεις δημοσιεύσει %(threads)s αγγελία"
+    }
 
     header = interpolate(
       message,
@@ -33,11 +32,10 @@ export function Threads(props) {
       true
     )
   } else {
-    const message = ngettext(
-      "%(username)s has started %(threads)s thread.",
-      "%(username)s has started %(threads)s threads.",
-      props.profile.threads
-    )
+    let message = "Ο χρήστης %(username)s έχει δημοσιεύσει %(threads)s αγγελίες"
+    if (props.profile.threads === 1) {
+      message = "Ο χρήστης %(username)s έχει δημοσιεύσει %(threads)s αγγελία"
+    }
 
     header = interpolate(
       message,
@@ -54,7 +52,7 @@ export function Threads(props) {
       api={props.profile.api.threads}
       emptyMessage={emptyMessage}
       header={header}
-      title={gettext("Threads")}
+      title={"Αγγελίες"}
       {...props}
     />
   )
@@ -63,10 +61,10 @@ export function Threads(props) {
 export function Posts(props) {
   let emptyMessage = null
   if (props.user.id === props.profile.id) {
-    emptyMessage = gettext("You have posted no messages.")
+    emptyMessage = "Δεν έχεις κάνει καμία προσφορά"
   } else {
     emptyMessage = interpolate(
-      gettext("%(username)s posted no messages."),
+      "Ο χρήστης %(username)s δεν έχει κάνει καμία προσφορά",
       {
         username: props.profile.username
       },
@@ -76,13 +74,12 @@ export function Posts(props) {
 
   let header = null
   if (!props.posts.isLoaded) {
-    header = gettext("Loading...")
+    header = "Φορτώνει..."
   } else if (props.profile.id === props.user.id) {
-    const message = ngettext(
-      "You have posted %(posts)s message.",
-      "You have posted %(posts)s messages.",
-      props.profile.posts
-    )
+    let message = "Έχεις κάνει %(posts)s προσφορές"
+    if (props.profile.posts === 1) {
+      message = "Έχεις κάνει %(posts)s προσφορά"
+    }
 
     header = interpolate(
       message,
@@ -92,11 +89,10 @@ export function Posts(props) {
       true
     )
   } else {
-    const message = ngettext(
-      "%(username)s has posted %(posts)s message.",
-      "%(username)s has posted %(posts)s messages.",
-      props.profile.posts
-    )
+    let message = "Ο χρήστης %(username)s έχει κάνει %(posts)s προσφορές"
+    if (props.profile.posts === 1) {
+      message = "Ο χρήστης %(username)s έχει κάνει %(posts)s προσφορά"
+    }
 
     header = interpolate(
       message,
@@ -113,7 +109,7 @@ export function Posts(props) {
       api={props.profile.api.posts}
       emptyMessage={emptyMessage}
       header={header}
-      title={gettext("Posts")}
+      title={"Προσφορές"}
       {...props}
     />
   )

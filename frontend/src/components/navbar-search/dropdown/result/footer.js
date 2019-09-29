@@ -2,11 +2,10 @@ import React from "react"
 
 export default function({ provider, query }) {
   const url = provider.url + "?q=" + encodeURI(query)
-  const label = ngettext(
-    'See full "%(provider)s" results page with %(count)s result.',
-    'See full "%(provider)s" results page with %(count)s results.',
-    provider.count
-  )
+  let label = 'Δες ολόκληρη τη σελίδα αποτελεσμάτων του χρήστη "%(provider)s" με %(count)s αποτελέσματα'
+  if (provider.count === 1) {
+    label = 'Δες ολόκληρη τη σελίδα αποτελεσμάτων του χρήστη "%(provider)s" με %(count)s αποτέλεσμα'
+  }
 
   return (
     <li className="dropdown-search-footer">

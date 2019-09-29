@@ -54,11 +54,10 @@ export function ChoiceVotes(props) {
 }
 
 export function getVotesLabel(votes, proc) {
-  const message = ngettext(
-    "%(votes)s vote, %(proc)s% of total.",
-    "%(votes)s votes, %(proc)s% of total.",
-    votes
-  )
+  let message = "%(votes)s ψήφοι, %(proc)s% του συνόλου"
+  if (votes === 1) {
+    message = "%(votes)s ψήφος, %(proc)s% του συνόλου"
+  }
 
   return interpolate(
     message,
@@ -76,7 +75,7 @@ export function UserChoice(props) {
   return (
     <li className="poll-chart-selected">
       <span className="material-icon">check_box</span>
-      {gettext("Your choice.")}
+      {"Η επιλογή σου"}
     </li>
   )
 }

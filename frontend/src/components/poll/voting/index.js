@@ -45,7 +45,7 @@ export default class extends Form {
     if (!choicesLeft) {
       for (const i in this.state.choices.slice()) {
         const item = this.state.choices[i]
-        if (item.selected && item.hash != hash) {
+        if (item.selected && item.hash !== hash) {
           item.selected = false
           break
         }
@@ -54,7 +54,7 @@ export default class extends Form {
 
     return this.state.choices.map(choice => {
       return Object.assign({}, choice, {
-        selected: choice.hash == hash ? true : choice.selected
+        selected: choice.hash === hash ? true : choice.selected
       })
     })
   }
@@ -62,14 +62,14 @@ export default class extends Form {
   deselectChoice = (choice, hash) => {
     return this.state.choices.map(choice => {
       return Object.assign({}, choice, {
-        selected: choice.hash == hash ? false : choice.selected
+        selected: choice.hash === hash ? false : choice.selected
       })
     })
   }
 
   clean() {
     if (this.state.choicesLeft === this.props.poll.allowed_choices) {
-      snackbar.error(gettext("You need to select at least one choice"))
+      snackbar.error("Πρέπει να διαλέξεις τουλάχιστον μία επιλογή!")
       return false
     }
 
@@ -90,7 +90,7 @@ export default class extends Form {
 
   handleSuccess(data) {
     store.dispatch(poll.replace(data))
-    snackbar.success(gettext("Your vote has been saved."))
+    snackbar.success("Η ψήφος σου καταμετρήθηκε επιτυχώς!")
 
     this.props.showResults()
   }
@@ -134,7 +134,7 @@ export default class extends Form {
                   className="btn-primary btn-block btn-sm"
                   loading={this.state.isLoading}
                 >
-                  {gettext("Save your vote")}
+                  {"Αποστολή ψήφου"}
                 </Button>
               </div>
               <div className={getClassName(controls, 1)}>
@@ -144,7 +144,7 @@ export default class extends Form {
                   onClick={this.props.showResults}
                   type="button"
                 >
-                  {gettext("See results")}
+                  {"Αποτελέσματα"}
                 </button>
               </div>
               <Edit

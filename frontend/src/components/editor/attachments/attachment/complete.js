@@ -166,9 +166,7 @@ export function Details(props) {
 
   const message = interpolate(
     escapeHtml(
-      gettext(
-        "%(filetype)s, %(size)s, uploaded by %(uploader)s %(uploaded_on)s."
-      )
+      "%(filetype)s, %(size)s, ανεβάστηκε από %(uploader)s %(uploaded_on)s"
     ),
     {
       filetype: props.item.filetype,
@@ -206,7 +204,7 @@ export function Insert(props) {
         onClick={props.onInsert}
         type="button"
       >
-        {gettext("Insert")}
+        {"Εισαγωγή"}
       </button>
     </div>
   )
@@ -224,7 +222,7 @@ export function Remove(props) {
         onClick={props.onRemove}
         type="button"
       >
-        {gettext("Remove")}
+        {"Αφαίρεση"}
       </button>
     </div>
   )
@@ -242,7 +240,7 @@ export function Undo(props) {
         onClick={props.onUndo}
         type="button"
       >
-        {gettext("Undo removal")}
+        {"Ακύρωση αφαίρεσης"}
       </button>
     </div>
   )

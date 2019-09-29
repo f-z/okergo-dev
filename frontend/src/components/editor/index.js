@@ -5,7 +5,7 @@ import Hr from "./actions/hr"
 import Image from "./actions/image"
 import Link from "./actions/link"
 import Spoiler from "./actions/Spoiler"
-import Striketrough from "./actions/striketrough"
+import Strikethrough from "./actions/strikethrough"
 import Strong from "./actions/strong"
 import Quote from "./actions/quote"
 import AttachmentsEditor from "./attachments"
@@ -111,7 +111,7 @@ export default class extends React.Component {
               disabled={this.props.loading || this.state.isPreviewLoading}
               replaceSelection={this.replaceSelection}
             />
-            <Striketrough
+            <Strikethrough
               className="btn-default btn-sm pull-left"
               disabled={this.props.loading || this.state.isPreviewLoading}
               replaceSelection={this.replaceSelection}
@@ -157,13 +157,13 @@ export default class extends React.Component {
             onClick={this.onPreviewClick}
             type="button"
           >
-            {gettext("Preview")}
+            {"Προεπισκόπηση"}
           </Button>
           <Button
             className="btn-primary btn-sm pull-right"
             loading={this.props.loading}
           >
-            {this.props.submitLabel || gettext("Post")}
+            {this.props.submitLabel || "Δημοσίευση"}
           </Button>
           <button
             className="btn btn-default btn-sm pull-right"
@@ -171,7 +171,7 @@ export default class extends React.Component {
             onClick={this.props.onCancel}
             type="button"
           >
-            {gettext("Cancel")}
+            {"Ακύρωση"}
           </button>
           <div className="clearfix visible-xs-block" />
           <Protect
@@ -196,7 +196,7 @@ export default class extends React.Component {
 export function Protect(props) {
   if (!props.canProtect) return null
 
-  const label = props.protect ? gettext("Protected") : gettext("Protect")
+  const label = props.protect ? "Κλειδωμένη" : "Κλείδωμα"
 
   return (
     <button

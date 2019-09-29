@@ -4,7 +4,7 @@ import isUrl from "misago/utils/is-url"
 
 export default function(props) {
   return (
-    <Action execAction={insertImage} title={gettext("Insert image")} {...props}>
+    <Action execAction={insertImage} title={"Εισαγωγή εικόνας"} {...props}>
       <span className="material-icon">insert_photo</span>
     </Action>
   )
@@ -22,8 +22,8 @@ export function insertImage(selection, replace) {
     }
   }
 
-  url = $.trim(prompt(gettext("Enter link to image") + ":", url))
-  label = $.trim(prompt(gettext("Enter image label (optional)") + ":", label))
+  url = $.trim(prompt(`Εισαγωγή συνδέσμου εικόνας:{url}`))
+  label = $.trim(prompt(`Εισαγωγή ονόματος εικόνας (προαιρετικά):{label}`))
 
   if (url.length) {
     if (label.length > 0) {

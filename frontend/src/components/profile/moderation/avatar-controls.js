@@ -64,7 +64,7 @@ export default class extends Form {
 
   handleSuccess(apiResponse) {
     store.dispatch(updateAvatar(this.props.profile, apiResponse.avatar_hash))
-    snackbar.success(gettext("Avatar controls have been changed."))
+    snackbar.success("Οι επιλογές εικόνας άλλαξαν επιτυχώς!")
   }
 
   getFormBody() {
@@ -72,10 +72,10 @@ export default class extends Form {
       <form onSubmit={this.handleSubmit}>
         <div className="modal-body">
           <FormGroup
-            label={gettext("Lock avatar")}
-            helpText={gettext(
-              "Locking user avatar will prohibit user from changing his avatar and will reset his/her avatar to default one."
-            )}
+            label={"Κλείδωμα εικόνας"}
+            helpText={
+              "Το κλείδωμα απαγορεύει αλλαγή από το χρήστη και επιβάλει τη χρήση προκαθορισμένης εικόνας"
+            }
             for="id_is_avatar_locked"
           >
             <YesNoSwitch
@@ -83,18 +83,18 @@ export default class extends Form {
               disabled={this.state.isLoading}
               iconOn="lock_outline"
               iconOff="lock_open"
-              labelOn={gettext("Disallow user from changing avatar")}
-              labelOff={gettext("Allow user to change avatar")}
+              labelOn={"Απαγόρευση αλλαγής εικόνας από το χρήστη"}
+              labelOff={"Επιτρέπεται η αλλαγή εικόνας από το χρήστη"}
               onChange={this.bindInput("is_avatar_locked")}
               value={this.state.is_avatar_locked}
             />
           </FormGroup>
 
           <FormGroup
-            label={gettext("User message")}
-            helpText={gettext(
-              "Optional message for user explaining why he/she is prohibited form changing avatar."
-            )}
+            label={"Μήνυμα χρήστη"}
+            helpText={
+              "Προαιρετικό μήνυμα που εξηγεί στο χρήστη την απαγόρευση αλλαγής εικόνας"
+            }
             for="id_avatar_lock_user_message"
           >
             <textarea
@@ -108,10 +108,10 @@ export default class extends Form {
           </FormGroup>
 
           <FormGroup
-            label={gettext("Staff message")}
-            helpText={gettext(
-              "Optional message for forum team members explaining why user is prohibited form changing avatar."
-            )}
+            label={"Μήνυμα διαχειριστών"}
+            helpText={
+              "Προεραιτικό μήνυμα που εξηγεί στους διαχειριστές την απαγόρευση αλλαγής εικόνας"
+            }
             for="id_avatar_lock_staff_message"
           >
             <textarea
@@ -130,10 +130,10 @@ export default class extends Form {
             className="btn btn-default"
             data-dismiss="modal"
           >
-            {gettext("Close")}
+            {"Κλείσιμο"}
           </button>
           <Button className="btn-primary" loading={this.state.isLoading}>
-            {gettext("Save changes")}
+            {"Αποθήκευση αλλαγών"}
           </Button>
         </div>
       </form>
@@ -169,11 +169,11 @@ export default class extends Form {
               type="button"
               className="close"
               data-dismiss="modal"
-              aria-label={gettext("Close")}
+              aria-label={"Κλείσιμο"}
             >
               <span aria-hidden="true">&times;</span>
             </button>
-            <h4 className="modal-title">{gettext("Avatar controls")}</h4>
+            <h4 className="modal-title">{"Επιλογές εικόνας"}</h4>
           </div>
           {this.getModalBody()}
         </div>

@@ -159,9 +159,7 @@ export function patch(props, ops, previousState) {
 
 export function remove(props) {
   let confirmed = confirm(
-    gettext(
-      "Are you sure you want to delete this post? This action is not reversible!"
-    )
+      "Είσαι σίγουρος ότι θέλεις να διαγράψεις αυτή την προσφορά;"
   )
   if (!confirmed) {
     return
@@ -175,7 +173,7 @@ export function remove(props) {
 
   ajax.delete(props.post.api.index).then(
     () => {
-      snackbar.success(gettext("Post has been deleted."))
+      snackbar.success("Η προσφορά διαγράφηκε επιτυχώς!")
     },
     rejection => {
       if (rejection.status === 400) {

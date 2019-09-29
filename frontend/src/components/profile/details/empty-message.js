@@ -3,10 +3,10 @@ import React from "react"
 export default function({ isAuthenticated, profile }) {
   let message = null
   if (isAuthenticated) {
-    message = gettext("You are not sharing any details with others.")
+    message = "Δε μοιράζεσαι τα στοιχεία σου με άλλους χρήστες"
   } else {
     message = interpolate(
-      gettext("%(username)s is not sharing any details with others."),
+      "Ο χρήστης %(username)s δε μοιράζεται τα στοιχεία του με άλλους χρήστες",
       {
         username: profile.username
       },

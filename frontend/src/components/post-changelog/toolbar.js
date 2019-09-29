@@ -72,7 +72,7 @@ export function GoBackBtn(props) {
       className="btn-default btn-block btn-icon btn-sm"
       disabled={props.disabled || !props.edit.previous}
       onClick={props.onClick}
-      title={gettext("See previous change")}
+      title={"Δες την προηγούμενη τροποίηση"}
     >
       <span className="material-icon">chevron_left</span>
     </Button>
@@ -85,7 +85,7 @@ export function GoForwardBtn(props) {
       className="btn-default btn-block btn-icon btn-sm"
       disabled={props.disabled || !props.edit.next}
       onClick={props.onClick}
-      title={gettext("See previous change")}
+      title={"Δες την επόμενη τροποίηση"}
     >
       <span className="material-icon">chevron_right</span>
     </Button>
@@ -98,7 +98,7 @@ export function GoLastBtn(props) {
       className="btn-default btn-block btn-icon btn-sm"
       disabled={props.disabled || !props.edit.next}
       onClick={props.onClick}
-      title={gettext("See previous change")}
+      title={"Δες την προηγούμενη τροποίηση"}
     >
       <span className="material-icon">last_page</span>
     </Button>
@@ -114,9 +114,9 @@ export function RevertBtn(props) {
         className="btn-default btn-sm btn-block"
         disabled={props.disabled}
         onClick={props.onClick}
-        title={gettext("Revert post to state from before this edit.")}
+        title={"Επαναφορά προσφοράς στην προηγούμενη κατάσταση"}
       >
-        {gettext("Revert")}
+        {"Επαναφορά"}
       </Button>
     </div>
   )
@@ -153,7 +153,7 @@ export function Label(props) {
   )
 
   const message = interpolate(
-    escapeHtml(gettext("By %(edited_by)s %(edited_on)s.")),
+    escapeHtml("Από το χρήστη %(edited_by)s %(edited_on)s"),
     {
       edited_by: user,
       edited_on: date

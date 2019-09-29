@@ -54,7 +54,7 @@ export class MarkAsBestAnswer extends React.Component {
         type="button"
       >
         <span className="material-icon">check_box</span>
-        {gettext("Best answer")}
+        {"Επιλεγμένη προσφορά"}
       </button>
     )
   }
@@ -109,7 +109,7 @@ export class Like extends React.Component {
         onClick={this.onClick}
         type="button"
       >
-        {this.props.post.is_liked ? gettext("Liked") : gettext("Like")}
+        {this.props.post.is_liked ? "Ενδιαφέρομαι" : "Εκδήλωση ενδιαφέροντος"}
       </button>
     )
   }
@@ -174,9 +174,9 @@ export class LikesCompact extends Likes {
 export function getLikesMessage(likes, users) {
   const usernames = users.slice(0, 3).map(u => u.username)
 
-  if (usernames.length == 1) {
+  if (usernames.length === 1) {
     return interpolate(
-      gettext("%(user)s likes this."),
+      "%(user)s ενδιαφέρεται",
       {
         user: usernames[0]
       },
@@ -190,7 +190,7 @@ export function getLikesMessage(likes, users) {
   const lastUser = usernames.slice(-1)[0]
 
   const usernamesList = interpolate(
-    gettext("%(users)s and %(last_user)s"),
+    "%(users)s και %(last_user)s",
     {
       users: otherUsers,
       last_user: lastUser
@@ -200,7 +200,7 @@ export function getLikesMessage(likes, users) {
 
   if (hiddenLikes === 0) {
     return interpolate(
-      gettext("%(users)s like this."),
+      "Ο χρήστης %(users)s ενδιαφέρεται",
       {
         users: usernamesList
       },
@@ -208,11 +208,10 @@ export function getLikesMessage(likes, users) {
     )
   }
 
-  const message = ngettext(
-    "%(users)s and %(likes)s other user like this.",
-    "%(users)s and %(likes)s other users like this.",
-    hiddenLikes
-  )
+  let message = "Ο χρήστης %(users)s και %(likes)s άλλοι χρήστες ενδιαφέρονται"
+  if (hiddenLikes === 1) {
+    message = "Ο χρήστης %(users)s και %(likes)s άλλος χρήστης ενδιαφέρονται"
+  }
 
   return interpolate(
     message,
@@ -246,7 +245,7 @@ export class Reply extends React.Component {
           type="button"
           onClick={this.onClick}
         >
-          {gettext("Reply")}
+          {"Προσφορά"}
         </button>
       )
     } else {
@@ -273,7 +272,7 @@ export class Edit extends React.Component {
           type="button"
           onClick={this.onClick}
         >
-          {gettext("Edit")}
+          {"Επεξεργασία"}
         </button>
       )
     } else {

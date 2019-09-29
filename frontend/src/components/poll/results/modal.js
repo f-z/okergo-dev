@@ -56,11 +56,11 @@ export default class extends React.Component {
               type="button"
               className="close"
               data-dismiss="modal"
-              aria-label={gettext("Close")}
+              aria-label={"Κλείσιμο"}
             >
               <span aria-hidden="true">&times;</span>
             </button>
-            <h4 className="modal-title">{gettext("Poll votes")}</h4>
+            <h4 className="modal-title">{"Ψήφοι"}</h4>
           </div>
 
           <ModalBody
@@ -108,11 +108,10 @@ export function ChoiceDetails(props) {
 }
 
 export function VotesCount(props) {
-  const message = ngettext(
-    "%(votes)s user has voted for this choice.",
-    "%(votes)s users have voted for this choice.",
-    props.votes
-  )
+  let message = "%(votes)s χρήστες ψήφισαν αυτή την επιλογή"
+  if (props.votes === 1) {
+    message = "%(votes)s χρήστης ψήφισε αυτή την επιλογή"
+  }
 
   const label = interpolate(
     message,

@@ -1,11 +1,6 @@
 import React from "react"
 import Controls from "./controls"
 import Select from "./select"
-import {
-  StatusIcon,
-  getStatusClassName,
-  getStatusDescription
-} from "misago/components/user-status"
 import PostChangelog from "misago/components/post-changelog"
 import modal from "misago/services/modal"
 
@@ -29,7 +24,7 @@ export function UnreadLabel(props) {
   if (props.post.is_read) return null
 
   return (
-    <span className="label label-unread hidden-xs">{gettext("New post")}</span>
+    <span className="label label-unread hidden-xs">{"Νέα προσφορά"}</span>
   )
 }
 
@@ -38,14 +33,14 @@ export function UnreadCompact(props) {
 
   return (
     <span className="label label-unread visible-xs-inline-block">
-      {gettext("New")}
+      {"Νέα"}
     </span>
   )
 }
 
 export function PostedOn(props) {
   const tooltip = interpolate(
-    gettext("posted %(posted_on)s"),
+    "Δημοσιεύθηκε %(posted_on)s",
     {
       posted_on: props.post.posted_on.format("LL, LT")
     },
@@ -85,11 +80,10 @@ export class PostEdits extends React.Component {
     const isUnedited = this.props.post.edits === 0
     if (isHidden || isUnedited) return null
 
-    const tooltip = ngettext(
-      "This post was edited %(edits)s time.",
-      "This post was edited %(edits)s times.",
-      this.props.post.edits
-    )
+    let tooltip = "Αυτή η προσφορά τροποποιήθηκε %(edits)s φορές"
+    if (this.props.post.edits === 1) {
+      tooltip = "Αυτή η προσφορά τροποποιήθηκε %(edits)s φορά"
+    }
 
     const title = interpolate(
       tooltip,
@@ -99,11 +93,10 @@ export class PostEdits extends React.Component {
       true
     )
 
-    const label = ngettext(
-      "edited %(edits)s time",
-      "edited %(edits)s times",
-      this.props.post.edits
-    )
+    let label = "τροποποιήθηκε %(edits)s φορές"
+    if (this.props.post.edits === 1) {
+      label = "τροποποιήθηκε %(edits)s φορά"
+    }
 
     return (
       <button
@@ -131,11 +124,10 @@ export class PostEditsCompacts extends PostEdits {
     const isUnedited = this.props.post.edits === 0
     if (isHidden || isUnedited) return null
 
-    const label = ngettext(
-      "%(edits)s edit",
-      "%(edits)s edits",
-      this.props.post.edits
-    )
+    let label = "%(edits)s τροποποιήσεις"
+    if (this.props.post.edits === 1) {
+      label = "%(edits)s τροποποίηση"
+    }
 
     return (
       <button
@@ -168,10 +160,10 @@ export function ProtectedLabel(props) {
   return (
     <span
       className="label label-protected hidden-xs"
-      title={gettext("This post is protected and may not be edited.")}
+      title={"Αυτή η προσφορά είναι προστατευμένη και δεν μπορεί να τροποποιηθεί"}
     >
       <span className="material-icon">lock_outline</span>
-      {gettext("protected")}
+      {"προστατευμένη"}
     </span>
   )
 }

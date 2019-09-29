@@ -18,8 +18,8 @@ export default class DownloadData extends React.Component {
 
   componentDidMount() {
     title.set({
-      title: gettext("Download your data"),
-      parent: gettext("Change your options")
+      title: "Κατέβασμα των δεδομένων σου",
+      parent: "Αλλαγή ρυθμίσεων"
     })
 
     this.handleLoadDownloads()
@@ -45,7 +45,7 @@ export default class DownloadData extends React.Component {
       () => {
         this.handleLoadDownloads()
         snackbar.success(
-          gettext("Your request for data download has been registered.")
+          "Η αίτηση σου για κατέβασμα των δεδομένων σου εστάλη επιτυχώς!"
         )
         this.setState({ isSubmiting: false })
       },
@@ -62,26 +62,22 @@ export default class DownloadData extends React.Component {
       <div>
         <div className="panel panel-default panel-form">
           <div className="panel-heading">
-            <h3 className="panel-title">{gettext("Download your data")}</h3>
+            <h3 className="panel-title">{"Κατέβασμα των δεδομένων σου"}</h3>
           </div>
           <div className="panel-body">
             <p>
-              {gettext(
-                'To download your data from the site, click the "Request data download" button. Depending on amount of data to be archived and number of users wanting to download their data at same time it may take up to few days for your download to be prepared. An e-mail with notification will be sent to you when your data is ready to be downloaded.'
-              )}
+              {'Για να κατεβάσεις τα δεδομένα σου από αυτή τη σελίδα, κάνε κλικ στο "Αίτηση για κατέβασμα δεδομένων". Η επεξεργασία της αίτησης μπορεί να πάρει μέχρι και λίγες μέρες, ανάλογα το μέγεθος των αρχείων και τον αριθμό χρηστών που έχουν εκκρεμείς αιτήσεις. Όταν τα δεδομένα σου είναι έτοιμα για κατέβασμα, θα λάβεις ένα email ως ειδοποίηση.'}
             </p>
 
             <p>
-              {gettext(
-                "The download will only be available for limited amount of time, after which it will be deleted from the site and marked as expired."
-              )}
+              {"Θα είναι διαθέσιμα για κατέβασμα για περιορισμένο χρόνο."}
             </p>
           </div>
           <table className="table">
             <thead>
               <tr>
-                <th>{gettext("Requested on")}</th>
-                <th className="col-md-4">{gettext("Download")}</th>
+                <th>{"Αιτήθηκε"}</th>
+                <th className="col-md-4">{"Κατέβασμα"}</th>
               </tr>
             </thead>
             <tbody>
@@ -100,9 +96,9 @@ export default class DownloadData extends React.Component {
                   </tr>
                 )
               })}
-              {this.state.downloads.length == 0 ? (
+              {this.state.downloads.length === 0 ? (
                 <tr>
-                  <td colSpan="2">{gettext("You have no data downloads.")}</td>
+                  <td colSpan="2">{"Δεν έχεις αρχεία δεδομένων προς κατέβασμα"}</td>
                 </tr>
               ) : null}
             </tbody>
@@ -114,7 +110,7 @@ export default class DownloadData extends React.Component {
               type="button"
               onClick={this.handleRequestDataDownload}
             >
-              {gettext("Request data download")}
+              {"Αίτηση για κατέβασμα δεδομένων"}
             </Button>
           </div>
         </div>
@@ -138,7 +134,7 @@ const DownloadButton = ({ exportFile, status }) => {
         disabled={true}
         type="button"
       >
-        {gettext("Download is being prepared")}
+        {"Η αίτηση για κατέβασμα είναι υπό επεξεργασία..."}
       </Button>
     )
   }
@@ -146,7 +142,7 @@ const DownloadButton = ({ exportFile, status }) => {
   if (exportFile) {
     return (
       <a className="btn btn-success btn-sm btn-block" href={exportFile}>
-        {gettext("Download your data")}
+        {"Κατέβασμα των δεδομένων σου"}
       </a>
     )
   }
@@ -157,7 +153,7 @@ const DownloadButton = ({ exportFile, status }) => {
       disabled={true}
       type="button"
     >
-      {gettext("Download is expired")}
+      {"Το αρχείο για κατέβασμα έχει λήξει..."}
     </Button>
   )
 }

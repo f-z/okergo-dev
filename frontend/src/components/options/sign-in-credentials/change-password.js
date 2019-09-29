@@ -33,7 +33,7 @@ export default class extends Form {
     ]
 
     if (lengths.indexOf(0) !== -1) {
-      snackbar.error(gettext("Fill out all fields."))
+      snackbar.error("Συμπλήρωσε όλα τα πεδία!")
       return false
     }
 
@@ -43,7 +43,7 @@ export default class extends Form {
     }
 
     if (this.state.new_password !== this.state.repeat_password) {
-      snackbar.error(gettext("New passwords are different."))
+      snackbar.error("Οι καινούριοι κωδικοί πρόσβασης δεν ταιριάζουν!")
       return false
     }
 
@@ -86,10 +86,10 @@ export default class extends Form {
         <input type="password" style={{ display: "none" }} />
         <div className="panel panel-default panel-form">
           <div className="panel-heading">
-            <h3 className="panel-title">{gettext("Change password")}</h3>
+            <h3 className="panel-title">{"Αλλαγή κωδικού πρόσβασης"}</h3>
           </div>
           <div className="panel-body">
-            <FormGroup label={gettext("New password")} for="id_new_password">
+            <FormGroup label={"Νέος κωδικός"} for="id_new_password">
               <input
                 type="password"
                 id="id_new_password"
@@ -101,7 +101,7 @@ export default class extends Form {
             </FormGroup>
 
             <FormGroup
-              label={gettext("Repeat password")}
+              label={"Επανάληψη κωδικού"}
               for="id_repeat_password"
             >
               <input
@@ -117,7 +117,7 @@ export default class extends Form {
             <hr />
 
             <FormGroup
-              label={gettext("Your current password")}
+              label={"Ο καινούριος κωδικός σου"}
               for="id_confirm_password"
             >
               <input
@@ -132,7 +132,7 @@ export default class extends Form {
           </div>
           <div className="panel-footer">
             <Button className="btn-primary" loading={this.state.isLoading}>
-              {gettext("Change password")}
+              {"Αλλαγή κωδικού πρόσβασης"}
             </Button>
           </div>
         </div>

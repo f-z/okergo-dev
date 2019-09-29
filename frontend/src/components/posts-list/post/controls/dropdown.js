@@ -32,7 +32,7 @@ export class Permalink extends React.Component {
     permaUrl += window.location.host
     permaUrl += this.props.post.url.index
 
-    prompt(gettext("Permament link to this post:"), permaUrl)
+    prompt("Μόνιμος σύνδεσμος για αυτή την προσφορά:", permaUrl)
   }
 
   render() {
@@ -40,7 +40,7 @@ export class Permalink extends React.Component {
       <li>
         <button className="btn btn-link" onClick={this.onClick} type="button">
           <span className="material-icon">link</span>
-          {gettext("Permament link")}
+          {"Μόνιμος σύνδεσμος"}
         </button>
       </li>
     )
@@ -64,7 +64,7 @@ export class Edit extends React.Component {
       <li>
         <button className="btn btn-link" onClick={this.onClick} type="button">
           <span className="material-icon">edit</span>
-          {gettext("Edit")}
+          {"Επεξεργασία"}
         </button>
       </li>
     )
@@ -88,7 +88,7 @@ export class MarkAsBestAnswer extends React.Component {
       <li>
         <button className="btn btn-link" onClick={this.onClick} type="button">
           <span className="material-icon">check_box</span>
-          {gettext("Mark as best answer")}
+          {"Επιλογή προσφοράς"}
         </button>
       </li>
     )
@@ -110,7 +110,7 @@ export class UnmarkMarkBestAnswer extends React.Component {
       <li>
         <button className="btn btn-link" onClick={this.onClick} type="button">
           <span className="material-icon">check_box_outline_blank</span>
-          {gettext("Unmark best answer")}
+          {"Αποεπιλογή προσφοράς"}
         </button>
       </li>
     )
@@ -128,11 +128,10 @@ export class PostEdits extends React.Component {
     const isUnedited = this.props.post.edits === 0
     if (isHidden || isUnedited) return null
 
-    const message = ngettext(
-      "This post was edited %(edits)s time.",
-      "This post was edited %(edits)s times.",
-      this.props.post.edits
-    )
+    let message = "Αυτή η προσφορά έχει τροποποιηθεί %(edits)s φορές"
+    if (this.props.post.edits === 1) {
+      message = "Αυτή η προσφορά έχει τροποποιηθεί %(edits)s φορά"
+    }
 
     const title = interpolate(
       message,
@@ -146,7 +145,7 @@ export class PostEdits extends React.Component {
       <li>
         <button className="btn btn-link" onClick={this.onClick} type="button">
           <span className="material-icon">edit</span>
-          {gettext("Changes history")}
+          {"Ιστορικό αλλαγών"}
         </button>
       </li>
     )
@@ -166,7 +165,7 @@ export class Approve extends React.Component {
       <li>
         <button className="btn btn-link" onClick={this.onClick} type="button">
           <span className="material-icon">done</span>
-          {gettext("Approve")}
+          {"Έγκριση"}
         </button>
       </li>
     )
@@ -185,7 +184,7 @@ export class Move extends React.Component {
       <li>
         <button className="btn btn-link" onClick={this.onClick} type="button">
           <span className="material-icon">arrow_forward</span>
-          {gettext("Move")}
+          {"Μετακίνηση"}
         </button>
       </li>
     )
@@ -204,7 +203,7 @@ export class Split extends React.Component {
       <li>
         <button className="btn btn-link" onClick={this.onClick} type="button">
           <span className="material-icon">call_split</span>
-          {gettext("Split")}
+          {"Διαχωρισμός"}
         </button>
       </li>
     )
@@ -224,7 +223,7 @@ export class Protect extends React.Component {
       <li>
         <button className="btn btn-link" onClick={this.onClick} type="button">
           <span className="material-icon">lock_outline</span>
-          {gettext("Protect")}
+          {"Κλείδωμα"}
         </button>
       </li>
     )
@@ -244,7 +243,7 @@ export class Unprotect extends React.Component {
       <li>
         <button className="btn btn-link" onClick={this.onClick} type="button">
           <span className="material-icon">lock_open</span>
-          {gettext("Remove protection")}
+          {"Ξεκλείδωμα"}
         </button>
       </li>
     )
@@ -267,7 +266,7 @@ export class Hide extends React.Component {
       <li>
         <button className="btn btn-link" onClick={this.onClick} type="button">
           <span className="material-icon">visibility_off</span>
-          {gettext("Hide")}
+          {"Κρύψιμο"}
         </button>
       </li>
     )
@@ -287,7 +286,7 @@ export class Unhide extends React.Component {
       <li>
         <button className="btn btn-link" onClick={this.onClick} type="button">
           <span className="material-icon">visibility</span>
-          {gettext("Unhide")}
+          {"Εμφάνιση"}
         </button>
       </li>
     )
@@ -309,7 +308,7 @@ export class Delete extends React.Component {
       <li>
         <button className="btn btn-link" onClick={this.onClick} type="button">
           <span className="material-icon">clear</span>
-          {gettext("Delete")}
+          {"Διαγραφή"}
         </button>
       </li>
     )

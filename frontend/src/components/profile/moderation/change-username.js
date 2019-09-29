@@ -70,14 +70,14 @@ export default class extends Form {
       updateUsername(this.props.profile, apiResponse.username, apiResponse.slug)
     )
 
-    snackbar.success(gettext("Username has been changed."))
+    snackbar.success("Το όνομα χρήστη άλλαξε επιτυχώς!")
   }
 
   getFormBody() {
     return (
       <form onSubmit={this.handleSubmit}>
         <div className="modal-body">
-          <FormGroup label={gettext("New username")} for="id_username">
+          <FormGroup label={"Νέο όνομα χρήστη"} for="id_username">
             <input
               type="text"
               id="id_username"
@@ -95,10 +95,10 @@ export default class extends Form {
             disabled={this.state.isLoading}
             type="button"
           >
-            {gettext("Cancel")}
+            {"Ακύρωση"}
           </button>
           <Button className="btn-primary" loading={this.state.isLoading}>
-            {gettext("Change username")}
+            {"Αλλαγή"}
           </Button>
         </div>
       </form>
@@ -134,11 +134,11 @@ export default class extends Form {
               type="button"
               className="close"
               data-dismiss="modal"
-              aria-label={gettext("Close")}
+              aria-label={"Κλείσιμο"}
             >
               <span aria-hidden="true">&times;</span>
             </button>
-            <h4 className="modal-title">{gettext("Change username")}</h4>
+            <h4 className="modal-title">{"Αλλαγή ονόματος χρήστη"}</h4>
           </div>
           {this.getModalBody()}
         </div>

@@ -5,7 +5,7 @@ export default function(props) {
   return (
     <Action
       execAction={insertHr}
-      title={gettext("Insert horizontal ruler")}
+      title={"Εισαγωγή οριζόντιου χάρακα"}
       {...props}
     >
       <span className="material-icon">remove</span>

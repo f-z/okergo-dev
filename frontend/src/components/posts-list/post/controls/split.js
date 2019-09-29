@@ -92,12 +92,12 @@ export class ModerationForm extends Form {
       {
         value: 0,
         icon: "visibility",
-        label: gettext("No")
+        label: "Όχι"
       },
       {
         value: 1,
         icon: "visibility_off",
-        label: gettext("Yes")
+        label: "Ναι"
       }
     ]
 
@@ -105,12 +105,12 @@ export class ModerationForm extends Form {
       {
         value: false,
         icon: "lock_outline",
-        label: gettext("No")
+        label: "Όχι"
       },
       {
         value: true,
         icon: "lock",
-        label: gettext("Yes")
+        label: "Ναι"
       }
     ]
 
@@ -134,7 +134,7 @@ export class ModerationForm extends Form {
     if (this.isValid()) {
       return true
     } else {
-      snackbar.error(gettext("Form contains errors."))
+      snackbar.error("Η φόρμα περιέχει λάθη!")
       this.setState({
         errors: this.validate()
       })
@@ -162,7 +162,7 @@ export class ModerationForm extends Form {
 
     modal.hide()
 
-    snackbar.success(gettext("Selected post was split into new thread."))
+    snackbar.success("Η επιλεγμένη προσφορά διαχωρίστηκε σε καινούρια αγγελία")
   }
 
   handleError(rejection) {
@@ -170,7 +170,7 @@ export class ModerationForm extends Form {
       this.setState({
         errors: Object.assign({}, this.state.errors, rejection)
       })
-      snackbar.error(gettext("Form contains errors."))
+      snackbar.error("Η φόρμα περιέχει λάθη!")
     } else if (rejection.status === 403 && Array.isArray(rejection)) {
       modal.show(<ErrorsModal errors={rejection} />)
     } else {
@@ -204,20 +204,20 @@ export class ModerationForm extends Form {
       {
         value: 0,
         icon: "remove",
-        label: gettext("Not pinned")
+        label: "Μη προωθημένη"
       },
       {
         value: 1,
         icon: "bookmark_border",
-        label: gettext("Pinned locally")
+        label: "Προωθημένη σε αυτή την κατηγορία"
       }
     ]
 
-    if (this.acl[this.state.category].can_pin_threads == 2) {
+    if (this.acl[this.state.category].can_pin_threads === 2) {
       choices.push({
         value: 2,
         icon: "bookmark",
-        label: gettext("Pinned globally")
+        label: "Προωθημένη σε όλη τη σελίδα"
       })
     }
 
@@ -228,7 +228,7 @@ export class ModerationForm extends Form {
     if (this.acl[this.state.category].can_pin_threads) {
       return (
         <FormGroup
-          label={gettext("Thread weight")}
+          label={"Προώθηση αγγελίας"}
           for="id_weight"
           labelClass="col-sm-4"
           controlClass="col-sm-8"
@@ -250,7 +250,7 @@ export class ModerationForm extends Form {
     if (this.acl[this.state.category].can_hide_threads) {
       return (
         <FormGroup
-          label={gettext("Hide thread")}
+          label={"Κρύψιμο αγγελίας"}
           for="id_is_hidden"
           labelClass="col-sm-4"
           controlClass="col-sm-8"
@@ -272,7 +272,7 @@ export class ModerationForm extends Form {
     if (this.acl[this.state.category].can_close_threads) {
       return (
         <FormGroup
-          label={gettext("Close thread")}
+          label={"Κλείσιμο αγγελίας"}
           for="id_is_closed"
           labelClass="col-sm-4"
           controlClass="col-sm-8"
@@ -296,7 +296,7 @@ export class ModerationForm extends Form {
         <form onSubmit={this.handleSubmit}>
           <div className="modal-body">
             <FormGroup
-              label={gettext("Thread title")}
+              label={"Τίτλος αγγελίας"}
               for="id_title"
               labelClass="col-sm-4"
               controlClass="col-sm-8"
@@ -313,7 +313,7 @@ export class ModerationForm extends Form {
             <div className="clearfix" />
 
             <FormGroup
-              label={gettext("Category")}
+              label={"Κατηγορία"}
               for="id_category"
               labelClass="col-sm-4"
               controlClass="col-sm-8"
@@ -334,7 +334,7 @@ export class ModerationForm extends Form {
           </div>
           <div className="modal-footer">
             <Button className="btn-primary" loading={this.state.isLoading}>
-              {gettext("Split post")}
+              {"Διαχωρισμός προσφοράς"}
             </Button>
           </div>
         </form>
@@ -359,7 +359,7 @@ export function Error(props) {
       </div>
       <div className="message-body">
         <p className="lead">
-          {gettext("You can't move this post at the moment.")}
+          {"Δεν μπορείς να μετακινήσεις αυτή την προσφορά προς το παρόν"}
         </p>
         <p>{props.message}</p>
       </div>
@@ -373,7 +373,7 @@ export function Modal(props) {
       <div className="modal-content">
         <div className="modal-header">
           <button
-            aria-label={gettext("Close")}
+            aria-label={"Κλείσιμο"}
             className="close"
             data-dismiss="modal"
             type="button"
@@ -381,7 +381,7 @@ export function Modal(props) {
             <span aria-hidden="true">&times;</span>
           </button>
           <h4 className="modal-title">
-            {gettext("Split post into new thread")}
+            {"Διαχωρισμός προσφοράς σε καινούρια αγγελία"}
           </h4>
         </div>
         {props.children}

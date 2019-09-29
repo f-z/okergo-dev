@@ -1,5 +1,4 @@
 import React from "react"
-import misago from "misago"
 import escapeHtml from "misago/utils/escape-html"
 import formatFilesize from "misago/utils/file-size"
 
@@ -91,9 +90,7 @@ export function AttachmentDetails(props) {
 
   const message = interpolate(
     escapeHtml(
-      gettext(
-        "%(filetype)s, %(size)s, uploaded by %(uploader)s %(uploaded_on)s."
-      )
+      "%(filetype)s, %(size)s, ανεβάστηκε από %(uploader)s %(uploaded_on)s."
     ),
     {
       filetype: props.attachment.filetype,

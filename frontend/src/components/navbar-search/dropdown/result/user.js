@@ -5,7 +5,7 @@ import Avatar from "misago/components/avatar"
 export default function({ result }) {
   const { rank } = result
 
-  const detail = gettext("%(title)s, joined on %(joined_on)s")
+  const detail = "%(title)s, έγινε μέλος %(joined_on)s"
   const title = result.title || rank.title || rank.name
 
   return (

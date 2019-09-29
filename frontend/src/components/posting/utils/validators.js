@@ -17,11 +17,10 @@ export function getTitleLengthMin() {
   return minLength(
     misago.get("SETTINGS").thread_title_length_min,
     (limitValue, length) => {
-      const message = ngettext(
-        "Thread title should be at least %(limit_value)s character long (it has %(show_value)s).",
-        "Thread title should be at least %(limit_value)s characters long (it has %(show_value)s).",
-        limitValue
-      )
+      let message = "Ο τίτλος πρέπει να έχει τουλάχιστον %(limit_value)s χαρακτήρες (έχει %(show_value)s)"
+      if (limitValue === 1) {
+        message = "Ο τίτλος πρέπει να έχει τουλάχιστον %(limit_value)s χαρακτήρα (έχει %(show_value)s)"
+      }
 
       return interpolate(
         message,
@@ -39,11 +38,10 @@ export function getTitleLengthMax() {
   return maxLength(
     misago.get("SETTINGS").thread_title_length_max,
     (limitValue, length) => {
-      const message = ngettext(
-        "Thread title cannot be longer than %(limit_value)s character (it has %(show_value)s).",
-        "Thread title cannot be longer than %(limit_value)s characters (it has %(show_value)s).",
-        limitValue
-      )
+      let message = "Ο τίτλος δεν μπορεί να έχει πάνω από %(limit_value)s χαρακτήρες (έχει %(show_value)s)"
+      if (limitValue === 1) {
+        message = "Ο τίτλος δεν μπορεί να έχει πάνω από %(limit_value)s χαρακτήρα (έχει %(show_value)s)"
+      }
 
       return interpolate(
         message,
@@ -61,11 +59,10 @@ export function validatePostLengthMin() {
   return minLength(
     misago.get("SETTINGS").post_length_min,
     (limitValue, length) => {
-      const message = ngettext(
-        "Posted message should be at least %(limit_value)s character long (it has %(show_value)s).",
-        "Posted message should be at least %(limit_value)s characters long (it has %(show_value)s).",
-        limitValue
-      )
+      let message = "Το περιεχόμενο πρέπει να έχει τουλάχιστον %(limit_value)s χαρακτήρες (έχει %(show_value)s)"
+      if (limitValue === 1) {
+        message = "Το περιεχόμενο πρέπει να έχει τουλάχιστον %(limit_value)s χαρακτήρα (έχει %(show_value)s)"
+      }
 
       return interpolate(
         message,
@@ -83,11 +80,10 @@ export function validatePostLengthMax() {
   return maxLength(
     misago.get("SETTINGS").post_length_max || 1000000,
     (limitValue, length) => {
-      const message = ngettext(
-        "Posted message cannot be longer than %(limit_value)s character (it has %(show_value)s).",
-        "Posted message cannot be longer than %(limit_value)s characters (it has %(show_value)s).",
-        limitValue
-      )
+      let message = "Το περιεχόμενο δεν μπορεί να έχει πάνω από %(limit_value)s χαρακτήρες (έχει %(show_value)s)"
+      if (limitValue === 1) {
+        message = "Το περιεχόμενο δεν μπορεί να έχει πάνω από %(limit_value)s χαρακτήρα (έχει %(show_value)s)"
+      }
 
       return interpolate(
         message,

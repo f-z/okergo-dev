@@ -12,12 +12,11 @@ export default class extends React.Component {
     let confirmed = false
     if (this.isUser) {
       confirmed = confirm(
-        gettext("Are you sure you want to take over this thread?")
+        "Είσαι σίγουρος ότι θέλεις να πάρεις τον έλεγχο αυτής της συνομιλίας;"
       )
     } else {
-      const message = gettext(
-        "Are you sure you want to change thread owner to %(user)s?"
-      )
+      const message = "Είσαι σίγουρος ότι θέλεις να δώσεις τον έλεγχο της συνομιλίας στο χρήστη %(user)s;"
+
       confirmed = confirm(
         interpolate(
           message,
@@ -41,7 +40,7 @@ export default class extends React.Component {
     return (
       <li>
         <button className="btn btn-link" onClick={this.onClick} type="button">
-          {gettext("Make owner")}
+          {"Δώσε τον έλεγχο"}
         </button>
       </li>
     )

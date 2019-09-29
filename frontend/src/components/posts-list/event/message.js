@@ -2,22 +2,22 @@ import React from "react"
 import escapeHtml from "misago/utils/escape-html"
 
 const MESSAGE = {
-  pinned_globally: gettext("Thread has been pinned globally."),
-  pinned_locally: gettext("Thread has been pinned locally."),
-  unpinned: gettext("Thread has been unpinned."),
+  pinned_globally: "Η αγγελία προωθείται σε όλη τη σελίδα",
+  pinned_locally: "Η αγγελία προωθείται σε αυτή την κατηγορία",
+  unpinned: "Η αγγελία δεν προωθείται πλέον",
 
-  approved: gettext("Thread has been approved."),
+  approved: "Η αγγελία εγκρίθηκε",
 
-  opened: gettext("Thread has been opened."),
-  closed: gettext("Thread has been closed."),
+  opened: "Η αγγελία άνοιξε για νέες προσφορές",
+  closed: "Η αγγελία έκλεισε για νέες προσφορές",
 
-  unhid: gettext("Thread has been revealed."),
-  hid: gettext("Thread has been made hidden."),
+  unhid: "Η αγγελία θα εμφανίζεται από τώρα",
+  hid: "Η αγγελία θα είναι κρυμμένη από τώρα",
 
-  tookover: gettext("Took thread over."),
+  tookover: "Πήρες έλεγχο της αγγελίας",
 
-  owner_left: gettext("Owner has left thread. This thread is now closed."),
-  participant_left: gettext("Participant has left thread.")
+  owner_left: "Ο ιδιοκτήτης της αγγελίας έφυγε, οπότε θα κλείσει",
+  participant_left: "Ένας χρήστης που έκανε προσφορά έφυγε"
 }
 
 const ITEM_LINK = '<a href="%(url)s" class="item-title">%(name)s</a>'
@@ -45,7 +45,7 @@ export default function(props) {
 
 export function ChangedTitle(props) {
   const msgstring = escapeHtml(
-    gettext("Thread title has been changed from %(old_title)s.")
+    "Ο τίτλος της αγγελίας άλλαξε από %(old_title)s"
   )
   const oldTitle = interpolate(
     ITEM_SPAN,
@@ -72,7 +72,7 @@ export function ChangedTitle(props) {
 
 export function Moved(props) {
   const msgstring = escapeHtml(
-    gettext("Thread has been moved from %(from_category)s.")
+    "Η αγγελία μετακινήθηκε από %(from_category)s"
   )
   const fromCategory = interpolate(
     ITEM_LINK,
@@ -101,7 +101,7 @@ export function Moved(props) {
 
 export function Merged(props) {
   const msgstring = escapeHtml(
-    gettext("The %(merged_thread)s thread has been merged into this thread.")
+    "Η αγγελία %(merged_thread)s συγχωνεύθηκε με αυτή εδώ"
   )
   const mergedThread = interpolate(
     ITEM_SPAN,
@@ -128,7 +128,7 @@ export function Merged(props) {
 }
 
 export function ChangedOwner(props) {
-  const msgstring = escapeHtml(gettext("Changed thread owner to %(user)s."))
+  const msgstring = escapeHtml("Ο νέος ιδιοκτήτης είναι ο χρήστης %(user)s")
   const newOwner = interpolate(
     ITEM_LINK,
     {
@@ -155,7 +155,7 @@ export function ChangedOwner(props) {
 }
 
 export function AddedParticipant(props) {
-  const msgstring = escapeHtml(gettext("Added %(user)s to thread."))
+  const msgstring = escapeHtml("Προστέθηκε ο χρήστης %(user)s")
   const newOwner = interpolate(
     ITEM_LINK,
     {
@@ -182,7 +182,7 @@ export function AddedParticipant(props) {
 }
 
 export function RemovedParticipant(props) {
-  const msgstring = escapeHtml(gettext("Removed %(user)s from thread."))
+  const msgstring = escapeHtml("Αφαιρέθηκε ο χρήστης %(user)s")
   const newOwner = interpolate(
     ITEM_LINK,
     {

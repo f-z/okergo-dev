@@ -62,7 +62,7 @@ export class Hide extends React.Component {
     if (!this.props.post.is_hidden) {
       return (
         <button type="button" className="btn btn-link" onClick={this.onClick}>
-          {gettext("Hide")}
+          {"Κρύψιμο"}
         </button>
       )
     } else {
@@ -105,7 +105,7 @@ export class Unhide extends React.Component {
     if (this.props.post.is_hidden) {
       return (
         <button type="button" className="btn btn-link" onClick={this.onClick}>
-          {gettext("Unhide")}
+          {"Εμφάνιση"}
         </button>
       )
     } else {
@@ -117,9 +117,7 @@ export class Unhide extends React.Component {
 export class Delete extends React.Component {
   onClick = () => {
     const decision = confirm(
-      gettext(
-        "Are you sure you wish to delete this event? This action is not reversible!"
-      )
+      "Είσαι σίγουρος ότι θέλεις να διαγράψεις αυτή την προσφορά;"
     )
     if (decision) {
       this.delete()
@@ -135,7 +133,7 @@ export class Delete extends React.Component {
 
     ajax.delete(this.props.post.api.index).then(
       () => {
-        snackbar.success(gettext("Event has been deleted."))
+        snackbar.success("Η προσφορά έχει διαγραφεί επιτυχώς!")
       },
       rejection => {
         if (rejection.status === 400) {
@@ -156,7 +154,7 @@ export class Delete extends React.Component {
   render() {
     return (
       <button type="button" className="btn btn-link" onClick={this.onClick}>
-        {gettext("Delete")}
+        {"Διαγραφή"}
       </button>
     )
   }

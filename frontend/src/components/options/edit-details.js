@@ -6,13 +6,13 @@ import snackbar from "misago/services/snackbar"
 export default class extends React.Component {
   componentDidMount() {
     title.set({
-      title: gettext("Edit details"),
-      parent: gettext("Change your options")
+      title: "Αλλαγή ρυθμίσεων",
+      parent: "Αλλαγή ρυθμίσεων"
     })
   }
 
   onSuccess = () => {
-    snackbar.info(gettext("Your details have been updated."))
+    snackbar.info("Οι ρυθμίσεις σου αποθηκεύτηκαν επιτυχώς!")
   }
 
   render() {

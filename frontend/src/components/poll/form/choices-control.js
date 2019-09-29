@@ -52,7 +52,7 @@ export default class extends React.Component {
           onClick={this.onAdd}
           type="button"
         >
-          {gettext("Add choice")}
+          {"Προσθήκη επιλογής"}
         </button>
       </div>
     )
@@ -66,7 +66,7 @@ export class PollChoice extends React.Component {
 
   onDelete = () => {
     const deleteItem = confirm(
-      gettext("Are you sure you want to delete this choice?")
+      "Είσαι σίγουρος ότι θέλεις να διαγράψεις αυτή την επιλογή;"
     )
     if (deleteItem) {
       this.props.onDelete(this.props.choice.hash)
@@ -80,7 +80,7 @@ export class PollChoice extends React.Component {
           className="btn"
           disabled={!this.props.canDelete || this.props.disabled}
           onClick={this.onDelete}
-          title={gettext("Delete this choice")}
+          title={"Διαγραφή επιλογής"}
           type="button"
         >
           <span className="material-icon">close</span>
@@ -88,7 +88,7 @@ export class PollChoice extends React.Component {
         <input
           disabled={this.props.disabled}
           maxLength="255"
-          placeholder={gettext("choice label")}
+          placeholder={"όνομα επιλογής"}
           type="text"
           onChange={this.onChange}
           value={this.props.choice.label}
@@ -100,7 +100,7 @@ export class PollChoice extends React.Component {
 
 export function generateRandomHash() {
   let randomHash = ""
-  while (randomHash.length != 12) {
+  while (randomHash.length !== 12) {
     randomHash = Math.random()
       .toString(36)
       .replace(/[^a-zA-Z0-9]+/g, "")

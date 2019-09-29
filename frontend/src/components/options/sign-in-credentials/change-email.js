@@ -31,7 +31,7 @@ export default class extends Form {
     ]
 
     if (lengths.indexOf(0) !== -1) {
-      snackbar.error(gettext("Fill out all fields."))
+      snackbar.error("Συμπλήρωσε όλα τα πεδία!")
       return false
     }
 
@@ -78,10 +78,10 @@ export default class extends Form {
         <input type="password" style={{ display: "none" }} />
         <div className="panel panel-default panel-form">
           <div className="panel-heading">
-            <h3 className="panel-title">{gettext("Change e-mail address")}</h3>
+            <h3 className="panel-title">{"Αλλαγή διεύθυνσης email"}</h3>
           </div>
           <div className="panel-body">
-            <FormGroup label={gettext("New e-mail")} for="id_new_email">
+            <FormGroup label={"Νέο email"} for="id_new_email">
               <input
                 type="text"
                 id="id_new_email"
@@ -95,7 +95,7 @@ export default class extends Form {
             <hr />
 
             <FormGroup
-              label={gettext("Your current password")}
+              label={"Ο κωδικός πρόσβασής σου"}
               for="id_confirm_email"
             >
               <input
@@ -110,7 +110,7 @@ export default class extends Form {
           </div>
           <div className="panel-footer">
             <Button className="btn-primary" loading={this.state.isLoading}>
-              {gettext("Change e-mail")}
+              {"Αλλαγή email"}
             </Button>
           </div>
         </div>

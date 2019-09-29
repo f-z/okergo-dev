@@ -57,7 +57,7 @@ export function Hidden(props) {
   )
 
   const message = interpolate(
-    escapeHtml(gettext("Hidden by %(hidden_by)s %(hidden_on)s.")),
+    escapeHtml("Κρυμμένη από %(hidden_by)s %(hidden_on)s"),
     {
       hidden_by: user,
       hidden_on: date
@@ -68,7 +68,7 @@ export function Hidden(props) {
   return (
     <Waypoint className="post-body post-body-hidden" post={props.post}>
       <p className="lead">
-        {gettext("This post is hidden. You cannot see its contents.")}
+        {"Αυτή η προσφορά είναι κρυμμένη. Δεν μπορείς να δεις τις λεπτομέρειές της."}
       </p>
       <p className="text-muted" dangerouslySetInnerHTML={{ __html: message }} />
     </Waypoint>
@@ -79,10 +79,10 @@ export function Invalid(props) {
   return (
     <Waypoint className="post-body post-body-invalid" post={props.post}>
       <p className="lead">
-        {gettext("This post's contents cannot be displayed.")}
+        {"Οι λεπτομέρειες τις προσφοράς δεν μπορούν να προβληθούν"}
       </p>
       <p className="text-muted">
-        {gettext("This error is caused by invalid post content manipulation.")}
+        {"Αυτό το λάθος προκαλέστηκε από μη έγκυρη τροποποίηση του περιεχομένου της προσφοράς"}
       </p>
     </Waypoint>
   )

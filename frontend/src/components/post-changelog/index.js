@@ -62,9 +62,7 @@ export default class extends React.Component {
     if (this.state.isBusy) return
 
     const confirmation = confirm(
-      gettext(
-        "Are you sure you with to revert this post to the state from before this edit?"
-      )
+      "Είσαι σίγουρος ότι θες να επαναφέρεις την προσφορά στην προηγούμενη κατάσταση;"
     )
     if (!confirmation) return
 
@@ -78,7 +76,7 @@ export default class extends React.Component {
         const hydratedPost = post.hydrate(data)
         store.dispatch(post.patch(data, hydratedPost))
 
-        snackbar.success(gettext("Post has been reverted to previous state."))
+        snackbar.success("Η προσφορά επαναφέρθηκε στην προηγούμενη κατάσταση επιτυχώς!")
         modal.hide()
       },
       rejection => {
@@ -133,14 +131,14 @@ export function ModalDialog(props) {
       <div className="modal-content">
         <div className="modal-header">
           <button
-            aria-label={gettext("Close")}
+            aria-label={"Κλείσιμο"}
             className="close"
             data-dismiss="modal"
             type="button"
           >
             <span aria-hidden="true">&times;</span>
           </button>
-          <h4 className="modal-title">{gettext("Post edits history")}</h4>
+          <h4 className="modal-title">{"Ιστορικό τροποποιήσεων προσφοράς"}</h4>
         </div>
         {props.children}
       </div>

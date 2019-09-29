@@ -13,7 +13,7 @@ export default function(props) {
   )
 
   const message = interpolate(
-    gettext("Uploading %(filename)s... %(progress)s"),
+    "Ανέβασμα %(filename)s... %(progress)s",
     {
       filename,
       progress: props.item.progress + "%"

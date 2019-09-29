@@ -5,7 +5,7 @@ export default function(props) {
   return (
     <Action
       execAction={makeStriketrough}
-      title={gettext("Striketrough selection")}
+      title={"Τράβηγμα γραμμής"}
       {...props}
     >
       <span className="material-icon">format_strikethrough</span>

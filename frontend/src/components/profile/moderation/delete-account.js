@@ -71,9 +71,7 @@ export default class extends Form {
     if (this.state.with_content) {
       this.setState({
         isDeleted: interpolate(
-          gettext(
-            "%(username)s's account, threads, posts and other content has been deleted."
-          ),
+            "Ο λογαριασμός του χρήστη %(username)s έχει διαγραφεί τελείως",
           {
             username: this.props.profile.username
           },
@@ -83,9 +81,7 @@ export default class extends Form {
     } else {
       this.setState({
         isDeleted: interpolate(
-          gettext(
-            "%(username)s's account has been deleted and other content has been hidden."
-          ),
+            "Ο λογαριασμός του χρήστη %(username)s έχει διαγραφεί και η δραστηριότητά του θα είναι κρυμμένη",
           {
             username: this.props.profile.username
           },
@@ -97,16 +93,14 @@ export default class extends Form {
 
   getButtonLabel() {
     if (this.state.confirm) {
-      return interpolate(
-        gettext("Delete %(username)s"),
+      return interpolate("Διαγραφή του χρήστη %(username)s",
         {
           username: this.props.profile.username
         },
         true
       )
     } else {
-      return interpolate(
-        gettext("Please wait... (%(countdown)ss)"),
+      return interpolate("Παρακαλώ περίμενε... (%(countdown)s)",
         {
           countdown: this.state.countdown
         },
@@ -119,12 +113,12 @@ export default class extends Form {
     return (
       <form onSubmit={this.handleSubmit}>
         <div className="modal-body">
-          <FormGroup label={gettext("User content")} for="id_with_content">
+          <FormGroup label={"Δραστηριότητα χρήστη"} for="id_with_content">
             <YesNoSwitch
               id="id_with_content"
               disabled={this.state.isLoading}
-              labelOn={gettext("Delete together with user's account")}
-              labelOff={gettext("Hide after deleting user's account")}
+              labelOn={"Διαγραφή μαζί με το λογαριασμό"}
+              labelOff={"Κρύψιμο μετά τη διαγραφή του λογαριασμού"}
               onChange={this.bindInput("with_content")}
               value={this.state.with_content}
             />
@@ -136,7 +130,7 @@ export default class extends Form {
             className="btn btn-default"
             data-dismiss="modal"
           >
-            {gettext("Cancel")}
+            {"Ακύρωση"}
           </button>
 
           <Button
@@ -161,7 +155,7 @@ export default class extends Form {
           <p className="lead">{this.state.isDeleted}</p>
           <p>
             <a href={misago.get("USERS_LIST_URL")}>
-              {gettext("Return to users list")}
+              {"Επιστροφή στη λίστα χρηστών"}
             </a>
           </p>
         </div>
@@ -202,11 +196,11 @@ export default class extends Form {
               type="button"
               className="close"
               data-dismiss="modal"
-              aria-label={gettext("Close")}
+              aria-label={"Κλείσιμο"}
             >
               <span aria-hidden="true">&times;</span>
             </button>
-            <h4 className="modal-title">{gettext("Delete user account")}</h4>
+            <h4 className="modal-title">{"Διαγραφή λογαριασμού χρήστη"}</h4>
           </div>
           {this.getModalBody()}
         </div>

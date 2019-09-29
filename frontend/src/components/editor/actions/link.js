@@ -4,7 +4,7 @@ import isUrl from "misago/utils/is-url"
 
 export default function(props) {
   return (
-    <Action execAction={insertLink} title={gettext("Insert link")} {...props}>
+    <Action execAction={insertLink} title={"Εισαγωγή συνδέσμου"} {...props}>
       <span className="material-icon">insert_link</span>
     </Action>
   )
@@ -22,9 +22,9 @@ export function insertLink(selection, replace) {
     }
   }
 
-  url = $.trim(prompt(gettext("Enter link address") + ":", url) || "")
+  url = $.trim(prompt(`Εισαγωγή διεύθυνσης συνδέσμου:{url}`) || "")
   if (url.length === 0) return false
-  label = $.trim(prompt(gettext("Enter link label (optional)") + ":", label))
+  label = $.trim(prompt(`Εισαγωγή ονόματος συνδέσμου (προαιρετικά):{label}`))
 
   if (url.length) {
     if (label.length > 0) {

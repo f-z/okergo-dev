@@ -1,5 +1,4 @@
 import React from "react"
-import Button from "misago/components/button"
 import Form from "misago/components/form"
 import FormGroup from "misago/components/form-group"
 import * as post from "misago/reducers/post"
@@ -26,7 +25,7 @@ export default class extends Form {
 
   clean() {
     if (!this.state.url.trim().length) {
-      snackbar.error(gettext("You have to enter link to the other thread."))
+      snackbar.error("Πρέπει να βάλεις το σύνδεσμο της άλλης αγγελίας!")
       return false
     }
 
@@ -49,7 +48,7 @@ export default class extends Form {
 
     modal.hide()
 
-    snackbar.success(gettext("Selected post was moved to the other thread."))
+    snackbar.success("Η επιλεγμένη προσφορά μεταφέρθηκε στην άλλη αγγελία!")
   }
 
   handleError(rejection) {
@@ -73,7 +72,7 @@ export default class extends Form {
             <div className="modal-body">
               <FormGroup
                 for="id_url"
-                label={gettext("Link to thread you want to move post to")}
+                label={"Σύνδεσμος για την αγγελία που θες να μετακινήσεις την προσφορά"}
               >
                 <input
                   className="form-control"
@@ -89,7 +88,7 @@ export default class extends Form {
                 className="btn btn-primary"
                 loading={this.state.isLoading}
               >
-                {gettext("Move post")}
+                {"Μετακίνηση προσφοράς"}
               </button>
             </div>
           </div>
@@ -103,14 +102,14 @@ export function ModalHeader(props) {
   return (
     <div className="modal-header">
       <button
-        aria-label={gettext("Close")}
+        aria-label={"Κλείσιμο"}
         className="close"
         data-dismiss="modal"
         type="button"
       >
         <span aria-hidden="true">&times;</span>
       </button>
-      <h4 className="modal-title">{gettext("Move post")}</h4>
+      <h4 className="modal-title">{"Μετακίνηση προσφοράς"}</h4>
     </div>
   )
 }

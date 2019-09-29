@@ -3,7 +3,6 @@ import Button from "misago/components/button"
 import ajax from "misago/services/ajax"
 import title from "misago/services/page-title"
 import snackbar from "misago/services/snackbar"
-import store from "misago/services/store"
 import misago from "misago"
 
 export default class extends React.Component {
@@ -18,8 +17,8 @@ export default class extends React.Component {
 
   componentDidMount() {
     title.set({
-      title: gettext("Delete account"),
-      parent: gettext("Change your options")
+      title: "Διαγραφή λογαριασμού",
+      parent: "Αλλαγή ρυθμίσεων"
     })
   }
 
@@ -33,10 +32,8 @@ export default class extends React.Component {
     const { isLoading, password } = this.state
     const { user } = this.props
 
-    if (password.length == 0) {
-      snackbar.error(
-        gettext("Enter your password to confirm account deletion.")
-      )
+    if (password.length === 0) {
+      snackbar.error("Βάλε τον κωδικό πρόσβασής σου για επιβεβαίωση!")
       return false
     }
 
@@ -63,40 +60,30 @@ export default class extends React.Component {
       <form onSubmit={this.handleSubmit}>
         <div className="panel panel-danger panel-form">
           <div className="panel-heading">
-            <h3 className="panel-title">{gettext("Delete account")}</h3>
+            <h3 className="panel-title">{"Διαγραφή λογαριασμού"}</h3>
           </div>
           <div className="panel-body">
             <p className="lead">
-              {gettext(
-                "You are going to delete your account. This action is nonreversible, and will result in following data being deleted:"
-              )}
+              {"Πρόκειται να διαγράψεις το λογαριασμό σου. Αυτή η ενέργεια είναι μη αναστρέψιμη. Τα παρακάτω δεδομένα θα διαγραφούν:"}
             </p>
 
             <p>
               -{" "}
-              {gettext(
-                "Stored IP addresses associated with content that you have posted will be deleted."
-              )}
+              {"Αποθηκευμένες διευθύνσεις IP που σχετίζονται με δημοσιευμένο περιεχόμενο"}
             </p>
             <p>
               -{" "}
-              {gettext(
-                "Your username will become available for other user to rename to or for new user to register their account with."
-              )}
+              {"Το όνομα χρήστη σου θα γίνει διαθέσιμο σε άλλους χρήστες"}
             </p>
             <p>
               -{" "}
-              {gettext(
-                "Your e-mail will become available for use in new account registration."
-              )}
+              {"Το email σου θα γίνει διαθέσιμο σε νέες εγγραφές λογαριασμών"}
             </p>
 
             <hr />
 
             <p>
-              {gettext(
-                "All your posted content will NOT be deleted, but username associated with it will be changed to one shared by all deleted accounts."
-              )}
+              {"Όλη η δραστηριότητά σου ΔΕ θα διαγραφεί, αλλα θα είναι ανώνυμη."}
             </p>
           </div>
           <div className="panel-footer">
@@ -106,15 +93,13 @@ export default class extends React.Component {
                 disabled={this.state.isLoading}
                 name="password-confirmation"
                 type="password"
-                placeholder={gettext(
-                  "Enter your password to confirm account deletion."
-                )}
+                placeholder={"Βάλε των κωδικό πρόσβασής σου για επιβεβαίωση"}
                 value={this.state.password}
                 onChange={this.onPasswordChange}
               />
               <span className="input-group-btn">
                 <Button className="btn-danger" loading={this.state.isLoading}>
-                  {gettext("Delete my account")}
+                  {"Διαγραφή του λογαριασμού μου"}
                 </Button>
               </span>
             </div>

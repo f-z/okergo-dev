@@ -70,7 +70,7 @@ export default function(props) {
 export function CloseOptions(props) {
   if (!props.show) return null
 
-  const label = props.close ? gettext("Closed") : gettext("Open")
+  const label = props.close ? "Κλεισμένη" : "Ανοιχτή"
 
   return (
     <div className={props.className}>
@@ -93,7 +93,7 @@ export function CloseOptions(props) {
 export function HideOptions(props) {
   if (!props.show) return null
 
-  const label = props.hide ? gettext("Hidden") : gettext("Not hidden")
+  const label = props.hide ? "Κρυμμένη" : "Εμφανίζεται"
 
   return (
     <div className={props.className}>
@@ -121,18 +121,18 @@ export function PinOptions(props) {
   let label = null
 
   switch (props.pin) {
-    case 0:
+    default:
       icon = "radio_button_unchecked"
       onClick = props.onPinLocally
-      label = gettext("Unpinned")
+      label = "Μη προωθημένη"
       break
 
     case 1:
       icon = "bookmark_outline"
       onClick = props.onPinGlobally
-      label = gettext("Pinned locally")
+      label = "Προωθείται σε αυτή την κατηγορία"
 
-      if (props.show == 2) {
+      if (props.show === 2) {
         onClick = props.onPinGlobally
       } else {
         onClick = props.onUnpin
@@ -143,7 +143,7 @@ export function PinOptions(props) {
     case 2:
       icon = "bookmark"
       onClick = props.onUnpin
-      label = gettext("Pinned globally")
+      label = "Προωθείται σε όλη τη σελίδα"
       break
   }
 

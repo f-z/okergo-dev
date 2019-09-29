@@ -7,14 +7,14 @@ export default function(props) {
       <div className="modal-content">
         <div className="modal-header">
           <button
-            aria-label={gettext("Close")}
+            aria-label={"Κλείσιμο"}
             className="close"
             data-dismiss="modal"
             type="button"
           >
             <span aria-hidden="true">&times;</span>
           </button>
-          <h4 className="modal-title">{gettext("Preview message")}</h4>
+          <h4 className="modal-title">{"Προεπισκόπηση μηνύματος"}</h4>
         </div>
         <div className="modal-body markup-preview">
           <MisagoMarkup markup={props.markup} />

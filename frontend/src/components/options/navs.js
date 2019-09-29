@@ -1,7 +1,6 @@
 import React from "react"
 import { Link } from "react-router"
 import Li from "misago/components/li"
-import misago from "misago/index"
 
 export function SideNav(props) {
   return (

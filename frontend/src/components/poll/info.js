@@ -18,7 +18,7 @@ export default function(props) {
 
 export function PollCreation(props) {
   const message = interpolate(
-    escapeHtml(gettext("Posted by %(poster)s %(posted_on)s.")),
+    escapeHtml("Δημοσιεύθηκε από %(poster)s %(posted_on)s"),
     {
       poster: getPoster(props.poll),
       posted_on: getPostedOn(props.poll)
@@ -72,7 +72,7 @@ export function PollLength(props) {
   }
 
   const message = interpolate(
-    escapeHtml(gettext("Voting ends %(ends_on)s.")),
+    escapeHtml("Η ψηφοφορία τελειώνει %(ends_on)s"),
     {
       ends_on: getEndsOn(props.poll)
     },
@@ -99,7 +99,10 @@ export function getEndsOn(poll) {
 }
 
 export function PollVotes(props) {
-  const message = ngettext("%(votes)s vote.", "%(votes)s votes.", props.votes)
+  let message = "%(votes)s ψήφοι"
+  if (props.votes === 1) {
+    message = "%(votes)s ψήφος"
+  }
   const label = interpolate(
     message,
     {
@@ -116,5 +119,5 @@ export function PollIsPublic(props) {
     return null
   }
 
-  return <li className="poll-info-public">{gettext("Votes are public.")}</li>
+  return <li className="poll-info-public">{"Η ψηφοφορία είναι ανοιχτή σε όλους"}</li>
 }

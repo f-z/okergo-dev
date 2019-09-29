@@ -3,9 +3,8 @@ import React from "react"
 
 export default function({ result }) {
   const { poster, thread } = result
-  const footer = gettext(
-    "Posted by %(poster)s on %(posted_on)s in %(category)s."
-  )
+  const footer = 
+    "Δημοσιεύθηκε από %(poster)s στις %(posted_on)s σε %(category)s"
 
   return (
     <li>

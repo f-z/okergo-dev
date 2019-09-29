@@ -29,11 +29,10 @@ export default class extends Form {
     let phrases = []
 
     if (this.props.options.changes_left > 0) {
-      let message = ngettext(
-        "You can change your username %(changes_left)s more time.",
-        "You can change your username %(changes_left)s more times.",
-        this.props.options.changes_left
-      )
+      let message = "Μπορείς να αλλάξεις το όνομα χρήστη σου %(changes_left)s ακόμα φορές"
+      if (this.props.options.changes_left === 1) {
+        message = "Μπορείς να αλλάξεις το όνομα χρήστη σου %(changes_left)s ακόμα φορά"
+      }
 
       phrases.push(
         interpolate(
@@ -47,11 +46,10 @@ export default class extends Form {
     }
 
     if (this.props.user.acl.name_changes_expire > 0) {
-      let message = ngettext(
-        "Used changes become available again after %(name_changes_expire)s day.",
-        "Used changes become available again after %(name_changes_expire)s days.",
-        this.props.user.acl.name_changes_expire
-      )
+      let message = "Η αλλαγή θα γίνει ξανά διαθέσιμη μετά από %(name_changes_expire)s μέρες"
+      if (this.props.user.acl.name_changes_expire === 1) {
+        message = "Η αλλαγή θα γίνει ξανά διαθέσιμη μετά από %(name_changes_expire)s μέρα"
+      }
 
       phrases.push(
         interpolate(
@@ -74,7 +72,7 @@ export default class extends Form {
       return false
     }
     if (this.state.username.trim() === this.props.user.username) {
-      snackbar.info(gettext("Your new username is same as current one."))
+      snackbar.info("Το καινούριο όνομα χρήστη σου είναι το ίδιο με το παλιό σου!")
       return false
     } else {
       return true
@@ -104,11 +102,11 @@ export default class extends Form {
       <form onSubmit={this.handleSubmit}>
         <div className="panel panel-default panel-form">
           <div className="panel-heading">
-            <h3 className="panel-title">{gettext("Change username")}</h3>
+            <h3 className="panel-title">{"Αλλαγή ονόματος χρήστη"}</h3>
           </div>
           <div className="panel-body">
             <FormGroup
-              label={gettext("New username")}
+              label={"Νέο όνομα χρήστη"}
               for="id_username"
               helpText={this.getHelpText()}
             >
@@ -124,7 +122,7 @@ export default class extends Form {
           </div>
           <div className="panel-footer">
             <Button className="btn-primary" loading={this.state.isLoading}>
-              {gettext("Change username")}
+              {"Αλλαγή"}
             </Button>
           </div>
         </div>

@@ -6,7 +6,7 @@ export default function({ onEdit, showEditButton }) {
       <nav className="toolbar">
         <div className="row">
           <div className="col-sm-8 col-md-10">
-            <h3 className="md-margin-top-no">{gettext("Details")}</h3>
+            <h3 className="md-margin-top-no">{"Στοιχεία"}</h3>
           </div>
           <EditButton onEdit={onEdit} showEditButton={showEditButton} />
         </div>
@@ -25,7 +25,7 @@ export function EditButton({ onEdit, showEditButton }) {
         onClick={onEdit}
         type="button"
       >
-        {gettext("Edit")}
+        {"Αλλαγή"}
       </button>
     </div>
   )

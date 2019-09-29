@@ -1,10 +1,9 @@
 import React from "react"
 import Action from "./action"
-import isUrl from "misago/utils/is-url"
 
 export default function(props) {
   return (
-    <Action execAction={insertQuote} title={gettext("Insert quote")} {...props}>
+    <Action execAction={insertQuote} title={"Εισαγωγή quote"} {...props}>
       <span className="material-icon">format_quote</span>
     </Action>
   )
@@ -12,7 +11,7 @@ export default function(props) {
 
 export function insertQuote(selection, replace) {
   let title = $.trim(
-    prompt(gettext("Enter quote autor, prefix usernames with @") + ":", title)
+    prompt(`Βάλε το συγγραφέα του quote με @ πριν το όνομα χρήστη:{title}`)
   )
 
   if (title) {

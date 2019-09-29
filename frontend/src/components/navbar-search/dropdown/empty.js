@@ -3,7 +3,7 @@ import React from "react"
 export default function() {
   return (
     <li className="dropdown-search-message">
-      {gettext("Search returned no results.")}
+      {"Η αναζήτηση δεν επέστρεψε κανένα αποτέλεσμα..."}
     </li>
   )
 }

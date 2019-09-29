@@ -32,9 +32,9 @@ export default class extends React.Component {
 
   getLabel() {
     if (this.props.profile.is_followed) {
-      return gettext("Following")
+      return "Ακολουθείς"
     } else {
-      return gettext("Follow")
+      return "Ακολούθησε"
     }
   }
 

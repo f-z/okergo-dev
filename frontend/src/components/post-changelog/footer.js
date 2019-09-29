@@ -15,9 +15,9 @@ export default class extends React.Component {
           className="btn-default btn-sm btn-block"
           disabled={this.props.disabled}
           onClick={this.onClick}
-          title={gettext("Revert post to state from before this edit.")}
+          title={"Επαναφορά προσφοράς στην προηγούμενη κατάσταση"}
         >
-          {gettext("Revert")}
+          {"Επαναφορά"}
         </Button>
       </div>
     )

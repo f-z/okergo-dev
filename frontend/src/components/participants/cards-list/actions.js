@@ -12,7 +12,7 @@ export function leave(thread, participant) {
     ])
     .then(
       () => {
-        snackbar.success(gettext("You have left this thread."))
+        snackbar.success("Εγκατέλειψες αυτή τη συνομιλία επιτυχώς!")
         window.setTimeout(() => {
           window.location = misago.get("PRIVATE_THREADS_URL")
         }, 3 * 1000)
@@ -34,7 +34,7 @@ export function remove(thread, participant) {
         store.dispatch(updateAcl(data))
         store.dispatch(participants.replace(data.participants))
 
-        const message = gettext("%(user)s has been removed from this thread.")
+        const message = "Ο χρήστης %(user)s αφαιρέθηκε από τη συνομιλία επιτυχώς!"
         snackbar.success(
           interpolate(
             message,
@@ -62,7 +62,7 @@ export function changeOwner(thread, participant) {
         store.dispatch(updateAcl(data))
         store.dispatch(participants.replace(data.participants))
 
-        const message = gettext("%(user)s has been made new thread owner.")
+        const message = "Ο χρήστης %(user)s έχει τώρα έλεγχο της συνομιλίας!"
         snackbar.success(
           interpolate(
             message,

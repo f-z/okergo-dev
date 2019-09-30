@@ -3,6 +3,7 @@ import Loader from "misago/components/loader"
 import RegisterForm from "misago/components/register.js"
 import ajax from "misago/services/ajax"
 import captcha from "misago/services/captcha"
+import misago from "misago"
 import modal from "misago/services/modal"
 import snackbar from "misago/services/snackbar"
 
@@ -20,7 +21,7 @@ export default class extends React.Component {
 
   showRegisterForm = () => {
     if (misago.get("SETTINGS").account_activation === "closed") {
-      snackbar.info("Οι νέες εγγραφές είναι προσωρινά κλεισμένες")
+      snackbar.info("Οι νέες εγγραφές είναι προσωρινά κλεισμένες...")
     } else if (this.state.isLoaded) {
       modal.show(<RegisterForm criteria={this.state.criteria} />)
     } else {

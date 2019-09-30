@@ -389,7 +389,7 @@ MISAGO_PROFILE_FIELDS = [
         "name": _("Personal"),
         "fields": [
             "misago.users.profilefields.default.RealNameField",
-            "misago.users.profilefields.default.GenderField",
+            "misago.users.profilefields.default.EngineerField",
             "misago.users.profilefields.default.BioField",
             "misago.users.profilefields.default.LocationField",
         ],

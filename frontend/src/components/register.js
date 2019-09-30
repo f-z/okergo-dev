@@ -33,8 +33,9 @@ export class RegisterForm extends Form {
         validators.usernameMinLength(username.min_length),
         validators.usernameMaxLength(username.max_length)
       ],
-      email: [validators.email()],
       password: [validators.passwordMinLength(passwordMinLength)],
+      email: [validators.email()],
+      phone: [validators.phone()],
       captcha: captcha.validator()
     }
 
@@ -50,8 +51,12 @@ export class RegisterForm extends Form {
       isLoading: false,
 
       username: "",
-      email: "",
       password: "",
+      real_name: "",
+      email: "",
+      phone: "",
+      region: "",
+      is_engineer: "",
       captcha: "",
 
       termsOfService: null,
@@ -77,8 +82,12 @@ export class RegisterForm extends Form {
   send() {
     return ajax.post(misago.get("USERS_API"), {
       username: this.state.username,
-      email: this.state.email,
       password: this.state.password,
+      real_name: this.state.real_name,
+      email: this.state.email,
+      phone: this.state.phone,
+      region: this.state.region,
+      is_engineer: this.state.is_engineer,
       captcha: this.state.captcha,
       terms_of_service: this.state.termsOfService,
       privacy_policy: this.state.privacyPolicy
@@ -153,7 +162,7 @@ export class RegisterForm extends Form {
               <StartSocialAuth
                 buttonClassName="col-xs-12 col-sm-6"
                 buttonLabel={"Σύνδεση μέσω %(site)s"}
-                formLabel={"Η δημιουργία λογαριασμού:"}
+                formLabel={"Δημιουργία λογαριασμού:"}
               />
 
               <FormGroup
@@ -169,22 +178,6 @@ export class RegisterForm extends Form {
                   disabled={this.state.isLoading}
                   onChange={this.bindInput("username")}
                   value={this.state.username}
-                />
-              </FormGroup>
-
-              <FormGroup
-                label={"Email"}
-                for="id_email"
-                validation={this.state.errors.email}
-              >
-                <input
-                  type="text"
-                  id="id_email"
-                  className="form-control"
-                  aria-describedby="id_email_status"
-                  disabled={this.state.isLoading}
-                  onChange={this.bindInput("email")}
-                  value={this.state.email}
                 />
               </FormGroup>
 
@@ -207,6 +200,84 @@ export class RegisterForm extends Form {
                   disabled={this.state.isLoading}
                   onChange={this.bindInput("password")}
                   value={this.state.password}
+                />
+              </FormGroup>
+
+              <FormGroup
+                label={"Ονοματεπώνυμο"}
+                for="id_real_name"
+              >
+                <input
+                  type="text"
+                  id="id_real_name"
+                  className="form-control"
+                  aria-describedby="id_real_name_status"
+                  disabled={this.state.isLoading}
+                  onChange={this.bindInput("real_name")}
+                  value={this.state.real_name}
+                />
+              </FormGroup>
+
+              <FormGroup
+                label={"Email"}
+                for="id_email"
+                validation={this.state.errors.email}
+              >
+                <input
+                  type="text"
+                  id="id_email"
+                  className="form-control"
+                  aria-describedby="id_email_status"
+                  disabled={this.state.isLoading}
+                  onChange={this.bindInput("email")}
+                  value={this.state.email}
+                />
+              </FormGroup>
+
+              <FormGroup
+                label={"Τηλέφωνο"}
+                for="id_phone"
+                validation={this.state.errors.phone}
+              >
+                <input
+                  type="tel"
+                  pattern = "[0-9*]"
+                  id="id_phone"
+                  className="form-control"
+                  aria-describedby="id_phone_status"
+                  disabled={this.state.isLoading}
+                  onChange={this.bindInput("phone")}
+                  value={this.state.phone}
+                />
+              </FormGroup>
+
+              <FormGroup
+                label={"Νομός"}
+                for="id_region"
+              >
+                <input
+                  type="text"
+                  id="id_region"
+                  className="form-control"
+                  aria-describedby="id_region_status"
+                  disabled={this.state.isLoading}
+                  onChange={this.bindInput("region")}
+                  value={this.state.region}
+                />
+              </FormGroup>
+
+              <FormGroup
+                label={"Είσαι μηχανικός ή ιδιώτης;"}
+                for="id_is_engineer"
+              >
+                <input
+                  type="text"
+                  id="id_is_engineer"
+                  className="form-control"
+                  aria-describedby="id_is_engineer_status"
+                  disabled={this.state.isLoading}
+                  onChange={this.bindInput("is_engineer")}
+                  value={this.state.is_engineer}
                 />
               </FormGroup>
 
@@ -245,17 +316,17 @@ export class RegisterForm extends Form {
 export class RegisterComplete extends React.Component {
   getLead() {
     if (this.props.activation === "user") {
-      return "%(username)s, ο λογαριασμός σου έχει δημιουργηθεί, αλλά πρέπει να τον ενεργοποιήσεις πριν συνδεθείς!"
+      return "%(username)s, ο λογαριασμός σου έχει δημιουργηθεί, αλλά πρέπει να τον ενεργοποιήσεις μέσω email πριν συνδεθείς!"
     } else if (this.props.activation === "admin") {
-      return "%(username)s, ο λογαριασμός σου έχει δημιουργηθεί, αλλά πρέπει να γίνει επαλήθευση των στοιχείων πριν συνδεθείς!"
+      return "%(username)s, ο λογαριασμός σου έχει δημιουργηθεί, αλλά πρέπει να γίνει επαλήθευση των στοιχείων σου πριν συνδεθείς!"
     }
   }
 
   getSubscript() {
     if (this.props.activation === "user") {
-      return "Έχουμε στείλει ένα email στο %(email)s που πρέπει να κάνεις κλικ για να ενεργοποιήσεις το λογαριασμό σου."
+      return "Έχουμε στείλει ένα email στο %(email)s με ένα σύνδεσμο που πρέπει να κάνεις κλικ για να ενεργοποιήσεις το λογαριασμό σου."
     } else if (this.props.activation === "admin") {
-      return "Θα στείλουμε ένα email στο %(email)s, όταν ολοκληρωθεί η διαδικασία."
+      return "Θα στείλουμε ένα email στο %(email)s, όταν ολοκληρωθεί η διαδικασία και εγκριθεί ο λογαριασμός."
     }
   }
 

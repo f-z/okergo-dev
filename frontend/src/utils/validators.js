@@ -1,5 +1,7 @@
+/* eslint-disable no-useless-escape */
 const EMAIL = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i
 const USERNAME = new RegExp("^[0-9a-z]+$", "i")
+const PHONE = new RegExp("^\s*(?:[0-9]{10})\s*$", "i")
 
 export function required(message) {
   return function(value) {
@@ -22,7 +24,15 @@ export function requiredPrivacyPolicy(message) {
 export function email(message) {
   return function(value) {
     if (!EMAIL.test(value)) {
-      return message || "Βάλε μια σωστή διεύθυνη email!"
+      return message || "Βάλε τη σωστή διεύθυνη email σου!"
+    }
+  }
+}
+
+export function phone(message) {
+  return function (value) {
+    if (!PHONE.test(value)) {
+      return message || "Βάλε το σωστό αριθμό τηλεφώνου σου!"
     }
   }
 }

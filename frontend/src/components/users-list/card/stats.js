@@ -54,7 +54,10 @@ export function JoinDate({ user }) {
 
 export function Posts({ user }) {
   const className = getStatClassName("user-stat-posts", user.posts)
-  const message = "%(posts)s προσφορές"
+  let message = "%(posts)s δημοσιεύσεις"
+  if (user.posts === 1) {
+    message = "%(posts)s δημοσίευση"
+  }
 
   return (
     <li className={className}>
@@ -71,7 +74,10 @@ export function Posts({ user }) {
 
 export function Threads({ user }) {
   const className = getStatClassName("user-stat-threads", user.threads)
-  const message = "%(threads)s αγγελίες"
+  let message = "%(threads)s αγγελίες"
+  if (user.threads === 1) {
+    message = "%(threads)s αγγελία"
+  }
 
   return (
     <li className={className}>
@@ -88,8 +94,10 @@ export function Threads({ user }) {
 
 export function Followers({ user }) {
   const className = getStatClassName("user-stat-followers", user.followers)
-  const message = 
-    "%(followers)s ακολουθούν"
+  let message = "%(followers)s ακολουθούν"
+  if (user.followers === 1) {
+    message = "%(followers)s ακολουθεί"
+  }
 
   return (
     <li className={className}>

@@ -50,8 +50,12 @@ def create_endpoint(request):
     try:
         new_user = User.objects.create_user(
             form.cleaned_data["username"],
-            form.cleaned_data["email"],
             form.cleaned_data["password"],
+            form.cleaned_data["real_name"],
+            form.cleaned_data["email"],
+            form.cleaned_data["phone"],
+            form.cleaned_data["region"],
+            form.cleaned_data["is_engineer"],
             joined_from_ip=request.user_ip,
             **activation_kwargs
         )

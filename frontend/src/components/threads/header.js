@@ -62,7 +62,7 @@ export default class extends React.Component {
         disabled={this.props.disabled}
       >
         <span className="material-icon">chat</span>
-        {"Δημοσίευσε αγγελία"}
+        {"Νέα αγγελία"}
       </Button>
     )
   }

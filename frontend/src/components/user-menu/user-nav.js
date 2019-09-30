@@ -58,7 +58,7 @@ export class UserMenu extends React.Component {
         <li>
           <a href={misago.get("USERCP_URL")}>
             <span className="material-icon">done_all</span>
-            {"Άλλαξε τις επιλογές σου"}
+            {"Άλλαξε τις ρυθμίσεις σου"}
           </a>
         </li>
         <li>

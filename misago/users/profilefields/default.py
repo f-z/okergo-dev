@@ -9,74 +9,63 @@ from . import basefields
 
 class BioField(basefields.UrlifiedTextareaProfileField):
     fieldname = "bio"
-    label = _("Bio")
+    label = _("Πληροφορίες")
 
 
 class RealNameField(basefields.TextProfileField):
     fieldname = "real_name"
-    label = _("Real name")
+    label = _("Ονοματεπώνυμο")
 
 
-class LocationField(basefields.TextProfileField):
-    fieldname = "location"
-    label = _("Location")
+class RegionField(basefields.TextProfileField):
+    fieldname = "region"
+    label = _("Νομός")
 
 
-class GenderField(basefields.ChoiceProfileField):
-    fieldname = "gender"
-    label = _("Gender")
+class IsEngineerField(basefields.ChoiceProfileField):
+    fieldname = "is_engineer"
+    label = _("Μηχανικός")
 
     choices = (
-        ("", _("Not specified")),
-        ("secret", _("Not telling")),
-        ("female", _("Female")),
-        ("male", _("Male")),
+        ("customer", _("Ιδιώτης")),
+        ("engineer", _("Μηχανικός")),
     )
 
 
 class WebsiteField(basefields.UrlProfileField):
     fieldname = "website"
-    label = _("Website")
+    label = _("Ιστοσελίδα")
     help_text = _(
-        "If you own website in the internet you wish to share on your profile "
-        "you may enter its address here. Remember to for it to be valid http "
-        'address starting with either "http://" or "https://".'
+        "Εάν έχεις δικιά σου ιστοσελίδα μπορείς να την προωθήσεις εδώ. "
+        'Για να είναι έγκυρη η διεύθυνση πρέπει να ξεκινάει με "http://" ή "https://".'
     )
 
 
-class SkypeIdField(basefields.TextProfileField):
-    fieldname = "skype"
-    label = _("Skype ID")
-    help_text = _(
-        "Entering your Skype ID in this field may invite other users to "
-        "contact you over the Skype instead of via private threads."
-    )
-
-
-class TwitterHandleField(basefields.TextProfileField):
-    fieldname = "twitter"
-    label = _("Twitter handle")
+class PhoneNumberField(basefields.TextProfileField):
+    fieldname = "phone"
+    label = _("Τηλέφωνο")
 
     def get_help_text(self, user):
         return _(
-            "If you own Twitter account, here you may enter your Twitter handle for "
-            'other users to find you. Starting your handle with "@" sign is optional. '
-            'Either "@%(slug)s" or "%(slug)s" are valid values.'
-        ) % {"slug": user.slug}
+            "Βάλε το τηλέφωνό σου εδώ, για να μπορούν να επικοινωνούν "
+            "οι άλλοι χρήστες μαζί σου για δουλειές μέσω τηλεφώνου. "
+            "Πρέπει να είναι ελληνικό νούμερο, "
+            "να έχει δέκα ακριβώς ψηφία "
+            "και να ΜΗ βάλεις τον κωδικό χώρας (+30)."
+        )
 
     def get_value_display_data(self, request, user, value):
-        return {"text": "@%s" % value, "url": "https://twitter.com/%s" % value}
+        return {"text": "+30%s" % value, "url": "tel:+30%s" % value}
 
     def clean(self, request, user, data):
-        data = data.lstrip("@")
-        if data and not re.search("^[A-Za-z0-9_]+$", data):
-            raise ValidationError(gettext("This is not a valid twitter handle."))
+        if data and (not re.search("^\d*$", data) or data.length != 10):
+            raise ValidationError(gettext("Ο αριθμός τηλεφώνου δεν είναι έγκυρος!"))
         return data
 
 
 class JoinIpField(basefields.TextProfileField):
     fieldname = "join_ip"
-    label = _("Join IP")
+    label = _("IP εγγραφής")
     readonly = True
 
     def get_value_display_data(self, request, user, value):

@@ -1,5 +1,6 @@
 import React from "react"
 import Button from "misago/components/button"
+import Select from "misago/components/select"
 import Form from "misago/components/form"
 import FormGroup from "misago/components/form-group"
 import PasswordStrength from "misago/components/password-strength"
@@ -56,7 +57,8 @@ export class RegisterForm extends Form {
       email: "",
       phone: "",
       region: "",
-      is_engineer: "",
+      engineer_or_customer: "customer",
+      registry_number: "",
       captcha: "",
 
       termsOfService: null,
@@ -65,6 +67,19 @@ export class RegisterForm extends Form {
       validators: formValidators,
       errors: {}
     }
+
+    this.EngineerOrCustomerChoices = [
+      {
+        value: "engineer",
+        icon: "business_center",
+        label: "Μηχανικός"
+      },
+      {
+        value: "customer",
+        icon: "person",
+        label: "Ιδιώτης"
+      }
+    ]
   }
 
   clean() {
@@ -87,7 +102,8 @@ export class RegisterForm extends Form {
       email: this.state.email,
       phone: this.state.phone,
       region: this.state.region,
-      is_engineer: this.state.is_engineer,
+      engineer_or_customer: this.state.engineer_or_customer,
+      registry_number: this.state.registry_number,
       captcha: this.state.captcha,
       terms_of_service: this.state.termsOfService,
       privacy_policy: this.state.privacyPolicy
@@ -141,6 +157,8 @@ export class RegisterForm extends Form {
   }
 
   render() {
+    const is_engineer = this.state.engineer_or_customer === "engineer"
+
     return (
       <div className="modal-dialog modal-register" role="document">
         <div className="modal-content">
@@ -224,7 +242,7 @@ export class RegisterForm extends Form {
                 validation={this.state.errors.email}
               >
                 <input
-                  type="text"
+                  type="email"
                   id="id_email"
                   className="form-control"
                   aria-describedby="id_email_status"
@@ -241,7 +259,6 @@ export class RegisterForm extends Form {
               >
                 <input
                   type="tel"
-                  pattern = "[0-9*]"
                   id="id_phone"
                   className="form-control"
                   aria-describedby="id_phone_status"
@@ -268,18 +285,37 @@ export class RegisterForm extends Form {
 
               <FormGroup
                 label={"Είσαι μηχανικός ή ιδιώτης;"}
-                for="id_is_engineer"
+                for="id_engineer_or_customer"
               >
-                <input
-                  type="text"
-                  id="id_is_engineer"
-                  className="form-control"
-                  aria-describedby="id_is_engineer_status"
+                <Select
+                  id="id_engineer_or_customer"
                   disabled={this.state.isLoading}
-                  onChange={this.bindInput("is_engineer")}
-                  value={this.state.is_engineer}
+                  onChange={this.bindInput("engineer_or_customer")}
+                  value={this.state.engineer_or_customer}
+                  choices={this.EngineerOrCustomerChoices}
                 />
               </FormGroup>
+
+              {
+                is_engineer ? ( 
+                  <FormGroup
+                  label={"Αριθμός μητρώου"}
+                  for="id_registry_number"
+                  >
+                    <input
+                      type="number"
+                      id="id_registry_number"
+                      className="form-control"
+                      aria-describedby="id_registry_number_status"
+                      disabled={this.state.isLoading}
+                      onChange={this.bindInput("registry_number")}
+                      value={this.state.registry_number}
+                    />
+                  </FormGroup>
+                ) : ( 
+                  null
+                )
+              }
 
               {captcha.component({
                 form: this

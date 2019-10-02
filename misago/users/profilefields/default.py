@@ -2,51 +2,45 @@ import re
 
 from django.forms import ValidationError
 from django.utils.translation import gettext
-from django.utils.translation import gettext_lazy as _
 
 from . import basefields
 
 
 class BioField(basefields.UrlifiedTextareaProfileField):
     fieldname = "bio"
-    label = _("Πληροφορίες")
+    label = "Πληροφορίες"
 
 
 class RealNameField(basefields.TextProfileField):
     fieldname = "real_name"
-    label = _("Ονοματεπώνυμο")
+    label = "Ονοματεπώνυμο"
 
 
 class RegionField(basefields.TextProfileField):
     fieldname = "region"
-    label = _("Νομός")
+    label = "Νομός"
 
 
-class IsEngineerField(basefields.ChoiceProfileField):
-    fieldname = "is_engineer"
-    label = _("Μηχανικός")
-
-    choices = (
-        ("customer", _("Ιδιώτης")),
-        ("engineer", _("Μηχανικός")),
-    )
+class RegistryNumberField(basefields.TextProfileField):
+    fieldname = "registry_number"
+    label = "Αριθμός Μητρώου Μηχανικού"
 
 
 class WebsiteField(basefields.UrlProfileField):
     fieldname = "website"
-    label = _("Ιστοσελίδα")
-    help_text = _(
+    label = "Ιστοσελίδα"
+    help_text = (
         "Εάν έχεις δικιά σου ιστοσελίδα μπορείς να την προωθήσεις εδώ. "
         'Για να είναι έγκυρη η διεύθυνση πρέπει να ξεκινάει με "http://" ή "https://".'
     )
 
 
-class PhoneNumberField(basefields.TextProfileField):
+class PhoneField(basefields.TextProfileField):
     fieldname = "phone"
-    label = _("Τηλέφωνο")
+    label = "Τηλέφωνο"
 
     def get_help_text(self, user):
-        return _(
+        return (
             "Βάλε το τηλέφωνό σου εδώ, για να μπορούν να επικοινωνούν "
             "οι άλλοι χρήστες μαζί σου για δουλειές μέσω τηλεφώνου. "
             "Πρέπει να είναι ελληνικό νούμερο, "
@@ -59,13 +53,13 @@ class PhoneNumberField(basefields.TextProfileField):
 
     def clean(self, request, user, data):
         if data and (not re.search("^\d*$", data) or data.length != 10):
-            raise ValidationError(gettext("Ο αριθμός τηλεφώνου δεν είναι έγκυρος!"))
+            raise ValidationError("Ο αριθμός τηλεφώνου δεν είναι έγκυρος!")
         return data
 
 
 class JoinIpField(basefields.TextProfileField):
     fieldname = "join_ip"
-    label = _("IP εγγραφής")
+    label = "IP εγγραφής"
     readonly = True
 
     def get_value_display_data(self, request, user, value):

@@ -1,7 +1,6 @@
 from django.contrib.auth import authenticate, get_user_model, login
 from django.core.exceptions import PermissionDenied, ValidationError
 from django.db import IntegrityError
-from django.utils.translation import gettext as _
 from django.views.decorators.csrf import csrf_protect
 from rest_framework import status
 from rest_framework.response import Response
@@ -22,7 +21,7 @@ User = get_user_model()
 @csrf_protect
 def create_endpoint(request):
     if request.settings.account_activation == "closed":
-        raise PermissionDenied(_("New users registrations are currently closed."))
+        raise PermissionDenied("Δεν επιτρέπεται η εγγραφή νέων χρηστών αυτή τη στιγμή...")
 
     request_data = request.data
     if not isinstance(request_data, dict):
@@ -42,26 +41,26 @@ def create_endpoint(request):
         return Response(form.errors, status=status.HTTP_400_BAD_REQUEST)
 
     activation_kwargs = {}
-    if request.settings.account_activation == "user":
-        activation_kwargs = {"requires_activation": User.ACTIVATION_USER}
-    elif request.settings.account_activation == "admin":
+    if request_data["engineer_or_customer"] == "engineer":
         activation_kwargs = {"requires_activation": User.ACTIVATION_ADMIN}
+    elif request_data["engineer_or_customer"] == "customer":
+        activation_kwargs = {"requires_activation": User.ACTIVATION_USER}
 
     try:
         new_user = User.objects.create_user(
-            form.cleaned_data["username"],
-            form.cleaned_data["password"],
-            form.cleaned_data["real_name"],
-            form.cleaned_data["email"],
-            form.cleaned_data["phone"],
-            form.cleaned_data["region"],
-            form.cleaned_data["is_engineer"],
+            username=form.cleaned_data["username"],
+            password=form.cleaned_data["password"],
+            real_name=form.cleaned_data["real_name"],
+            email=form.cleaned_data["email"],
+            phone=form.cleaned_data["phone"],
+            region=form.cleaned_data["region"],
+            registry_number=form.cleaned_data["registry_number"],
             joined_from_ip=request.user_ip,
             **activation_kwargs
         )
     except IntegrityError:
         return Response(
-            {"__all__": _("Please try resubmitting the form.")},
+            {"__all__": "Προσπάθησε ξανά..."},
             status=status.HTTP_400_BAD_REQUEST,
         )
 

@@ -15,6 +15,8 @@ class RankManager(models.Manager):
             rank.is_default = True
             rank.save(update_fields=["is_default"])
 
+    def get_rank(self, name):
+        return super().get_queryset().filter(name=name)
 
 class Rank(models.Model):
     name = models.CharField(max_length=255)

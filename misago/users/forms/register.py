@@ -31,7 +31,7 @@ class BaseRegisterForm(forms.Form):
             if ban.user_message:
                 raise ValidationError(ban.user_message)
             else:
-                raise ValidationError(_("This usernane is not allowed."))
+                raise ValidationError("Αυτό το όνομα χρήστη δεν επιτρέπεται!")
         return data
 
     def clean_email(self):
@@ -42,13 +42,13 @@ class BaseRegisterForm(forms.Form):
             if ban.user_message:
                 raise ValidationError(ban.user_message)
             else:
-                raise ValidationError(_("This e-mail address is not allowed."))
+                raise ValidationError("Αυτή η διεύθυνση email δεν επιτρέπεται!")
         return data
 
     def clean_agreements(self, data):
         for field_name, agreement in self.agreements.items():
             if data.get(field_name) != agreement["id"]:
-                error = ValueError(_("This agreement is required."))
+                error = ValueError("Η συμφωνία με την πολιτική αυτή είναι απαραίτητη!")
                 self.add_error(field_name, error)
 
     def raise_if_ip_banned(self):
@@ -57,9 +57,7 @@ class BaseRegisterForm(forms.Form):
             if ban.user_message:
                 raise ValidationError(ban.user_message)
             else:
-                raise ValidationError(
-                    _("New registrations from this IP address are not allowed.")
-                )
+                raise ValidationError("Εγγραφές από αυτή τη διέυθυνση IP δεν επιτρέπονται!")
 
 
 class SocialAuthRegisterForm(BaseRegisterForm):
@@ -76,6 +74,14 @@ class SocialAuthRegisterForm(BaseRegisterForm):
 
 class RegisterForm(BaseRegisterForm):
     password = forms.CharField(strip=False)
+    real_name = forms.CharField(strip=True, max_length=50, min_length=5)
+    phone = forms.IntegerField(max_value=9999999999, min_value=0)
+    region = forms.CharField(strip=True, max_length=30, min_length=2)
+    ENGINEER_OR_CUSTOMER_CHOICES = (
+        ('engineer', 'Μηχανικός'),
+        ('customer', 'Ιδιώτης'),
+    )
+    engineer_or_customer = forms.TypedChoiceField(choices=ENGINEER_OR_CUSTOMER_CHOICES, empty_value="customer")
 
     # placeholder field for setting captcha errors on form
     captcha = forms.CharField(required=False)

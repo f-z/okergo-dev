@@ -23,14 +23,14 @@ from .rank import Rank
 
 
 class UserManager(BaseUserManager):
-    def _create_user(self, username, email, password, **extra_fields):
+    def _create_user(self, username, email, password, real_name, phone, region, registry_number, **extra_fields):
         """
-        Create and save a user with the given username, email, and password.
+        Create and save a user with the given username, email, password and other fields.
         """
         if not username:
-            raise ValueError("User must have an username.")
+            raise ValueError("Ο χρήστης πρέπει να έχει όνομα χρήστη!")
         if not email:
-            raise ValueError("User must have an email address.")
+            raise ValueError("Ο χρήστης πρέπει να έχει διεύθυνση email!")
 
         if not extra_fields.get("rank"):
             extra_fields["rank"] = Rank.objects.get_default()
@@ -39,6 +39,10 @@ class UserManager(BaseUserManager):
         user.set_username(username)
         user.set_email(email)
         user.set_password(password)
+        user.set_real_name(real_name)
+        user.set_phone(phone)
+        user.set_region(region)
+        user.set_registry_number(registry_number)
 
         now = extra_fields.get("joined_on", timezone.now())
         user.last_login = now
@@ -58,12 +62,12 @@ class UserManager(BaseUserManager):
         user.update_acl_key()
         user.save(update_fields=["acl_key"])
 
-    def create_user(self, username, email=None, password=None, **extra_fields):
+    def create_user(self, username, email=None, password=None, real_name=None, phone=None, region=None, registry_number=None, **extra_fields):
         extra_fields.setdefault("is_staff", False)
         extra_fields.setdefault("is_superuser", False)
-        return self._create_user(username, email, password, **extra_fields)
+        return self._create_user(username, email, password, real_name, phone, region, registry_number, **extra_fields)
 
-    def create_superuser(self, username, email, password=None, **extra_fields):
+    def create_superuser(self, username, email=None, password=None, real_name=None, phone=None, region=None, registry_number=None, **extra_fields):
         extra_fields.setdefault("is_staff", True)
         extra_fields.setdefault("is_superuser", True)
 
@@ -78,7 +82,7 @@ class UserManager(BaseUserManager):
         except Rank.DoesNotExist:
             pass
 
-        return self._create_user(username, email, password, **extra_fields)
+        return self._create_user(username, email, password, real_name, phone, region, registry_number, **extra_fields)
 
     def get_by_username(self, username):
         return self.get(slug=slugify(username))
@@ -131,6 +135,11 @@ class User(AbstractBaseUser, PermissionsMixin):
     # using one email address
     email = models.EmailField(max_length=255, db_index=True)
     email_hash = models.CharField(max_length=32, unique=True)
+
+    real_name = models.CharField(default='', max_length=50)
+    phone = models.BigIntegerField(default=0)
+    region = models.CharField(default='', max_length=30)
+    registry_number = models.BigIntegerField(default=0)
 
     joined_on = models.DateTimeField(
         _("joined on"), default=timezone.now, db_index=True
@@ -322,10 +331,13 @@ class User(AbstractBaseUser, PermissionsMixin):
         return self.username
 
     def get_full_name(self):
-        return self.username
+        return self.real_name
 
     def get_short_name(self):
-        return self.username
+        try:
+            return self.real_name.split()[0]
+        except:
+            return self.real_name
 
     def get_real_name(self):
         return self.profile_fields.get("real_name")
@@ -360,6 +372,18 @@ class User(AbstractBaseUser, PermissionsMixin):
     def set_email(self, new_email):
         self.email = UserManager.normalize_email(new_email)
         self.email_hash = hash_email(new_email)
+
+    def set_phone(self, new_phone):
+        self.phone = new_phone
+
+    def set_real_name(self, new_real_name):
+        self.real_name = new_real_name
+
+    def set_region(self, new_region):
+        self.region = new_region
+
+    def set_registry_number(self, new_registry_number):
+        self.registry_number = new_registry_number
 
     def get_any_title(self):
         return self.title or self.rank.title or self.rank.name

@@ -45,6 +45,7 @@ def create_endpoint(request):
         activation_kwargs = {"requires_activation": User.ACTIVATION_ADMIN}
     elif request_data["engineer_or_customer"] == "customer":
         activation_kwargs = {"requires_activation": User.ACTIVATION_USER}
+        form.cleaned_data["registry_number"] = 0
 
     try:
         new_user = User.objects.create_user(

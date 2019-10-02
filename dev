@@ -130,6 +130,8 @@ init() {
 init_in_docker() {
     require_in_docker
     wait_for_db
+    # make migrations
+    python manage.py makemigrations
     # migrate the database
     python manage.py migrate
     # create superuser Admin with password "password"

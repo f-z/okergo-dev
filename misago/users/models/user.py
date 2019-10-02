@@ -139,7 +139,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     real_name = models.CharField(default='', max_length=50)
     phone = models.BigIntegerField(default=0)
     region = models.CharField(default='', max_length=30)
-    registry_number = models.BigIntegerField(default=0)
+    registry_number = models.BigIntegerField(default=0, blank=True)
 
     joined_on = models.DateTimeField(
         _("joined on"), default=timezone.now, db_index=True

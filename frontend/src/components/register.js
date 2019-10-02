@@ -299,7 +299,7 @@ export class RegisterForm extends Form {
               {
                 is_engineer ? ( 
                   <FormGroup
-                  label={"Αριθμός μητρώου"}
+                  label={"Αριθμός μητρώου ΤΕΕ"}
                   for="id_registry_number"
                   >
                     <input

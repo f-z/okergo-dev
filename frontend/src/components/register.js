@@ -37,6 +37,10 @@ export class RegisterForm extends Form {
       password: [validators.passwordMinLength(passwordMinLength)],
       email: [validators.email()],
       phone: [validators.phone()],
+      real_name: [validators.minLength(4)],
+      region: [validators.minLength(2)],
+      engineer_or_customer: [validators.engineer_or_customer()],
+      registry_number: [validators.registry_number(6)],
       captcha: captcha.validator()
     }
 
@@ -58,7 +62,7 @@ export class RegisterForm extends Form {
       phone: "",
       region: "",
       engineer_or_customer: "customer",
-      registry_number: "",
+      registry_number: 0,
       captcha: "",
 
       termsOfService: null,
@@ -224,6 +228,7 @@ export class RegisterForm extends Form {
               <FormGroup
                 label={"Ονοματεπώνυμο"}
                 for="id_real_name"
+                validation={this.state.errors.real_name}
               >
                 <input
                   type="text"
@@ -271,6 +276,7 @@ export class RegisterForm extends Form {
               <FormGroup
                 label={"Νομός"}
                 for="id_region"
+                validation={this.state.errors.region}
               >
                 <input
                   type="text"
@@ -286,6 +292,7 @@ export class RegisterForm extends Form {
               <FormGroup
                 label={"Είσαι μηχανικός ή ιδιώτης;"}
                 for="id_engineer_or_customer"
+                validation={this.state.errors.engineer_or_customer}
               >
                 <Select
                   id="id_engineer_or_customer"
@@ -301,6 +308,7 @@ export class RegisterForm extends Form {
                   <FormGroup
                   label={"Αριθμός μητρώου ΤΕΕ"}
                   for="id_registry_number"
+                  validation={this.state.errors.registry_number}
                   >
                     <input
                       type="number"

@@ -114,7 +114,7 @@ export default class extends React.Component {
       } else {
         return (
           <p className="lead">
-            {"Δεν υπάρχει κανένας χρήστης σε αυτή την κατηγορία ακόμα."}
+            {"Δεν υπάρχει κανένας χρήστης αυτού του είδους ακόμα..."}
           </p>
         )
       }

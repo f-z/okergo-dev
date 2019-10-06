@@ -54,9 +54,9 @@ export function mockUser(overrides) {
       description:
         '<p>Lorem ipsum dolor met sit amet elit, si vis pacem para bellum.</p>\n<p>To help see <a href="http://wololo.com/something.php?page=2131">http://wololo.com/something.php?page=2131</a></p>',
       is_tab: true,
-      name: "Forum team",
-      slug: "forum-team",
-      title: "Team"
+      name: "Διαχειριστές",
+      slug: "diakheiristes",
+      title: "Ομάδα"
     },
     slug: "loremipsum",
     subscribe_to_replied_threads: 2,

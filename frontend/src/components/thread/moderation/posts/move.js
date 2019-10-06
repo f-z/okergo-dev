@@ -1,5 +1,4 @@
 import React from "react"
-import Button from "misago/components/button"
 import Form from "misago/components/form"
 import FormGroup from "misago/components/form-group"
 import * as post from "misago/reducers/post"

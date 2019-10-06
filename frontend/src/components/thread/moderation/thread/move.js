@@ -108,7 +108,7 @@ export default class extends Form {
             <div className="modal-content">
               <ModalHeader />
               <div className="modal-body">
-                <FormGroup for="id_category" label={"Νέα κατηγορία"}>
+                <FormGroup for="id_category" label={"Νέα κατηγορία εργασιών"}>
                   <CategorySelect
                     choices={this.state.categories}
                     disabled={this.state.isLoading || this.props.thread.isBusy}

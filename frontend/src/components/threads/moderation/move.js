@@ -93,7 +93,7 @@ export default class extends Form {
     return (
       <form onSubmit={this.handleSubmit}>
         <div className="modal-body">
-          <FormGroup label={"Νέα κατηγορία"} for="id_new_category">
+          <FormGroup label={"Νέα κατηγορία εργασιών"} for="id_new_category">
             <CategorySelect
               id="id_new_category"
               onChange={this.bindInput("category")}
@@ -128,7 +128,7 @@ export default class extends Form {
             {"Δεν μπορείς να μετακινήσεις τις αγγελίες, γιατί δεν υπάρχουν διαθέσιμες κατηγορίες."}
           </p>
           <p>
-            {"Πρέπει να έχεις άδεια να δημιουργήσεις καινούριες αγγελίες σε μια κατηγορία για να μπορείς να μετακινήσεις αγγελίες εκεί."}
+            {"Πρέπει να έχεις άδεια να δημιουργήσεις καινούριες αγγελίες για εργασίες σε μια συγκεκριμένη κατηγορία για να μπορείς να μετακινήσεις αγγελίες εκεί."}
           </p>
           <button
             className="btn btn-default"

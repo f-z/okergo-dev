@@ -153,10 +153,10 @@ export function LastPage(props) {
 export function More(props) {
   let message = null
   if (props.more) {
-    message = "Υπάρχουν %(more)s χρήστες σε αυτή την κατηγορία.",
+    message = "Υπάρχουν %(more)s χρήστες αυτού του είδους"
     message = interpolate(message, { more: props.more }, true)
   } else {
-    message = "Δεν υπάρχουν άλλοι χρήστες σε αυτή την κατηγορία."
+    message = "Δεν υπάρχουν άλλοι χρήστες αυτού του είδους"
   }
 
   return <p>{message}</p>

@@ -28,7 +28,7 @@
 
       {% if ban.staff_message %}
         <div class="panel-body ban-message ban-staff-message">
-          <h4>{% trans "Team-shown ban message" %}</h4>
+          <h4>Μήνυμα αποκλεισμού για διαχειριστές</h4>
           <div class="lead">
             {{ ban.staff_message|force_escape|urlize|linebreaks }}
           </div>
@@ -36,7 +36,7 @@
       {% endif %}
 
       <div class="panel-body ban-expires">
-        <h4>{% trans "Ban expiration" %}</h4>
+        <h4>Λήξη αποκλεισμού</h4>
 
         <p class="lead">
           {% if ban.expires_on %}

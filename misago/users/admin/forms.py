@@ -383,7 +383,7 @@ def create_filter_users_form():
 
 class RankForm(forms.ModelForm):
     name = forms.CharField(
-        label=_("Name"),
+        label="Όνομα",
         validators=[validate_sluggable()],
         help_text=_(
             "Short and descriptive name of all users with this rank. "
@@ -391,7 +391,7 @@ class RankForm(forms.ModelForm):
         ),
     )
     title = forms.CharField(
-        label=_("User title"),
+        label="Τίτλος χρήστη",
         required=False,
         help_text=_(
             "Optional, singular version of rank name displayed by user names. "
@@ -399,7 +399,7 @@ class RankForm(forms.ModelForm):
         ),
     )
     description = forms.CharField(
-        label=_("Description"),
+        label="Περιγραφή",
         max_length=2048,
         required=False,
         widget=forms.Textarea(attrs={"rows": 3}),
@@ -464,7 +464,7 @@ class BanUsersForm(forms.Form):
         },
     )
     staff_message = forms.CharField(
-        label=_("Team message"),
+        label="Μήνυμα για διαχειριστές",
         required=False,
         max_length=1000,
         help_text=_("Optional ban message for moderators and administrators."),
@@ -531,7 +531,7 @@ class BanForm(forms.ModelForm):
         },
     )
     staff_message = forms.CharField(
-        label=_("Team message"),
+        label="Μήνυμα για διαχειριστές",
         required=False,
         max_length=1000,
         help_text=_("Optional ban message for moderators and administrators."),

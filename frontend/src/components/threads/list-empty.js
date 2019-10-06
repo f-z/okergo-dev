@@ -15,8 +15,8 @@ export default class extends React.Component {
           <li className="list-group-item empty-message">
             <p className="lead">
               {this.props.category.special_role
-                ? "Δεν υπάρχουν αγγελίες σε αυτό το φόρουμ ακόμα!"
-                : "Δεν υπάρχουν αγγελίες σε αυτή την κατηγορία"}
+                ? "Δεν υπάρχουν αγγελίες ακόμα..."
+                : "Δεν υπάρχουν αγγελίες για αυτή την κατηγορία εργασιών ακόμα..."}
             </p>
             <p>{"Μπορείς να δημοσιεύσεις μία εύκολα και γρήγορα!"}</p>
           </li>
@@ -25,7 +25,7 @@ export default class extends React.Component {
     } else {
       return (
         <li className="list-group-item empty-message">
-          {"Δεν υπάρχουν αγγελίες για τη συγκεκριμένη επιλογή"}
+          {"Δεν υπάρχουν αγγελίες για τη συγκεκριμένη επιλογή..."}
         </li>
       )
     }

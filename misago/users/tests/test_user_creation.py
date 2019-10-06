@@ -81,7 +81,7 @@ def test_create_superuser(db):
 
 def test_superuser_is_created_with_team_rank(db):
     user = User.objects.create_superuser("User", "test@example.com")
-    assert "team" in str(user.rank)
+    assert "ομάδα" in str(user.rank)
 
 
 def test_creating_superuser_without_staff_status_raises_value_error(db):

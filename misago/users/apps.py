@@ -24,26 +24,26 @@ class MisagoUsersConfig(AppConfig):
 
         usercp.add_section(
             link="misago:usercp-change-forum-options",
-            name=_("Forum options"),
+            name="Ρυθμίσεις σελίδας",
             component="forum-options",
             icon="settings",
         )
         usercp.add_section(
             link="misago:usercp-edit-details",
-            name=_("Edit details"),
+            name="Αλλαγή στοιχείων",
             component="edit-details",
             icon="person_outline",
         )
         usercp.add_section(
             link="misago:usercp-change-username",
-            name=_("Change username"),
+            name="Αλλαγή ονόματος χρήστη",
             component="change-username",
             icon="card_membership",
             visible_if=sso_is_disabled,
         )
         usercp.add_section(
             link="misago:usercp-change-email-password",
-            name=_("Change email or password"),
+            name="Αλλαγή email ή κωδικού πρόσβασης",
             component="sign-in-credentials",
             icon="vpn_key",
             visible_if=sso_is_disabled,
@@ -54,7 +54,7 @@ class MisagoUsersConfig(AppConfig):
 
         usercp.add_section(
             link="misago:usercp-download-data",
-            name=_("Download data"),
+            name="Κατέβασμα δεδομένων",
             component="download-data",
             icon="save_alt",
             visible_if=can_download_own_data,
@@ -68,7 +68,7 @@ class MisagoUsersConfig(AppConfig):
 
         usercp.add_section(
             link="misago:usercp-delete-account",
-            name=_("Delete account"),
+            name="Διαγραφή λογαριασμού",
             component="delete-account",
             icon="cancel",
             visible_if=can_delete_own_account,
@@ -78,7 +78,7 @@ class MisagoUsersConfig(AppConfig):
         users_list.add_section(
             link="misago:users-active-posters",
             component="active-posters",
-            name=_("Top posters"),
+            name="Τοπ μέλη",
         )
 
     def register_default_user_profile_pages(self):
@@ -99,42 +99,42 @@ class MisagoUsersConfig(AppConfig):
             return False
 
         user_profile.add_section(
-            link="misago:user-posts", name=_("Posts"), icon="message", component="posts"
+            link="misago:user-posts", name="Προσφορές", icon="message", component="posts"
         )
         user_profile.add_section(
             link="misago:user-threads",
-            name=_("Threads"),
+            name="Αγγελίες",
             icon="forum",
             component="threads",
         )
         user_profile.add_section(
             link="misago:user-followers",
-            name=_("Followers"),
+            name="Ακολουθούν",
             icon="favorite",
             component="followers",
         )
         user_profile.add_section(
             link="misago:user-follows",
-            name=_("Follows"),
+            name="Ακολουθεί",
             icon="favorite_border",
             component="follows",
         )
         user_profile.add_section(
             link="misago:user-details",
-            name=_("Details"),
+            name="Λεπτομέρειες",
             icon="person_outline",
             component="details",
         )
         user_profile.add_section(
             link="misago:username-history",
-            name=_("Username history"),
+            name="Ιστορικό ονόματος χρήστη",
             icon="card_membership",
             component="username-history",
             visible_if=can_see_names_history,
         )
         user_profile.add_section(
             link="misago:user-ban",
-            name=_("Ban details"),
+            name="Λεπτομέρειες αποκλεισμού",
             icon="remove_circle_outline",
             component="ban-details",
             visible_if=can_see_ban_details,

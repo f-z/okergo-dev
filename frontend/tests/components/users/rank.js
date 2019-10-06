@@ -226,8 +226,8 @@ describe("Rank Users List Root", function() {
         {
           component: "rank",
           id: 424,
-          name: "Forum team",
-          slug: 'forum-team',
+          name: "Διαχειριστές",
+          slug: 'diakheiristes',
           css_class: 'forum-team',
           description: {
             plain: "This is forum team rank.",

@@ -1,5 +1,6 @@
 import React from "react"
 import Button from "misago/components/button"
+import ErrorsModal from "misago/components/threads/moderation/errors-list"
 import Form from "misago/components/form"
 import FormGroup from "misago/components/form-group"
 import CategorySelect from "misago/components/category-select"
@@ -313,7 +314,7 @@ export class ModerationForm extends Form {
             <div className="clearfix" />
 
             <FormGroup
-              label={"Κατηγορία"}
+              label={"Κατηγορίες"}
               for="id_category"
               labelClass="col-sm-4"
               controlClass="col-sm-8"

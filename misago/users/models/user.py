@@ -78,7 +78,7 @@ class UserManager(BaseUserManager):
 
         try:
             if not extra_fields.get("rank"):
-                extra_fields["rank"] = Rank.objects.get(name=_("Forum team"))
+                extra_fields["rank"] = Rank.objects.get(name="Διαχειριστές")
         except Rank.DoesNotExist:
             pass
 

@@ -10,17 +10,18 @@ def create_default_ranks(apps, schema_editor):
     Rank = apps.get_model("misago_users", "Rank")
 
     team = Rank.objects.create(
-        name=gettext("Forum team"),
-        slug=slugify(gettext("Forum team")),
-        title=gettext("Team"),
+        name="Διαχειριστές",
+        slug=slugify("Διαχειριστές"),
+        title="Ομάδα",
         css_class="primary",
         is_tab=True,
         order=0,
     )
 
     member = Rank.objects.create(
-        name=gettext("Members"),
-        slug=slugify(gettext("Members")),
+        name="Ιδιώτες",
+        slug=slugify("Ιδιώτες"),
+        title="Πελάτης",
         is_default=True,
         order=1,
     )

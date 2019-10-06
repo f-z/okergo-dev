@@ -4,11 +4,11 @@
 
 {% block content %}
 {% blocktrans trimmed with user=user %}
-{{ user }}, your account has been activated by forum administrator.
+{{ user }}, ο λογαριασμός σου έχει ενεργοποιηθεί από τους διαχειριστές της σελίδας μας.
 {% endblocktrans %}
 
 {% blocktrans trimmed %}
-You can now sign in to it using the form below:
+Μπορείς να συνδεθείς μέσω:
 {% endblocktrans %}
 {% absoluteurl LOGIN_URL %}
 {% endblock content %}

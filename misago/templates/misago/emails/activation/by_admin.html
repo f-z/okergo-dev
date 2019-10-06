@@ -4,15 +4,15 @@
 
 {% block content %}
 {% blocktrans trimmed with user=user %}
-{{ user }}, your account has been activated by forum administrator.
+{{ user }}, ο λογαριασμός σου έχει ενεργοποιηθεί από τους διαχειριστές της σελίδας μας.
 {% endblocktrans %}
 <br>
 <br>
 {% capture trimmed as login_link %}
-<a href="{% absoluteurl LOGIN_URL %}">{% trans "this form" %}</a>
+<a href="{% absoluteurl LOGIN_URL %}">αυτού του συνδέσμου</a>
 {% endcapture %}
 {% blocktrans trimmed with login_form=login_link|safe %}
-You can now sign in to it using {{ login_form }}.
+Μπορείς να συνδεθείς μέσω {{ login_form }}.
 {% endblocktrans %}
 <br>
 {% endblock content %}

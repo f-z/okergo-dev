@@ -4,10 +4,10 @@
 
 {% block content %}
 {% blocktrans trimmed with user=user %}
-{{ user }}, to activate your account click the below link:
+{{ user }}, για να ενεργοποιήσεις το λογαριασμό σου κάνε κλικ στον παρακάτω σύνδεσμο:
 {% endblocktrans %}
 <br>
 <br>
-<a href="{% absoluteurl 'misago:activate-by-token' pk=user.pk token=activation_token %}">{% trans "Activate my account!" %}</a>
+<a href="{% absoluteurl 'misago:activate-by-token' pk=user.pk token=activation_token %}">Ενεργοποίηση λογαριασμού!</a>
 <br>
 {% endblock content %}

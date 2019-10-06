@@ -19,9 +19,9 @@ User = get_user_model()
 
 
 class UserBaseForm(forms.ModelForm):
-    username = forms.CharField(label=_("Username"))
-    title = forms.CharField(label=_("Custom title"), required=False)
-    email = forms.EmailField(label=_("E-mail address"))
+    username = forms.CharField(label="Όνομα χρήστη")
+    title = forms.CharField(label=_("Τίτλος"), required=False)
+    email = forms.EmailField(label=_("Email"))
 
     class Meta:
         model = User
@@ -56,7 +56,7 @@ class UserBaseForm(forms.ModelForm):
             if role.special_role == "authenticated":
                 break
         else:
-            message = _('All registered members must have a "Member" role.')
+            message = _('Όλοι οι εγγεγραμμένοι χρήστες πρέπει να έχουν το ρόλο "Μέλος".')
             raise forms.ValidationError(message)
 
         return data
@@ -657,7 +657,7 @@ class RequestDataDownloadsForm(forms.Form):
 
             if len(data["users"]) != len(data["user_identifiers"]):
                 raise forms.ValidationError(
-                    _("One or more specified users could not be found.")
+                    "Ένας ή περισσότεροι χρήστες δε βρέθηκαν!"
                 )
 
         return data

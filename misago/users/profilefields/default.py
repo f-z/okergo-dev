@@ -6,14 +6,14 @@ from django.utils.translation import gettext
 from . import basefields
 
 
-class BioField(basefields.UrlifiedTextareaProfileField):
-    fieldname = "bio"
-    label = "Πληροφορίες"
-
-
 class RealNameField(basefields.TextProfileField):
     fieldname = "real_name"
     label = "Ονοματεπώνυμο"
+
+
+class BioField(basefields.UrlifiedTextareaProfileField):
+    fieldname = "bio"
+    label = "Πληροφορίες"
 
 
 class RegionField(basefields.TextProfileField):
@@ -23,7 +23,7 @@ class RegionField(basefields.TextProfileField):
 
 class RegistryNumberField(basefields.TextProfileField):
     fieldname = "registry_number"
-    label = "Αριθμός Μητρώου Μηχανικού"
+    label = "Αριθμός Μητρώου TEE"
 
 
 class WebsiteField(basefields.UrlProfileField):

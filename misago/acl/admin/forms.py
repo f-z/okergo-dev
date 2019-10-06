@@ -6,7 +6,7 @@ from ..providers import providers
 
 
 class RoleForm(forms.ModelForm):
-    name = forms.CharField(label=_("Role name"))
+    name = forms.CharField(label="Όνομα ρόλου")
 
     class Meta:
         model = Role
@@ -22,7 +22,7 @@ def get_permissions_forms(role, data=None):
         try:
             module.change_permissions_form
         except AttributeError:
-            message = "'%s' object has no attribute '%s'"
+            message = "Το '%s' αντικείμενο δεν έχει ιδιότητα '%s'"
             raise AttributeError(message % (extension, "change_permissions_form"))
 
         FormType = module.change_permissions_form(role)

@@ -396,16 +396,15 @@ MISAGO_PROFILE_FIELDS = [
         "name": _("Personal"),
         "fields": [
             "misago.users.profilefields.default.RealNameField",
-            "misago.users.profilefields.default.EngineerField",
             "misago.users.profilefields.default.BioField",
-            "misago.users.profilefields.default.LocationField",
+            "misago.users.profilefields.default.RegionField",
+            "misago.users.profilefields.default.RegistryNumberField",
         ],
     },
     {
         "name": _("Contact"),
         "fields": [
-            "misago.users.profilefields.default.TwitterHandleField",
-            "misago.users.profilefields.default.SkypeIdField",
+            "misago.users.profilefields.default.PhoneField",
             "misago.users.profilefields.default.WebsiteField",
         ],
     },

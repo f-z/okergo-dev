@@ -111,25 +111,27 @@ def create_default_categories_roles(apps, schema_editor):
     Role = apps.get_model("misago_acl", "Role")
     RoleCategoryACL = apps.get_model("misago_categories", "RoleCategoryACL")
 
-    category = Category.objects.get(tree_id=1, level=1)
+    # Getting level below root in tree (first category level)
+    categories = Category.objects.filter(tree_id=1, level=1)
 
-    RoleCategoryACL.objects.create(
-        role=Role.objects.get(name="Διαχειριστής αγγελιών"),
-        category=category,
-        category_role=moderator,
-    )
+    for category in categories:
+        RoleCategoryACL.objects.create(
+            role=Role.objects.get(name="Διαχειριστής αγγελιών"),
+            category=category,
+            category_role=moderator,
+        )
 
-    RoleCategoryACL.objects.create(
-        role=Role.objects.get(special_role="authenticated"),
-        category=category,
-        category_role=standard,
-    )
+        RoleCategoryACL.objects.create(
+            role=Role.objects.get(special_role="authenticated"),
+            category=category,
+            category_role=standard,
+        )
 
-    RoleCategoryACL.objects.create(
-        role=Role.objects.get(special_role="anonymous"),
-        category=category,
-        category_role=read_only,
-    )
+        RoleCategoryACL.objects.create(
+            role=Role.objects.get(special_role="anonymous"),
+            category=category,
+            category_role=read_only,
+        )
 
 
 class Migration(migrations.Migration):

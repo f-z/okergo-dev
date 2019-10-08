@@ -1,6 +1,5 @@
 import React from "react"
 import { connect } from "react-redux"
-import DropdownToggle from "misago/components/dropdown-toggle"
 import Nav from "misago/components/users/nav"
 import ActivePosters from "misago/components/users/active-posters/root"
 import Rank from "misago/components/users/rank/root"

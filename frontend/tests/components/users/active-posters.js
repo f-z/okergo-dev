@@ -185,7 +185,7 @@ describe("Active Posters Root", function() {
       USERS_LISTS: [
         {
           component: "active-posters",
-          name: "Active posters"
+          name: "Τοπ μέλη"
         }
       ]
     });

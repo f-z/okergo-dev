@@ -46,7 +46,7 @@ class ListView(View):
             else:
                 description = None
 
-            request.frontend_context["USERS_LISTS"].append(
+            request.frontend_context["USERS_LISTS"].insert(0, 
                 {
                     "id": rank.pk,
                     "name": rank.name,

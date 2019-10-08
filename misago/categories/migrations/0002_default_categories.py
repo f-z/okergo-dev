@@ -23,23 +23,35 @@ def create_default_categories_tree(apps, schema_editor):
         name="Root",
         slug="root",
         lft=3,
-        rght=6,
+        rght=18, # Need to increment by two for each new category created
         tree_id=1,
         level=0,
     )
 
-    category_name = _("First category")
+    category_names = [
+        "Αρχιτεκτονικά",
+        "Στατικά",
+        "Αποτυπώσεις - Επιμετρήσεις",
+        "Μέτρα Ασφαλείας",
+        "Μηχανολογικά",
+        "Ενεργειακά",
+        "Συμβουλευτική Ακινήτου / Ανάπτυξη"
+    ]
 
-    Category.objects.create(
-        parent=root,
-        lft=4,
-        rght=5,
-        tree_id=1,
-        level=1,
-        name=category_name,
-        slug=slugify(category_name),
-    )
+    starting_node_left = 4
 
+    for category_name in category_names:
+        Category.objects.create(
+            parent=root,
+            lft=starting_node_left,
+            rght=starting_node_left + 1,
+            tree_id=1,
+            level=1,
+            name=category_name,
+            slug=slugify(category_name),
+        )
+        starting_node_left += 2
+    
 
 class Migration(migrations.Migration):
 

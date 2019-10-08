@@ -114,7 +114,7 @@ def create_default_categories_roles(apps, schema_editor):
     category = Category.objects.get(tree_id=1, level=1)
 
     RoleCategoryACL.objects.create(
-        role=Role.objects.get(name=_("Moderator")),
+        role=Role.objects.get(name="Διαχειριστής αγγελιών"),
         category=category,
         category_role=moderator,
     )

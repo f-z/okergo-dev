@@ -80,7 +80,7 @@ class UserManager(BaseUserManager):
             if not extra_fields.get("rank"):
                 extra_fields["rank"] = Rank.objects.get(name="Διαχειριστές")
         except Rank.DoesNotExist:
-            pass
+            raise ValueError("Η κατηγορία χρήστη Διαχειριστής δεν υπάρχει!")
 
         return self._create_user(username, email, password, real_name, phone, region, registry_number, **extra_fields)
 

@@ -20,7 +20,7 @@ class RankAdminTests(AdminTestCase):
         response = self.client.get(reverse("misago:admin:ranks:index"))
 
         self.assertEqual(response.status_code, 200)
-        self.assertContains(response, "Ομάδα")
+        self.assertContains(response, "Μέλος ομάδας Ok Ergo")
 
     def test_new_view(self):
         """new rank view has no showstoppers"""

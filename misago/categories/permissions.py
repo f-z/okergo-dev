@@ -12,8 +12,8 @@ from .models import Category, CategoryRole, RoleCategoryACL
 class PermissionsForm(forms.Form):
     legend = _("Category access")
 
-    can_see = YesNoSwitch(label=_("Can see category"))
-    can_browse = YesNoSwitch(label=_("Can see category contents"))
+    can_see = YesNoSwitch(label="Μπορεί να δει την κατηγορία")
+    can_browse = YesNoSwitch(label="Μπορεί να δει τις δημοσιεύσεις σε αυτή την κατηγορία")
 
 
 def change_permissions_form(role):
@@ -47,10 +47,10 @@ def get_categories_roles(roles):
 def build_category_acl(acl, category, categories_roles, key_name):
     if category.level > 1:
         if category.parent_id not in acl["visible_categories"]:
-            # dont bother with child categories of invisible parents
+            # do not bother with child categories of invisible parents
             return
         if not acl["categories"][category.parent_id]["can_browse"]:
-            # parent's visible, but its contents aint
+            # parent is visible, but its contents are not
             return
 
     category_roles = categories_roles.get(category.pk, [])
@@ -116,7 +116,7 @@ can_see_category = return_boolean(allow_see_category)
 def allow_browse_category(user_acl, target):
     target_acl = user_acl["categories"].get(target.id, {"can_browse": False})
     if not target_acl["can_browse"]:
-        message = _('You don\'t have permission to browse "%(category)s" contents.')
+        message = 'Δεν έχεις άδεια για να δεις τις δημοσιεύσεις στην κατηγορία "%(category)s"!'
         raise PermissionDenied(message % {"category": target.name})
 
 

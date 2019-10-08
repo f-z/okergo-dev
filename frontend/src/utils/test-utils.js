@@ -56,7 +56,7 @@ export function mockUser(overrides) {
       is_tab: true,
       name: "Διαχειριστές",
       slug: "diakheiristes",
-      title: "Ομάδα"
+      title: "Μέλος ομάδας Ok Ergo"
     },
     slug: "loremipsum",
     subscribe_to_replied_threads: 2,

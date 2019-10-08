@@ -12,28 +12,46 @@ def create_default_ranks(apps, schema_editor):
     team = Rank.objects.create(
         name="Διαχειριστές",
         slug=slugify("Διαχειριστές"),
-        title="Ομάδα",
+        title="Μέλος ομάδας Ok Ergo",
         css_class="primary",
         is_tab=True,
         order=0,
     )
 
-    member = Rank.objects.create(
+    engineers = Rank.objects.create(
+        name="Μηχανικοί",
+        slug=slugify("Μηχανικοί"),
+        title="Μηχανικός",
+        is_tab=True,
+        order=1,
+    )
+
+    students = Rank.objects.create(
+        name="Φοιτητές",
+        slug=slugify("Φοιτητές"),
+        title="Φοιτητής",
+        order=2,
+    )
+
+    members = Rank.objects.create(
         name="Ιδιώτες",
         slug=slugify("Ιδιώτες"),
         title="Πελάτης",
         is_default=True,
-        order=1,
+        order=3,
     )
 
     Role = apps.get_model("misago_acl", "Role")
 
-    team.roles.add(Role.objects.get(name=_("Moderator")))
-    team.roles.add(Role.objects.get(name=_("Private threads")))
-    team.roles.add(Role.objects.get(name=_("Private threads moderator")))
-    team.roles.add(Role.objects.get(name=_("Deleting users")))
+    team.roles.add(Role.objects.get(name="Διαχειριστής αγγελιών"))
+    team.roles.add(Role.objects.get(name="Μπορεί να αποκλείει χρήστες"))
+    team.roles.add(Role.objects.get(name="Διαχειριστής συνομιλιών για ανάθεση εργασίας"))
 
-    member.roles.add(Role.objects.get(name=_("Private threads")))
+    engineers.roles.add(Role.objects.get(name="Μηχανικός"))
+    engineers.roles.add(Role.objects.get(name="Συμμετοχή σε συνομιλία για ανάθεση εργασίας"))
+   
+    members.roles.add(Role.objects.get(name="Πελάτης"))
+    members.roles.add(Role.objects.get(name="Ξεκίνημα συνομιλίας για ανάθεση εργασίας"))
 
 
 class Migration(migrations.Migration):

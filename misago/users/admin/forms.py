@@ -235,10 +235,10 @@ def UserFormFactory(FormType, instance):
     extra_fields = {}
 
     extra_fields["rank"] = forms.ModelChoiceField(
-        label=_("Rank"),
-        help_text=_(
-            "Ranks are used to group and distinguish users. They are "
-            "also used to add permissions to groups of users."
+        label="Κατηγορία χρήστη",
+        help_text=(
+            "Οι κατηγορίες χρηστών χρησιμεύουν για να οργανώνουμε και να ξεχωρίζουμε τους χρήστες, ανάλογα με το είδος τους. "
+            "Χρησιμεύουν επίσης για να τους δίνουμε ρόλους και δικαιώματα."
         ),
         queryset=Rank.objects.order_by("name"),
         initial=instance.rank,
@@ -247,9 +247,9 @@ def UserFormFactory(FormType, instance):
     roles = Role.objects.order_by("name")
 
     extra_fields["roles"] = forms.ModelMultipleChoiceField(
-        label=_("Roles"),
-        help_text=_(
-            'Individual roles of this user. All users must have a "Member" role.'
+        label="Ρόλοι",
+        help_text=(
+            'Όλοι οι ρόλοι αυτού του χρήστη. Ένας χρήστης πρέπει να έχει τουλάχιστον ως βασικό ρόλο Μηχανικός ή Φοιτητής ή Πελάτης.'
         ),
         queryset=roles,
         initial=instance.roles.all() if instance.pk else None,

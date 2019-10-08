@@ -7,8 +7,7 @@ def create_default_roles(apps, schema_editor):
     Role = apps.get_model("misago_acl", "Role")
 
     Role.objects.create(
-        name=_("Member"),
-        special_role="authenticated",
+        name="Πελάτης",
         permissions={
             # account
             "misago.users.permissions.account": {
@@ -45,7 +44,45 @@ def create_default_roles(apps, schema_editor):
     )
 
     Role.objects.create(
-        name=_("Guest"),
+        name="Μηχανικός",
+        special_role="authenticated",
+        permissions={
+            # account
+            "misago.users.permissions.account": {
+                "name_changes_allowed": 2,
+                "name_changes_expire": 180,
+                "can_have_signature": 1,
+                "allow_signature_links": 1,
+                "allow_signature_images": 1,
+            },
+            # profiles
+            "misago.users.permissions.profiles": {
+                "can_browse_users_list": 1,
+                "can_search_users": 1,
+                "can_follow_users": 1,
+                "can_be_blocked": 1,
+                "can_see_users_name_history": 0,
+                "can_see_users_emails": 0,
+                "can_see_users_ips": 0,
+                "can_see_hidden_users": 0,
+            },
+            # attachments
+            "misago.threads.permissions.attachments": {
+                "max_attachment_size": 4 * 1024,
+                "can_download_other_users_attachments": True,
+            },
+            # polls
+            "misago.threads.permissions.polls": {
+                "can_start_polls": 1,
+                "can_edit_polls": 1,
+            },
+            # search
+            "misago.search.permissions": {"can_search": 1},
+        },
+    )
+
+    Role.objects.create(
+        name="Επισκέπτης",
         special_role="anonymous",
         permissions={
             # account
@@ -75,7 +112,7 @@ def create_default_roles(apps, schema_editor):
     )
 
     Role.objects.create(
-        name=_("Moderator"),
+        name="Διαχειριστής αγγελιών",
         permissions={
             # account
             "misago.users.permissions.account": {
@@ -130,7 +167,7 @@ def create_default_roles(apps, schema_editor):
     )
 
     Role.objects.create(
-        name=_("Renaming users"),
+        name="Μπορεί να μετονομάζει χρήστες",
         permissions={
             # rename users
             "misago.users.permissions.moderation": {"can_rename_users": 1}
@@ -138,7 +175,7 @@ def create_default_roles(apps, schema_editor):
     )
 
     Role.objects.create(
-        name=_("Banning users"),
+        name="Μπορεί να αποκλείει χρήστες",
         permissions={
             # ban users
             "misago.users.permissions.profiles": {"can_see_ban_details": 1},
@@ -152,7 +189,7 @@ def create_default_roles(apps, schema_editor):
     )
 
     Role.objects.create(
-        name=_("Deleting users"),
+        name="Μπορεί να διαγράφει χρήστες",
         permissions={
             # delete users
             "misago.users.permissions.delete": {
@@ -163,7 +200,7 @@ def create_default_roles(apps, schema_editor):
     )
 
     Role.objects.create(
-        name=_("Can't be blocked"),
+        name="Δεν μπορεί να αποκλειστεί",
         permissions={
             # profiles
             "misago.users.permissions.profiles": {"can_be_blocked": 0}
@@ -171,9 +208,9 @@ def create_default_roles(apps, schema_editor):
     )
 
     Role.objects.create(
-        name=_("Private threads"),
+        name="Συμμετοχή σε συνομιλία για ανάθεση εργασίας",
         permissions={
-            # private threads
+            # private threads user
             "misago.threads.permissions.privatethreads": {
                 "can_use_private_threads": 1,
                 "can_start_private_threads": 0,
@@ -186,9 +223,24 @@ def create_default_roles(apps, schema_editor):
     )
 
     Role.objects.create(
-        name=_("Private threads moderator"),
+        name="Ξεκίνημα συνομιλίας για ανάθεση εργασίας",
         permissions={
-            # private threads
+            # private threads starter
+            "misago.threads.permissions.privatethreads": {
+                "can_use_private_threads": 1,
+                "can_start_private_threads": 1,
+                "max_private_thread_participants": 3,
+                "can_add_everyone_to_private_threads": 1,
+                "can_report_private_threads": 1,
+                "can_moderate_private_threads": 0,
+            }
+        },
+    )
+
+    Role.objects.create(
+        name="Διαχειριστής συνομιλιών για ανάθεση εργασίας",
+        permissions={
+            # private threads admin
             "misago.threads.permissions.privatethreads": {
                 "can_use_private_threads": 1,
                 "can_start_private_threads": 1,

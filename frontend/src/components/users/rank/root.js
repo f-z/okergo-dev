@@ -58,7 +58,7 @@ export default class extends React.Component {
     title.set({
       title: this.props.route.rank.name,
       page: this.props.params.page || null,
-      parent: "Χρήστες"
+      parent: "Μηχανικοί"
     })
   }
 
@@ -71,7 +71,7 @@ export default class extends React.Component {
       title.set({
         title: this.props.route.rank.name,
         page: nextProps.params.page || null,
-        parent: "Χρήστες"
+        parent: "Μηχανικοί"
       })
 
       this.setState({

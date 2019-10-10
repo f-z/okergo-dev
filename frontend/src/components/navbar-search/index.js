@@ -123,6 +123,7 @@ export default class extends React.Component {
           onClick={this.onToggle}
         >
           <i className="material-icon">search</i>
+            Αναζήτηση
         </a>
         <Dropdown
           isLoading={this.state.isLoading}

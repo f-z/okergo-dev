@@ -143,9 +143,7 @@ export function UserPrivateThreadsLink({ user }) {
         title={title}
       >
         <span className="material-icon">message</span>
-        {user.unread_private_threads > 0 && (
           <span className="badge">{user.unread_private_threads}</span>
-        )}
       </a>
     </li>
   )

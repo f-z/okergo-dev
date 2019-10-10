@@ -68,7 +68,7 @@ class ListView(View):
 
 def landing(request):
     allow_browse_users_list(request.user_acl)
-    return redirect(users_list.get_default_link())
+    return redirect(reverse('misago:users-rank', kwargs={'slug': 'mekhanikoi'}))
 
 
 class ActivePostersView(ListView):

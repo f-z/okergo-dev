@@ -1,12 +1,8 @@
 import React from "react"
 import { Link } from "react-router"
 import Button from "misago/components/button"
-import DropdownToggle from "misago/components/dropdown-toggle"
 import Nav from "misago/components/threads/nav"
-import ajax from "misago/services/ajax"
 import posting from "misago/services/posting"
-import snackbar from "misago/services/snackbar"
-import store from "misago/services/store"
 import misago from "misago"
 
 export default class extends React.Component {

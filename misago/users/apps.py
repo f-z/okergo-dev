@@ -82,6 +82,12 @@ class MisagoUsersConfig(AppConfig):
         )
 
     def register_default_user_profile_pages(self):
+        def is_account_owner(request, profile):
+            if request.user.is_authenticated:
+                is_account_owner = profile.pk == request.user.pk
+                return is_account_owner
+            return False
+
         def can_see_names_history(request, profile):
             if request.user.is_authenticated:
                 is_account_owner = profile.pk == request.user.pk
@@ -108,16 +114,16 @@ class MisagoUsersConfig(AppConfig):
             component="threads",
         )
         user_profile.add_section(
-            link="misago:user-followers",
-            name="Ακολουθούν",
-            icon="favorite",
-            component="followers",
-        )
-        user_profile.add_section(
             link="misago:user-follows",
-            name="Ακολουθεί",
+            name="Ακολουθείς" if is_account_owner else "Ακολουθεί",
             icon="favorite_border",
             component="follows",
+        )
+        user_profile.add_section(
+            link="misago:user-followers",
+            name="Σε ακολουθούν" if is_account_owner else "Ακολουθούν",
+            icon="favorite",
+            component="followers",
         )
         user_profile.add_section(
             link="misago:user-details",

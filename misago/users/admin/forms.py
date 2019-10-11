@@ -56,7 +56,7 @@ class UserBaseForm(forms.ModelForm):
             if role.special_role == "authenticated":
                 break
         else:
-            message = _('Όλοι οι εγγεγραμμένοι χρήστες πρέπει να έχουν το ρόλο "Μέλος".')
+            message = 'Όλοι οι εγγεγραμμένοι χρήστες πρέπει να έχουν το ρόλο "Μέλος".'
             raise forms.ValidationError(message)
 
         return data

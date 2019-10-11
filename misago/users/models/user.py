@@ -23,7 +23,7 @@ from .rank import Rank
 
 
 class UserManager(BaseUserManager):
-    def _create_user(self, username, email, password, real_name, phone, region, registry_number, **extra_fields):
+    def _create_user(self, username, email, password, real_name, phone, region, specialization, registry_number, **extra_fields):
         """
         Create and save a user with the given username, email, password and other fields.
         """
@@ -42,6 +42,7 @@ class UserManager(BaseUserManager):
         user.set_real_name(real_name)
         user.set_phone(phone)
         user.set_region(region)
+        user.set_specialization(specialization)
         user.set_registry_number(registry_number)
 
         now = extra_fields.get("joined_on", timezone.now())
@@ -62,19 +63,19 @@ class UserManager(BaseUserManager):
         user.update_acl_key()
         user.save(update_fields=["acl_key"])
 
-    def create_user(self, username, email=None, password=None, real_name=None, phone=None, region=None, registry_number=None, **extra_fields):
+    def create_user(self, username, email=None, password=None, real_name=None, phone=None, region=None, specialization=None, registry_number=None, **extra_fields):
         extra_fields.setdefault("is_staff", False)
         extra_fields.setdefault("is_superuser", False)
-        return self._create_user(username, email, password, real_name, phone, region, registry_number, **extra_fields)
+        return self._create_user(username, email, password, real_name, phone, region, specialization, registry_number, **extra_fields)
 
-    def create_superuser(self, username, email=None, password=None, real_name=None, phone=None, region=None, registry_number=None, **extra_fields):
+    def create_superuser(self, username, email=None, password=None, real_name=None, phone=None, region=None, specialization=None, registry_number=None, **extra_fields):
         extra_fields.setdefault("is_staff", True)
         extra_fields.setdefault("is_superuser", True)
 
         if extra_fields.get("is_staff") is not True:
-            raise ValueError("Superuser must have is_staff=True.")
+            raise ValueError("Ο superuser πρέπει να έχει ιδιότητα is_staff=True.")
         if extra_fields.get("is_superuser") is not True:
-            raise ValueError("Superuser must have is_superuser=True.")
+            raise ValueError("Ο superuser πρέπει να έχει ιδιότητα is_superuser=True.")
 
         try:
             if not extra_fields.get("rank"):
@@ -82,7 +83,7 @@ class UserManager(BaseUserManager):
         except Rank.DoesNotExist:
             raise ValueError("Η κατηγορία χρήστη Διαχειριστής δεν υπάρχει!")
 
-        return self._create_user(username, email, password, real_name, phone, region, registry_number, **extra_fields)
+        return self._create_user(username, email, password, real_name, phone, region, specialization, registry_number, **extra_fields)
 
     def get_by_username(self, username):
         return self.get(slug=slugify(username))
@@ -106,9 +107,9 @@ class User(AbstractBaseUser, PermissionsMixin):
     SUBSCRIPTION_ALL = 2
 
     SUBSCRIPTION_CHOICES = [
-        (SUBSCRIPTION_NONE, _("No")),
-        (SUBSCRIPTION_NOTIFY, _("Notify")),
-        (SUBSCRIPTION_ALL, _("Notify with e-mail")),
+        (SUBSCRIPTION_NONE, "Καμία ειδοποίηση"),
+        (SUBSCRIPTION_NOTIFY, "Ειδοποίηση στη σελίδα"),
+        (SUBSCRIPTION_ALL, "Ειδοποίηση μέσω email"),
     ]
 
     LIMIT_INVITES_TO_NONE = 0
@@ -116,9 +117,9 @@ class User(AbstractBaseUser, PermissionsMixin):
     LIMIT_INVITES_TO_NOBODY = 2
 
     LIMIT_INVITES_TO_CHOICES = [
-        (LIMIT_INVITES_TO_NONE, _("Everybody")),
-        (LIMIT_INVITES_TO_FOLLOWED, _("Users I follow")),
-        (LIMIT_INVITES_TO_NOBODY, _("Nobody")),
+        (LIMIT_INVITES_TO_NONE, "Όλοι"),
+        (LIMIT_INVITES_TO_FOLLOWED, "Μόνο χρήστες που ακολουθώ"),
+        (LIMIT_INVITES_TO_NOBODY, "Κανένας"),
     ]
 
     # Note that "username" field is purely for shows.
@@ -139,10 +140,11 @@ class User(AbstractBaseUser, PermissionsMixin):
     real_name = models.CharField(default='', max_length=50)
     phone = models.BigIntegerField(default=0)
     region = models.CharField(default='', max_length=30)
+    specialization = models.CharField(default='', max_length=30)
     registry_number = models.BigIntegerField(default=0, blank=True)
 
     joined_on = models.DateTimeField(
-        _("joined on"), default=timezone.now, db_index=True
+        "έγινε μέλος", default=timezone.now, db_index=True
     )
     joined_from_ip = models.GenericIPAddressField(null=True, blank=True)
     is_hiding_presence = models.BooleanField(default=False)
@@ -154,21 +156,21 @@ class User(AbstractBaseUser, PermissionsMixin):
     requires_activation = models.PositiveIntegerField(default=ACTIVATION_NONE)
 
     is_staff = models.BooleanField(
-        _("staff status"),
+        "μέλος ομάδας Ok Ergo",
         default=False,
-        help_text=_("Designates whether the user can log into admin sites."),
+        help_text="Καταδεικνύει εάν ο χρήστης μπορεί να συνδεθεί στον πίνακα διαχείρισης",
     )
 
     roles = models.ManyToManyField("misago_acl.Role")
     acl_key = models.CharField(max_length=12, null=True, blank=True)
 
     is_active = models.BooleanField(
-        _("active"),
+        "ενεργός",
         db_index=True,
         default=True,
         help_text=_(
-            "Designates whether this user should be treated as active. "
-            "Unselect this instead of deleting accounts."
+            "Καταδεικνύει εάν ο χρήστης είναι ενεργός. "
+            "Η αποενεργοποίηση είναι προτιμητέα της διαγραφής."
         ),
     )
     is_active_staff_message = models.TextField(null=True, blank=True)
@@ -205,7 +207,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     )
 
     limits_private_thread_invites_to = models.PositiveIntegerField(
-        default=LIMIT_INVITES_TO_NOBODY, choices=LIMIT_INVITES_TO_CHOICES
+        default=LIMIT_INVITES_TO_NONE, choices=LIMIT_INVITES_TO_CHOICES
     )
     unread_private_threads = models.PositiveIntegerField(default=0)
     sync_unread_private_threads = models.BooleanField(default=False)
@@ -267,7 +269,7 @@ class User(AbstractBaseUser, PermissionsMixin):
         if username:
             self.anonymize_data(username)
         else:
-            raise ValueError("user.delete() requires 'anonymous_username' argument")
+            raise ValueError("user.delete() χρειάζεται την παράμετρο 'anonymous_username'")
 
         delete_avatar(self)
 
@@ -381,6 +383,9 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     def set_region(self, new_region):
         self.region = new_region
+
+    def set_specialization(self, new_specialization):
+        self.specialization = new_specialization
 
     def set_registry_number(self, new_registry_number):
         self.registry_number = new_registry_number

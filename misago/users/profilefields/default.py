@@ -21,6 +21,11 @@ class RegionField(basefields.TextProfileField):
     label = "Νομός"
 
 
+class SpecializationField(basefields.TextProfileField):
+    fieldname = "specialization"
+    label = "Ειδικότητα"
+
+
 class RegistryNumberField(basefields.TextProfileField):
     fieldname = "registry_number"
     label = "Αριθμός Μητρώου TEE"

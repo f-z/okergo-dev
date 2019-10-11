@@ -89,6 +89,22 @@ export default class extends Form {
             <h3 className="panel-title">{"Αλλαγή κωδικού πρόσβασης"}</h3>
           </div>
           <div className="panel-body">
+            <FormGroup
+              label={"Ο τωρινός κωδικός σου"}
+              for="id_confirm_password"
+            >
+              <input
+                type="password"
+                id="id_confirm_password"
+                className="form-control"
+                disabled={this.state.isLoading}
+                onChange={this.bindInput("password")}
+                value={this.state.password}
+              />
+            </FormGroup>
+
+            <hr />
+
             <FormGroup label={"Νέος κωδικός"} for="id_new_password">
               <input
                 type="password"
@@ -111,22 +127,6 @@ export default class extends Form {
                 disabled={this.state.isLoading}
                 onChange={this.bindInput("repeat_password")}
                 value={this.state.repeat_password}
-              />
-            </FormGroup>
-
-            <hr />
-
-            <FormGroup
-              label={"Ο καινούριος κωδικός σου"}
-              for="id_confirm_password"
-            >
-              <input
-                type="password"
-                id="id_confirm_password"
-                className="form-control"
-                disabled={this.state.isLoading}
-                onChange={this.bindInput("password")}
-                value={this.state.password}
               />
             </FormGroup>
           </div>

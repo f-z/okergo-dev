@@ -40,6 +40,7 @@ export class RegisterForm extends Form {
       real_name: [validators.minLength(4)],
       region: [validators.minLength(2)],
       engineer_or_customer: [validators.engineer_or_customer()],
+      specialization: [validators.minLength(4)],
       registry_number: [validators.registry_number(6)],
       captcha: captcha.validator()
     }
@@ -62,6 +63,7 @@ export class RegisterForm extends Form {
       phone: "",
       region: "",
       engineer_or_customer: "customer",
+      specialization: "",
       registry_number: 0,
       captcha: "",
 
@@ -72,7 +74,7 @@ export class RegisterForm extends Form {
       errors: {}
     }
 
-    this.EngineerOrCustomerChoices = [
+    this.ENGINEER_OR_CUSTOMER_CHOICES = [
       {
         value: "engineer",
         icon: "business_center",
@@ -107,6 +109,7 @@ export class RegisterForm extends Form {
       phone: this.state.phone,
       region: this.state.region,
       engineer_or_customer: this.state.engineer_or_customer,
+      specialization: this.state.specialization,
       registry_number: this.state.registry_number,
       captcha: this.state.captcha,
       terms_of_service: this.state.termsOfService,
@@ -299,9 +302,31 @@ export class RegisterForm extends Form {
                   disabled={this.state.isLoading}
                   onChange={this.bindInput("engineer_or_customer")}
                   value={this.state.engineer_or_customer}
-                  choices={this.EngineerOrCustomerChoices}
+                  choices={this.ENGINEER_OR_CUSTOMER_CHOICES}
                 />
               </FormGroup>
+
+              {
+                is_engineer ? ( 
+                  <FormGroup
+                  label={"Ειδικότητα"}
+                  for="id_specialization"
+                  validation={this.state.errors.specialization}
+                  >
+                    <input
+                      type="text"
+                      id="id_specialization"
+                      className="form-control"
+                      aria-describedby="id_specialization_status"
+                      disabled={this.state.isLoading}
+                      onChange={this.bindInput("specialization")}
+                      value={this.state.specialization}
+                    />
+                  </FormGroup>
+                ) : ( 
+                  null
+                )
+              }
 
               {
                 is_engineer ? ( 

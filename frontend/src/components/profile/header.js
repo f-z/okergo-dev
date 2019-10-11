@@ -54,27 +54,47 @@ export default class extends React.Component {
   }
 
   getJoinedOn() {
-    let title = interpolate(
-      "Έγινε μέλος %(joined_on)s",
-      {
-        joined_on: this.props.profile.joined_on.format("LL, LT")
-      },
-      true
-    )
+    if (this.props.user.id === this.props.profile.id) {
+      let title = interpolate(
+        "Έγινες μέλος %(joined_on)s", {
+          joined_on: this.props.profile.joined_on.format("LL, LT")
+        },
+        true
+      )
 
-    let age = interpolate(
-      "Έγινε μέλος %(joined_on)s",
-      {
-        joined_on: this.props.profile.joined_on.fromNow()
-      },
-      true
-    )
+      let age = interpolate(
+        "Έγινες μέλος %(joined_on)s", {
+          joined_on: this.props.profile.joined_on.fromNow()
+        },
+        true
+      )
 
-    return (
-      <li className="user-joined-on">
-        <abbr title={title}>{age}</abbr>
-      </li>
-    )
+      return (
+        <li className="user-joined-on">
+          <abbr title={title}>{age}</abbr>
+        </li>
+      )
+    } else {
+      let title = interpolate(
+        "Έγινε μέλος %(joined_on)s", {
+          joined_on: this.props.profile.joined_on.format("LL, LT")
+        },
+        true
+      )
+
+      let age = interpolate(
+        "Έγινε μέλος %(joined_on)s", {
+          joined_on: this.props.profile.joined_on.fromNow()
+        },
+        true
+      )
+
+      return (
+        <li className="user-joined-on">
+          <abbr title={title}>{age}</abbr>
+        </li>
+      )
+    }
   }
 
   getEmail() {

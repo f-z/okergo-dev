@@ -48,7 +48,7 @@ export default class extends Form {
       {
         value: 0,
         icon: "star_border",
-        label: "Όχι"
+        label: "Καμία ειδοποίηση"
       },
       {
         value: 1,

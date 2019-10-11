@@ -55,6 +55,7 @@ def create_endpoint(request):
             email=form.cleaned_data["email"],
             phone=form.cleaned_data["phone"],
             region=form.cleaned_data["region"],
+            specialization=form.cleaned_data["specialization"],
             registry_number=form.cleaned_data["registry_number"],
             joined_from_ip=request.user_ip,
             **activation_kwargs

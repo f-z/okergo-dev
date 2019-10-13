@@ -82,6 +82,7 @@ class RegisterForm(BaseRegisterForm):
         ('customer', 'Ιδιώτης'),
     )
     engineer_or_customer = forms.TypedChoiceField(choices=ENGINEER_OR_CUSTOMER_CHOICES, empty_value="customer")
+    specialization = forms.CharField(strip=True, max_length=30, min_length=4)
     registry_number = forms.IntegerField(max_value=9999999999, min_value=0, required=False)
     # placeholder field for setting captcha errors on form
     captcha = forms.CharField(required=False)

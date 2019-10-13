@@ -40,7 +40,7 @@ export class RegisterForm extends Form {
       real_name: [validators.minLength(4)],
       region: [validators.minLength(2)],
       engineer_or_customer: [validators.engineer_or_customer()],
-      specialization: [validators.minLength(4)],
+      specialization: [validators.specialization(4)],
       registry_number: [validators.registry_number(6)],
       captcha: captcha.validator()
     }
@@ -63,7 +63,7 @@ export class RegisterForm extends Form {
       phone: "",
       region: "",
       engineer_or_customer: "customer",
-      specialization: "",
+      specialization: "Ιδιώτης",
       registry_number: 0,
       captcha: "",
 

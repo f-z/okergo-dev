@@ -13,6 +13,7 @@ from ...registration import (
     save_user_agreements,
     send_welcome_email,
 )
+from ...profilefields import profilefields
 from ...setupnewuser import setup_new_user
 
 User = get_user_model()
@@ -45,18 +46,12 @@ def create_endpoint(request):
         activation_kwargs = {"requires_activation": User.ACTIVATION_ADMIN}
     elif request_data["engineer_or_customer"] == "customer":
         activation_kwargs = {"requires_activation": User.ACTIVATION_USER}
-        form.cleaned_data["registry_number"] = 0
 
     try:
         new_user = User.objects.create_user(
             username=form.cleaned_data["username"],
             password=form.cleaned_data["password"],
-            real_name=form.cleaned_data["real_name"],
             email=form.cleaned_data["email"],
-            phone=form.cleaned_data["phone"],
-            region=form.cleaned_data["region"],
-            specialization=form.cleaned_data["specialization"],
-            registry_number=form.cleaned_data["registry_number"],
             joined_from_ip=request.user_ip,
             **activation_kwargs
         )
@@ -65,6 +60,10 @@ def create_endpoint(request):
             {"__all__": "Προσπάθησε ξανά..."},
             status=status.HTTP_400_BAD_REQUEST,
         )
+    
+    profilefields.add_fields_to_form(request, new_user, form)
+    profilefields.update_user_profile_fields(request, new_user, form)
+    new_user.save()
 
     setup_new_user(request.settings, new_user)
     save_user_agreements(new_user, form)

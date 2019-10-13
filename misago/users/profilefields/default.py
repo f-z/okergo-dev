@@ -57,7 +57,8 @@ class PhoneField(basefields.TextProfileField):
         return {"text": "+30%s" % value, "url": "tel:+30%s" % value}
 
     def clean(self, request, user, data):
-        if data and (not re.search("^\d*$", data) or data.length != 10):
+        print(data)
+        if data and (not re.search("^\d*$", data) or len(data) != 10):
             raise ValidationError("Ο αριθμός τηλεφώνου δεν είναι έγκυρος!")
         return data
 

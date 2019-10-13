@@ -45,6 +45,16 @@ export function engineer_or_customer(message) {
   }
 }
 
+export function specialization(lengthMin) {
+  return function (value) {
+    if (value === false || value === null || $.trim(value).length >= lengthMin) {
+      return false
+    } else {
+      return "Επέλεξε τη σωστή ειδικότητά σου!"
+    }
+  }
+}
+
 export function registry_number(lengthMax) {
   return function(value) {
     if (value === false || value === null || $.trim(value).length <= lengthMax) {

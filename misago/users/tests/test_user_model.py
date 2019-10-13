@@ -48,8 +48,8 @@ def test_username_setter_also_sets_slug():
 
 def test_django_username_getters_return_username(user):
     assert user.get_username() == user.username
-    assert user.get_full_name() == user.username
-    assert user.get_short_name() == user.username
+    assert user.get_full_name() == user.profile_fields.get("real_name")
+    assert user.get_short_name() == user.profile_fields.get("real_name").split()[0]
 
 
 def test_email_setter_normalizes_email():

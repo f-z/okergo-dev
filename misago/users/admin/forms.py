@@ -17,11 +17,10 @@ from ..validators import validate_email, validate_username
 
 User = get_user_model()
 
-
 class UserBaseForm(forms.ModelForm):
     username = forms.CharField(label="Όνομα χρήστη")
-    title = forms.CharField(label=_("Τίτλος"), required=False)
-    email = forms.EmailField(label=_("Email"))
+    title = forms.CharField(label="Τίτλος", required=False)
+    email = forms.EmailField(label="Email")
 
     class Meta:
         model = User
@@ -30,7 +29,6 @@ class UserBaseForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         self.request = kwargs.pop("request")
         self.settings = self.request.settings
-
         super().__init__(*args, **kwargs)
 
     def clean_username(self):
@@ -64,7 +62,7 @@ class UserBaseForm(forms.ModelForm):
 
 class NewUserForm(UserBaseForm):
     new_password = forms.CharField(
-        label=_("Password"), strip=False, widget=forms.PasswordInput
+        label="Κωδικός πρόσβασης", strip=False, widget=forms.PasswordInput
     )
 
     class Meta:

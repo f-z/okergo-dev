@@ -32,6 +32,10 @@ class UserSerializer(serializers.ModelSerializer, MutableFields):
     is_blocked = serializers.SerializerMethodField()
     meta = serializers.SerializerMethodField()
     real_name = serializers.SerializerMethodField()
+    phone = serializers.SerializerMethodField()
+    region = serializers.SerializerMethodField()
+    specialization = serializers.SerializerMethodField()
+    registry_number = serializers.SerializerMethodField()
     status = serializers.SerializerMethodField()
 
     api = serializers.SerializerMethodField()
@@ -90,6 +94,18 @@ class UserSerializer(serializers.ModelSerializer, MutableFields):
 
     def get_real_name(self, obj):
         return obj.get_real_name()
+
+    def get_phone(self, obj):
+        return obj.get_phone()
+
+    def get_region(self, obj):
+        return obj.get_region()
+
+    def get_specialization(self, obj):
+        return obj.get_specialization()
+
+    def get_registry_number(self, obj):
+        return obj.get_registry_number()
 
     def get_signature(self, obj):
         if obj.has_valid_signature:

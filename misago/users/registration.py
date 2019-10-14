@@ -2,6 +2,10 @@ from ..core.mail import mail_user
 from ..legal.models import Agreement
 from ..legal.utils import save_user_agreement_acceptance
 from .tokens import make_activation_token
+from ..conf import settings as static_settings
+from django.contrib.auth import get_user_model
+
+User = get_user_model()
 
 
 def send_welcome_email(request, user):
@@ -33,7 +37,26 @@ def send_welcome_email(request, user):
             "activation_by_admin": activation_by_admin,
             "activation_by_user": activation_by_user,
             "settings": settings,
-        },
+        }
+    )
+
+    if activation_by_admin:
+        admin = User.objects.get(pk = 1)
+
+        mail_subject = "Ο χρήστης %(user_name)s έκανε εγγραφή και περιμένει ενεργοποίηση!"
+        mail_subject = mail_subject % {"user_name": user.username}
+
+        # Email admin too
+        mail_user(
+            admin,
+            mail_subject,
+            "misago/emails/base",
+            context={
+                "activation_token": activation_token,
+                "activation_by_admin": activation_by_admin,
+                "activation_by_user": activation_by_user,
+                "settings": settings,
+            }
     )
 
 

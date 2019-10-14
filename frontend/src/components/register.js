@@ -61,7 +61,7 @@ export class RegisterForm extends Form {
       real_name: "",
       email: "",
       phone: "",
-      region: "",
+      region: "Αττικής",
       engineer_or_customer: "customer",
       specialization: "Ιδιώτης",
       registry_number: 0,
@@ -74,6 +74,19 @@ export class RegisterForm extends Form {
       errors: {}
     }
 
+    this.REGION_CHOICES = [
+      {
+        value: "Αττικής",
+        icon: "location_on",
+        label: "Αττικής"
+      },
+      {
+        value: "Θεσσαλονίκης",
+        icon: "location_on",
+        label: "Θεσσαλονίκης"
+      }
+    ]
+
     this.ENGINEER_OR_CUSTOMER_CHOICES = [
       {
         value: "engineer",
@@ -82,6 +95,39 @@ export class RegisterForm extends Form {
       },
       {
         value: "customer",
+        icon: "person",
+        label: "Ιδιώτης"
+      }
+    ]
+
+    this.SPECIALIZATION_CHOICES = [
+      {
+        value: "Πολιτικός Μηχανικός",
+        icon: "business",
+        label: "Πολιτικός Μηχανικός"
+      },
+      {
+        value: "Μηχανολόγος Μηχανικός",
+        icon: "drive_eta",
+        label: "Μηχανολόγος Μηχανικός"
+      },
+      {
+        value: "Αρχιτέκτων Μηχανικός",
+        icon: "location_city",
+        label: "Αρχιτέκτων Μηχανικός"
+      },
+      {
+        value: "Τοπογράφος Μηχανικός",
+        icon: "lens",
+        label: "Τοπογράφος Μηχανικός"
+      },
+      {
+        value: "Ηλεκτρολόγος Μηχανικός",
+        icon: "ev_station",
+        label: "Ηλεκτρολόγος Μηχανικός"
+      },
+      {
+        value: "Ιδιώτης",
         icon: "person",
         label: "Ιδιώτης"
       }
@@ -281,19 +327,17 @@ export class RegisterForm extends Form {
                 for="id_region"
                 validation={this.state.errors.region}
               >
-                <input
-                  type="text"
+                <Select
                   id="id_region"
-                  className="form-control"
-                  aria-describedby="id_region_status"
                   disabled={this.state.isLoading}
                   onChange={this.bindInput("region")}
                   value={this.state.region}
+                  choices={this.REGION_CHOICES}
                 />
               </FormGroup>
 
               <FormGroup
-                label={"Είσαι μηχανικός ή ιδιώτης;"}
+                label={"Είσαι μηχανικός ή ιδιώτης"}
                 for="id_engineer_or_customer"
                 validation={this.state.errors.engineer_or_customer}
               >
@@ -313,14 +357,12 @@ export class RegisterForm extends Form {
                   for="id_specialization"
                   validation={this.state.errors.specialization}
                   >
-                    <input
-                      type="text"
+                    <Select
                       id="id_specialization"
-                      className="form-control"
-                      aria-describedby="id_specialization_status"
                       disabled={this.state.isLoading}
                       onChange={this.bindInput("specialization")}
                       value={this.state.specialization}
+                      choices={this.SPECIALIZATION_CHOICES}
                     />
                   </FormGroup>
                 ) : ( 

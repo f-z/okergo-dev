@@ -49,10 +49,7 @@ export default class extends Form {
   loadSuccess = data => {
     this.setState({
       isReady: true,
-
-      post: data.post
-        ? '[quote="@' + data.poster + '"]\n' + data.post + "\n[/quote]"
-        : ""
+      post: "Τιμή προσφοράς: \n" + "\nΗμερομηνία παράδοσης: \n" + "\nΛεπτομέρειες: "
     })
   }
 

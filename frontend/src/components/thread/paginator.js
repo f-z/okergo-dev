@@ -134,10 +134,10 @@ export function LastPage(props) {
 export function More(props) {
   let message = null
   if (props.more) {
-    message = "Υπάρχουν άλλες %(more)s προσφορές για αυτή την αγγελία."
+    message = "Υπάρχουν άλλες %(more)s προσφορές για αυτή την αγγελία"
     message = interpolate(message, { more: props.more }, true)
   } else {
-    message = "Δεν υπάρχουν άλλες προσφορές για αυτή την αγγελία."
+    message = "Δεν υπάρχουν άλλες προσφορές για αυτή την αγγελία"
   }
 
   return <p>{message}</p>

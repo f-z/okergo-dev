@@ -27,7 +27,7 @@ export default class extends Form {
       title: "",
       category: props.category || null,
       categories: [],
-      post: "",
+      post: "Περιγραφή έργου: \n" + "\nΑρχεία: \n" + "\nΗμερομηνία παράδοσης: \n",
       attachments: [],
       close: false,
       hide: false,

@@ -23,7 +23,7 @@ def create_default_categories_tree(apps, schema_editor):
         name="Root",
         slug="root",
         lft=3,
-        rght=18, # Need to increment by two for each new category created
+        rght=20, # Need to increment by two for each new category created
         tree_id=1,
         level=0,
     )
@@ -35,7 +35,8 @@ def create_default_categories_tree(apps, schema_editor):
         "Μέτρα Ασφαλείας",
         "Μηχανολογικά",
         "Ενεργειακά",
-        "Συμβουλευτική Ακινήτου / Ανάπτυξη"
+        "Συμβουλευτική Ακινήτου / Ανάπτυξη",
+        "Διάφορα"
     ]
 
     starting_node_left = 4

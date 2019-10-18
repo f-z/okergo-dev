@@ -94,7 +94,7 @@ export default class extends React.Component {
 
             <span className="rank-posts-counted">
               <strong>{this.props.user.meta.score}</strong>
-              <small>{"Αγγελίες στην κατάταξη"}</small>
+              <small>"@(({this.props.user.meta.score} == 1) ? {"Αγγελία στην κατάταξη"} : {"Αγγελίες στην κατάταξη"})"</small>
             </span>
           </div>
         </div>
@@ -106,7 +106,7 @@ export default class extends React.Component {
 
         <div className="rank-posts-counted hidden-xs">
           <strong>{this.props.user.meta.score}</strong>
-          <small>{"Αγγελίες στην κατάταξη"}</small>
+          <small>"@(({this.props.user.meta.score} == 1) ? {"Αγγελία στην κατάταξη"} : {"Αγγελίες στην κατάταξη"})"</small>
         </div>
 
         <div className="rank-posts-total hidden-xs">

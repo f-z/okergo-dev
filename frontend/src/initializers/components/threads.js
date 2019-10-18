@@ -19,9 +19,10 @@ export function getListOptions(context) {
   ) {
     return {
       api: context.get("PRIVATE_THREADS_API"),
-      mode: "START",
-      config: misago.get("THREAD_EDITOR_API"),
-      submit: misago.get("THREADS_API"),
+        startThread: {
+          mode: "START_PRIVATE",
+          submit: misago.get("PRIVATE_THREADS_API")
+        },
       title: "Συνομιλίες για ανάθεση εργασίας",
       pageLead: "Οι συνομιλίες μεταξύ πελατών και μηχανικών είναι ιδιωτικές.",
       emptyMessage: "Δεν έχεις ανοικτές συνομιλίες αυτή τη στιγμή..."

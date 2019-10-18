@@ -127,7 +127,7 @@ class MisagoUsersConfig(AppConfig):
         )
         user_profile.add_section(
             link="misago:user-details",
-            name="Λεπτομέρειες",
+            name="Στοιχεία",
             icon="person_outline",
             component="details",
         )

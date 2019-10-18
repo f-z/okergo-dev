@@ -1,5 +1,4 @@
 from django.conf.urls import url
-from django.utils.translation import gettext_lazy as _
 
 from .views import (
     DeleteMenuItem,
@@ -28,10 +27,8 @@ class MisagoAdminExtension:
 
     def register_navigation_nodes(self, site):
         site.add_node(
-            name=_("Menu items"),
-            description=_(
-                "Use those options to add custom items to the navbar and footer menus."
-            ),
+            name="Αντικείμενα μενού",
+            description="Χρησιμοποίησε αυτές τις επιλογές για να προσθέσεις προσαρμοσμένα αντικείμενα στα header και footer μενού",
             parent="settings",
             namespace="menu-items",
         )

@@ -50,17 +50,30 @@ export default class extends React.Component {
 
   getStartThreadButton() {
     if (!this.props.user.id) return null
-
-    return (
-      <Button
-        className="btn-primary btn-block btn-outline"
-        onClick={this.startThread}
-        disabled={this.props.disabled}
-      >
-        <span className="material-icon">chat</span>
-        {"Νέα αγγελία"}
-      </Button>
-    )
+    
+    if (this.props.startThread) {
+      return (
+          <Button
+            className="btn-primary btn-block btn-outline"
+            onClick={this.startThread}
+            disabled={this.props.disabled}
+          >
+            <span className="material-icon">chat</span>
+            {"Νέο μήνυμα"}
+          </Button>
+      )
+    } else {
+      return (
+        <Button
+          className="btn-primary btn-block btn-outline"
+          onClick={this.startThread}
+          disabled={this.props.disabled}
+        >
+          <span className="material-icon">chat</span>
+          {"Νέα αγγελία"}
+        </Button>
+      )
+    }
   }
 
   render() {

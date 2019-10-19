@@ -184,7 +184,10 @@ export function GotoLastCompact(props) {
 }
 
 export function Reply(props) {
-  if (!props.thread.acl.can_reply) return null
+  const canReply = props.thread.acl.can_reply
+  const isPoster = props.thread.starter_name == props.user.username
+
+  if (!canReply || isPoster) return null
 
   return (
     <div className="col-sm-4 hidden-xs">
@@ -234,7 +237,7 @@ export class StartPoll extends React.Component {
           type="button"
         >
           <span className="material-icon">poll</span>
-          {"Προσθήκη ψηφοφορίας"}
+          {"Ψηφοφορία"}
         </button>
       </div>
     )
@@ -250,7 +253,7 @@ export class StartPollCompact extends StartPoll {
     return (
       <li>
         <button className="btn btn-link" onClick={this.onClick} type="button">
-          {"Προσθήκη ψηφοφορίας"}
+          {"Ψηφοφορία"}
         </button>
       </li>
     )

@@ -27,7 +27,7 @@ export default function(props) {
           <Spacer {...props} />
           <Moderation {...props} />
           <Subscription {...props} />
-          <Reply thread={props.thread} onClick={props.openReplyForm} />
+          <Reply user={props.user} thread={props.thread} onClick={props.openReplyForm} />
         </div>
       </Options>
     </div>
@@ -68,7 +68,10 @@ export function Subscription(props) {
 }
 
 export function Reply(props) {
-  if (!props.thread.acl.can_reply) return null
+  const canReply = props.thread.acl.can_reply
+  const isPoster = props.thread.starter_name == props.user.username
+
+  if (!canReply || isPoster) return null
 
   return (
     <div className="col-xs-6 col-sm-4">

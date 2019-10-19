@@ -11,13 +11,6 @@ export default function(props) {
     <div className="post-footer">
       <MarkAsBestAnswer {...props} />
       <MarkAsBestAnswerCompact {...props} />
-      <Like {...props} />
-      <Likes
-        lastLikes={props.post.last_likes}
-        likes={props.post.likes}
-        {...props}
-      />
-      <LikesCompact likes={props.post.likes} {...props} />
       <Reply {...props} />
       <Edit {...props} />
     </div>
@@ -226,31 +219,28 @@ export function getLikesMessage(likes, users) {
 export class Reply extends React.Component {
   onClick = () => {
     posting.open({
-      mode: "REPLY",
-
-      config: this.props.thread.api.editor,
-      submit: this.props.thread.api.posts.index,
-
-      context: {
-        reply: this.props.post.id
-      }
+      mode: "START_PRIVATE",
+      submit: misago.get("PRIVATE_THREADS_API"),
+      to: [this.props.post.poster],
+      title: [this.props.thread.title]
     })
   }
 
   render() {
-    if (this.props.post.acl.can_reply) {
-      return (
-        <button
-          className="btn btn-primary btn-sm pull-right"
-          type="button"
-          onClick={this.onClick}
-        >
-          {"Προσφορά"}
-        </button>
-      )
-    } else {
-      return null
-    }
+    const canMessage = this.props.user.acl.can_start_private_threads
+    const isPoster = this.props.user.id === this.props.post.poster.id
+
+    if (!canMessage || isPoster) return null
+    
+    return (
+      <button
+        className="btn btn-primary btn-sm pull-right"
+        type="button"
+        onClick={this.onClick}
+      >
+        {"Μήνυμα"}
+      </button>
+    )
   }
 }
 

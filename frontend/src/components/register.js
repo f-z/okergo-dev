@@ -79,13 +79,210 @@ export class RegisterForm extends Form {
         value: "Αττικής",
         icon: "location_on",
         label: "Αττικής"
-      },
-      {
+      }, {
         value: "Θεσσαλονίκης",
         icon: "location_on",
         label: "Θεσσαλονίκης"
+      }, {
+        value: "Αχαΐας",
+        icon: "location_on",
+        label: "Αχαΐας"
+      }, {
+        value: "Ηρακλείου",
+        icon: "location_on",
+        label: "Ηρακλείου"
+      }, {
+        value: "Λάρισας",
+        icon: "location_on",
+        label: "Λάρισας"
+      }, {
+        value: "Αιτωλοακαρνανίας",
+        icon: "location_on",
+        label: "Αιτωλοακαρνανίας"
+      }, {
+        value: "Εύβοιας",
+        icon: "location_on",
+        label: "Εύβοιας"
+      }, {
+        value: "Μαγνησίας",
+        icon: "location_on",
+        label: "Μαγνησίας"
+      }, {
+        value: "Σερρών",
+        icon: "location_on",
+        label: "Σερρών"
+      }, {
+        value: "Ηλείας",
+        icon: "location_on",
+        label: "Ηλείας"
+      }, {
+        value: "Δωδεκανήσου",
+        icon: "location_on",
+        label: "Δωδεκανήσου"
+      }, {
+        value: "Φθιώτιδας",
+        icon: "location_on",
+        label: "Φθιώτιδας"
+      }, {
+        value: "Μεσσηνίας",
+        icon: "location_on",
+        label: "Μεσσηνίας"
+      }, {
+        value: "Ιωαννίνων",
+        icon: "location_on",
+        label: "Ιωαννίνων"
+      }, {
+        value: "Κοζάνης",
+        icon: "location_on",
+        label: "Κοζάνης"
+      }, {
+        value: "Κορινθίας",
+        icon: "location_on",
+        label: "Κορινθίας"
+      }, {
+        value: "Χανίων",
+        icon: "location_on",
+        label: "Χανίων"
+      }, {
+        value: "Έβρου",
+        icon: "location_on",
+        label: "Έβρου"
+      }, {
+        value: "Πέλλας",
+        icon: "location_on",
+        label: "Πέλλας"
+      }, {
+        value: "Καβάλας",
+        icon: "location_on",
+        label: "Καβάλας"
+      }, {
+        value: "Ημαθίας",
+        icon: "location_on",
+        label: "Ημαθίας"
+      }, {
+        value: "Τρικάλων",
+        icon: "location_on",
+        label: "Τρικάλων"
+      }, {
+        value: "Βοιωτίας",
+        icon: "location_on",
+        label: "Βοιωτίας"
+      }, {
+        value: "Πιερίας",
+        icon: "location_on",
+        label: "Πιερίας"
+      }, {
+        value: "Καρδίτσας",
+        icon: "location_on",
+        label: "Καρδίτσας"
+      }, {
+        value: "Κυκλάδων",
+        icon: "location_on",
+        label: "Κυκλάδων"
+      }, {
+        value: "Κέρκυρας",
+        icon: "location_on",
+        label: "Κέρκυρας"
+      }, {
+        value: "Ροδόπης",
+        icon: "location_on",
+        label: "Ροδόπης"
+      }, {
+        value: "Λέσβου",
+        icon: "location_on",
+        label: "Λέσβου"
+      }, {
+        value: "Αργολίδας",
+        icon: "location_on",
+        label: "Αργολίδας"
+      }, {
+        value: "Χαλκιδικής",
+        icon: "location_on",
+        label: "Χαλκιδικής"
+      }, {
+        value: "Δράμας",
+        icon: "location_on",
+        label: "Δράμας"
+      }, {
+        value: "Αρκαδίας",
+        icon: "location_on",
+        label: "Αρκαδίας"
+      }, {
+        value: "Ξάνθης",
+        icon: "location_on",
+        label: "Ξάνθης"
+      }, {
+        value: "Λακωνίας",
+        icon: "location_on",
+        label: "Λακωνίας"
+      }, {
+        value: "Κιλκίς",
+        icon: "location_on",
+        label: "Κιλκίς"
+      }, {
+        value: "Ρεθύμνου",
+        icon: "location_on",
+        label: "Ρεθύμνου"
+      }, {
+        value: "Άρτας",
+        icon: "location_on",
+        label: "Άρτας"
+      }, {
+        value: "Λασιθίου",
+        icon: "location_on",
+        label: "Λασιθίου"
+      }, {
+        value: "Πρέβεζας",
+        icon: "location_on",
+        label: "Πρέβεζας"
+      }, {
+        value: "Φλώρινας",
+        icon: "location_on",
+        label: "Φλώρινας"
+      }, {
+        value: "Καστοριάς",
+        icon: "location_on",
+        label: "Καστοριάς"
+      }, {
+        value: "Χίου",
+        icon: "location_on",
+        label: "Χίου"
+      }, {
+        value: "Φωκίδας",
+        icon: "location_on",
+        label: "Φωκίδας"
+      }, {
+        value: "Θεσπρωτίας",
+        icon: "location_on",
+        label: "Θεσπρωτίας"
+      }, {
+        value: "Σάμου",
+        icon: "location_on",
+        label: "Σάμου"
+      }, {
+        value: "Κεφαλληνίας",
+        icon: "location_on",
+        label: "Κεφαλληνίας"
+      }, {
+        value: "Ζακύνθου",
+        icon: "location_on",
+        label: "Ζακύνθου"
+      }, {
+        value: "Γρεβενών",
+        icon: "location_on",
+        label: "Γρεβενών"
+      }, {
+        value: "Ευρυτανίας",
+        icon: "location_on",
+        label: "Ευρυτανίας"
+      }, {
+        value: "Λευκάδας",
+        icon: "location_on",
+        label: "Λευκάδας"
       }
     ]
+
+    this.REGION_CHOICES.sort((a, b) => a.label.localeCompare(b.label))
 
     this.ENGINEER_OR_CUSTOMER_CHOICES = [
       {
@@ -94,17 +291,27 @@ export class RegisterForm extends Form {
         label: "Μηχανικός"
       },
       {
+        value: "engineer_te",
+        icon: "business_center",
+        label: "Μηχανικός Τ.Ε."
+      },
+      {
         value: "customer",
         icon: "person",
         label: "Ιδιώτης"
       }
     ]
 
-    this.SPECIALIZATION_CHOICES = [
+    this.ENGINEER_SPECIALIZATION_CHOICES = [
       {
-        value: "Πολιτικός Μηχανικός",
-        icon: "business",
-        label: "Πολιτικός Μηχανικός"
+        value: "Αρχιτέκτων Μηχανικός",
+        icon: "location_city",
+        label: "Αρχιτέκτων Μηχανικός"
+      },
+      {
+        value: "Ηλεκτρολόγος Μηχανικός",
+        icon: "ev_station",
+        label: "Ηλεκτρολόγος Μηχανικός"
       },
       {
         value: "Μηχανολόγος Μηχανικός",
@@ -112,9 +319,9 @@ export class RegisterForm extends Form {
         label: "Μηχανολόγος Μηχανικός"
       },
       {
-        value: "Αρχιτέκτων Μηχανικός",
-        icon: "location_city",
-        label: "Αρχιτέκτων Μηχανικός"
+        value: "Πολιτικός Μηχανικός",
+        icon: "business",
+        label: "Πολιτικός Μηχανικός"
       },
       {
         value: "Τοπογράφος Μηχανικός",
@@ -122,9 +329,62 @@ export class RegisterForm extends Form {
         label: "Τοπογράφος Μηχανικός"
       },
       {
-        value: "Ηλεκτρολόγος Μηχανικός",
-        icon: "ev_station",
-        label: "Ηλεκτρολόγος Μηχανικός"
+        value: "Ιδιώτης",
+        icon: "person",
+        label: "Ιδιώτης"
+      }
+    ]
+
+    this.ENGINEER_TE_SPECIALIZATION_CHOICES = [
+      {
+        value: "Ηλεκτρολόγος Μηχανικός Τ.Ε.",
+        icon: "grade",
+        label: "Ηλεκτρολόγος Μηχανικός Τ.Ε."
+      },
+      {
+        value: "Μηχανικός Ανακαίνισης και Αποκατάστασης Κτιρίων Τ.Ε.",
+        icon: "grade",
+        label: "Μηχανικός Ανακαίνισης και Αποκατάστασης Κτιρίων Τ.Ε."
+      },
+      {
+        value: "Μηχανικός Γεωπληροφορικής και Τοπογραφίας Τ.Ε.",
+        icon: "grade",
+        label: "Μηχανικός Γεωπληροφορικής και Τοπογραφίας Τ.Ε."
+      },
+      {
+        value: "Μηχανικός Περιβάλλοντος Τ.Ε.",
+        icon: "grade",
+        label: "Μηχανικός Περιβάλλοντος Τ.Ε."
+      },
+      {
+        value: "Μηχανικός Φυσικών Πόρων & Περιβάλλοντος Τ.Ε.",
+        icon: "grade",
+        label: "Μηχανικός Φυσικών Πόρων & Περιβάλλοντος Τ.Ε."
+      },
+      {
+        value: "Μηχανολόγος Μηχανικός Τ.Ε.",
+        icon: "grade",
+        label: "Μηχανολόγος Μηχανικός Τ.Ε."
+      }, 
+      {
+        value: "Πολιτικός Μηχανικός Δομικών Έργων Τ.Ε.",
+        icon: "grade",
+        label: "Πολιτικός Μηχανικός Δομικών Έργων Τ.Ε."
+      },
+      {
+        value: "Πολιτικός Μηχανικός Έργων Υποδομής Τ.Ε.",
+        icon: "grade",
+        label: "Πολιτικός Μηχανικός Έργων Υποδομής Τ.Ε."
+      },
+      {
+        value: "Τοπογράφος Μηχανικός Τ.Ε.",
+        icon: "grade",
+        label: "Τοπογράφος Μηχανικός Τ.Ε."
+      },
+      {
+        value: "Μηχανικός Τεχνολογίας Περιβάλλοντος και Οικολογίας Τ.Ε.",
+        icon: "grade",
+        label: "Μηχανικός Τεχνολογίας Περιβάλλοντος και Οικολογίας Τ.Ε."
       },
       {
         value: "Ιδιώτης",
@@ -211,6 +471,8 @@ export class RegisterForm extends Form {
 
   render() {
     const is_engineer = this.state.engineer_or_customer === "engineer"
+    const is_engineer_te = this.state.engineer_or_customer === "engineer_te"
+    const is_student = this.state.engineer_or_customer === "student"
 
     return (
       <div className="modal-dialog modal-register" role="document">
@@ -362,7 +624,27 @@ export class RegisterForm extends Form {
                       disabled={this.state.isLoading}
                       onChange={this.bindInput("specialization")}
                       value={this.state.specialization}
-                      choices={this.SPECIALIZATION_CHOICES}
+                      choices={this.ENGINEER_SPECIALIZATION_CHOICES}
+                    />
+                  </FormGroup>
+                ) : ( 
+                  null
+                )
+              }
+
+              {
+                is_engineer_te ? ( 
+                  <FormGroup
+                  label={"Ειδικότητα"}
+                  for="id_specialization"
+                  validation={this.state.errors.specialization}
+                  >
+                    <Select
+                      id="id_specialization"
+                      disabled={this.state.isLoading}
+                      onChange={this.bindInput("specialization")}
+                      value={this.state.specialization}
+                      choices={this.ENGINEER_TE_SPECIALIZATION_CHOICES}
                     />
                   </FormGroup>
                 ) : ( 
@@ -386,6 +668,40 @@ export class RegisterForm extends Form {
                       onChange={this.bindInput("registry_number")}
                       value={this.state.registry_number}
                     />
+                  </FormGroup>
+                ) : ( 
+                  null
+                )
+              }
+
+              {
+                is_engineer_te ? ( 
+                  <FormGroup
+                  label={"Αριθμός μητρώου Ε.Ε.Τ.Ε.Μ."}
+                  for="id_registry_number"
+                  validation={this.state.errors.registry_number}
+                  >
+                    <input
+                      type="number"
+                      id="id_registry_number"
+                      className="form-control"
+                      aria-describedby="id_registry_number_status"
+                      disabled={this.state.isLoading}
+                      onChange={this.bindInput("registry_number")}
+                      value={this.state.registry_number}
+                    />
+                  </FormGroup>
+                ) : ( 
+                  null
+                )
+              }
+
+              {
+                (is_engineer || is_engineer_te) ? ( 
+                  <FormGroup
+                  label={"Αν είσαι φοιτητής"}
+                  >
+                    Στείλε email με όνομα χρήστη και βεβαίωση σπουδών στο okergo.gr@gmail.com
                   </FormGroup>
                 ) : ( 
                   null

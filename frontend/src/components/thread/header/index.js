@@ -17,7 +17,7 @@ export default class extends Form {
       isEditing: false,
       isLoading: false,
 
-      title: props.thread.title,
+      title: String(props.thread.title),
 
       validators: {
         title: getTitleValidators()

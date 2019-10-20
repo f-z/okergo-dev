@@ -39,7 +39,7 @@ export function phone(message) {
 
 export function engineer_or_customer(message) {
   return function (value) {
-    if (value !== "engineer" && value !== "customer") {
+    if (value !== "engineer" && value !== "engineer_te" && value !== "customer") {
       return message || "Είσαι μηχανικός ή ιδιώτης;"
     }
   }
@@ -60,7 +60,7 @@ export function registry_number(lengthMax) {
     if (value === false || value === null || $.trim(value).length <= lengthMax) {
       return false
     } else {
-        return "Βάλε το σωστό αριθμό μητρώου ΤΕΕ σου!"
+        return "Βάλε το σωστό αριθμό μητρώου σου!"
     }
   }
 }

@@ -144,7 +144,7 @@ class PrivateThread(ViewModel):
         return thread
 
     def get_root_name(self):
-        return _("Private threads")
+        return "Ιδιωτικές συνομιλίες"
 
     def get_frontend_context(self):
         return PrivateThreadSerializer(self._model).data

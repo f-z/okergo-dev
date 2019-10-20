@@ -247,7 +247,7 @@ def UserFormFactory(FormType, instance):
     extra_fields["roles"] = forms.ModelMultipleChoiceField(
         label="Ρόλοι",
         help_text=(
-            'Όλοι οι ρόλοι αυτού του χρήστη. Ένας χρήστης πρέπει να έχει τουλάχιστον ως βασικό ρόλο Μηχανικός ή Φοιτητής ή Πελάτης.'
+            'Όλοι οι ρόλοι αυτού του χρήστη. Ένας χρήστης πρέπει να έχει τουλάχιστον ως βασικό ρόλο Μηχανικός ή Πελάτης. Οι μηχανικοί Τ.Ε. και οι φοιτητές παίρνουν ρόλο Μηχανικού.'
         ),
         queryset=roles,
         initial=instance.roles.all() if instance.pk else None,

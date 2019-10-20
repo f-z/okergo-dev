@@ -169,7 +169,7 @@ export function getLikesMessage(likes, users) {
 
   if (usernames.length === 1) {
     return interpolate(
-      "%(user)s ενδιαφέρεται",
+      "Ο χρήστης %(user)s ενδιαφέρεται",
       {
         user: usernames[0]
       },
@@ -227,10 +227,12 @@ export class Reply extends React.Component {
   }
 
   render() {
+    console.log(this.props)
     const canMessage = this.props.user.acl.can_start_private_threads
     const isPoster = this.props.user.id === this.props.post.poster.id
+    const isPrivateThread = this.props.thread.category.name == "Ιδιωτικές συνομιλίες"
 
-    if (!canMessage || isPoster) return null
+    if (!canMessage || isPoster || isPrivateThread) return null
     
     return (
       <button

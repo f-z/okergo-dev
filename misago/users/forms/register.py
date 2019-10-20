@@ -76,13 +76,14 @@ class RegisterForm(BaseRegisterForm):
     password = forms.CharField(strip=False)
     real_name = forms.CharField(strip=True, max_length=50, min_length=5)
     phone = forms.IntegerField(max_value=9999999999, min_value=0)
-    region = forms.CharField(strip=True, max_length=30, min_length=2)
+    region = forms.CharField(strip=True, max_length=50, min_length=2)
     ENGINEER_OR_CUSTOMER_CHOICES = (
         ('engineer', 'Μηχανικός'),
+        ('engineer_te', 'Μηχανικός Τ.Ε.'),
         ('customer', 'Ιδιώτης'),
     )
     engineer_or_customer = forms.TypedChoiceField(choices=ENGINEER_OR_CUSTOMER_CHOICES, empty_value="customer")
-    specialization = forms.CharField(strip=True, max_length=30, min_length=4)
+    specialization = forms.CharField(strip=True, max_length=100, min_length=4)
     registry_number = forms.IntegerField(max_value=9999999999, min_value=0, required=False)
     # placeholder field for setting captcha errors on form
     captcha = forms.CharField(required=False)

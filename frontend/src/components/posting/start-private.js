@@ -14,7 +14,7 @@ export default class extends Form {
     super(props)
 
     const to = (props.to || []).map(user => user.username).join(", ")
-    const title = (props.title || "")
+    const title = (String(props.title) || "")
 
     this.state = {
       isLoading: false,

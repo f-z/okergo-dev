@@ -42,7 +42,7 @@ def create_endpoint(request):
         return Response(form.errors, status=status.HTTP_400_BAD_REQUEST)
 
     activation_kwargs = {}
-    if request_data["engineer_or_customer"] == "engineer":
+    if request_data["engineer_or_customer"] == "engineer" or request_data["engineer_or_customer"] == "engineer_te":
         activation_kwargs = {"requires_activation": User.ACTIVATION_ADMIN}
     elif request_data["engineer_or_customer"] == "customer":
         activation_kwargs = {"requires_activation": User.ACTIVATION_USER}

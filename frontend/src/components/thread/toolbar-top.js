@@ -194,6 +194,7 @@ export function Reply(props) {
       <ReplyButton
         className="btn btn-primary btn-block btn-outline"
         onClick={props.openReplyForm}
+        thread={props.thread}
       />
     </div>
   )

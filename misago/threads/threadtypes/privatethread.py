@@ -9,7 +9,7 @@ class PrivateThread(ThreadType):
     root_name = PRIVATE_THREADS_ROOT_NAME
 
     def get_category_name(self, category):
-        return _("Private threads")
+        return "Ιδιωτικές συνομιλίες"
 
     def get_category_absolute_url(self, category):
         return reverse("misago:private-threads")

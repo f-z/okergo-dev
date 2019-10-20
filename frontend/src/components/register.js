@@ -327,11 +327,6 @@ export class RegisterForm extends Form {
         value: "Τοπογράφος Μηχανικός",
         icon: "lens",
         label: "Τοπογράφος Μηχανικός"
-      },
-      {
-        value: "Ιδιώτης",
-        icon: "person",
-        label: "Ιδιώτης"
       }
     ]
 
@@ -385,11 +380,6 @@ export class RegisterForm extends Form {
         value: "Μηχανικός Τεχνολογίας Περιβάλλοντος και Οικολογίας Τ.Ε.",
         icon: "grade",
         label: "Μηχανικός Τεχνολογίας Περιβάλλοντος και Οικολογίας Τ.Ε."
-      },
-      {
-        value: "Ιδιώτης",
-        icon: "person",
-        label: "Ιδιώτης"
       }
     ]
   }
@@ -469,10 +459,29 @@ export class RegisterForm extends Form {
     })
   }
 
+  handleEngineerOrCustomer = (e) => {
+    this.setState({
+      engineer_or_customer: e.target.value,
+    })
+
+    if (e.target.value == "engineer") {
+      this.setState({
+        specialization: "Αρχιτέκτων Μηχανικός"
+      })
+    } else if (e.target.value == "engineer_te") {
+      this.setState({
+        specialization: "Ηλεκτρολόγος Μηχανικός Τ.Ε."
+      })
+    } else {
+      this.setState({
+        specialization: "Ιδιώτης"
+      })
+    }
+  }
+
   render() {
     const is_engineer = this.state.engineer_or_customer === "engineer"
     const is_engineer_te = this.state.engineer_or_customer === "engineer_te"
-    const is_student = this.state.engineer_or_customer === "student"
 
     return (
       <div className="modal-dialog modal-register" role="document">
@@ -606,7 +615,7 @@ export class RegisterForm extends Form {
                 <Select
                   id="id_engineer_or_customer"
                   disabled={this.state.isLoading}
-                  onChange={this.bindInput("engineer_or_customer")}
+                  onChange={this.handleEngineerOrCustomer}
                   value={this.state.engineer_or_customer}
                   choices={this.ENGINEER_OR_CUSTOMER_CHOICES}
                 />

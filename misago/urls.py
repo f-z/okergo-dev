@@ -19,7 +19,7 @@ urlpatterns = hooks.urlpatterns + [
     url(r"^", include("misago.healthcheck.urls")),
     # Homepage with instructions
     url(r"^instructions/", TemplateView.as_view(template_name="misago/instructions.html")),
-    # default robots.txt
+   # default robots.txt
     url(
         r"^robots.txt$",
         TemplateView.as_view(

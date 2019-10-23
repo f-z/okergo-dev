@@ -117,7 +117,7 @@ MISAGO_LOGIN_API_URL = "auth"
 # Misago Admin Path
 # Omit starting and trailing slashes. To disable Misago admin, empty this value.
 
-MISAGO_ADMIN_PATH = "admincp"
+MISAGO_ADMIN_PATH = "admin"
 
 
 # Admin urls namespaces that Misago's AdminAuthMiddleware should protect
@@ -133,7 +133,7 @@ MISAGO_ADMIN_SESSION_EXPIRATION = 60
 # Display threads on forum index
 # Change this to false to display categories list instead
 
-MISAGO_THREADS_ON_INDEX = True
+MISAGO_THREADS_ON_INDEX = False
 
 
 # Function used for generating individual avatar for user

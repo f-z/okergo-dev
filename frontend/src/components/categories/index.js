@@ -52,6 +52,23 @@ export default class extends React.Component {
     )
   }
 
+  goToInstructions() {
+    window.location = 'instructions'
+  }
+
+  getInstructionsButton() {
+    return (
+      <Button
+        className="btn-primary btn-outline"
+        onClick={this.goToInstructions}
+        disabled={this.props.disabled}
+      >
+        <span className="material-icon">info</span>
+        {"Οδηγίες"}
+      </Button>
+    )
+  }
+
   startPolling(api) {
     polls.start({
       poll: "categories",
@@ -76,7 +93,15 @@ export default class extends React.Component {
 
     return (
       <div>
+        &nbsp;&nbsp;&nbsp;&nbsp;
         {this.getStartThreadButton()}
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;
+        {this.getInstructionsButton()}
         <div className="page-header">
           <div className="container">
             <div className="row">

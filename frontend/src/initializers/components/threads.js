@@ -21,6 +21,7 @@ export function getListOptions(context) {
       api: context.get("PRIVATE_THREADS_API"),
         startThread: {
           mode: "START_PRIVATE",
+          title: [""],
           submit: misago.get("PRIVATE_THREADS_API")
         },
       title: "Συνομιλίες για ανάθεση εργασίας",

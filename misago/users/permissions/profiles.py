@@ -130,9 +130,9 @@ can_follow_user = return_boolean(allow_follow_user)
 @authenticated_only
 def allow_block_user(user_acl, target):
     if target.is_staff or target.is_superuser:
-        raise PermissionDenied(_("You can't block administrators."))
+        raise PermissionDenied("Δεν μπορείς να κάνεις μπλοκ τους διαχειριστές!")
     if user_acl["user_id"] == target.id:
-        raise PermissionDenied(_("You can't block yourself."))
+        raise PermissionDenied("Δεν μπορείς να κάνεις μπλοκ τον εαυτό σου!")
     # FIXME: check if user has "can be blocked" permission
 
 
@@ -142,7 +142,7 @@ can_block_user = return_boolean(allow_block_user)
 @authenticated_only
 def allow_see_ban_details(user_acl, target):
     if not user_acl["can_see_ban_details"]:
-        raise PermissionDenied(_("You can't see users bans details."))
+        raise PermissionDenied("Δεν μπορείς να δεις τις πληροφορίες για τον αποκλεισμό αυτού του χρήστη!")
 
 
 can_see_ban_details = return_boolean(allow_see_ban_details)

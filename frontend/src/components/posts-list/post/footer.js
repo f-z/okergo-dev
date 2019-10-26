@@ -227,7 +227,6 @@ export class Reply extends React.Component {
   }
 
   render() {
-    console.log(this.props)
     const canMessage = this.props.user.acl.can_start_private_threads
     const isPoster = this.props.user.id === this.props.post.poster.id
     const isPrivateThread = this.props.thread.category.name == "Ιδιωτικές συνομιλίες"

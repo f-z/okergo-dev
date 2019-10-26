@@ -17,9 +17,9 @@ export function getTitleLengthMin() {
   return minLength(
     misago.get("SETTINGS").thread_title_length_min,
     (limitValue, length) => {
-      let message = "Ο τίτλος πρέπει να έχει τουλάχιστον %(limit_value)s χαρακτήρες (έχει %(show_value)s)"
+      let message = "Ο τίτλος πρέπει να έχει τουλάχιστον %(limit_value)s χαρακτήρες (έχει %(show_value)s)!"
       if (limitValue === 1) {
-        message = "Ο τίτλος πρέπει να έχει τουλάχιστον %(limit_value)s χαρακτήρα (έχει %(show_value)s)"
+        message = "Ο τίτλος πρέπει να έχει τουλάχιστον %(limit_value)s χαρακτήρα (έχει %(show_value)s)!"
       }
 
       return interpolate(

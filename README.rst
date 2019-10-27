@@ -164,3 +164,18 @@ Run ``python setup.py bdist_wheel`` in okergo-dev folder.
 Get the wheel file from the dist folder that is created.
 
 To clean up previous builds, create the new one and automatically push the output to the production repo run ``./dev pushprod``
+
+Connecting to PostgreSQL in development
+=====================
+Run ``docker-compose up`` to start the postgres container/instance.
+
+Then run ``psql -h localhost - U misago`` to connect.
+
+Enter ``misago`` as password.
+
+Enter ``\l`` to view all databases and ``\dt`` to view all tables.
+
+Example command:
+```SELECT json_agg(misago_users_user) FROM misago_users_user;```
+
+To quit the connection enter ```\q```.

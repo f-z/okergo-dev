@@ -7,7 +7,7 @@
         {% if not misago_agreement.link %}
           <p class="lead">
             {% blocktrans trimmed with agreement=misago_agreement.type %}
-              Please review the updated {{ agreement }}:
+              Παρακαλώ ελέγξτε τους ενημερωμένους {{ agreement }}:
             {% endblocktrans %}
           </p>
         {% endif %}
@@ -19,7 +19,7 @@
               <a href="{{ misago_agreement.link }}" target="_blank">{% trans "here" %}</a>
             {% endcapture %}
             {% blocktrans trimmed with agreement=misago_agreement.type link=link|safe %}
-              Please review the updated {{ agreement }} available {{ link }}.
+              Παρακαλώ ελέγξτε τους ενημερωμένους {{ agreement }} διαθέσιμους στο {{ link }}.
             {% endblocktrans %}
           </p>
         {% else %}

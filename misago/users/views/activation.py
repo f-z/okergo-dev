@@ -71,7 +71,7 @@ def activate_by_token(request, pk, token):
     inactive_user.requires_activation = User.ACTIVATION_NONE
     inactive_user.save(update_fields=["requires_activation"])
 
-    message = _("%(user)s, your account has been activated!")
+    message = "%(user)s, ο λογαριασμός σου έχει ενεργοποιηθεί!"
 
     return render(
         request,

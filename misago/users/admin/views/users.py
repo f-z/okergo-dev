@@ -103,14 +103,14 @@ class UsersList(UserAdmin, generic.ListView):
                 inactive_users.append(user)
 
         if not inactive_users:
-            message = _("You have to select inactive users.")
+            message = "Πρέπει να επιλέξεις χρήστες που περιμένουν ενεργοποίηση!"
             raise generic.MassActionError(message)
         else:
             activated_users_pks = [u.pk for u in inactive_users]
             queryset = User.objects.filter(pk__in=activated_users_pks)
             queryset.update(requires_activation=User.ACTIVATION_NONE)
 
-            subject = _("Your account on %(forum_name)s forums has been activated")
+            subject = "Ο λογαριασμός σου στο %(forum_name)s έχει ενεργοποιηθεί!"
             mail_subject = subject % {"forum_name": request.settings.forum_name}
 
             mail_users(
@@ -120,7 +120,7 @@ class UsersList(UserAdmin, generic.ListView):
                 context={"settings": request.settings},
             )
 
-            messages.success(request, _("Selected users accounts have been activated."))
+            messages.success(request, "Οι επιλεγμένοι λογαριασμοί χρηστών έχουν ενεργοποιηθεί!")
 
     def action_ban(
         self, request, users

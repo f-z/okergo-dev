@@ -330,6 +330,21 @@ class User(AbstractBaseUser, PermissionsMixin):
     def get_real_name(self):
         return self.profile_fields.get("real_name")
 
+    def get_region(self):
+        return self.profile_fields.get("region")
+
+    def get_phone(self):
+        return self.profile_fields.get("phone")
+
+    def get_website(self):
+        return self.profile_fields.get("website")
+
+    def get_specialization(self):
+        return self.profile_fields.get("specialization")
+
+    def get_registry_number(self):
+        return self.profile_fields.get("registry_number")
+
     def set_username(self, new_username, changed_by=None):
         new_username = self.normalize_username(new_username)
         if new_username != self.username:

@@ -31,9 +31,9 @@ export function Threads({ threads }) {
 }
 
 export function Posts({ posts }) {
-  let message = "%(posts)s προσφορές"
+  let message = "%(posts)s δημοσιεύσεις"
   if (posts === 1) {
-    message = "%(posts)s προσφορά"
+    message = "%(posts)s δημοσίευση"
   }
 
   return (

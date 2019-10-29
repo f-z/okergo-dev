@@ -153,7 +153,11 @@ UserCardSerializer = UserSerializer.subset_fields(
     "followers",
     "threads",
     "posts",
-    "real_name",
     "status",
     "url",
+    "real_name",
+    "region",
+    "phone",
+    "specialization",
+    "registry_number",
 )

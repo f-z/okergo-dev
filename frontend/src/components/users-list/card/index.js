@@ -33,7 +33,11 @@ export default function({ showStatus, user }) {
               <a href={user.url}>{user.username}</a>
             </div>
             <div className="user-card-title">
-              <UserTitle rank={rank} title={user.title} />
+              <UserTitle rank={rank} title={user.specialization} />
+            </div>
+
+            <div className="user-card-title">
+              <UserTitle rank={rank} title={user.region} />
             </div>
 
             <div className="user-card-stats">

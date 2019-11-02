@@ -27,7 +27,8 @@ export default class extends Form {
       title: "",
       category: props.category || null,
       categories: [],
-      post: "Περιγραφή έργου: \n" + "\nΑρχεία: \n" + "\nΠροθεσμία παράδοσης: \n",
+      squareMeters: "",
+      post: "Περιοχή: \n" + "\nΠεριγραφή έργου: \n" + "\nΑρχεία: \n" + "\nΠροθεσμία παράδοσης: \n",
       attachments: [],
       close: false,
       hide: false,
@@ -80,6 +81,12 @@ export default class extends Form {
       category,
       categoryOptions
     })
+
+    if (this.props.submode == "ENERGY") {
+      this.setState({
+        title: "ΠΕΑ Εξοικονομώ "
+      })
+    }
   }
 
   loadError = rejection => {
@@ -116,6 +123,14 @@ export default class extends Form {
 
       pin
     })
+  }
+
+  onSquareMetersChange = event => {
+    this.changeValue("squareMeters", event.target.value)
+  }
+
+  calculateProposedPriceEnergy(squareMeters) {
+    return ((62 + 1.86 * squareMeters) / 1.24).toFixed(0)
   }
 
   onPostChange = event => {
@@ -162,6 +177,11 @@ export default class extends Form {
       return false
     }
 
+    if (this.props.submode == "ENERGY" && this.state.squareMeters <= 0) {
+      snackbar.error("Πρέπει να βάλεις τετραγωνικά μέτρα στην αγγελία!")
+      return false
+    }
+
     if (!this.state.post.trim().length) {
       snackbar.error("Πρέπει να βάλεις μήνυμα στην αγγελία!")
       return false
@@ -186,7 +206,7 @@ export default class extends Form {
     return ajax.post(this.props.submit, {
       title: this.state.title,
       category: this.state.category,
-      post: this.state.post,
+      post: this.state.post + '\nΠροτεινόμενη νόμιμη τιμή από Εξοικονομώ: ' + this.calculateProposedPriceEnergy(this.state.squareMeters) + " ευρώ (χωρίς ΦΠΑ)",
       attachments: attachments.clean(this.state.attachments),
       close: this.state.close,
       hide: this.state.hide,
@@ -250,6 +270,8 @@ export default class extends Form {
       titleStyle += " col-md-9"
     }
 
+    const isEnergyModeOn = this.props.submode === "ENERGY"
+
     return (
       <Container className="posting-form" withFirstRow={true}>
         <form onSubmit={this.handleSubmit}>
@@ -289,6 +311,29 @@ export default class extends Form {
               showOptions={this.state.showOptions}
             />
           </div>
+
+          {
+            isEnergyModeOn ? ( 
+              <div className="row first-row">
+                <div className="col-xs-12 col-sm-4 col-md-3 xs-margin-top">
+                  <input
+                    className="form-control"
+                    disabled={this.state.isLoading}
+                    onChange={this.onSquareMetersChange}
+                    placeholder={"Τετραγωνικά μέτρα"}
+                    type="number"
+                    value={this.state.squareMeters}
+                  />
+                </div>
+                <div className="col-xs-12 col-sm-4 col-md-3 xs-margin-top">
+                  {"Προτεινόμενη νόμιμη αμοιβή για την έκδοση ΠΕΑ από Εξοικονομώ: " + this.calculateProposedPriceEnergy(this.state.squareMeters) + " ευρώ (χωρίς ΦΠΑ)"}
+                </div>
+              </div>
+            ) : ( 
+              null
+            )
+          }
+
           <div className="row">
             <div className="col-md-12">
               <Editor

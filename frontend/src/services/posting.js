@@ -11,6 +11,7 @@ export class Posting {
     this._placeholder = $(placeholder)
 
     this._mode = null
+    this._submode = null
 
     this._isOpen = false
     this._isClosing = false
@@ -19,12 +20,15 @@ export class Posting {
   open(props) {
     if (this._isOpen === false) {
       this._mode = props.mode
+      if(props.submode) {
+        this._submode = props.submode
+      }
       this._isOpen = props.submit
       this._realOpen(props)
     } else if (this._isOpen !== props.submit) {
       let message = "Δουλεύεις ήδη πάνω σε ένα μήνυμα! Θες να το ακυρώσεις;"
       if (this._mode == "POLL") {
-        message = "Δουλεύεις ήδη πάνω σε ένα poll! Θες να το ακυρώσεις;"
+        message = "Δουλεύεις ήδη πάνω σε μία ψηφοφορία! Θες να την ακυρώσεις;"
       }
 
       const changeForm = confirm(message)

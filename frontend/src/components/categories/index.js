@@ -26,15 +26,22 @@ export default class extends React.Component {
     this.startPolling(misago.get("CATEGORIES_API"))
   }
 
-  startThread = () => {
+  startThread = (e) => {
+    let category = 3, submode = null
+    if(e.target.textContent.includes("ΠΕΑ")) {
+      category = 8
+      submode = "ENERGY"
+    }
+
     posting.open(
       this.props.startThread || {
         mode: "START",
+        submode: submode,
 
         config: misago.get("THREAD_EDITOR_API"),
         submit: misago.get("THREADS_API"),
 
-        category: 3
+        category: category
       }
     )
   }
@@ -69,6 +76,19 @@ export default class extends React.Component {
     )
   }
 
+  getQuickEnergyPostButton() {
+    return (
+      <Button
+        className="btn-primary btn-outline"
+        onClick={this.startThread}
+        disabled={this.props.disabled}
+      >
+        <span className="material-icon">info</span>
+        {"Γρήγορη καταχώρηση ΠΕΑ"}
+      </Button>
+    )
+  }
+
   startPolling(api) {
     polls.start({
       poll: "categories",
@@ -93,23 +113,19 @@ export default class extends React.Component {
 
     return (
       <div>
-        &nbsp;&nbsp;&nbsp;&nbsp;
-        {this.getStartThreadButton()}
-        &nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;
-        {this.getInstructionsButton()}
-        <div className="page-header">
-          <div className="container">
-            <div className="row">
-              <div className="col-sm-3 col-md-2 xs-margin-top">
-                </div>
-            </div>
+        <div className="row first-row">
+          <div className="col-xs-12 col-sm-4 col-md-3 xs-margin-top">
+            {this.getStartThreadButton()}
           </div>
-        <CategoriesList categories={categories} />
+          <div className="col-xs-12 col-sm-4 col-md-3 xs-margin-top">
+            {this.getInstructionsButton()}
+          </div>
+          <div className="col-xs-12 col-sm-4 col-md-3 xs-margin-top">
+            {this.getQuickEnergyPostButton()}
+          </div>
+        </div>
+        <div className="page-header">
+          <CategoriesList categories={categories} />
         </div>
       </div>
     )

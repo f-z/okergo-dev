@@ -316,7 +316,9 @@ export default class extends Form {
             isEnergyModeOn ? ( 
               <div className="row first-row">
                 <div className="col-xs-12 col-sm-4 col-md-3 xs-margin-top">
+                  <label className="h4" htmlFor="squareMeters">Επιφάνεια κατοικίας</label>
                   <input
+                    id="squareMeters"
                     className="form-control"
                     disabled={this.state.isLoading}
                     onChange={this.onSquareMetersChange}
@@ -325,8 +327,9 @@ export default class extends Form {
                     value={this.state.squareMeters}
                   />
                 </div>
-                <div className="col-xs-12 col-sm-4 col-md-3 xs-margin-top">
-                  {"Προτεινόμενη νόμιμη αμοιβή για την έκδοση ΠΕΑ από Εξοικονομώ: " + this.calculateProposedPriceEnergy(this.state.squareMeters) + " ευρώ (χωρίς ΦΠΑ)"}
+                <div className="h4 col-xs-12 col-sm-4 col-md-4 xs-margin-top">
+                  <br></br>
+                  Προτεινόμενη νόμιμη αμοιβή για την έκδοση ΠΕΑ από Εξοικονομώ: <strong>{this.calculateProposedPriceEnergy(this.state.squareMeters)} ευρώ</strong> (χωρίς ΦΠΑ)
                 </div>
               </div>
             ) : ( 

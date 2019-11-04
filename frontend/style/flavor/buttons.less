@@ -5,6 +5,8 @@
 
 // mixins
 .misago-btn(@color, @bg, @color-hover, @bg-hover, @color-active, @bg-active) {
+  font-size: @font-size-large;
+
   &,
   &:disabled, &:disabled:hover,
   &.disabled, &.disabled:hover, &.disabled:active {
@@ -113,6 +115,7 @@
 
 // button styles
 .btn-default {
+
   .misago-btn(
     @btn-default-color,
     @btn-default-bg,

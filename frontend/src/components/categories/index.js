@@ -11,19 +11,19 @@ const hydrate = function(category) {
   return Object.assign({}, category, {
     last_post_on: category.last_post_on ? moment(category.last_post_on) : null,
     subcategories: category.subcategories.map(hydrate)
-  })
-}
+  });
+};
 
 export default class extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
 
     this.state = {
       categories: misago.get("CATEGORIES").map(hydrate),
       isBusy: false      
-    }
+    };
 
-    this.startPolling(misago.get("CATEGORIES_API"))
+    this.startPolling(misago.get("CATEGORIES_API"));
   }
 
   startThread = (e) => {

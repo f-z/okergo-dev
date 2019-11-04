@@ -3,6 +3,8 @@ import React from "react"
 export default function(props) {
   return (
     <select
+      style={{ fontSize: `18` }}
+
       className={props.className || "form-control"}
       disabled={props.disabled || false}
       id={props.id || null}

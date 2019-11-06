@@ -17,16 +17,16 @@ import * as validators from "misago/utils/validators"
 
 export class RegisterForm extends Form {
   constructor(props) {
-    super(props)
+    super(props);
 
-    const { username, password } = this.props.criteria
+    const { username, password } = this.props.criteria;
 
-    let passwordMinLength = 0
+    let passwordMinLength = 0;
     password.forEach(item => {
       if (item.name === "MinimumLengthValidator") {
-        passwordMinLength = item.min_length
+        passwordMinLength = item.min_length;
       }
-    })
+    });
 
     const formValidators = {
       username: [
@@ -314,6 +314,11 @@ export class RegisterForm extends Form {
         label: "Ηλεκτρολόγος Μηχανικός"
       },
       {
+        value: "Μηχανικός Υπολογιστών",
+        icon: "lens",
+        label: "Μηχανικός Υπολογιστών"
+      },
+      {
         value: "Μηχανολόγος Μηχανικός",
         icon: "drive_eta",
         label: "Μηχανολόγος Μηχανικός"
@@ -328,7 +333,7 @@ export class RegisterForm extends Form {
         icon: "lens",
         label: "Τοπογράφος Μηχανικός"
       }
-    ]
+    ];
 
     this.ENGINEER_TE_SPECIALIZATION_CHOICES = [
       {
@@ -705,6 +710,7 @@ export class RegisterForm extends Form {
                 )
               }
 
+              {/*
               {
                 (is_engineer || is_engineer_te) ? ( 
                   <FormGroup
@@ -716,6 +722,7 @@ export class RegisterForm extends Form {
                   null
                 )
               }
+              */}
 
               {captcha.component({
                 form: this

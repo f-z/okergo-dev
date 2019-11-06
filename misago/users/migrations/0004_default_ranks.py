@@ -35,19 +35,12 @@ def create_default_ranks(apps, schema_editor):
         order=2,
     )
 
-    students = Rank.objects.create(
-        name="Φοιτητές",
-        slug=slugify("Φοιτητές"),
-        title="Φοιτητής",
-        order=3,
-    )
-
-    members = Rank.objects.create(
+    customers = Rank.objects.create(
         name="Ιδιώτες",
         slug=slugify("Ιδιώτες"),
         title="Πελάτης",
         is_default=True,
-        order=4,
+        order=3,
     )
 
     Role = apps.get_model("misago_acl", "Role")
@@ -65,12 +58,8 @@ def create_default_ranks(apps, schema_editor):
     engineers_tee.roles.add(Role.objects.get(
         name="Ξεκίνημα συνομιλίας για ανάθεση εργασίας"))
 
-    students.roles.add(Role.objects.get(name="Μηχανικός"))
-    students.roles.add(Role.objects.get(
-        name="Ξεκίνημα συνομιλίας για ανάθεση εργασίας"))
-
-    members.roles.add(Role.objects.get(name="Πελάτης"))
-    members.roles.add(Role.objects.get(
+    customers.roles.add(Role.objects.get(name="Πελάτης"))
+    customers.roles.add(Role.objects.get(
         name="Ξεκίνημα συνομιλίας για ανάθεση εργασίας"))
 
 

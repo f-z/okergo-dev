@@ -13,6 +13,8 @@ from ...registration import (
     save_user_agreements,
     send_welcome_email,
 )
+
+from ...models import Rank
 from ...profilefields import profilefields
 from ...setupnewuser import setup_new_user
 
@@ -42,10 +44,10 @@ def create_endpoint(request):
         return Response(form.errors, status=status.HTTP_400_BAD_REQUEST)
 
     activation_kwargs = {}
-    if request_data["engineer_or_customer"] == "engineer" or request_data["engineer_or_customer"] == "engineer_te":
-        activation_kwargs = {"requires_activation": User.ACTIVATION_ADMIN}
-    elif request_data["engineer_or_customer"] == "customer":
-        activation_kwargs = {"requires_activation": User.ACTIVATION_USER}
+    # if request_data["engineer_or_customer"] == "engineer" or request_data["engineer_or_customer"] == "engineer_te":
+    #     activation_kwargs = {"requires_activation": User.ACTIVATION_ADMIN}
+    # elif request_data["engineer_or_customer"] == "customer":
+    activation_kwargs = {"requires_activation": User.ACTIVATION_USER}
 
     try:
         new_user = User.objects.create_user(
@@ -61,6 +63,13 @@ def create_endpoint(request):
             status=status.HTTP_400_BAD_REQUEST,
         )
     
+    # Assigning correct rank depending on registration selection
+    # Default is customer
+    if request_data["engineer_or_customer"] == "engineer":
+        new_user.rank = Rank.objects.filter(name="Μηχανικοί").first()
+    elif request_data["engineer_or_customer"] == "engineer_te":
+        new_user.rank = Rank.objects.filter(name="Μηχανικοί Τ.Ε.").first()
+
     profilefields.add_fields_to_form(request, new_user, form)
     profilefields.update_user_profile_fields(request, new_user, form)
     new_user.save()

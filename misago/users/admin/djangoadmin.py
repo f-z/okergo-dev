@@ -69,7 +69,7 @@ class UserAdminModel(ModelAdmin):
                 viewname="misago:admin:users:edit", kwargs={"pk": user_instance.pk}
             ),
             cls="changelink",
-            text=_("Edit"),
+            text="Επεξεργασία",
         )
 
     get_edit_from_misago_url.short_description = _(

@@ -77,24 +77,28 @@ export default class extends React.Component {
 }
 
 export function Feed(props) {
-  if (!props.posts.results.length) {
-    return <p className="lead">{props.emptyMessage}</p>
-  }
+  if (props.posts.results) {
+    if (!props.posts.results.length) {
+      return <p className="lead">{props.emptyMessage}</p>
+    }
 
-  return (
-    <div>
-      <PostFeed
-        isReady={props.posts.isLoaded}
-        posts={props.posts.results}
-        poster={props.profile}
-      />
-      <LoadMoreButton
-        isLoading={props.isLoading}
-        loadMore={props.loadMore}
-        next={props.posts.next}
-      />
-    </div>
-  )
+    return (
+      <div>
+        <PostFeed
+          isReady={props.posts.isLoaded}
+          posts={props.posts.results}
+          poster={props.profile}
+        />
+        <LoadMoreButton
+          isLoading={props.isLoading}
+          loadMore={props.loadMore}
+          next={props.posts.next}
+        />
+      </div>
+    )
+  } else {
+    return null;
+  }
 }
 
 export function LoadMoreButton(props) {

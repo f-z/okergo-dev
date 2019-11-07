@@ -86,11 +86,11 @@ export function select(store) {
 }
 
 const COMPONENTS = {
-  posts: Posts,
-  threads: Threads,
-  followers: Followers,
-  follows: Follows,
   details: Details,
+  threads: Threads,
+  posts: Posts,
+  follows: Follows,
+  followers: Followers,
   "username-history": UsernameHistory,
   "ban-details": BanDetails
 }

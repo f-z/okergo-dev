@@ -105,7 +105,10 @@ class MisagoUsersConfig(AppConfig):
             return False
 
         user_profile.add_section(
-            link="misago:user-posts", name="Προσφορές", icon="message", component="posts"
+            link="misago:user-details",
+            name="Στοιχεία",
+            icon="person_outline",
+            component="details",
         )
         user_profile.add_section(
             link="misago:user-threads",
@@ -114,22 +117,19 @@ class MisagoUsersConfig(AppConfig):
             component="threads",
         )
         user_profile.add_section(
+            link="misago:user-posts", name="Προσφορές", icon="message", component="posts"
+        )
+        user_profile.add_section(
             link="misago:user-follows",
-            name="Ακολουθείς" if is_account_owner else "Ακολουθεί",
+            name="Ακολουθεί" if not is_account_owner else "Ακολουθείς",
             icon="favorite_border",
             component="follows",
         )
         user_profile.add_section(
             link="misago:user-followers",
-            name="Σε ακολουθούν" if is_account_owner else "Ακολουθούν",
+            name="Τον ακολουθούν" if not is_account_owner else "Σε ακολουθούν",
             icon="favorite",
             component="followers",
-        )
-        user_profile.add_section(
-            link="misago:user-details",
-            name="Στοιχεία",
-            icon="person_outline",
-            component="details",
         )
         user_profile.add_section(
             link="misago:username-history",

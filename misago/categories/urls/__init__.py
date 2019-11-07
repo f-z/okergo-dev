@@ -5,10 +5,10 @@ from ...core.views import home_redirect
 
 from ..views import categories
 
-if settings.MISAGO_THREADS_ON_INDEX:
-    URL_PATH = r"^categories/$"
-else:
+if settings.MISAGO_CATEGORIES_ON_INDEX:
     URL_PATH = r"^$"
+else:
+    URL_PATH = r"^categories/$"
 
 urlpatterns = [
     url(URL_PATH, categories, name="categories"),

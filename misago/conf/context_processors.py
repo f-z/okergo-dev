@@ -15,7 +15,9 @@ def conf(request):
         "LOGIN_REDIRECT_URL": settings.LOGIN_REDIRECT_URL,
         "LOGIN_URL": settings.LOGIN_URL,
         "LOGOUT_URL": settings.LOGOUT_URL,
+        "CATEGORIES_ON_INDEX": settings.MISAGO_CATEGORIES_ON_INDEX,
         "THREADS_ON_INDEX": settings.MISAGO_THREADS_ON_INDEX,
+        "USERS_ON_INDEX": settings.MISAGO_USERS_ON_INDEX,
         "settings": request.settings,
     }
 
@@ -58,7 +60,9 @@ def preload_settings_json(request):
             "MISAGO_PATH": reverse("misago:index"),
             "SETTINGS": preloaded_settings,
             "STATIC_URL": settings.STATIC_URL,
+            "CATEGORIES_ON_INDEX": settings.MISAGO_CATEGORIES_ON_INDEX,
             "THREADS_ON_INDEX": settings.MISAGO_THREADS_ON_INDEX,
+            "USERS_ON_INDEX": settings.MISAGO_USERS_ON_INDEX,
         }
     )
 

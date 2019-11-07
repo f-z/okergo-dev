@@ -39,7 +39,8 @@ def send_welcome_email(request, user):
             "settings": settings,
         }
     )
-
+    
+    """
     if activation_by_admin:
         admin = User.objects.get(pk = 1)
 
@@ -58,6 +59,7 @@ def send_welcome_email(request, user):
                 "settings": settings,
             }
     )
+    """
 
 
 def save_user_agreements(user, form):

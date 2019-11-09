@@ -12,7 +12,7 @@ def create_default_ranks(apps, schema_editor):
 
     team = Rank.objects.create(
         name="Διαχειριστές",
-        slug=slugify("Διαχειριστές"),
+        slug="diaxeiristes",
         title="Μέλος ομάδας Ok Ergo",
         css_class="primary",
         is_tab=True,
@@ -21,7 +21,7 @@ def create_default_ranks(apps, schema_editor):
 
     engineers = Rank.objects.create(
         name="Μηχανικοί",
-        slug=slugify("Μηχανικοί"),
+        slug="mixanikoi",
         title="Μηχανικός",
         is_tab=True,
         order=1,
@@ -29,15 +29,15 @@ def create_default_ranks(apps, schema_editor):
 
     engineers_tee = Rank.objects.create(
         name="Μηχανικοί Τ.Ε.",
-        slug=slugify("Μηχανικοί Τ.Ε."),
+        slug="mixanikoi-te",
         title="Μηχανικός Τ.Ε.",
         is_tab=True,
         order=2,
     )
 
     customers = Rank.objects.create(
-        name="Ιδιώτες",
-        slug=slugify("Ιδιώτες"),
+        name="Πελάτες",
+        slug="pelates",
         title="Πελάτης",
         is_default=True,
         order=3,

@@ -1,10 +1,10 @@
-import React from "react"
-import { connect } from "react-redux"
-import Nav from "misago/components/users/nav"
-import ActivePosters from "misago/components/users/active-posters/root"
-import Rank from "misago/components/users/rank/root"
-import WithDropdown from "misago/components/with-dropdown"
-import misago from "misago/index"
+import React from "react";
+import { connect } from "react-redux";
+import Nav from "misago/components/users/nav";
+import ActivePosters from "misago/components/users/active-posters/root";
+import Rank from "misago/components/users/rank/root";
+import WithDropdown from "misago/components/with-dropdown";
+import misago from "misago/index";
 
 export default class extends WithDropdown {
   render() {

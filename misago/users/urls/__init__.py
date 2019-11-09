@@ -17,25 +17,10 @@ from ..views import (
 if settings.MISAGO_USERS_ON_INDEX:
     urlpatterns = [
         url(
-            r"^$",
+            r"^",
             include(
                 [
                     url(r"^$", lists.landing, name="users"),
-                    url(
-                        r"^active-posters/$",
-                        lists.ActivePostersView.as_view(),
-                        name="users-active-posters",
-                    ),
-                    url(
-                        r"^(?P<slug>[-a-zA-Z0-9]+)/$",
-                        lists.RankUsersView.as_view(),
-                        name="users-rank",
-                    ),
-                    url(
-                        r"^(?P<slug>[-a-zA-Z0-9]+)/(?P<page>\d+)/$",
-                        lists.RankUsersView.as_view(),
-                        name="users-rank",
-                    ),
                 ]
             ),
         )

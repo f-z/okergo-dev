@@ -43,7 +43,7 @@ export class RegisterForm extends Form {
       specialization: [validators.specialization(4)],
       registry_number: [validators.registry_number(6)],
       captcha: captcha.validator()
-    }
+    };
 
     if (!!misago.get("TERMS_OF_SERVICE_ID")) {
       formValidators.termsOfService = [validators.requiredTermsOfService()]
@@ -72,7 +72,7 @@ export class RegisterForm extends Form {
 
       validators: formValidators,
       errors: {}
-    }
+    };
 
     this.REGION_CHOICES = [
       {
@@ -304,6 +304,11 @@ export class RegisterForm extends Form {
 
     this.ENGINEER_SPECIALIZATION_CHOICES = [
       {
+        value: "Αγρονόμος Τοπογράφος Μηχανικός",
+        icon: "lens",
+        label: "Αγρονόμος Τοπογράφος Μηχανικός"
+      },
+      {
         value: "Αρχιτέκτων Μηχανικός",
         icon: "location_city",
         label: "Αρχιτέκτων Μηχανικός"
@@ -314,9 +319,9 @@ export class RegisterForm extends Form {
         label: "Ηλεκτρολόγος Μηχανικός"
       },
       {
-        value: "Μηχανικός Υπολογιστών",
+        value: "Ηλεκτρονικός Μηχανικός",
         icon: "lens",
-        label: "Μηχανικός Υπολογιστών"
+        label: "Ηλεκτρονικός Μηχανικός"
       },
       {
         value: "Μηχανολόγος Μηχανικός",
@@ -324,16 +329,18 @@ export class RegisterForm extends Form {
         label: "Μηχανολόγος Μηχανικός"
       },
       {
+        value: "Μηχανολόγος Ηλεκτρολόγος Μηχανικός",
+        icon: "drive_eta",
+        label: "Μηχανολόγος Ηλεκτρολόγος Μηχανικός"
+      },
+      {
         value: "Πολιτικός Μηχανικός",
         icon: "business",
         label: "Πολιτικός Μηχανικός"
-      },
-      {
-        value: "Τοπογράφος Μηχανικός",
-        icon: "lens",
-        label: "Τοπογράφος Μηχανικός"
       }
     ];
+
+    this.ENGINEER_SPECIALIZATION_CHOICES.sort((a, b) => a.label.localeCompare(b.label));
 
     this.ENGINEER_TE_SPECIALIZATION_CHOICES = [
       {
@@ -386,18 +393,20 @@ export class RegisterForm extends Form {
         icon: "grade",
         label: "Μηχανικός Τεχνολογίας Περιβάλλοντος και Οικολογίας Τ.Ε."
       }
-    ]
+    ];
+
+    this.ENGINEER_TE_SPECIALIZATION_CHOICES.sort((a, b) => a.label.localeCompare(b.label));
   }
 
   clean() {
     if (this.isValid()) {
-      return true
+      return true;
     } else {
-      snackbar.error("Η φόρμα περιέχει λάθη!")
+      snackbar.error("Η φόρμα περιέχει λάθη!");
       this.setState({
         errors: this.validate()
-      })
-      return false
+      });
+      return false;
     }
   }
 

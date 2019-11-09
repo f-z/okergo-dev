@@ -39,26 +39,26 @@ export function phone(message) {
 
 export function engineer_or_customer(message) {
   return function (value) {
-    if (value !== "engineer" && value !== "engineer_te" && value !== "customer") {
-      return message || "Είσαι μηχανικός ή ιδιώτης;"
+    if (value !== "engineer" && value !== "customer") {
+      return message || "Είσαι μηχανικός ή ιδιώτης;";
     }
-  }
+  };
 }
 
 export function specialization(lengthMin) {
   return function (value) {
     if (value === false || value === null || $.trim(value).length >= lengthMin) {
-      return false
+      return false;
     } else {
-      return "Επέλεξε τη σωστή ειδικότητά σου!"
+      return "Επέλεξε τη σωστή ειδικότητά σου!";
     }
-  }
+  };
 }
 
 export function registry_number(lengthMax) {
   return function(value) {
     if (value === false || value === null || $.trim(value).length <= lengthMax) {
-      return false
+      return false;
     } else {
         return "Βάλε το σωστό αριθμό μητρώου σου!"
     }

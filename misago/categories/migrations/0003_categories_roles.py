@@ -121,11 +121,12 @@ def create_default_categories_roles(apps, schema_editor):
             category_role=moderator,
         )
 
-        RoleCategoryACL.objects.create(
-            role=Role.objects.get(special_role="authenticated"),
-            category=category,
-            category_role=standard,
-        )
+        for role in Role.objects.filter(special_role="authenticated"):
+            RoleCategoryACL.objects.create(
+                role=role,
+                category=category,
+                category_role=standard,
+            )
 
         RoleCategoryACL.objects.create(
             role=Role.objects.get(special_role="anonymous"),

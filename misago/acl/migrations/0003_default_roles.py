@@ -8,6 +8,7 @@ def create_default_roles(apps, schema_editor):
 
     Role.objects.create(
         name="Πελάτης",
+        special_role="authenticated",
         permissions={
             # account
             "misago.users.permissions.account": {
@@ -113,6 +114,7 @@ def create_default_roles(apps, schema_editor):
 
     Role.objects.create(
         name="Διαχειριστής αγγελιών",
+        special_role="authenticated",
         permissions={
             # account
             "misago.users.permissions.account": {
@@ -239,6 +241,7 @@ def create_default_roles(apps, schema_editor):
 
     Role.objects.create(
         name="Διαχειριστής συνομιλιών για ανάθεση εργασίας",
+        special_role="authenticated",
         permissions={
             # private threads admin
             "misago.threads.permissions.privatethreads": {

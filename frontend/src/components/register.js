@@ -63,7 +63,7 @@ export class RegisterForm extends Form {
       phone: "",
       region: "Αττικής",
       engineer_or_customer: "customer",
-      specialization: "Ιδιώτης",
+      specialization: "Πελάτης",
       registry_number: 0,
       captcha: "",
 
@@ -291,58 +291,48 @@ export class RegisterForm extends Form {
         label: "Μηχανικός"
       },
       {
-        value: "engineer_te",
-        icon: "business_center",
-        label: "Μηχανικός Τ.Ε."
-      },
-      {
         value: "customer",
         icon: "person",
-        label: "Ιδιώτης"
+        label: "Πελάτης"
       }
-    ]
+    ];
 
     this.ENGINEER_SPECIALIZATION_CHOICES = [
       {
         value: "Αγρονόμος Τοπογράφος Μηχανικός",
-        icon: "lens",
+        icon: "grade",
         label: "Αγρονόμος Τοπογράφος Μηχανικός"
       },
       {
         value: "Αρχιτέκτων Μηχανικός",
-        icon: "location_city",
+        icon: "grade",
         label: "Αρχιτέκτων Μηχανικός"
       },
       {
         value: "Ηλεκτρολόγος Μηχανικός",
-        icon: "ev_station",
+        icon: "grade",
         label: "Ηλεκτρολόγος Μηχανικός"
       },
       {
         value: "Ηλεκτρονικός Μηχανικός",
-        icon: "lens",
+        icon: "grade",
         label: "Ηλεκτρονικός Μηχανικός"
       },
       {
         value: "Μηχανολόγος Μηχανικός",
-        icon: "drive_eta",
+        icon: "grade",
         label: "Μηχανολόγος Μηχανικός"
       },
       {
         value: "Μηχανολόγος Ηλεκτρολόγος Μηχανικός",
-        icon: "drive_eta",
+        icon: "grade",
         label: "Μηχανολόγος Ηλεκτρολόγος Μηχανικός"
       },
       {
         value: "Πολιτικός Μηχανικός",
-        icon: "business",
+        icon: "grade",
         label: "Πολιτικός Μηχανικός"
-      }
-    ];
-
-    this.ENGINEER_SPECIALIZATION_CHOICES.sort((a, b) => a.label.localeCompare(b.label));
-
-    this.ENGINEER_TE_SPECIALIZATION_CHOICES = [
+      },
       {
         value: "Ηλεκτρολόγος Μηχανικός Τ.Ε.",
         icon: "grade",
@@ -372,7 +362,7 @@ export class RegisterForm extends Form {
         value: "Μηχανολόγος Μηχανικός Τ.Ε.",
         icon: "grade",
         label: "Μηχανολόγος Μηχανικός Τ.Ε."
-      }, 
+      },
       {
         value: "Πολιτικός Μηχανικός Δομικών Έργων Τ.Ε.",
         icon: "grade",
@@ -395,7 +385,7 @@ export class RegisterForm extends Form {
       }
     ];
 
-    this.ENGINEER_TE_SPECIALIZATION_CHOICES.sort((a, b) => a.label.localeCompare(b.label));
+    this.ENGINEER_SPECIALIZATION_CHOICES.sort((a, b) => a.label.localeCompare(b.label));
   }
 
   clean() {
@@ -424,7 +414,7 @@ export class RegisterForm extends Form {
       captcha: this.state.captcha,
       terms_of_service: this.state.termsOfService,
       privacy_policy: this.state.privacyPolicy
-    })
+    });
   }
 
   handleSuccess(apiResponse) {
@@ -435,12 +425,12 @@ export class RegisterForm extends Form {
     if (rejection.status === 400) {
       this.setState({
         errors: Object.assign({}, this.state.errors, rejection)
-      })
+      });
 
       if (rejection.__all__ && rejection.__all__.length > 0) {
-        snackbar.error(rejection.__all__[0])
+        snackbar.error(rejection.__all__[0]);
       } else {
-        snackbar.error("Η φόρμα περιέχει λάθη!")
+        snackbar.error("Η φόρμα περιέχει λάθη!");
       }
     } else if (rejection.status === 403 && rejection.ban) {
       showBannedPage(rejection.ban)
@@ -480,15 +470,11 @@ export class RegisterForm extends Form {
 
     if (e.target.value == "engineer") {
       this.setState({
-        specialization: "Αρχιτέκτων Μηχανικός"
-      })
-    } else if (e.target.value == "engineer_te") {
-      this.setState({
-        specialization: "Ηλεκτρολόγος Μηχανικός Τ.Ε."
+        specialization: "Αγρονόμος Τοπογράφος Μηχανικός"
       })
     } else {
       this.setState({
-        specialization: "Ιδιώτης"
+        specialization: "Πελάτης"
       })
     }
   }
@@ -656,29 +642,9 @@ export class RegisterForm extends Form {
               }
 
               {
-                is_engineer_te ? ( 
-                  <FormGroup
-                  label={"Ειδικότητα"}
-                  for="id_specialization"
-                  validation={this.state.errors.specialization}
-                  >
-                    <Select
-                      id="id_specialization"
-                      disabled={this.state.isLoading}
-                      onChange={this.bindInput("specialization")}
-                      value={this.state.specialization}
-                      choices={this.ENGINEER_TE_SPECIALIZATION_CHOICES}
-                    />
-                  </FormGroup>
-                ) : ( 
-                  null
-                )
-              }
-
-              {
                 is_engineer ? ( 
                   <FormGroup
-                  label={"Αριθμός μητρώου ΤΕΕ"}
+                  label={"Αριθμός μητρώου ΤΕΕ / Ε.Ε.Τ.Ε.Μ."}
                   for="id_registry_number"
                   validation={this.state.errors.registry_number}
                   >
@@ -696,42 +662,6 @@ export class RegisterForm extends Form {
                   null
                 )
               }
-
-              {
-                is_engineer_te ? ( 
-                  <FormGroup
-                  label={"Αριθμός μητρώου Ε.Ε.Τ.Ε.Μ."}
-                  for="id_registry_number"
-                  validation={this.state.errors.registry_number}
-                  >
-                    <input
-                      type="number"
-                      id="id_registry_number"
-                      className="form-control"
-                      aria-describedby="id_registry_number_status"
-                      disabled={this.state.isLoading}
-                      onChange={this.bindInput("registry_number")}
-                      value={this.state.registry_number}
-                    />
-                  </FormGroup>
-                ) : ( 
-                  null
-                )
-              }
-
-              {/*
-              {
-                (is_engineer || is_engineer_te) ? ( 
-                  <FormGroup
-                  label={"Αν είσαι φοιτητής"}
-                  >
-                    Στείλε email με όνομα χρήστη και βεβαίωση σπουδών στο okergo.gr@gmail.com
-                  </FormGroup>
-                ) : ( 
-                  null
-                )
-              }
-              */}
 
               {captcha.component({
                 form: this

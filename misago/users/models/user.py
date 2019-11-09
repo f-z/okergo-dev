@@ -52,9 +52,15 @@ class UserManager(BaseUserManager):
         return user
 
     def _assert_user_has_authenticated_role(self, user):
-        authenticated_role = Role.objects.get(special_role="authenticated")
-        if authenticated_role not in user.roles.all():
-            user.roles.add(authenticated_role)
+        authenticated_roles = Role.objects.filter(special_role="authenticated")
+        is_authenticated = False
+        for authenticated_role in authenticated_roles:
+            if authenticated_role in user.roles.all():
+                is_authenticated = True
+
+        if not is_authenticated:
+            user.roles.add(Role.objects.get(name="Πελάτης"))
+
         user.update_acl_key()
         user.save(update_fields=["acl_key"])
 

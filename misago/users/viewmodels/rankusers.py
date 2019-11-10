@@ -1,6 +1,7 @@
 from ...core.shortcuts import paginate, pagination_dict
 from ..online.utils import make_users_status_aware
 from ..serializers import UserCardSerializer
+from ...core.pgutils import chunk_queryset
 
 
 class RankUsers:

@@ -17,13 +17,7 @@ from ..views import (
 if settings.MISAGO_USERS_ON_INDEX:
     urlpatterns = [
         url(
-            r"^",
-            include(
-                [
-                    url(r"^$", lists.landing, name="users"),
-                ]
-            ),
-        )
+            r"^$", lists.landing, name="users")
     ]
 else:
     urlpatterns = []
@@ -97,6 +91,46 @@ urlpatterns += [
                 ),
                 url(
                     r"^(?P<slug>[-a-zA-Z0-9]+)/(?P<page>\d+)/$",
+                    lists.RankUsersView.as_view(),
+                    name="users-rank",
+                ),
+                url(
+                    r"^(?P<slug>[-a-zA-Z0-9]+)/eidikotita/(?P<specialization>[-a-zA-Z0-9]+)/perioxi/(?P<region>[-a-zA-Z0-9]+)/$",
+                    lists.RankUsersView.as_view(),
+                    name="users-rank",
+                ),
+                url(
+                    r"^(?P<slug>[-a-zA-Z0-9]+)/eidikotita/(?P<specialization>[-a-zA-Z0-9]+)/perioxi/(?P<region>[-a-zA-Z0-9]+)/(?P<page>\d+)/$",
+                    lists.RankUsersView.as_view(),
+                    name="users-rank",
+                ),
+                url(
+                    r"^(?P<slug>[-a-zA-Z0-9]+)/eidikotita/(?P<specialization>[-a-zA-Z0-9]+)/$",
+                    lists.RankUsersView.as_view(),
+                    name="users-rank",
+                ),
+                url(
+                    r"^(?P<slug>[-a-zA-Z0-9]+)/eidikotita/(?P<specialization>[-a-zA-Z0-9]+)/(?P<page>\d+)/$",
+                    lists.RankUsersView.as_view(),
+                    name="users-rank",
+                ),
+                url(
+                    r"^(?P<slug>[-a-zA-Z0-9]+)/perioxi/(?P<region>[-a-zA-Z0-9]+)/eidikotita/(?P<specialization>[-a-zA-Z0-9]+)/$",
+                    lists.RankUsersView.as_view(),
+                    name="users-rank",
+                ),
+                url(
+                    r"^(?P<slug>[-a-zA-Z0-9]+)/perioxi/(?P<region>[-a-zA-Z0-9]+)/eidikotita/(?P<specialization>[-a-zA-Z0-9]+)/(?P<page>\d+)/$",
+                    lists.RankUsersView.as_view(),
+                    name="users-rank",
+                ),
+                url(
+                    r"^(?P<slug>[-a-zA-Z0-9]+)/perioxi/(?P<region>[-a-zA-Z0-9]+)/$",
+                    lists.RankUsersView.as_view(),
+                    name="users-rank",
+                ),
+                url(
+                    r"^(?P<slug>[-a-zA-Z0-9]+)/perioxi/(?P<region>[-a-zA-Z0-9]+)/(?P<page>\d+)/$",
                     lists.RankUsersView.as_view(),
                     name="users-rank",
                 ),

@@ -55,6 +55,46 @@ export function paths() {
         component: connect(select)(Rank),
         rank: item
       })
+      paths.push({
+        path: misago.get("USERS_LIST_URL") + item.slug + "/eidikotita/:specialization/",
+        component: connect(select)(Rank),
+        rank: item
+      })
+      paths.push({
+        path: misago.get("USERS_LIST_URL") + item.slug + "/eidikotita/:specialization/:page/",
+        component: connect(select)(Rank),
+        rank: item
+      })
+      paths.push({
+        path: misago.get("USERS_LIST_URL") + item.slug + "/eidikotita/:specialization/perioxi/:region/",
+        component: connect(select)(Rank),
+        rank: item
+      })
+      paths.push({
+        path: misago.get("USERS_LIST_URL") + item.slug + "/eidikotita/:specialization/perioxi/:region/:page/",
+        component: connect(select)(Rank),
+        rank: item
+      })
+      paths.push({
+        path: misago.get("USERS_LIST_URL") + item.slug + "/perioxi/:region/eidikotita/:specialization/",
+        component: connect(select)(Rank),
+        rank: item
+      })
+      paths.push({
+        path: misago.get("USERS_LIST_URL") + item.slug + "/perioxi/:region/eidikotita/:specialization/:page/",
+        component: connect(select)(Rank),
+        rank: item
+      })
+      paths.push({
+        path: misago.get("USERS_LIST_URL") + item.slug + "/perioxi/:region/",
+        component: connect(select)(Rank),
+        rank: item
+      })
+      paths.push({
+        path: misago.get("USERS_LIST_URL") + item.slug + "/perioxi/:region/:page/",
+        component: connect(select)(Rank),
+        rank: item
+      })
     } else if (item.component === "active-posters") {
       paths.push({
         path: misago.get("USERS_LIST_URL") + item.component + "/",

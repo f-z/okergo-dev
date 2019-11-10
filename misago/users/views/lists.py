@@ -85,13 +85,13 @@ class ActivePostersView(ListView):
 class RankUsersView(ListView):
     template_name = "misago/userslists/rank.html"
 
-    def get_context_data(self, request, slug, page=0):
+    def get_context_data(self, request, slug, page=0, region=None, specialization=None):
         rank = get_object_or_404(Rank.objects.filter(is_tab=True), slug=slug)
         users = RankUsers(request, rank, page)
 
         request.frontend_context["USERS"] = users.get_frontend_context()
 
-        context = {"rank": rank}
+        context = {"rank": rank, "specialization": specialization, "region": region}
         context.update(users.get_template_context())
 
         return context

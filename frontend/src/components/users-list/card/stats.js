@@ -1,16 +1,33 @@
-import React from "react"
-import UserStatus, { StatusLabel } from "misago/components/user-status"
+import React from "react";
+import UserStatus, { StatusLabel } from "misago/components/user-status";
 
 export default function({ showStatus, user }) {
   return (
     <ul className="list-unstyled">
-      <Status showStatus={showStatus} user={user} />
-      <JoinDate user={user} />
+      <PhoneNumber user={user} />
+      <RegistryNumber user={user} />
       <li className="user-stat-divider" />
       <Posts user={user} />
       <Threads user={user} />
       <Followers user={user} />
     </ul>
+  )
+}
+
+export function PhoneNumber({ user }) {
+  const phoneString = "tel:+30" + user.phone
+  return (
+    <li className="user-stat-status">
+      <a href={phoneString}>Τηλέφωνο: {user.phone}</a>
+    </li>
+  )
+}
+
+export function RegistryNumber({ user }) {
+  return (
+    <li className="user-stat-status">
+      Αριθμός μητρώου TEE/E.E.T.E.M.: {user.registry_number}
+    </li>
   )
 }
 

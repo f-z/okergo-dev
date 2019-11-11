@@ -21,6 +21,11 @@ class RegionField(basefields.TextProfileField):
     label = "Νομός"
 
 
+class AddressField(basefields.TextProfileField):
+    fieldname = "address"
+    label = "Διεύθυνση"
+
+
 class SpecializationField(basefields.TextProfileField):
     fieldname = "specialization"
     label = "Ειδικότητα"

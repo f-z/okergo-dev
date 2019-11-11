@@ -1,12 +1,9 @@
-import React from "react"
-import Card from "./card"
-import Preview from "./preview"
+import React from "react";
+import Card from "./card";
+import Preview from "./preview";
 
 export default function({ cols, isReady, showStatus, users }) {
-  let colClassName = "col-xs-12 col-sm-4"
-  if (cols === 4) {
-    colClassName += " col-md-3"
-  }
+  let colClassName = "";
 
   if (!isReady) {
     return <Preview colClassName={colClassName} cols={cols} />

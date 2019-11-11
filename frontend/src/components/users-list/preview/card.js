@@ -1,10 +1,10 @@
-import React from "react"
-import Avatar from "misago/components/avatar"
-import * as random from "misago/utils/random"
+import React from "react";
+import Avatar from "misago/components/avatar";
+import * as random from "misago/utils/random";
 
 export default class extends React.Component {
   shouldComponentUpdate() {
-    return false
+    return false;
   }
 
   render() {

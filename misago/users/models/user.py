@@ -336,8 +336,14 @@ class User(AbstractBaseUser, PermissionsMixin):
     def get_real_name(self):
         return self.profile_fields.get("real_name")
 
+    def get_bio(self):
+        return self.profile_fields.get("bio")
+
     def get_region(self):
         return self.profile_fields.get("region")
+
+    def get_address(self):
+        return self.profile_fields.get("address")
 
     def get_phone(self):
         return self.profile_fields.get("phone")

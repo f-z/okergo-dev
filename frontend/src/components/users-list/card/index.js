@@ -1,14 +1,14 @@
-import React from "react"
-import Avatar from "misago/components/avatar"
-import Stats from "./stats"
-import UserTitle from "./user-title"
+import React from "react";
+import Avatar from "misago/components/avatar";
+import Stats from "./stats";
+import UserTitle from "./user-title";
 
 export default function({ showStatus, user }) {
-  const { rank } = user
+  const { rank } = user;
 
-  let className = "panel user-card"
+  let className = "panel user-card";
   if (rank.css_class) {
-    className += " user-card-" + rank.css_class
+    className += " user-card-" + rank.css_class;
   }
 
   return (

@@ -99,7 +99,7 @@ def create_default_roles(apps, schema_editor):
                 "can_browse_users_list": 1,
                 "can_search_users": 1,
                 "can_see_users_name_history": 0,
-                "can_see_users_emails": 0,
+                "can_see_users_emails": 1,
                 "can_see_users_ips": 0,
                 "can_see_hidden_users": 0,
             },

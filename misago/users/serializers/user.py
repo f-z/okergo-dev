@@ -32,8 +32,10 @@ class UserSerializer(serializers.ModelSerializer, MutableFields):
     is_blocked = serializers.SerializerMethodField()
     meta = serializers.SerializerMethodField()
     real_name = serializers.SerializerMethodField()
+    bio = serializers.SerializerMethodField()
     phone = serializers.SerializerMethodField()
     region = serializers.SerializerMethodField()
+    address = serializers.SerializerMethodField()
     specialization = serializers.SerializerMethodField()
     registry_number = serializers.SerializerMethodField()
     status = serializers.SerializerMethodField()
@@ -64,9 +66,14 @@ class UserSerializer(serializers.ModelSerializer, MutableFields):
             "is_blocked",
             "meta",
             "real_name",
+            "bio",
             "status",
             "api",
             "url",
+            "region",
+            "address",
+            "specialization",
+            "registry_number",
         ]
 
     def get_acl(self, obj):
@@ -95,11 +102,17 @@ class UserSerializer(serializers.ModelSerializer, MutableFields):
     def get_real_name(self, obj):
         return obj.get_real_name()
 
+    def get_bio(self, obj):
+        return obj.get_bio()
+
     def get_phone(self, obj):
         return obj.get_phone()
 
     def get_region(self, obj):
         return obj.get_region()
+
+    def get_address(self, obj):
+        return obj.get_address()
 
     def get_specialization(self, obj):
         return obj.get_specialization()
@@ -157,7 +170,9 @@ UserCardSerializer = UserSerializer.subset_fields(
     "url",
     "real_name",
     "region",
+    "address",
     "phone",
     "specialization",
     "registry_number",
+    "bio",
 )

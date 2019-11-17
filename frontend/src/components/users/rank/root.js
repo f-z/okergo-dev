@@ -429,6 +429,15 @@ export default class extends Form {
       }
     ];
 
+    if (this.ENGINEER_SPECIALIZATION_CHOICES.findIndex(element => element.value === 'Όλοι') === -1) {
+      this.ENGINEER_SPECIALIZATION_CHOICES.push({
+        value: "Όλοι",
+        icon: "grade",
+        label: "Όλοι",
+        slug: "oles"
+      });
+    }
+
     this.ENGINEER_SPECIALIZATION_CHOICES.sort((a, b) => a.label.localeCompare(b.label));
 
     this.regionObject = this.REGION_CHOICES.find(obj => {

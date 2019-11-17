@@ -36,10 +36,21 @@ export function RegistryNumber({ user }) {
   )
 }
 
+const bioLabelStyle = {
+  marginTop: '20px',
+};
+
+const bioStyle = {
+  textAlign: 'start'
+};
+
 export function Bio({ user }) {
   return (
-    <li className="user-stat-status">
-      Περιγραφή υπηρεσιών: {user.bio}
+    <li className="user-stat-status text-align: justify;" style={bioLabelStyle}>
+      Περιγραφή υπηρεσιών: 
+      <p style={bioStyle}>
+        {user.bio}
+      </p>
     </li>
   )
 }

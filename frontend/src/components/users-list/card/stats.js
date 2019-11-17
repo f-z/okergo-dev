@@ -6,6 +6,7 @@ export default function({ showStatus, user }) {
     <ul className="list-unstyled">
       <PhoneNumber user={user} />
       <RegistryNumber user={user} />
+      <Bio user={user} />
       <li className="user-stat-divider" />
       <Posts user={user} />
       <Threads user={user} />
@@ -26,7 +27,19 @@ export function PhoneNumber({ user }) {
 export function RegistryNumber({ user }) {
   return (
     <li className="user-stat-status">
-      Αριθμός μητρώου TEE/E.E.T.E.M.: {user.registry_number}
+      Αριθμός μητρώου
+      <a href={'http://portal.tee.gr/portal/page/portal/mhtrwo/mitrwo/mix_search'}> TEE </a>
+      /
+      <a href={'http://eetem.gr/'}> E.E.T.E.M.</a>
+      : {user.registry_number}
+    </li>
+  )
+}
+
+export function Bio({ user }) {
+  return (
+    <li className="user-stat-status">
+      Περιγραφή υπηρεσιών: {user.bio}
     </li>
   )
 }

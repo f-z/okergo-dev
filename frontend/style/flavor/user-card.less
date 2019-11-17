@@ -40,6 +40,10 @@
 
 // User title
 .user-card-title {
+  margin-top: @line-height-computed;
+  margin-bottom: @line-height-computed;
+  font-size: @font-size-large;
+
   span, a, a:link, a:visited {
     color: @gray;
   }
@@ -54,6 +58,7 @@
 .user-card-stats {
   @media screen and (min-width: @screen-sm-min) {
     margin-top: @line-height-computed;
+    margin-bottom: @line-height-computed;
   }
 
   ul {
@@ -61,14 +66,13 @@
   }
 
   li {
-    display: inline-block;
-    margin-right: @padding-base-horizontal;
-
+    display: block;
     color: @gray-light;
-    font-size: @font-size-small;
+    font-size: @font-size-large;
+    margin-bottom: @padding-base-vertical;
 
     @media screen and (min-width: @screen-sm-min) {
-      margin: 0px @padding-base-horizontal / 2;
+      margin: 5px @padding-base-horizontal / 2;
     }
   }
 

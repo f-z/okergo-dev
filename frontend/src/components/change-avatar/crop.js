@@ -159,8 +159,8 @@ export default class extends React.Component {
               className="btn-primary btn-block"
             >
               {this.props.upload
-                ? gettext("Set avatar")
-                : gettext("Crop image")}
+                ? "ΟΚ"
+                : "Περικοπή εικόνας"}
             </Button>
 
             <Button
@@ -168,7 +168,7 @@ export default class extends React.Component {
               disabled={this.state.isLoading}
               className="btn-default btn-block"
             >
-              {gettext("Cancel")}
+              {"Ακύρωση"}
             </Button>
           </div>
         </div>

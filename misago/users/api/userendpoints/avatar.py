@@ -134,7 +134,7 @@ def avatar_post(request, options):
 
 def avatar_generate(user, data):
     avatars.dynamic.set_avatar(user)
-    return _("New avatar based on your account was set.")
+    return "Η εικόνα σου άλλαξε αυτόματα!"
 
 
 def avatar_gravatar(user, data):
@@ -144,7 +144,7 @@ def avatar_gravatar(user, data):
     except avatars.gravatar.NoGravatarAvailable:
         raise AvatarError(_("No Gravatar is associated with your e-mail address."))
     except avatars.gravatar.GravatarError:
-        raise AvatarError(_("Failed to connect to Gravatar servers."))
+        raise AvatarError("Δεν μπόρεσε να γίνει σύνδεση με τους Gravatar σέρβερ...")
 
 
 def avatar_gallery(user, data):

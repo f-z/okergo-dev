@@ -14,6 +14,25 @@ export default class extends WithDropdown {
           <div className="page-header">
             <div className="container">
               <h1>{"Αναζήτηση Μηχανικού"}</h1>
+              <br></br>
+              <p>
+              Βρες μηχανικούς στην
+                <a href={misago.get("USERS_LIST_URL").concat("mixanikoi/", "perioxi/attiki")}>
+                  &nbsp;Αθήνα
+                </a>, στη
+                <a href={misago.get("USERS_LIST_URL").concat("mixanikoi/", "perioxi/thessaloniki")}>
+                  &nbsp;Θεσσαλονίκη
+                </a>, στην
+                <a href={misago.get("USERS_LIST_URL").concat("mixanikoi/", "perioxi/axaia")}>
+                  &nbsp;Πάτρα
+                </a>, στο
+                <a href={misago.get("USERS_LIST_URL").concat("mixanikoi/", "perioxi/irakleio")}>
+                  &nbsp;Ηράκλειο
+                </a>, στη
+                <a href={misago.get("USERS_LIST_URL").concat("mixanikoi/", "perioxi/larisa")}>
+                  &nbsp;Λάρισα
+                </a> και σε όλη την υπόλοιπη Ελλάδα.
+              </p>
             </div>
             <div className="page-tabs">
               <div className="container">

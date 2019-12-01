@@ -284,12 +284,6 @@ export default class extends Form {
 
     this.ENGINEER_SPECIALIZATION_CHOICES = [
       {
-        value: "Όλοι",
-        icon: "grade",
-        label: "Όλοι",
-        slug: "oles"
-      },
-      {
         value: "Αγρονόμος Τοπογράφος Μηχανικός",
         icon: "grade",
         label: "Αγρονόμος Τοπογράφος Μηχανικός",
@@ -344,18 +338,6 @@ export default class extends Form {
         slug: "ilektronikos-te"
       },
       {
-        value: "Κλωστοϋφαντουργός Μηχανικός Τ.Ε.",
-        icon: "grade",
-        label: "Κλωστοϋφαντουργός Μηχανικός Τ.Ε.",
-        slug: "klostoifantourgos-te"
-      },
-      {
-        value: "Μεταλλειολόγος-Μεταλλουργός Μηχανικός",
-        icon: "grade",
-        label: "Μεταλλειολόγος-Μεταλλουργός Μηχανικός",
-        slug: "metalleiologos"
-      },
-      {
         value: "Μηχανικός Ανακαίνισης και Αποκατάστασης Κτιρίων Τ.Ε.",
         icon: "grade",
         label: "Μηχανικός Ανακαίνισης και Αποκατάστασης Κτιρίων Τ.Ε.",
@@ -386,40 +368,16 @@ export default class extends Form {
         slug: "mixanollogos-te"
       },
       {
-        value: "Ναυπηγός Μηχανικός",
+        value: "Πολιτικός Μηχανικός Τ.Ε.",
         icon: "grade",
-        label: "Ναυπηγός Μηχανικός",
-        slug: "nafpigos"
-      },
-      {
-        value: "Ναυπηγός-Μηχανολόγος Μηχανικός",
-        icon: "grade",
-        label: "Ναυπηγός-Μηχανολόγος Μηχανικός",
-        slug: "nafpigos-mixanologos"
-      },
-      {
-        value: "Πολιτικός Μηχανικός Δομικών Έργων Τ.Ε.",
-        icon: "grade",
-        label: "Πολιτικός Μηχανικός Δομικών Έργων Τ.Ε.",
+        label: "Πολιτικός Μηχανικός Τ.Ε.",
         slug: "politikos-domikon-ergon-te"
-      },
-      {
-        value: "Πολιτικός Μηχανικός Έργων Υποδομής Τ.Ε.",
-        icon: "grade",
-        label: "Πολιτικός Μηχανικός Έργων Υποδομής Τ.Ε.",
-        slug: "politikos-ergon-ipodomis-te"
       },
       {
         value: "Τοπογράφος Μηχανικός Τ.Ε.",
         icon: "grade",
         label: "Τοπογράφος Μηχανικός Τ.Ε.",
         slug: "topografos-te"
-      },
-      {
-        value: "Μηχανικός Τεχνολογίας Περιβάλλοντος και Οικολογίας Τ.Ε.",
-        icon: "grade",
-        label: "Μηχανικός Τεχνολογίας Περιβάλλοντος και Οικολογίας Τ.Ε.",
-        slug: "perivallontos-oikologias-te"
       },
       {
         value: "Χημικός Μηχανικός",

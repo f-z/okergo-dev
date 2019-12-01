@@ -1,27 +1,27 @@
-import React from "react"
-import Avatar from "misago/components/avatar"
-import Button from "misago/components/button"
-import Loader from "misago/components/loader"
-import ajax from "misago/services/ajax"
-import snackbar from "misago/services/snackbar"
+import React from "react";
+import Avatar from "misago/components/avatar";
+import Button from "misago/components/button";
+import Loader from "misago/components/loader";
+import ajax from "misago/services/ajax";
+import snackbar from "misago/services/snackbar";
 
 export default class extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
 
     this.state = {
       isLoading: false
-    }
+    };
   }
 
   callApi(avatarType) {
     if (this.state.isLoading) {
-      return false
+      return false;
     }
 
     this.setState({
       isLoading: true
-    })
+    });
 
     ajax
       .post(this.props.user.api.avatar, {
@@ -31,17 +31,17 @@ export default class extends React.Component {
         response => {
           this.setState({
             isLoading: false
-          })
+          });
 
-          snackbar.success(response.detail)
-          this.props.onComplete(response)
+          snackbar.success(response.detail);
+          this.props.onComplete(response);
         },
         rejection => {
           if (rejection.status === 400) {
-            snackbar.error(rejection.detail)
+            snackbar.error(rejection.detail);
             this.setState({
               isLoading: false
-            })
+            });
           } else {
             this.props.showError(rejection)
           }
@@ -65,7 +65,7 @@ export default class extends React.Component {
           disabled={this.state.isLoading}
           className="btn-default btn-block btn-avatar-gravatar"
         >
-          {"Κατέβασμα της εικόνας μου"}
+          {"Κατέβασμα της εικόνας σου"}
         </Button>
       )
     } else {
@@ -82,7 +82,7 @@ export default class extends React.Component {
         disabled={this.state.isLoading}
         onClick={this.props.showCrop}
       >
-        {"Κόψε ξανά την ανεβασμένη εικόνα"}
+        {"Κόψε ξανά την εικόνα σου"}
       </Button>
     )
   }
@@ -150,7 +150,7 @@ export default class extends React.Component {
               disabled={this.state.isLoading}
               className="btn-default btn-block btn-avatar-generate"
             >
-              {"Δημιουργία της προσωπικής μου εικόνας"}
+              {"Αυτόματη εικόνα"}
             </Button>
 
             {this.getCropButton()}

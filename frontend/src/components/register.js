@@ -280,7 +280,7 @@ export class RegisterForm extends Form {
         icon: "location_on",
         label: "Λευκάδας"
       }
-    ]
+    ];
 
     this.REGION_CHOICES.sort((a, b) => a.label.localeCompare(b.label))
 
@@ -353,18 +353,6 @@ export class RegisterForm extends Form {
         slug: "ilektronikos-te"
       },
       {
-        value: "Κλωστοϋφαντουργός Μηχανικός Τ.Ε.",
-        icon: "grade",
-        label: "Κλωστοϋφαντουργός Μηχανικός Τ.Ε.",
-        slug: "klostoifantourgos-te"
-      },
-      {
-        value: "Μεταλλειολόγος-Μεταλλουργός Μηχανικός",
-        icon: "grade",
-        label: "Μεταλλειολόγος-Μεταλλουργός Μηχανικός",
-        slug: "metalleiologos"
-      },
-      {
         value: "Μηχανικός Ανακαίνισης και Αποκατάστασης Κτιρίων Τ.Ε.",
         icon: "grade",
         label: "Μηχανικός Ανακαίνισης και Αποκατάστασης Κτιρίων Τ.Ε.",
@@ -395,28 +383,10 @@ export class RegisterForm extends Form {
         slug: "mixanollogos-te"
       },
       {
-        value: "Ναυπηγός Μηχανικός",
+        value: "Πολιτικός Μηχανικός Τ.Ε.",
         icon: "grade",
-        label: "Ναυπηγός Μηχανικός",
-        slug: "nafpigos"
-      },
-      {
-        value: "Ναυπηγός-Μηχανολόγος Μηχανικός",
-        icon: "grade",
-        label: "Ναυπηγός-Μηχανολόγος Μηχανικός",
-        slug: "nafpigos-mixanologos"
-      },
-      {
-        value: "Πολιτικός Μηχανικός Δομικών Έργων Τ.Ε.",
-        icon: "grade",
-        label: "Πολιτικός Μηχανικός Δομικών Έργων Τ.Ε.",
+        label: "Πολιτικός Μηχανικός Τ.Ε.",
         slug: "politikos-domikon-ergon-te"
-      },
-      {
-        value: "Πολιτικός Μηχανικός Έργων Υποδομής Τ.Ε.",
-        icon: "grade",
-        label: "Πολιτικός Μηχανικός Έργων Υποδομής Τ.Ε.",
-        slug: "politikos-ergon-ipodomis-te"
       },
       {
         value: "Τοπογράφος Μηχανικός Τ.Ε.",
@@ -425,18 +395,11 @@ export class RegisterForm extends Form {
         slug: "topografos-te"
       },
       {
-        value: "Μηχανικός Τεχνολογίας Περιβάλλοντος και Οικολογίας Τ.Ε.",
-        icon: "grade",
-        label: "Μηχανικός Τεχνολογίας Περιβάλλοντος και Οικολογίας Τ.Ε.",
-        slug: "perivallontos-oikologias-te"
-      },
-      {
         value: "Χημικός Μηχανικός",
         icon: "grade",
         label: "Χημικός Μηχανικός",
         slug: "ximikos-mixanikos"
-      }
-    ];
+      }];
 
     this.ENGINEER_SPECIALIZATION_CHOICES.sort((a, b) => a.label.localeCompare(b.label));
   }

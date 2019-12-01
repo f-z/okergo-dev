@@ -1,32 +1,32 @@
-import React from "react"
-import ajax from "misago/services/ajax"
-import snackbar from "misago/services/snackbar"
-import misago from "misago"
-import cleanResults from "./clean-results"
-import Dropdown from "./dropdown"
+import React from "react";
+import ajax from "misago/services/ajax";
+import snackbar from "misago/services/snackbar";
+import misago from "misago";
+import cleanResults from "./clean-results";
+import Dropdown from "./dropdown";
 
 export default class extends React.Component {
   constructor() {
-    super()
+    super();
 
     this.state = {
       isLoading: false,
       isOpen: false,
       query: "",
       results: []
-    }
+    };
 
-    this.intervalId = null
+    this.intervalId = null;
   }
 
   componentDidMount() {
-    document.addEventListener("mousedown", this.onDocumentMouseDown)
-    document.addEventListener("keydown", this.onEscape)
+    document.addEventListener("mousedown", this.onDocumentMouseDown);
+    document.addEventListener("keydown", this.onEscape);
   }
 
   componentWillUnmount() {
-    document.removeEventListener("mousedown", this.onDocumentMouseDown)
-    document.removeEventListener("keydown", this.onEscape)
+    document.removeEventListener("mousedown", this.onDocumentMouseDown);
+    document.removeEventListener("keydown", this.onEscape);
   }
 
   onToggle = ev => {
@@ -47,41 +47,41 @@ export default class extends React.Component {
 
     while (node !== null && node !== document) {
       if (node === this.container) {
-        closeResults = false
-        return
+        closeResults = false;
+        return;
       }
 
-      node = node.parentNode
+      node = node.parentNode;
     }
 
     if (closeResults) {
-      this.setState({ isOpen: false })
+      this.setState({ isOpen: false });
     }
   }
 
   onEscape = ev => {
     if (ev.key === "Escape") {
-      this.setState({ isOpen: false })
+      this.setState({ isOpen: false });
     }
-  }
+  };
 
   onChange = ev => {
-    const query = ev.target.value
+    const query = ev.target.value;
 
-    this.setState({ query })
-    this.loadResults(query.trim())
-  }
+    this.setState({ query });
+    this.loadResults(query.trim());
+  };
 
   loadResults(query) {
-    if (!query.length) return
+    if (!query.length) return;
 
-    const delay = 300 + Math.random() * 300
+    const delay = 300 + Math.random() * 300;
 
     if (this.intervalId) {
-      window.clearTimeout(this.intervalId)
+      window.clearTimeout(this.intervalId);
     }
 
-    this.setState({ isLoading: true })
+    this.setState({ isLoading: true });
 
     this.intervalId = window.setTimeout(() => {
       ajax.get(misago.get("SEARCH_API"), { q: query }).then(

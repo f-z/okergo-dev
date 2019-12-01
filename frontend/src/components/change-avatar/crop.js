@@ -1,46 +1,46 @@
-import React from "react"
-import Button from "misago/components/button"
-import ajax from "misago/services/ajax"
-import snackbar from "misago/services/snackbar"
+import React from "react";
+import Button from "misago/components/button";
+import ajax from "misago/services/ajax";
+import snackbar from "misago/services/snackbar";
 
 export default class extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
 
     this.state = {
       isLoading: false,
       deviceRatio: 1
-    }
+    };
   }
 
   getAvatarSize() {
     if (this.props.upload) {
-      return this.props.options.crop_tmp.size
+      return this.props.options.crop_tmp.size;
     } else {
-      return this.props.options.crop_src.size
+      return this.props.options.crop_src.size;
     }
   }
 
   getImagePath() {
     if (this.props.upload) {
-      return this.props.dataUrl
+      return this.props.dataUrl;
     } else {
-      return this.props.options.crop_src.url
+      return this.props.options.crop_src.url;
     }
   }
 
   componentDidMount() {
-    let cropit = $(".crop-form")
-    let cropperWidth = this.getAvatarSize()
+    let cropit = $(".crop-form");
+    let cropperWidth = this.getAvatarSize();
 
-    const initialWidth = cropit.width()
+    const initialWidth = cropit.width();
     while (initialWidth < cropperWidth) {
-      cropperWidth = cropperWidth / 2
+      cropperWidth = cropperWidth / 2;
     }
 
-    const deviceRatio = this.getAvatarSize() / cropperWidth
+    const deviceRatio = this.getAvatarSize() / cropperWidth;
 
-    cropit.width(cropperWidth)
+    cropit.width(cropperWidth);
 
     cropit.cropit({
       width: cropperWidth,
@@ -52,55 +52,55 @@ export default class extends React.Component {
       onImageLoaded: () => {
         if (this.props.upload) {
           // center uploaded image
-          let zoomLevel = cropit.cropit("zoom")
-          let imageSize = cropit.cropit("imageSize")
+          let zoomLevel = cropit.cropit("zoom");
+          let imageSize = cropit.cropit("imageSize");
 
           // is it wider than taller?
           if (imageSize.width > imageSize.height) {
-            let displayedWidth = imageSize.width * zoomLevel
-            let offsetX = (displayedWidth - this.getAvatarSize()) / -2
+            let displayedWidth = imageSize.width * zoomLevel;
+            let offsetX = (displayedWidth - this.getAvatarSize()) / -2;
 
             cropit.cropit("offset", {
               x: offsetX,
               y: 0
-            })
+            });
           } else if (imageSize.width < imageSize.height) {
-            let displayedHeight = imageSize.height * zoomLevel
-            let offsetY = (displayedHeight - this.getAvatarSize()) / -2
+            let displayedHeight = imageSize.height * zoomLevel;
+            let offsetY = (displayedHeight - this.getAvatarSize()) / -2;
 
             cropit.cropit("offset", {
               x: 0,
               y: offsetY
-            })
+            });
           } else {
             cropit.cropit("offset", {
               x: 0,
               y: 0
-            })
+            });
           }
         } else {
           // use preserved crop
-          let crop = this.props.options.crop_src.crop
+          let crop = this.props.options.crop_src.crop;
 
           if (crop) {
-            cropit.cropit("zoom", crop.zoom)
+            cropit.cropit("zoom", crop.zoom);
             cropit.cropit("offset", {
               x: crop.x,
               y: crop.y
-            })
+            });
           }
         }
       }
-    })
+    });
   }
 
   componentWillUnmount() {
-    $(".crop-form").cropit("disable")
+    $(".crop-form").cropit("disable");
   }
 
   cropAvatar = () => {
     if (this.state.isLoading) {
-      return false
+      return false;
     }
 
     this.setState({
@@ -126,17 +126,17 @@ export default class extends React.Component {
       })
       .then(
         data => {
-          this.props.onComplete(data)
-          snackbar.success(data.detail)
+          this.props.onComplete(data);
+          snackbar.success(data.detail);
         },
         rejection => {
           if (rejection.status === 400) {
-            snackbar.error(rejection.detail)
+            snackbar.error(rejection.detail);
             this.setState({
               isLoading: false
-            })
+            });
           } else {
-            this.props.showError(rejection)
+            this.props.showError(rejection);
           }
         }
       )
@@ -159,8 +159,8 @@ export default class extends React.Component {
               className="btn-primary btn-block"
             >
               {this.props.upload
-                ? "Επιλογή εικόνας"
-                : "Κόψιμο εικόνας"}
+                ? gettext("Set avatar")
+                : gettext("Crop image")}
             </Button>
 
             <Button
@@ -168,7 +168,7 @@ export default class extends React.Component {
               disabled={this.state.isLoading}
               className="btn-default btn-block"
             >
-              {"Ακύρωση"}
+              {gettext("Cancel")}
             </Button>
           </div>
         </div>

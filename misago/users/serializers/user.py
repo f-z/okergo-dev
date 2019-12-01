@@ -34,6 +34,7 @@ class UserSerializer(serializers.ModelSerializer, MutableFields):
     real_name = serializers.SerializerMethodField()
     bio = serializers.SerializerMethodField()
     phone = serializers.SerializerMethodField()
+    website = serializers.SerializerMethodField()
     region = serializers.SerializerMethodField()
     address = serializers.SerializerMethodField()
     specialization = serializers.SerializerMethodField()
@@ -80,9 +81,7 @@ class UserSerializer(serializers.ModelSerializer, MutableFields):
         return obj.acl
 
     def get_email(self, obj):
-        request = self.context["request"]
-        if obj == request.user or request.user_acl["can_see_users_emails"]:
-            return obj.email
+        return obj.email
 
     def get_is_followed(self, obj):
         request = self.context["request"]
@@ -107,6 +106,9 @@ class UserSerializer(serializers.ModelSerializer, MutableFields):
 
     def get_phone(self, obj):
         return obj.get_phone()
+
+    def get_website(self, obj):
+        return obj.get_website()
 
     def get_region(self, obj):
         return obj.get_region()
@@ -159,6 +161,7 @@ class UserSerializer(serializers.ModelSerializer, MutableFields):
 UserCardSerializer = UserSerializer.subset_fields(
     "id",
     "username",
+    "email",
     "joined_on",
     "rank",
     "title",
@@ -172,6 +175,7 @@ UserCardSerializer = UserSerializer.subset_fields(
     "region",
     "address",
     "phone",
+    "website",
     "specialization",
     "registry_number",
     "bio",

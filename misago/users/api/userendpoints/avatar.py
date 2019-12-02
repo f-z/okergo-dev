@@ -23,7 +23,7 @@ def avatar_endpoint(request, pk=None):
 
         return Response(
             {
-                "detail": _("Your avatar is locked. You can't change it."),
+                "detail": "Η εικόνα σου είναι κλειδωμένη. Δεν μπορείς να την αλλάξεις!",
                 "reason": reason,
             },
             status=status.HTTP_403_FORBIDDEN,

@@ -16,22 +16,44 @@ export default class extends WithDropdown {
               <h1>{"Αναζήτηση Μηχανικού"}</h1>
               <br></br>
               <p>
-              Βρες μηχανικούς στην
-                <a href={misago.get("USERS_LIST_URL").concat("mixanikoi/", "perioxi/attiki")}>
-                  &nbsp;Αθήνα
-                </a>, στη
-                <a href={misago.get("USERS_LIST_URL").concat("mixanikoi/", "perioxi/thessaloniki")}>
-                  &nbsp;Θεσσαλονίκη
-                </a>, στην
-                <a href={misago.get("USERS_LIST_URL").concat("mixanikoi/", "perioxi/axaia")}>
-                  &nbsp;Πάτρα
-                </a>, στο
-                <a href={misago.get("USERS_LIST_URL").concat("mixanikoi/", "perioxi/irakleio")}>
-                  &nbsp;Ηράκλειο
-                </a>, στη
-                <a href={misago.get("USERS_LIST_URL").concat("mixanikoi/", "perioxi/larisa")}>
-                  &nbsp;Λάρισα
-                </a> και σε όλη την υπόλοιπη Ελλάδα.
+                <h3>
+                  <a href={misago.get("USERS_LIST_URL").concat("mixanikoi/", "eidikotita/politikos")}>
+                    Πολιτικοί μηχανικοί
+                  </a>, 
+                  <a href={misago.get("USERS_LIST_URL").concat("mixanikoi/", "eidikotita/mixanologos")}>
+                    &nbsp;μηχανολόγοι
+                  </a>, 
+                  <a href={misago.get("USERS_LIST_URL").concat("mixanikoi/", "eidikotita/ilektrologos")}>
+                    &nbsp;ηλεκτρολόγοι
+                  </a>, 
+                  <a href={misago.get("USERS_LIST_URL").concat("mixanikoi/", "eidikotita/arxitektonas")}>
+                    &nbsp;αρχιτέκτονες
+                  </a>, 
+                  <a href={misago.get("USERS_LIST_URL").concat("mixanikoi/", "eidikotita/topografos")}>
+                    &nbsp;τοπογράφοι
+                  </a> και άλλες ειδικότητες.
+                </h3>
+              </p>
+              <br></br>
+              <p>
+                <h3>
+                  Βρες μηχανικούς στην
+                    <a href={misago.get("USERS_LIST_URL").concat("mixanikoi/", "perioxi/attiki")}>
+                      &nbsp;Αθήνα
+                    </a>, στη
+                    <a href={misago.get("USERS_LIST_URL").concat("mixanikoi/", "perioxi/thessaloniki")}>
+                      &nbsp;Θεσσαλονίκη
+                    </a>, στην
+                    <a href={misago.get("USERS_LIST_URL").concat("mixanikoi/", "perioxi/axaia")}>
+                      &nbsp;Πάτρα
+                    </a>, στο
+                    <a href={misago.get("USERS_LIST_URL").concat("mixanikoi/", "perioxi/irakleio")}>
+                      &nbsp;Ηράκλειο
+                    </a>, στη
+                    <a href={misago.get("USERS_LIST_URL").concat("mixanikoi/", "perioxi/larisa")}>
+                      &nbsp;Λάρισα
+                    </a> και σε όλη την υπόλοιπη Ελλάδα.
+                </h3>
               </p>
             </div>
             <div className="page-tabs">

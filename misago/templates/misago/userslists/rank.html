@@ -6,11 +6,10 @@
 
 
 {% block meta-description %}
-  {{ rank.description|default:"" }} {% blocktrans trimmed count users=paginator.count %}
+  {{ rank.description|default:"" }}
     Αναζήτηση Μηχανικού
     Πολιτικοί μηχανικοί, μηχανολόγοι, ηλεκτρολόγοι, αρχιτέκτονες, τοπογράφοι και άλλες ειδικότητες.
     Βρες μηχανικούς στην Αθήνα, στη Θεσσαλονίκη, στην Πάτρα, στο Ηράκλειο, στη Λάρισα και σε όλη την υπόλοιπη Ελλάδα.
-  {% endblocktrans %}
 {% endblock %}
 
 
@@ -38,22 +37,20 @@
 {% block og-description %}
   {% if rank.description %}
     {{ rank.description }}
-  {% endif %} {% blocktrans trimmed count users=paginator.count %}
+  {% endif %}
     Αναζήτηση Μηχανικού
     Πολιτικοί μηχανικοί, μηχανολόγοι, ηλεκτρολόγοι, αρχιτέκτονες, τοπογράφοι και άλλες ειδικότητες.
     Βρες μηχανικούς στην Αθήνα, στη Θεσσαλονίκη, στην Πάτρα, στο Ηράκλειο, στη Λάρισα και σε όλη την υπόλοιπη Ελλάδα.
-  {% endblocktrans %}
 {% endblock og-description %}
 
 
 {% block twitter-description %}
   {% if rank.description %}
     {{ rank.description }}
-  {% endif %} {% blocktrans trimmed count users=paginator.count %}
+  {% endif %}
     Αναζήτηση Μηχανικού
     Πολιτικοί μηχανικοί, μηχανολόγοι, ηλεκτρολόγοι, αρχιτέκτονες, τοπογράφοι και άλλες ειδικότητες.
     Βρες μηχανικούς στην Αθήνα, στη Θεσσαλονίκη, στην Πάτρα, στο Ηράκλειο, στη Λάρισα και σε όλη την υπόλοιπη Ελλάδα.
-  {% endblocktrans %}
 {% endblock twitter-description %}
 
 

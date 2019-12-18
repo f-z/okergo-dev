@@ -472,9 +472,17 @@ export default class extends Form {
   }
 
   componentDidMount() {
+    let specialization = this.specializationObject.label;
+    if (specialization === "Όλοι") {
+      specialization = "Όλοι οι μηχανικοί";
+    }
+    let region = this.regionObject.label;
+    if (region === "Όλοι") {
+      region = "Ελλάδα";
+    }
     title.set({
       parent: "Μηχανικοί",
-      title: this.regionObject.label || this.props.route.rank.name,
+      title: specialization + " " + region,
       page: this.props.params.page || null
     });
   }
@@ -568,6 +576,11 @@ export default class extends Form {
               if (this.state.specialization === "Όλοι") {
                 specializationFilter = true
               }
+              title.set({
+                parent: "Μηχανικοί",
+                title: this.state.specialization + " " + this.state.region,
+                page: this.props.params.page || null
+              });
               return regionFilter & specializationFilter;
               })} {...this.state} />
           </div>

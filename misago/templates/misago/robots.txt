@@ -11,4 +11,3 @@ Disallow: {% url 'misago:index' %}p/
 Disallow: {% url 'misago:private-threads' %}
 Disallow: {% url 'misago:request-activation' %}
 Disallow: {% url 'misago:search' %}
-Disallow: {% url 'misago:index' %}u/

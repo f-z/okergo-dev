@@ -15,8 +15,7 @@ export default class extends WithDropdown {
             <div className="container">
               <h1>{"Αναζήτηση Μηχανικού"}</h1>
               <br></br>
-              <p>
-                <h3>
+              <h3>
                   <a href={misago.get("USERS_LIST_URL").concat("mixanikoi/", "eidikotita/politikos")}>
                     Πολιτικοί μηχανικοί
                   </a>, 
@@ -33,9 +32,7 @@ export default class extends WithDropdown {
                     &nbsp;τοπογράφοι
                   </a> και άλλες ειδικότητες.
                 </h3>
-              </p>
               <br></br>
-              <p>
                 <h3>
                   Βρες μηχανικούς στην
                     <a href={misago.get("USERS_LIST_URL").concat("mixanikoi/", "perioxi/attiki")}>
@@ -54,7 +51,6 @@ export default class extends WithDropdown {
                       &nbsp;Λάρισα
                     </a> και σε όλη την υπόλοιπη Ελλάδα.
                 </h3>
-              </p>
             </div>
             <div className="page-tabs">
               <div className="container">
